@@ -3687,7 +3687,797 @@ comparePeptides();
 
 </script>
 
+<script>
 
+/* =====================================================
+   PEPTALYN - BLOQUE DE REPARACIÓN DE FUNCIONES
+   ===================================================== */
+
+
+/* ---------- DATOS PARA EL COMPARADOR ---------- */
+
+const ptDataFix = {
+
+  semaglutide: {
+    name: "Semaglutide",
+    category: "Metabolismo y control de peso",
+    mechanism: "Agonista del receptor GLP-1.",
+    evidence: "Amplia evidencia clínica para indicaciones médicas autorizadas.",
+    status: "Medicamento con indicaciones autorizadas específicas.",
+    advantages: [
+      "Amplia evidencia clínica",
+      "Mecanismo GLP-1",
+      "Uso semanal en presentaciones autorizadas"
+    ],
+    limitations: [
+      "Efectos gastrointestinales posibles",
+      "Requiere valoración médica"
+    ]
+  },
+
+  tirzepatide: {
+    name: "Tirzepatide",
+    category: "Metabolismo y control de peso",
+    mechanism: "Agonista dual de receptores GIP y GLP-1.",
+    evidence: "Amplia evidencia clínica para indicaciones médicas específicas.",
+    status: "Medicamento con indicaciones autorizadas específicas.",
+    advantages: [
+      "Mecanismo dual GIP + GLP-1",
+      "Amplia investigación clínica",
+      "Uso semanal en presentaciones autorizadas"
+    ],
+    limitations: [
+      "Efectos gastrointestinales posibles",
+      "Requiere valoración médica"
+    ]
+  },
+
+  retatrutide: {
+    name: "Retatrutide",
+    category: "Metabolismo",
+    mechanism: "Agonismo múltiple relacionado con GLP-1, GIP y glucagón.",
+    evidence: "Investigación clínica en desarrollo.",
+    status: "Molécula experimental.",
+    advantages: [
+      "Mecanismo metabólico múltiple",
+      "Investigación avanzada"
+    ],
+    limitations: [
+      "Aún experimental",
+      "Datos clínicos en evolución"
+    ]
+  },
+
+  motsc: {
+    name: "MOTS-c",
+    category: "Rendimiento y metabolismo",
+    mechanism: "Péptido derivado de la mitocondria relacionado con señalización metabólica.",
+    evidence: "Principalmente experimental.",
+    status: "Investigación.",
+    advantages: [
+      "Interés en metabolismo energético",
+      "Investigación mitocondrial"
+    ],
+    limitations: [
+      "Evidencia clínica limitada",
+      "Sin indicación clínica estándar"
+    ]
+  },
+
+  ipamorelin: {
+    name: "Ipamorelin",
+    category: "Rendimiento / endocrinología",
+    mechanism: "Secretagogo relacionado con el receptor de ghrelina.",
+    evidence: "Investigación experimental.",
+    status: "Experimental para los usos habitualmente promocionados en rendimiento.",
+    advantages: [
+      "Interés en señalización endocrina"
+    ],
+    limitations: [
+      "No existe una dosis universal",
+      "Evidencia limitada para rendimiento"
+    ]
+  },
+
+  ghk: {
+    name: "GHK-Cu",
+    category: "Piel y reparación",
+    mechanism: "Tripéptido con afinidad por cobre.",
+    evidence: "Investigación en biología cutánea y reparación.",
+    status: "Depende del producto y de la jurisdicción.",
+    advantages: [
+      "Investigación en biología de la piel",
+      "Interés en reparación"
+    ],
+    limitations: [
+      "La evidencia depende de la aplicación"
+    ]
+  },
+
+  bpc: {
+    name: "BPC-157",
+    category: "Recuperación",
+    mechanism: "Péptido experimental estudiado principalmente en modelos preclínicos.",
+    evidence: "Evidencia humana limitada.",
+    status: "Experimental.",
+    advantages: [
+      "Interés en investigación tisular"
+    ],
+    limitations: [
+      "Datos humanos limitados",
+      "Sin indicación clínica estándar"
+    ]
+  },
+
+  tb500: {
+    name: "TB-500",
+    category: "Recuperación",
+    mechanism: "Línea experimental relacionada con thymosin beta-4.",
+    evidence: "Investigación experimental.",
+    status: "Experimental.",
+    advantages: [
+      "Interés en investigación de reparación"
+    ],
+    limitations: [
+      "Evidencia clínica limitada"
+    ]
+  },
+
+  tesamorelin: {
+    name: "Tesamorelin",
+    category: "Metabolismo / endocrinología",
+    mechanism: "Análogo de GHRH relacionado con liberación de hormona de crecimiento.",
+    evidence: "Evidencia clínica para indicaciones médicas específicas.",
+    status: "Medicamento con indicaciones autorizadas concretas.",
+    advantages: [
+      "Uso clínico establecido para indicaciones concretas"
+    ],
+    limitations: [
+      "No debe extrapolarse automáticamente a musculación",
+      "Requiere valoración médica"
+    ]
+  },
+
+  semax: {
+    name: "Semax",
+    category: "Neurociencia",
+    mechanism: "Péptido investigado en señalización neurológica.",
+    evidence: "Evidencia y utilización variables según país.",
+    status: "Estado regulatorio variable.",
+    advantages: [
+      "Interés en investigación neurológica"
+    ],
+    limitations: [
+      "No existe autorización internacional uniforme"
+    ]
+  },
+
+  pt141: {
+    name: "PT-141 / Bremelanotide",
+    category: "Salud sexual",
+    mechanism: "Agonista de receptores melanocortínicos.",
+    evidence: "Existe evidencia clínica para indicaciones específicas.",
+    status: "Posee usos autorizados específicos en determinadas jurisdicciones.",
+    advantages: [
+      "Mecanismo melanocortínico"
+    ],
+    limitations: [
+      "Uso limitado a indicaciones concretas",
+      "Puede producir efectos adversos"
+    ]
+  },
+
+  nad: {
+    name: "NAD+",
+    category: "Metabolismo celular",
+    mechanism: "Cofactor metabólico implicado en reacciones celulares de oxidación-reducción.",
+    evidence: "Investigación amplia; la evidencia clínica depende del uso concreto.",
+    status: "No es un péptido.",
+    advantages: [
+      "Importancia en metabolismo celular"
+    ],
+    limitations: [
+      "No debe presentarse como péptido",
+      "Las afirmaciones terapéuticas dependen del contexto"
+    ]
+  }
+
+};
+
+
+/* ---------- COMPARADOR ---------- */
+
+function fixTags(items, type) {
+
+  return items.map(function(item) {
+    return '<span class="' + type + '">' + item + '</span>';
+  }).join(" ");
+
+}
+
+
+window.comparePeptides = function() {
+
+  const select1 = document.getElementById("pep1");
+  const select2 = document.getElementById("pep2");
+  const result = document.getElementById("compareResult");
+
+  if (!select1 || !select2 || !result) {
+    return;
+  }
+
+  const a = ptDataFix[select1.value];
+  const b = ptDataFix[select2.value];
+
+  if (!a || !b) {
+
+    result.innerHTML =
+      "<p style='padding:20px'>No se encontraron datos para realizar la comparación.</p>";
+
+    return;
+  }
+
+  result.innerHTML = `
+
+    <table>
+
+      <tr>
+        <th>Característica</th>
+        <th>${a.name}</th>
+        <th>${b.name}</th>
+      </tr>
+
+      <tr>
+        <td><strong>Categoría</strong></td>
+        <td>${a.category}</td>
+        <td>${b.category}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Mecanismo</strong></td>
+        <td>${a.mechanism}</td>
+        <td>${b.mechanism}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Evidencia</strong></td>
+        <td>${a.evidence}</td>
+        <td>${b.evidence}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Estado</strong></td>
+        <td>${a.status}</td>
+        <td>${b.status}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Puntos destacados</strong></td>
+        <td>${fixTags(a.advantages,"good")}</td>
+        <td>${fixTags(b.advantages,"good")}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Limitaciones</strong></td>
+        <td>${fixTags(a.limitations,"warn")}</td>
+        <td>${fixTags(b.limitations,"warn")}</td>
+      </tr>
+
+    </table>
+
+  `;
+
+};
+
+
+/* ---------- CALCULADORA ---------- */
+
+window.calculateDose = function() {
+
+  const peptide =
+    document.getElementById("calcPeptide");
+
+  const vialInput =
+    document.getElementById("vialMg");
+
+  const volumeInput =
+    document.getElementById("bacMl");
+
+  const targetInput =
+    document.getElementById("targetDose");
+
+  const unitInput =
+    document.getElementById("targetUnit");
+
+
+  if (
+    !peptide ||
+    !vialInput ||
+    !volumeInput ||
+    !targetInput ||
+    !unitInput
+  ) {
+    alert("No se encontraron todos los campos de la calculadora.");
+    return;
+  }
+
+
+  const vialMg =
+    parseFloat(vialInput.value);
+
+  const totalMl =
+    parseFloat(volumeInput.value);
+
+  const target =
+    parseFloat(targetInput.value);
+
+  const unit =
+    unitInput.value;
+
+
+  if (
+    !Number.isFinite(vialMg) ||
+    !Number.isFinite(totalMl) ||
+    !Number.isFinite(target) ||
+    vialMg <= 0 ||
+    totalMl <= 0 ||
+    target <= 0
+  ) {
+
+    alert(
+      "Completa los miligramos del vial, el volumen añadido y la cantidad objetivo."
+    );
+
+    return;
+  }
+
+
+  let targetMg;
+
+  if (unit === "mcg") {
+    targetMg = target / 1000;
+  } else {
+    targetMg = target;
+  }
+
+
+  const concentration =
+    vialMg / totalMl;
+
+  const correspondingVolume =
+    targetMg / concentration;
+
+  /*
+    Escala volumétrica U-100:
+    100 unidades = 1 mL
+  */
+
+  const u100 =
+    correspondingVolume * 100;
+
+  const theoreticalExtractions =
+    vialMg / targetMg;
+
+
+  document
+    .getElementById("concResult")
+    .textContent =
+      concentration.toFixed(3);
+
+
+  document
+    .getElementById("volumeResult")
+    .textContent =
+      correspondingVolume.toFixed(4);
+
+
+  document
+    .getElementById("unitsResult")
+    .textContent =
+      u100.toFixed(2);
+
+
+  document
+    .getElementById("dosesResult")
+    .textContent =
+      theoreticalExtractions.toFixed(1);
+
+
+  document
+    .getElementById("calcDescription")
+    .innerHTML = `
+
+      <strong style="color:#f2cf68">
+        ${peptide.value}
+      </strong>
+
+      <br><br>
+
+      Concentración:
+      <strong>
+        ${concentration.toFixed(3)} mg/mL
+      </strong>
+
+      <br>
+
+      Cantidad objetivo introducida:
+      <strong>
+        ${target} ${unit}
+      </strong>
+
+      <br>
+
+      Volumen matemático correspondiente:
+      <strong>
+        ${correspondingVolume.toFixed(4)} mL
+      </strong>
+
+      <br>
+
+      Equivalencia volumétrica en escala U-100:
+      <strong>
+        ${u100.toFixed(2)} unidades
+      </strong>
+
+      <br><br>
+
+      El cálculo convierte los valores introducidos.
+      No determina si la cantidad objetivo es una dosis
+      clínicamente indicada.
+
+    `;
+
+};
+
+
+/* ---------- FICHAS DE PRODUCTOS ---------- */
+
+function openPeptalynProfile(title) {
+
+  let key = "";
+
+  const t =
+    title.toLowerCase();
+
+  if (t.includes("semaglut")) key = "semaglutide";
+  else if (t.includes("tirzep")) key = "tirzepatide";
+  else if (t.includes("retatr")) key = "retatrutide";
+  else if (t.includes("mots")) key = "motsc";
+  else if (t.includes("ipamor")) key = "ipamorelin";
+  else if (t.includes("ghk")) key = "ghk";
+  else if (t.includes("bpc")) key = "bpc";
+  else if (t.includes("tb-500")) key = "tb500";
+  else if (t.includes("tesamor")) key = "tesamorelin";
+  else if (t.includes("semax")) key = "semax";
+  else if (t.includes("pt-141") || t.includes("bremelan")) key = "pt141";
+  else if (t.includes("nad")) key = "nad";
+
+
+  const item =
+    ptDataFix[key];
+
+  if (!item) return;
+
+
+  let modal =
+    document.getElementById("peptalynModal");
+
+
+  if (!modal) {
+
+    modal =
+      document.createElement("div");
+
+    modal.id =
+      "peptalynModal";
+
+    modal.style.cssText = `
+      position:fixed;
+      inset:0;
+      z-index:99999;
+      background:rgba(0,0,0,.78);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    `;
+
+    document.body.appendChild(modal);
+
+  }
+
+
+  modal.innerHTML = `
+
+    <div style="
+      background:linear-gradient(145deg,#09213e,#051426);
+      color:white;
+      width:min(680px,96vw);
+      max-height:88vh;
+      overflow:auto;
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:18px;
+      padding:30px;
+      box-shadow:0 30px 80px rgba(0,0,0,.45);
+    ">
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        gap:20px;
+        align-items:start;
+      ">
+
+        <div>
+          <div style="
+            color:#f2cf68;
+            text-transform:uppercase;
+            letter-spacing:2px;
+            font-size:11px;
+          ">
+            Ficha PEPTALYN
+          </div>
+
+          <h2 style="
+            font-size:34px;
+            margin-top:5px;
+          ">
+            ${item.name}
+          </h2>
+        </div>
+
+        <button
+          id="closePeptalynModal"
+          style="
+            background:transparent;
+            border:1px solid rgba(255,255,255,.25);
+            color:white;
+            border-radius:8px;
+            padding:8px 12px;
+            cursor:pointer;
+          ">
+          ✕
+        </button>
+
+      </div>
+
+      <hr style="
+        border:0;
+        border-top:1px solid rgba(255,255,255,.12);
+        margin:20px 0;
+      ">
+
+      <p>
+        <strong style="color:#f2cf68">Categoría:</strong><br>
+        ${item.category}
+      </p>
+
+      <p style="margin-top:15px">
+        <strong style="color:#f2cf68">Mecanismo:</strong><br>
+        ${item.mechanism}
+      </p>
+
+      <p style="margin-top:15px">
+        <strong style="color:#f2cf68">Evidencia:</strong><br>
+        ${item.evidence}
+      </p>
+
+      <p style="margin-top:15px">
+        <strong style="color:#f2cf68">Estado:</strong><br>
+        ${item.status}
+      </p>
+
+      <div style="margin-top:20px">
+        ${fixTags(item.advantages,"good")}
+      </div>
+
+      <div style="margin-top:10px">
+        ${fixTags(item.limitations,"warn")}
+      </div>
+
+      <p style="
+        color:#8fa5ba;
+        font-size:12px;
+        margin-top:25px;
+      ">
+        Perfil informativo. No constituye prescripción,
+        diagnóstico ni recomendación de tratamiento.
+      </p>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById("closePeptalynModal")
+    .onclick =
+      function() {
+        modal.remove();
+      };
+
+
+  modal.onclick =
+    function(event) {
+
+      if (event.target === modal) {
+        modal.remove();
+      }
+
+    };
+
+}
+
+
+/* ---------- ÁREAS INTERACTIVAS ---------- */
+
+function activateCategories() {
+
+  const categories =
+    document.querySelectorAll(".category");
+
+
+  categories.forEach(function(card) {
+
+    card.style.cursor =
+      "pointer";
+
+
+    card.addEventListener(
+      "click",
+      function() {
+
+        const title =
+          card
+            .querySelector("h3")
+            .innerText
+            .toLowerCase();
+
+
+        const products =
+          document.querySelectorAll(".product");
+
+
+        products.forEach(function(product) {
+
+          const text =
+            product.innerText.toLowerCase();
+
+
+          let show = false;
+
+
+          if (title.includes("metabolismo")) {
+
+            show =
+              text.includes("metabol") ||
+              text.includes("semaglut") ||
+              text.includes("tirzep") ||
+              text.includes("retatr") ||
+              text.includes("tesamor") ||
+              text.includes("nad");
+
+          }
+
+
+          else if (title.includes("rendimiento")) {
+
+            show =
+              text.includes("rendimiento") ||
+              text.includes("mots") ||
+              text.includes("ipamorelin");
+
+          }
+
+
+          else if (title.includes("recuperación")) {
+
+            show =
+              text.includes("recuperación") ||
+              text.includes("bpc") ||
+              text.includes("tb-500");
+
+          }
+
+
+          else if (title.includes("neuro")) {
+
+            show =
+              text.includes("semax") ||
+              text.includes("neuro");
+
+          }
+
+
+          else if (
+            title.includes("piel") ||
+            title.includes("longevidad")
+          ) {
+
+            show =
+              text.includes("ghk") ||
+              text.includes("piel");
+
+          }
+
+
+          product.style.display =
+            show ? "block" : "none";
+
+        });
+
+
+        const library =
+          document.getElementById("peptidos");
+
+
+        if (library) {
+
+          library.scrollIntoView({
+            behavior:"smooth"
+          });
+
+        }
+
+      }
+    );
+
+  });
+
+}
+
+
+/* ---------- TARJETAS DE PÉPTIDOS INTERACTIVAS ---------- */
+
+function activateProducts() {
+
+  document
+    .querySelectorAll(".product")
+    .forEach(function(card) {
+
+      card.style.cursor =
+        "pointer";
+
+
+      card.addEventListener(
+        "click",
+        function() {
+
+          const h3 =
+            card.querySelector("h3");
+
+          if (h3) {
+
+            openPeptalynProfile(
+              h3.innerText
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+}
+
+
+/* ---------- INICIALIZACIÓN ---------- */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
+
+    activateCategories();
+
+    activateProducts();
+
+    window.comparePeptides();
+
+  }
+);
+
+</script>
 </body>
 
 </html>
