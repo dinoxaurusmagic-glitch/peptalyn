@@ -1,1346 +1,3693 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PEPTALYN | Advanced Peptide Research</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+PEPTALYN | Advanced Peptide Research
+</title>
+
 
 <style>
+
 :root{
-  --navy:#041225;
-  --navy2:#071b34;
-  --navy3:#0c2747;
-  --blue:#168de2;
-  --cyan:#51c9ff;
-  --gold:#d6a72d;
-  --gold2:#f2cf67;
-  --white:#ffffff;
-  --soft:#c9d5e2;
-  --border:rgba(255,255,255,.10);
+
+--navy:#031225;
+--navy2:#071b35;
+--navy3:#0b2748;
+
+--gold:#d5a72d;
+--gold2:#f2cf68;
+
+--blue:#178edc;
+--cyan:#52caff;
+
+--white:#ffffff;
+
+--soft:#b8c8d8;
+
+--border:
+rgba(255,255,255,.11);
+
 }
+
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+
+margin:0;
+padding:0;
+
+box-sizing:border-box;
+
 }
+
 
 html{
-  scroll-behavior:smooth;
+
+scroll-behavior:smooth;
+
 }
+
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--navy);
-  color:white;
-  line-height:1.6;
+
+font-family:
+Arial,
+Helvetica,
+sans-serif;
+
+background:
+var(--navy);
+
+color:white;
+
+line-height:1.6;
+
 }
+
 
 a{
-  color:inherit;
+
+color:inherit;
+
 }
+
+
+/* HEADER */
+
 
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(4,18,37,.94);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+background:
+rgba(3,18,37,.96);
+
+backdrop-filter:
+blur(14px);
+
+border-bottom:
+1px solid var(--border);
+
 }
+
 
 .nav{
-  max-width:1250px;
-  margin:auto;
-  padding:13px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:25px;
+
+max-width:1300px;
+
+margin:auto;
+
+padding:
+12px 22px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:
+space-between;
+
+gap:25px;
+
 }
+
+
+/* LOGO CORREGIDO */
+
+
+.brand{
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.98),
+rgba(240,246,252,.95)
+);
+
+padding:
+7px 15px;
+
+border-radius:
+12px;
+
+box-shadow:
+0 4px 20px
+rgba(0,0,0,.20);
+
+display:flex;
+
+align-items:center;
+
+}
+
 
 .brand img{
-  width:210px;
-  max-height:78px;
-  object-fit:contain;
-  display:block;
+
+width:190px;
+
+max-height:70px;
+
+object-fit:contain;
+
+display:block;
+
 }
+
 
 .menu{
-  display:flex;
-  align-items:center;
-  gap:25px;
+
+display:flex;
+
+align-items:center;
+
+gap:22px;
+
 }
+
 
 .menu a{
-  text-decoration:none;
-  font-size:14px;
-  color:#e9f0f6;
+
+text-decoration:none;
+
+font-size:14px;
+
+color:#edf4f9;
+
+transition:.2s;
+
 }
+
 
 .menu a:hover{
-  color:var(--gold2);
+
+color:var(--gold2);
+
 }
 
+
 .mobile-btn{
-  display:none;
-  border:1px solid var(--border);
-  background:transparent;
-  color:white;
-  border-radius:8px;
-  padding:8px 12px;
-  font-size:22px;
+
+display:none;
+
+background:transparent;
+
+border:
+1px solid var(--border);
+
+color:white;
+
+font-size:22px;
+
+border-radius:9px;
+
+padding:
+7px 12px;
+
 }
+
 
 /* HERO */
 
+
 .hero{
-  min-height:88vh;
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(22,141,226,.25), transparent 30%),
-    radial-gradient(circle at 10% 70%, rgba(214,167,45,.12), transparent 30%),
-    linear-gradient(135deg,#041225,#071b34 60%,#08284b);
+
+min-height:88vh;
+
+display:flex;
+
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+
+background:
+
+radial-gradient(
+circle at 80% 15%,
+rgba(23,142,220,.25),
+transparent 32%
+),
+
+radial-gradient(
+circle at 10% 75%,
+rgba(213,167,45,.15),
+transparent 32%
+),
+
+linear-gradient(
+135deg,
+#031225,
+#071b35 62%,
+#082b51
+);
+
 }
 
-.hero:after{
-  content:"";
-  position:absolute;
-  width:550px;
-  height:550px;
-  border:1px solid rgba(81,201,255,.10);
-  border-radius:50%;
-  right:-120px;
-  top:80px;
-  box-shadow:
-    0 0 90px rgba(81,201,255,.12),
-    inset 0 0 80px rgba(81,201,255,.05);
-}
 
 .hero-inner{
-  width:100%;
-  max-width:1250px;
-  margin:auto;
-  padding:85px 24px;
-  position:relative;
-  z-index:2;
+
+max-width:1300px;
+
+width:100%;
+
+margin:auto;
+
+padding:
+90px 24px;
+
+position:relative;
+
+z-index:2;
+
 }
+
 
 .eyebrow{
-  color:var(--gold2);
-  letter-spacing:4px;
-  font-size:12px;
-  text-transform:uppercase;
-  margin-bottom:20px;
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:var(--gold2);
+
+margin-bottom:18px;
+
 }
+
 
 .hero h1{
-  font-size:clamp(45px,7vw,88px);
-  line-height:.98;
-  max-width:900px;
-  margin-bottom:28px;
+
+font-size:
+clamp(
+44px,
+7vw,
+88px
+);
+
+line-height:.98;
+
+max-width:950px;
+
+margin-bottom:25px;
+
 }
+
 
 .hero h1 span{
-  background:linear-gradient(90deg,var(--gold),var(--gold2));
-  -webkit-background-clip:text;
-  color:transparent;
+
+background:
+linear-gradient(
+90deg,
+var(--gold),
+var(--gold2)
+);
+
+-webkit-background-clip:
+text;
+
+color:transparent;
+
 }
+
 
 .hero p{
-  max-width:720px;
-  color:var(--soft);
-  font-size:19px;
+
+max-width:760px;
+
+font-size:19px;
+
+color:var(--soft);
+
 }
+
 
 .actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:13px;
-  margin-top:32px;
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin-top:31px;
+
 }
+
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 22px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:700;
-  border:1px solid transparent;
-  cursor:pointer;
+
+border:0;
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:
+14px 22px;
+
+border-radius:9px;
+
+font-weight:bold;
+
+text-decoration:none;
+
+cursor:pointer;
+
 }
+
 
 .btn-gold{
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#07111f;
+
+background:
+linear-gradient(
+135deg,
+var(--gold),
+var(--gold2)
+);
+
+color:#06111e;
+
 }
+
 
 .btn-outline{
-  border-color:rgba(242,207,103,.55);
-  color:var(--gold2);
+
+background:transparent;
+
+border:
+1px solid
+rgba(242,207,104,.65);
+
+color:var(--gold2);
+
 }
 
-.stats{
-  margin-top:65px;
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  max-width:800px;
-  border-top:1px solid var(--border);
-  padding-top:25px;
+
+.hero-cards{
+
+margin-top:55px;
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:12px;
+
+max-width:880px;
+
 }
 
-.stat strong{
-  display:block;
-  color:var(--gold2);
-  font-size:24px;
+
+.hero-card{
+
+padding:19px;
+
+border:
+1px solid var(--border);
+
+background:
+rgba(5,27,52,.55);
+
+border-radius:12px;
+
 }
 
-.stat span{
-  color:#8fa4b8;
-  font-size:13px;
+
+.hero-card strong{
+
+display:block;
+
+color:var(--gold2);
+
+font-size:19px;
+
 }
 
-/* GLOBAL SECTIONS */
+
+.hero-card span{
+
+font-size:12px;
+
+color:#8fa5ba;
+
+}
+
+
+/* GENERAL */
+
 
 section{
-  padding:90px 24px;
+
+padding:
+90px 24px;
+
 }
+
 
 .wrap{
-  max-width:1250px;
-  margin:auto;
+
+max-width:1300px;
+
+margin:auto;
+
 }
 
-.head{
-  text-align:center;
-  max-width:760px;
-  margin:0 auto 50px;
+
+.section-head{
+
+max-width:800px;
+
+margin:
+0 auto 48px;
+
+text-align:center;
+
 }
 
-.head .mini{
-  color:var(--gold2);
-  text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:3px;
+
+.mini{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:var(--gold2);
+
 }
 
-.head h2{
-  font-size:clamp(32px,5vw,48px);
-  margin:9px 0;
+
+.section-head h2{
+
+font-size:
+clamp(
+32px,
+5vw,
+49px
+);
+
+margin:
+9px 0;
+
 }
 
-.head p{
-  color:#9fb0c0;
+
+.section-head p{
+
+color:#9fb1c2;
+
 }
+
 
 /* CATEGORIES */
 
+
 .categories{
-  background:#06172b;
+
+background:#06172c;
+
 }
+
 
 .category-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+
+display:grid;
+
+grid-template-columns:
+repeat(5,1fr);
+
+gap:15px;
+
 }
+
 
 .category{
-  min-height:250px;
-  padding:28px;
-  border-radius:16px;
-  border:1px solid var(--border);
-  background:linear-gradient(145deg,#0a203b,#07182c);
-  transition:.3s;
-  position:relative;
-  overflow:hidden;
+
+padding:25px;
+
+min-height:230px;
+
+background:
+linear-gradient(
+150deg,
+#0a213d,
+#07182d
+);
+
+border:
+1px solid var(--border);
+
+border-radius:15px;
+
+transition:.3s;
+
 }
+
 
 .category:hover{
-  transform:translateY(-6px);
-  border-color:rgba(214,167,45,.55);
+
+transform:
+translateY(-5px);
+
+border-color:
+rgba(213,167,45,.55);
+
 }
+
 
 .category .icon{
-  font-size:35px;
-  margin-bottom:30px;
+
+font-size:33px;
+
+margin-bottom:25px;
+
 }
+
 
 .category h3{
-  font-size:22px;
-  color:var(--gold2);
+
+color:var(--gold2);
+
+font-size:20px;
+
 }
+
 
 .category p{
-  color:#9fb0c0;
-  font-size:14px;
-  margin-top:10px;
+
+font-size:13px;
+
+color:#98acbe;
+
+margin-top:8px;
+
 }
 
-/* PRODUCTS */
 
-.searchbox{
-  max-width:620px;
-  margin:0 auto 38px;
+/* LIBRARY */
+
+
+.search-box{
+
+max-width:650px;
+
+margin:
+0 auto 36px;
+
 }
 
-.searchbox input{
-  width:100%;
-  background:#091e37;
-  border:1px solid var(--border);
-  color:white;
-  padding:15px 17px;
-  border-radius:10px;
-  outline:none;
-  font-size:15px;
+
+.search-box input{
+
+width:100%;
+
+background:#09203b;
+
+border:
+1px solid var(--border);
+
+color:white;
+
+padding:
+15px 16px;
+
+border-radius:10px;
+
+font-size:15px;
+
+outline:none;
+
 }
+
 
 .products{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:17px;
+
 }
+
 
 .product{
-  background:linear-gradient(150deg,#0a213d,#06182c);
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:25px;
-  transition:.25s;
+
+background:
+linear-gradient(
+150deg,
+#09213e,
+#06182d
+);
+
+border:
+1px solid var(--border);
+
+border-radius:15px;
+
+padding:24px;
+
+transition:.25s;
+
 }
+
 
 .product:hover{
-  border-color:rgba(81,201,255,.4);
+
+border-color:
+rgba(82,202,255,.4);
+
+transform:
+translateY(-2px);
+
 }
+
 
 .badge{
-  display:inline-block;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  padding:5px 8px;
-  border-radius:20px;
-  color:var(--gold2);
-  background:rgba(214,167,45,.12);
-  border:1px solid rgba(214,167,45,.25);
-  margin-bottom:16px;
+
+display:inline-block;
+
+font-size:10px;
+
+letter-spacing:1.3px;
+
+text-transform:uppercase;
+
+padding:
+5px 9px;
+
+border-radius:20px;
+
+color:var(--gold2);
+
+border:
+1px solid
+rgba(213,167,45,.28);
+
+background:
+rgba(213,167,45,.10);
+
+margin-bottom:13px;
+
 }
+
 
 .product h3{
-  font-size:23px;
-  margin-bottom:8px;
+
+font-size:22px;
+
+margin-bottom:8px;
+
 }
+
 
 .product p{
-  font-size:14px;
-  color:#9fb0c0;
+
+font-size:13px;
+
+color:#9fb0c1;
+
 }
+
 
 .product small{
-  display:block;
-  margin-top:18px;
-  color:#637f98;
+
+display:block;
+
+margin-top:16px;
+
+color:#688299;
+
 }
 
-/* QUALITY */
-
-.quality{
-  background:
-    radial-gradient(circle at 30% 0%,rgba(22,141,226,.18),transparent 35%),
-    #06172b;
-}
-
-.quality-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.quality-card{
-  padding:30px;
-  border-radius:15px;
-  border:1px solid var(--border);
-  background:rgba(8,29,52,.72);
-}
-
-.quality-card h3{
-  margin:12px 0 8px;
-  color:var(--gold2);
-}
-
-.quality-card p{
-  color:#9fb0c0;
-  font-size:14px;
-}
 
 /* COMPARATOR */
 
+
 .compare{
-  background:#041225;
+
+background:#06172c;
+
 }
+
 
 .compare-box{
-  background:#071b34;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:30px;
+
+background:
+linear-gradient(
+145deg,
+#081f3a,
+#05162a
+);
+
+border:
+1px solid var(--border);
+
+border-radius:18px;
+
+padding:28px;
+
 }
+
 
 .compare-controls{
-  display:grid;
-  grid-template-columns:1fr 1fr auto;
-  gap:12px;
+
+display:grid;
+
+grid-template-columns:
+1fr auto 1fr auto;
+
+gap:12px;
+
+align-items:center;
+
 }
+
+
+.compare-vs{
+
+font-weight:bold;
+
+color:var(--gold2);
+
+text-align:center;
+
+}
+
 
 select,
-.calc input{
-  width:100%;
-  background:#0a223e;
-  border:1px solid var(--border);
-  border-radius:9px;
-  color:white;
-  padding:14px;
-  outline:none;
+input{
+
+background:#0a2341;
+
+border:
+1px solid var(--border);
+
+border-radius:9px;
+
+color:white;
+
+padding:13px;
+
+outline:none;
+
+font-size:14px;
+
 }
+
 
 .compare-result{
-  margin-top:25px;
-  overflow:auto;
+
+margin-top:28px;
+
+overflow:auto;
+
 }
+
 
 table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:650px;
+
+width:100%;
+
+border-collapse:
+collapse;
+
+min-width:760px;
+
 }
 
-th,td{
-  padding:14px;
-  border-bottom:1px solid var(--border);
-  text-align:left;
-  font-size:14px;
+
+th,
+td{
+
+padding:
+15px;
+
+border-bottom:
+1px solid var(--border);
+
+vertical-align:top;
+
+text-align:left;
+
 }
+
 
 th{
-  color:var(--gold2);
+
+color:var(--gold2);
+
 }
 
+
 td{
-  color:#b9c7d4;
+
+color:#c0cddb;
+
+font-size:14px;
+
 }
+
+
+.good{
+
+display:inline-block;
+
+background:
+rgba(46,213,188,.15);
+
+border:
+1px solid
+rgba(46,213,188,.30);
+
+color:#64e4d0;
+
+padding:
+4px 8px;
+
+border-radius:12px;
+
+font-size:12px;
+
+margin:
+2px 3px 2px 0;
+
+}
+
+
+.warn{
+
+display:inline-block;
+
+background:
+rgba(231,108,124,.13);
+
+border:
+1px solid
+rgba(231,108,124,.25);
+
+color:#f09baa;
+
+padding:
+4px 8px;
+
+border-radius:12px;
+
+font-size:12px;
+
+margin:
+2px 3px 2px 0;
+
+}
+
 
 /* CALCULATOR */
 
-.tools{
-  background:#06172b;
+
+.calculator{
+
+background:#031225;
+
 }
 
-.tool-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
+
+.calc-layout{
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:20px;
+
 }
 
-.calc{
-  background:#081f39;
-  border:1px solid var(--border);
-  padding:30px;
-  border-radius:16px;
+
+.calc-panel{
+
+background:
+linear-gradient(
+145deg,
+#092240,
+#06182d
+);
+
+border:
+1px solid var(--border);
+
+border-radius:17px;
+
+padding:28px;
+
 }
 
-.calc h3{
-  color:var(--gold2);
-  font-size:26px;
-  margin-bottom:8px;
+
+.calc-panel h3{
+
+font-size:27px;
+
+color:var(--gold2);
+
+margin-bottom:7px;
+
 }
 
-.calc p{
-  color:#9fb0c0;
-  font-size:14px;
-  margin-bottom:22px;
+
+.calc-panel > p{
+
+color:#9db0c2;
+
+font-size:13px;
+
+margin-bottom:23px;
+
 }
+
 
 .field{
-  margin-bottom:15px;
+
+margin-bottom:16px;
+
 }
+
 
 .field label{
-  display:block;
-  margin-bottom:7px;
-  font-size:13px;
-  color:#b7c5d1;
+
+display:block;
+
+font-size:13px;
+
+font-weight:bold;
+
+color:#d8e2eb;
+
+margin-bottom:6px;
+
 }
 
-.result{
-  margin-top:18px;
-  border-radius:10px;
-  padding:18px;
-  background:#041427;
-  border:1px solid rgba(81,201,255,.16);
+
+.field-note{
+
+font-size:11px;
+
+color:#7790a7;
+
+margin-top:5px;
+
 }
 
-.result strong{
-  font-size:28px;
-  color:var(--gold2);
+
+.target-row{
+
+display:grid;
+
+grid-template-columns:
+2fr 1fr;
+
+gap:8px;
+
 }
+
+
+.result-main{
+
+text-align:center;
+
+padding:23px;
+
+border-radius:14px;
+
+border:
+1px solid
+rgba(82,202,255,.23);
+
+background:
+rgba(3,17,33,.75);
+
+margin-bottom:15px;
+
+}
+
+
+.result-main small{
+
+display:block;
+
+color:#8ea5ba;
+
+}
+
+
+.result-main strong{
+
+display:block;
+
+font-size:44px;
+
+color:#61ddcd;
+
+line-height:1.2;
+
+margin-top:5px;
+
+}
+
+
+.result-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:10px;
+
+}
+
+
+.result-card{
+
+text-align:center;
+
+padding:
+15px 10px;
+
+background:#07182c;
+
+border:
+1px solid var(--border);
+
+border-radius:11px;
+
+}
+
+
+.result-card strong{
+
+display:block;
+
+font-size:19px;
+
+color:var(--gold2);
+
+}
+
+
+.result-card span{
+
+font-size:11px;
+
+color:#8ca1b5;
+
+}
+
+
+.calc-warning{
+
+margin-top:18px;
+
+padding:14px;
+
+border-radius:10px;
+
+font-size:12px;
+
+color:#9dafbf;
+
+background:
+rgba(213,167,45,.07);
+
+border:
+1px solid
+rgba(213,167,45,.16);
+
+}
+
+
+/* INFORMATION */
+
+
+.quality{
+
+background:#06172c;
+
+}
+
+
+.info-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:17px;
+
+}
+
+
+.info-card{
+
+padding:27px;
+
+border-radius:15px;
+
+border:
+1px solid var(--border);
+
+background:#081e38;
+
+}
+
+
+.info-card h3{
+
+color:var(--gold2);
+
+margin:
+10px 0 7px;
+
+}
+
+
+.info-card p{
+
+font-size:13px;
+
+color:#9eb0c1;
+
+}
+
 
 /* FAQ */
 
+
 .faq{
-  max-width:850px;
-  margin:auto;
+
+max-width:900px;
+
+margin:auto;
+
 }
+
 
 details{
-  margin-bottom:12px;
-  padding:18px 20px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:#071a30;
+
+border:
+1px solid var(--border);
+
+background:#071a31;
+
+border-radius:11px;
+
+padding:
+17px 19px;
+
+margin-bottom:11px;
+
 }
+
 
 summary{
-  cursor:pointer;
-  font-weight:bold;
+
+cursor:pointer;
+
+font-weight:bold;
+
 }
 
+
 details p{
-  padding-top:12px;
-  color:#9fb0c0;
+
+padding-top:11px;
+
+color:#9eb0c1;
+
+font-size:14px;
+
 }
+
 
 /* CONTACT */
 
+
 .contact{
-  text-align:center;
-  background:
-    radial-gradient(circle at center,rgba(214,167,45,.10),transparent 35%),
-    #041225;
+
+text-align:center;
+
+background:
+
+radial-gradient(
+circle at center,
+rgba(213,167,45,.12),
+transparent 38%
+),
+
+#031225;
+
 }
+
 
 .contact h2{
-  font-size:45px;
+
+font-size:
+clamp(
+33px,
+5vw,
+48px
+);
+
 }
+
 
 .contact p{
-  max-width:700px;
-  margin:12px auto 26px;
-  color:#9fb0c0;
+
+max-width:700px;
+
+margin:
+12px auto 25px;
+
+color:#9eb0c1;
+
 }
+
+
+/* FOOTER */
+
 
 footer{
-  padding:35px 24px;
-  border-top:1px solid var(--border);
-  background:#020b16;
+
+padding:
+35px 20px;
+
+background:#010914;
+
+border-top:
+1px solid var(--border);
+
 }
 
-.footer-inner{
-  max-width:1250px;
-  margin:auto;
-  text-align:center;
-  color:#71869a;
-  font-size:12px;
+
+.footer{
+
+max-width:1200px;
+
+margin:auto;
+
+text-align:center;
+
+color:#74899c;
+
+font-size:12px;
+
 }
 
-.footer-logo{
-  width:170px;
-  margin-bottom:16px;
+
+.footer-logo-box{
+
+display:inline-block;
+
+background:white;
+
+padding:
+5px 12px;
+
+border-radius:10px;
+
+margin-bottom:14px;
+
 }
+
+
+.footer-logo-box img{
+
+width:155px;
+
+display:block;
+
+}
+
 
 .disclaimer{
-  max-width:850px;
-  margin:15px auto 0;
+
+max-width:900px;
+
+margin:
+14px auto 0;
+
 }
 
-/* MOBILE */
+
+/* RESPONSIVE */
+
+
+@media(max-width:1050px){
+
+.category-grid{
+
+grid-template-columns:
+repeat(3,1fr);
+
+}
+
+.products{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}
+
 
 @media(max-width:900px){
-  .category-grid,
-  .products,
-  .quality-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
 
-  .tool-grid{
-    grid-template-columns:1fr;
-  }
+.menu{
 
-  .menu{
-    display:none;
-    position:absolute;
-    top:90px;
-    left:20px;
-    right:20px;
-    background:#071b34;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:20px;
-    flex-direction:column;
-    align-items:flex-start;
-  }
+display:none;
 
-  .menu.open{
-    display:flex;
-  }
+position:absolute;
 
-  .mobile-btn{
-    display:block;
-  }
+top:88px;
 
-  .compare-controls{
-    grid-template-columns:1fr;
-  }
+left:17px;
+
+right:17px;
+
+flex-direction:column;
+
+align-items:flex-start;
+
+background:#061a31;
+
+padding:18px;
+
+border:
+1px solid var(--border);
+
+border-radius:11px;
+
 }
 
-@media(max-width:600px){
-  .brand img{
-    width:175px;
-  }
+.menu.open{
 
-  .hero{
-    min-height:80vh;
-  }
+display:flex;
 
-  .hero-inner{
-    padding-top:60px;
-  }
-
-  .category-grid,
-  .products,
-  .quality-grid{
-    grid-template-columns:1fr;
-  }
-
-  .stats{
-    grid-template-columns:1fr;
-    gap:18px;
-  }
-
-  section{
-    padding:70px 18px;
-  }
 }
+
+.mobile-btn{
+
+display:block;
+
+}
+
+.calc-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.compare-controls{
+
+grid-template-columns:1fr;
+
+}
+
+.compare-vs{
+
+display:none;
+
+}
+
+.info-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+@media(max-width:650px){
+
+.brand img{
+
+width:150px;
+
+}
+
+.category-grid,
+.products{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-cards{
+
+grid-template-columns:1fr;
+
+}
+
+.result-grid{
+
+grid-template-columns:1fr;
+
+}
+
+section{
+
+padding:
+70px 17px;
+
+}
+
+}
+
 </style>
+
 </head>
+
+
 
 <body>
 
+
 <header>
-  <div class="nav">
 
-    <a class="brand" href="#inicio">
-      <img src="logo-peptalyn.png" alt="PEPTALYN">
-    </a>
+<div class="nav">
 
-    <button class="mobile-btn" onclick="toggleMenu()">☰</button>
+<a
+class="brand"
+href="#inicio"
+>
 
-    <nav class="menu" id="menu">
-      <a href="#inicio">Inicio</a>
-      <a href="#categorias">Áreas</a>
-      <a href="#productos">Péptidos</a>
-      <a href="#comparador">Comparador</a>
-      <a href="#herramientas">Calculadora</a>
-      <a href="#calidad">Calidad</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+<img
+src="logo-peptalyn.png"
+alt="PEPTALYN"
+>
 
-  </div>
+</a>
+
+
+<button
+class="mobile-btn"
+onclick="toggleMenu()"
+>
+☰
+</button>
+
+
+<nav
+class="menu"
+id="menu"
+>
+
+<a href="#inicio">
+Inicio
+</a>
+
+<a href="#areas">
+Áreas
+</a>
+
+<a href="#peptidos">
+Péptidos
+</a>
+
+<a href="#comparador">
+Comparador de péptidos
+</a>
+
+<a href="#calculadora">
+Calculadora
+</a>
+
+<a href="#informacion">
+Información
+</a>
+
+<a href="#contacto">
+Contacto
+</a>
+
+</nav>
+
+</div>
+
 </header>
 
 
-<section class="hero" id="inicio">
 
-  <div class="hero-inner">
+<section
+class="hero"
+id="inicio"
+>
 
-    <div class="eyebrow">
-      Advanced Peptide Research
-    </div>
+<div class="hero-inner">
 
-    <h1>
-      Ciencia e innovación para una
-      <span>nueva generación</span>
-    </h1>
+<div class="eyebrow">
 
-    <p>
-      Explora información sobre péptidos, nuevas moléculas,
-      metabolismo, recuperación, rendimiento, longevidad
-      e investigación biomédica avanzada.
-    </p>
+PEPTALYN · Advanced Peptide Research
 
-    <div class="actions">
-      <a href="#productos" class="btn btn-gold">
-        Explorar péptidos
-      </a>
+</div>
 
-      <a href="#comparador" class="btn btn-outline">
-        Comparar moléculas
-      </a>
-    </div>
 
-    <div class="stats">
-      <div class="stat">
-        <strong>Metabolismo</strong>
-        <span>Investigación metabólica</span>
-      </div>
+<h1>
 
-      <div class="stat">
-        <strong>Rendimiento</strong>
-        <span>Ciencia y recuperación</span>
-      </div>
+Explora la ciencia detrás de los
 
-      <div class="stat">
-        <strong>Longevidad</strong>
-        <span>Nuevas líneas biomédicas</span>
-      </div>
-    </div>
+<span>
+péptidos y nuevas moléculas
+</span>
 
-  </div>
+</h1>
+
+
+<p>
+
+Una plataforma organizada para explorar
+metabolismo, composición corporal,
+recuperación, neurociencia, piel,
+longevidad y otras áreas de investigación biomédica.
+
+</p>
+
+
+<div class="actions">
+
+<a
+href="#peptidos"
+class="btn btn-gold"
+>
+
+Explorar biblioteca
+
+</a>
+
+
+<a
+href="#comparador"
+class="btn btn-outline"
+>
+
+Comparar péptidos
+
+</a>
+
+</div>
+
+
+<div class="hero-cards">
+
+<div class="hero-card">
+
+<strong>
+Metabolismo
+</strong>
+
+<span>
+GLP-1 y nuevas moléculas metabólicas
+</span>
+
+</div>
+
+
+<div class="hero-card">
+
+<strong>
+Rendimiento
+</strong>
+
+<span>
+Investigación en energía y composición corporal
+</span>
+
+</div>
+
+
+<div class="hero-card">
+
+<strong>
+Investigación avanzada
+</strong>
+
+<span>
+Nuevas líneas biomédicas
+</span>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="categories" id="categorias">
+
+<section
+class="categories"
+id="areas"
+>
 
 <div class="wrap">
 
-  <div class="head">
-    <div class="mini">Áreas de investigación</div>
+<div class="section-head">
 
-    <h2>
-      Explora por objetivo científico
-    </h2>
+<div class="mini">
+Áreas PEPTALYN
+</div>
 
-    <p>
-      Una forma sencilla de descubrir diferentes líneas
-      de investigación dentro del universo de los péptidos.
-    </p>
-  </div>
+<h2>
+Explora por área de investigación
+</h2>
 
-
-  <div class="category-grid">
-
-    <div class="category">
-      <div class="icon">⚖️</div>
-      <h3>Metabolismo</h3>
-      <p>
-        Moléculas investigadas en metabolismo,
-        regulación energética y control metabólico.
-      </p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🏋️</div>
-      <h3>Rendimiento físico</h3>
-      <p>
-        Investigación relacionada con recuperación,
-        composición corporal y metabolismo energético.
-      </p>
-    </div>
-
-    <div class="category">
-      <div class="icon">🧬</div>
-      <h3>Recuperación</h3>
-      <p>
-        Líneas experimentales relacionadas con tejidos,
-        recuperación y señalización biológica.
-      </p>
-    </div>
-
-    <div class="category">
-      <div class="icon">✨</div>
-      <h3>Piel & longevidad</h3>
-      <p>
-        Investigación sobre péptidos de cobre,
-        envejecimiento saludable y biología de la piel.
-      </p>
-    </div>
-
-  </div>
+<p>
+Cada molécula se presenta según su contexto científico,
+nivel de evidencia y estado de investigación.
+</p>
 
 </div>
+
+
+<div class="category-grid">
+
+<div class="category">
+
+<div class="icon">
+⚖️
+</div>
+
+<h3>
+Metabolismo
+</h3>
+
+<p>
+Investigación en regulación metabólica,
+glucosa, apetito y balance energético.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">
+🏋️
+</div>
+
+<h3>
+Rendimiento
+</h3>
+
+<p>
+Metabolismo energético,
+composición corporal y respuesta al ejercicio.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">
+🧬
+</div>
+
+<h3>
+Recuperación
+</h3>
+
+<p>
+Líneas experimentales vinculadas
+con reparación y señalización tisular.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">
+🧠
+</div>
+
+<h3>
+Neurociencia
+</h3>
+
+<p>
+Investigación relacionada con
+señalización neurológica y cognitiva.
+</p>
+
+</div>
+
+
+<div class="category">
+
+<div class="icon">
+✨
+</div>
+
+<h3>
+Piel & longevidad
+</h3>
+
+<p>
+Péptidos de cobre y otras líneas
+relacionadas con biología cutánea.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section id="productos">
+
+<section
+id="peptidos"
+>
 
 <div class="wrap">
 
-  <div class="head">
-    <div class="mini">Biblioteca PEPTALYN</div>
+<div class="section-head">
 
-    <h2>
-      Péptidos y moléculas
-    </h2>
+<div class="mini">
+Biblioteca científica
+</div>
 
-    <p>
-      Esta biblioteca podrá ampliarse continuamente
-      con nuevas moléculas y líneas de investigación.
-    </p>
-  </div>
+<h2>
+Péptidos y moléculas
+</h2>
 
-
-  <div class="searchbox">
-    <input
-      id="search"
-      onkeyup="filterProducts()"
-      placeholder="Buscar: semaglutide, MOTS-c, GHK-Cu..."
-    >
-  </div>
-
-
-  <div class="products" id="productGrid">
-
-    <div class="product" data-name="semaglutide metabolismo peso glp1">
-      <div class="badge">Metabolismo</div>
-      <h3>Semaglutide</h3>
-      <p>
-        Agonista del receptor GLP-1 ampliamente estudiado
-        en metabolismo y regulación glucémica.
-      </p>
-      <small>Perfil informativo científico</small>
-    </div>
-
-    <div class="product" data-name="tirzepatide metabolismo peso gip glp1">
-      <div class="badge">Metabolismo</div>
-      <h3>Tirzepatide</h3>
-      <p>
-        Molécula con actividad sobre los receptores GIP y GLP-1,
-        investigada en metabolismo.
-      </p>
-      <small>Perfil informativo científico</small>
-    </div>
-
-    <div class="product" data-name="retatrutide metabolismo experimental glp1 gip glucagon">
-      <div class="badge">Investigación</div>
-      <h3>Retatrutide</h3>
-      <p>
-        Molécula experimental de acción múltiple investigada
-        en metabolismo energético.
-      </p>
-      <small>Estado experimental / investigación clínica</small>
-    </div>
-
-    <div class="product" data-name="mots-c ejercicio metabolismo mitocondria rendimiento">
-      <div class="badge">Rendimiento</div>
-      <h3>MOTS-c</h3>
-      <p>
-        Péptido de origen mitocondrial investigado en metabolismo,
-        energía celular y respuesta al ejercicio.
-      </p>
-      <small>Investigación experimental</small>
-    </div>
-
-    <div class="product" data-name="ipamorelin ejercicio hormona crecimiento ghrelin">
-      <div class="badge">Rendimiento</div>
-      <h3>Ipamorelin</h3>
-      <p>
-        Secretagogo estudiado por su interacción con vías
-        relacionadas con la hormona de crecimiento.
-      </p>
-      <small>Investigación experimental</small>
-    </div>
-
-    <div class="product" data-name="ghk-cu cobre piel longevidad">
-      <div class="badge">Piel & longevidad</div>
-      <h3>GHK-Cu</h3>
-      <p>
-        Péptido de cobre estudiado en procesos biológicos
-        asociados con piel y reparación tisular.
-      </p>
-      <small>Perfil de investigación</small>
-    </div>
-
-    <div class="product" data-name="bpc-157 recuperación tejidos">
-      <div class="badge">Recuperación</div>
-      <h3>BPC-157</h3>
-      <p>
-        Péptido experimental investigado principalmente
-        en modelos preclínicos.
-      </p>
-      <small>Investigación experimental</small>
-    </div>
-
-    <div class="product" data-name="tb-500 thymosin beta recuperación">
-      <div class="badge">Recuperación</div>
-      <h3>TB-500</h3>
-      <p>
-        Línea de investigación asociada con fragmentos
-        relacionados con thymosin beta-4.
-      </p>
-      <small>Investigación experimental</small>
-    </div>
-
-    <div class="product" data-name="tesamorelin metabolismo composición corporal">
-      <div class="badge">Metabolismo</div>
-      <h3>Tesamorelin</h3>
-      <p>
-        Análogo relacionado con la vía de liberación
-        de hormona de crecimiento.
-      </p>
-      <small>Perfil científico informativo</small>
-    </div>
-
-  </div>
+<p>
+La biblioteca podrá ampliarse continuamente
+a medida que PEPTALYN incorpore nuevas líneas.
+</p>
 
 </div>
+
+
+<div class="search-box">
+
+<input
+id="search"
+onkeyup="filterProducts()"
+placeholder="Buscar semaglutide, tirzepatide, MOTS-c, Semax..."
+>
+
+</div>
+
+
+<div
+class="products"
+id="productGrid"
+>
+
+
+<div
+class="product"
+data-name="semaglutide metabolismo glp1"
+>
+
+<div class="badge">
+Metabolismo
+</div>
+
+<h3>
+Semaglutide
+</h3>
+
+<p>
+Agonista del receptor GLP-1 estudiado ampliamente
+en regulación metabólica.
+</p>
+
+<small>
+Medicamento con indicaciones autorizadas específicas.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="tirzepatide metabolismo gip glp1"
+>
+
+<div class="badge">
+Metabolismo
+</div>
+
+<h3>
+Tirzepatide
+</h3>
+
+<p>
+Molécula con actividad sobre receptores GIP y GLP-1.
+</p>
+
+<small>
+Medicamento con indicaciones autorizadas específicas.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="retatrutide metabolismo experimental"
+>
+
+<div class="badge">
+Investigación
+</div>
+
+<h3>
+Retatrutide
+</h3>
+
+<p>
+Agonista múltiple investigado
+en metabolismo energético.
+</p>
+
+<small>
+Molécula experimental.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="mots-c rendimiento mitocondria ejercicio"
+>
+
+<div class="badge">
+Rendimiento
+</div>
+
+<h3>
+MOTS-c
+</h3>
+
+<p>
+Péptido derivado de mitocondria
+investigado en metabolismo energético.
+</p>
+
+<small>
+Investigación experimental.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="ipamorelin rendimiento ghrelin"
+>
+
+<div class="badge">
+Rendimiento
+</div>
+
+<h3>
+Ipamorelin
+</h3>
+
+<p>
+Secretagogo investigado por su interacción
+con señalización endocrina.
+</p>
+
+<small>
+Investigación experimental.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="ghk-cu cobre piel"
+>
+
+<div class="badge">
+Piel
+</div>
+
+<h3>
+GHK-Cu
+</h3>
+
+<p>
+Péptido de unión a cobre estudiado
+en biología cutánea y procesos de reparación.
+</p>
+
+<small>
+Investigación biomédica.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="bpc-157 recuperación"
+>
+
+<div class="badge">
+Recuperación
+</div>
+
+<h3>
+BPC-157
+</h3>
+
+<p>
+Péptido experimental investigado
+principalmente en modelos preclínicos.
+</p>
+
+<small>
+Investigación experimental.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="tb-500 recuperación thymosin"
+>
+
+<div class="badge">
+Recuperación
+</div>
+
+<h3>
+TB-500
+</h3>
+
+<p>
+Línea experimental asociada
+con fragmentos relacionados con thymosin beta-4.
+</p>
+
+<small>
+Investigación experimental.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="tesamorelin metabolismo"
+>
+
+<div class="badge">
+Metabolismo
+</div>
+
+<h3>
+Tesamorelin
+</h3>
+
+<p>
+Análogo relacionado con señalización
+de liberación de hormona de crecimiento.
+</p>
+
+<small>
+Posee usos médicos autorizados específicos.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="semax neurociencia"
+>
+
+<div class="badge">
+Neurociencia
+</div>
+
+<h3>
+Semax
+</h3>
+
+<p>
+Péptido investigado en áreas
+relacionadas con señalización neurológica.
+</p>
+
+<small>
+Estado regulatorio variable por jurisdicción.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="pt-141 bremelanotide sexual"
+>
+
+<div class="badge">
+Salud sexual
+</div>
+
+<h3>
+PT-141 / Bremelanotide
+</h3>
+
+<p>
+Molécula melanocortínica estudiada
+en señalización relacionada con función sexual.
+</p>
+
+<small>
+Existen indicaciones médicas autorizadas específicas.
+</small>
+
+</div>
+
+
+<div
+class="product"
+data-name="nad nad+ cofactor metabolismo"
+>
+
+<div class="badge">
+Metabolismo celular
+</div>
+
+<h3>
+NAD+
+</h3>
+
+<p>
+Cofactor metabólico investigado
+en bioenergética y metabolismo celular.
+</p>
+
+<small>
+NAD+ no es un péptido.
+</small>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="quality" id="calidad">
+
+<section
+class="compare"
+id="comparador"
+>
 
 <div class="wrap">
 
-  <div class="head">
-    <div class="mini">PEPTALYN</div>
+<div class="section-head">
 
-    <h2>
-      Ciencia, información y transparencia
-    </h2>
+<div class="mini">
+Herramienta interactiva
+</div>
 
-    <p>
-      Una plataforma diseñada para presentar información
-      de manera clara, organizada y profesional.
-    </p>
-  </div>
+<h2>
+Comparador de péptidos
+</h2>
 
-
-  <div class="quality-grid">
-
-    <div class="quality-card">
-      <div>🔬</div>
-      <h3>Información científica</h3>
-      <p>
-        Perfiles organizados para comprender mejor
-        diferentes moléculas y líneas de investigación.
-      </p>
-    </div>
-
-    <div class="quality-card">
-      <div>📄</div>
-      <h3>Documentación</h3>
-      <p>
-        Espacio destinado a documentación técnica,
-        referencias y materiales informativos.
-      </p>
-    </div>
-
-    <div class="quality-card">
-      <div>🧪</div>
-      <h3>Investigación</h3>
-      <p>
-        Diferenciación entre productos autorizados,
-        moléculas experimentales y líneas de investigación.
-      </p>
-    </div>
-
-  </div>
+<p>
+Selecciona dos moléculas y compara
+sus características lado a lado.
+</p>
 
 </div>
+
+
+<div class="compare-box">
+
+<div class="compare-controls">
+
+
+<select id="pep1">
+
+<option value="semaglutide">
+Semaglutide
+</option>
+
+<option value="tirzepatide">
+Tirzepatide
+</option>
+
+<option value="retatrutide">
+Retatrutide
+</option>
+
+<option value="motsc">
+MOTS-c
+</option>
+
+<option value="ipamorelin">
+Ipamorelin
+</option>
+
+<option value="ghk">
+GHK-Cu
+</option>
+
+<option value="bpc">
+BPC-157
+</option>
+
+<option value="tb500">
+TB-500
+</option>
+
+<option value="tesamorelin">
+Tesamorelin
+</option>
+
+<option value="semax">
+Semax
+</option>
+
+<option value="pt141">
+PT-141
+</option>
+
+<option value="nad">
+NAD+
+</option>
+
+</select>
+
+
+<div class="compare-vs">
+VS
+</div>
+
+
+<select id="pep2">
+
+<option value="tirzepatide">
+Tirzepatide
+</option>
+
+<option value="semaglutide">
+Semaglutide
+</option>
+
+<option value="retatrutide">
+Retatrutide
+</option>
+
+<option value="motsc">
+MOTS-c
+</option>
+
+<option value="ipamorelin">
+Ipamorelin
+</option>
+
+<option value="ghk">
+GHK-Cu
+</option>
+
+<option value="bpc">
+BPC-157
+</option>
+
+<option value="tb500">
+TB-500
+</option>
+
+<option value="tesamorelin">
+Tesamorelin
+</option>
+
+<option value="semax">
+Semax
+</option>
+
+<option value="pt141">
+PT-141
+</option>
+
+<option value="nad">
+NAD+
+</option>
+
+</select>
+
+
+<button
+class="btn btn-gold"
+onclick="comparePeptides()"
+>
+
+Comparar
+
+</button>
+
+</div>
+
+
+<div
+class="compare-result"
+id="compareResult"
+>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="compare" id="comparador">
+
+<section
+class="calculator"
+id="calculadora"
+>
 
 <div class="wrap">
 
-  <div class="head">
-    <div class="mini">Herramienta interactiva</div>
+<div class="section-head">
 
-    <h2>
-      Comparador de moléculas
-    </h2>
+<div class="mini">
+Herramienta matemática
+</div>
 
-    <p>
-      Compara características generales entre diferentes
-      moléculas de manera sencilla.
-    </p>
-  </div>
+<h2>
+Calculadora PEPTALYN
+</h2>
 
-
-  <div class="compare-box">
-
-    <div class="compare-controls">
-
-      <select id="pep1">
-        <option value="semaglutide">Semaglutide</option>
-        <option value="tirzepatide">Tirzepatide</option>
-        <option value="retatrutide">Retatrutide</option>
-        <option value="motsc">MOTS-c</option>
-        <option value="ghk">GHK-Cu</option>
-        <option value="ipamorelin">Ipamorelin</option>
-      </select>
-
-      <select id="pep2">
-        <option value="tirzepatide">Tirzepatide</option>
-        <option value="semaglutide">Semaglutide</option>
-        <option value="retatrutide">Retatrutide</option>
-        <option value="motsc">MOTS-c</option>
-        <option value="ghk">GHK-Cu</option>
-        <option value="ipamorelin">Ipamorelin</option>
-      </select>
-
-      <button class="btn btn-gold" onclick="comparePeptides()">
-        Comparar
-      </button>
-
-    </div>
-
-    <div class="compare-result" id="compareResult"></div>
-
-  </div>
+<p>
+Convierte concentración, cantidad objetivo,
+volumen y equivalencia volumétrica U-100.
+</p>
 
 </div>
+
+
+<div class="calc-layout">
+
+
+<div class="calc-panel">
+
+<h3>
+Entradas
+</h3>
+
+<p>
+Introduce los datos reales del vial
+y la cantidad que deseas calcular.
+</p>
+
+
+<div class="field">
+
+<label>
+Molécula
+</label>
+
+<select id="calcPeptide">
+
+<option>
+Semaglutide
+</option>
+
+<option>
+Tirzepatide
+</option>
+
+<option>
+Retatrutide
+</option>
+
+<option>
+MOTS-c
+</option>
+
+<option>
+Ipamorelin
+</option>
+
+<option>
+GHK-Cu
+</option>
+
+<option>
+BPC-157
+</option>
+
+<option>
+TB-500
+</option>
+
+<option>
+Tesamorelin
+</option>
+
+<option>
+Semax
+</option>
+
+<option>
+PT-141
+</option>
+
+<option>
+NAD+
+</option>
+
+<option>
+Otro
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Cantidad total en el vial
+</label>
+
+<input
+type="number"
+id="vialMg"
+placeholder="Ejemplo: 5"
+step="any"
+>
+
+<div class="field-note">
+Expresada en mg.
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Volumen total añadido
+</label>
+
+<input
+type="number"
+id="bacMl"
+placeholder="Ejemplo: 1"
+step="any"
+>
+
+<div class="field-note">
+Volumen total del diluyente en mL.
+</div>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Cantidad objetivo
+</label>
+
+
+<div class="target-row">
+
+<input
+type="number"
+id="targetDose"
+placeholder="Ejemplo: 250"
+step="any"
+>
+
+
+<select id="targetUnit">
+
+<option value="mcg">
+mcg
+</option>
+
+<option value="mg">
+mg
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field-note">
+
+La calculadora no selecciona esta cantidad:
+debe ser introducida por el usuario.
+
+</div>
+
+</div>
+
+
+<button
+class="btn btn-gold"
+onclick="calculateDose()"
+>
+
+Calcular
+
+</button>
+
+
+<div class="calc-warning">
+
+Esta herramienta realiza únicamente conversiones matemáticas.
+No determina una dosis clínica, no prescribe tratamientos
+y no sustituye la evaluación de un profesional de salud.
+
+</div>
+
+</div>
+
+
+
+<div class="calc-panel">
+
+<h3>
+Resultados
+</h3>
+
+<p>
+Resultados matemáticos basados
+exclusivamente en los valores introducidos.
+</p>
+
+
+<div class="result-main">
+
+<small>
+Equivalencia volumétrica U-100
+</small>
+
+<strong id="unitsResult">
+—
+</strong>
+
+<small>
+unidades de volumen
+</small>
+
+</div>
+
+
+<div class="result-grid">
+
+
+<div class="result-card">
+
+<strong id="concResult">
+—
+</strong>
+
+<span>
+Concentración mg/mL
+</span>
+
+</div>
+
+
+<div class="result-card">
+
+<strong id="volumeResult">
+—
+</strong>
+
+<span>
+Volumen correspondiente mL
+</span>
+
+</div>
+
+
+<div class="result-card">
+
+<strong id="dosesResult">
+—
+</strong>
+
+<span>
+Extracciones teóricas por vial
+</span>
+
+</div>
+
+</div>
+
+
+<div
+class="calc-warning"
+id="calcDescription"
+>
+
+Selecciona una molécula e introduce
+los valores para realizar el cálculo.
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="tools" id="herramientas">
+
+<section
+class="quality"
+id="informacion"
+>
 
 <div class="wrap">
 
-  <div class="head">
-    <div class="mini">Herramientas técnicas</div>
+<div class="section-head">
 
-    <h2>
-      Calculadora de concentración
-    </h2>
+<div class="mini">
+PEPTALYN
+</div>
 
-    <p>
-      Herramienta matemática para obtener una concentración
-      expresada en mg/mL. No calcula dosis para pacientes.
-    </p>
-  </div>
+<h2>
+Información responsable
+</h2>
 
-
-  <div class="tool-grid">
-
-    <div class="calc">
-
-      <h3>mg/mL</h3>
-
-      <p>
-        Introduce la cantidad total de compuesto
-        y el volumen total.
-      </p>
-
-      <div class="field">
-        <label>Cantidad total (mg)</label>
-        <input type="number" id="mg" placeholder="Ejemplo: 10">
-      </div>
-
-      <div class="field">
-        <label>Volumen total (mL)</label>
-        <input type="number" id="ml" placeholder="Ejemplo: 2">
-      </div>
-
-      <button class="btn btn-gold" onclick="calculateConcentration()">
-        Calcular concentración
-      </button>
-
-      <div class="result" id="calcResult">
-        Resultado:
-        <br>
-        <strong>— mg/mL</strong>
-      </div>
-
-    </div>
-
-
-    <div class="calc">
-
-      <h3>Herramientas futuras</h3>
-
-      <p>
-        PEPTALYN podrá incorporar más herramientas
-        educativas y científicas conforme crezca la plataforma.
-      </p>
-
-      <div class="result">
-        Próximamente podremos incorporar:
-        <br><br>
-        • Conversor de unidades
-        <br>
-        • Calculadora de concentración
-        <br>
-        • Biblioteca científica
-        <br>
-        • Comparaciones ampliadas
-        <br>
-        • Fichas individuales
-      </div>
-
-    </div>
-
-  </div>
+<p>
+No todas las moléculas poseen
+el mismo nivel de evidencia ni el mismo estado regulatorio.
+</p>
 
 </div>
+
+
+<div class="info-grid">
+
+
+<div class="info-card">
+
+<div>
+🔬
+</div>
+
+<h3>
+Información científica
+</h3>
+
+<p>
+Cada perfil puede ampliarse con mecanismo,
+evidencia, publicaciones y documentación.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div>
+⚕️
+</div>
+
+<h3>
+Estado regulatorio
+</h3>
+
+<p>
+Diferenciamos entre medicamentos con usos autorizados
+y moléculas experimentales o de investigación.
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div>
+📄
+</div>
+
+<h3>
+Documentación
+</h3>
+
+<p>
+La plataforma podrá incorporar posteriormente
+fichas técnicas, referencias y documentación analítica.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
+
 
 
 <section>
 
 <div class="wrap">
 
-  <div class="head">
-    <div class="mini">Preguntas frecuentes</div>
+<div class="section-head">
 
-    <h2>
-      Información importante
-    </h2>
-  </div>
+<div class="mini">
+Preguntas frecuentes
+</div>
 
-  <div class="faq">
-
-    <details>
-      <summary>¿Qué es PEPTALYN?</summary>
-      <p>
-        PEPTALYN es una plataforma dedicada a información,
-        educación e investigación relacionada con péptidos
-        y nuevas moléculas.
-      </p>
-    </details>
-
-    <details>
-      <summary>¿Todos los péptidos tienen el mismo estado regulatorio?</summary>
-      <p>
-        No. Algunas moléculas cuentan con usos médicos autorizados,
-        mientras que otras continúan siendo experimentales o se
-        encuentran en investigación.
-      </p>
-    </details>
-
-    <details>
-      <summary>¿La calculadora indica cuánto debe administrarse una persona?</summary>
-      <p>
-        No. La herramienta realiza únicamente cálculos matemáticos
-        de concentración y no constituye una prescripción médica.
-      </p>
-    </details>
-
-    <details>
-      <summary>¿Se agregarán nuevos productos?</summary>
-      <p>
-        Sí. La plataforma está diseñada para ampliar continuamente
-        su biblioteca de moléculas y líneas de investigación.
-      </p>
-    </details>
-
-  </div>
+<h2>
+Información importante
+</h2>
 
 </div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+¿La calculadora recomienda una dosis?
+</summary>
+
+<p>
+No. La cantidad objetivo debe ser introducida
+por el usuario. La herramienta realiza únicamente
+conversiones matemáticas.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Todos los productos tienen uso clínico autorizado?
+</summary>
+
+<p>
+No. Algunas moléculas tienen indicaciones médicas
+autorizadas específicas y otras son experimentales
+o se encuentran en investigación.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Puedo comparar cualquier molécula?
+</summary>
+
+<p>
+Sí. El comparador permite seleccionar
+dos moléculas de la biblioteca PEPTALYN.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Se añadirán más moléculas?
+</summary>
+
+<p>
+Sí. La estructura está diseñada
+para ampliar la biblioteca progresivamente.
+</p>
+
+</details>
+
+
+</div>
+
+</div>
+
 </section>
 
 
-<section class="contact" id="contacto">
+
+<section
+class="contact"
+id="contacto"
+>
 
 <div class="wrap">
 
-  <div class="mini" style="color:#f2cf67;letter-spacing:3px">
-    CONTACTO
-  </div>
+<div class="mini">
+CONTACTO
+</div>
 
-  <h2>
-    Conecta con PEPTALYN
-  </h2>
+<h2>
+Conecta con PEPTALYN
+</h2>
 
-  <p>
-    Para consultas sobre información, disponibilidad,
-    documentación y líneas de investigación.
-  </p>
+<p>
+Consultas sobre información,
+documentación y disponibilidad.
+</p>
 
-  <a href="#" class="btn btn-gold">
-    WhatsApp
-  </a>
+<a
+href="#"
+class="btn btn-gold"
+>
+
+WhatsApp
+
+</a>
 
 </div>
+
 </section>
+
 
 
 <footer>
 
-<div class="footer-inner">
+<div class="footer">
 
-  <img
-    src="logo-peptalyn.png"
-    alt="PEPTALYN"
-    class="footer-logo"
-  >
 
-  <div>
-    © 2026 PEPTALYN — Advanced Peptide Research
-  </div>
+<div class="footer-logo-box">
 
-  <div class="disclaimer">
-    El contenido de este sitio es informativo y educativo.
-    No sustituye valoración médica, diagnóstico ni prescripción.
-    Algunas moléculas descritas pueden encontrarse en fase
-    experimental o no estar autorizadas para uso clínico.
-  </div>
+<img
+src="logo-peptalyn.png"
+alt="PEPTALYN"
+>
+
+</div>
+
+
+<div>
+
+© 2026 PEPTALYN —
+Advanced Peptide Research
+
+</div>
+
+
+<div class="disclaimer">
+
+Contenido informativo y educativo.
+No sustituye evaluación médica,
+diagnóstico ni prescripción.
+Algunas moléculas incluidas pueden ser
+experimentales o no estar autorizadas
+para uso clínico en determinadas jurisdicciones.
+
+</div>
+
 
 </div>
 
 </footer>
 
 
+
 <script>
 
+
 function toggleMenu(){
-  document.getElementById("menu").classList.toggle("open");
+
+document
+.getElementById("menu")
+.classList
+.toggle("open");
+
 }
+
 
 
 function filterProducts(){
 
-  const value =
-    document.getElementById("search").value.toLowerCase();
+const value =
 
-  document.querySelectorAll(".product").forEach(product=>{
+document
+.getElementById("search")
+.value
+.toLowerCase();
 
-    const text =
-      (product.dataset.name + " " + product.innerText).toLowerCase();
 
-    product.style.display =
-      text.includes(value) ? "block" : "none";
+document
+.querySelectorAll(".product")
+.forEach(product=>{
 
-  });
+const text =
+
+(
+product.dataset.name
++
+" "
++
+product.innerText
+)
+.toLowerCase();
+
+
+product.style.display =
+
+text.includes(value)
+
+?
+
+"block"
+
+:
+
+"none";
+
+});
+
 }
+
 
 
 const peptideData = {
 
-  semaglutide:{
-    name:"Semaglutide",
-    area:"Metabolismo",
-    mechanism:"Agonista GLP-1",
-    status:"Uso médico autorizado para indicaciones específicas",
-    research:"Metabolismo y regulación glucémica"
-  },
 
-  tirzepatide:{
-    name:"Tirzepatide",
-    area:"Metabolismo",
-    mechanism:"Agonismo GIP / GLP-1",
-    status:"Uso médico autorizado para indicaciones específicas",
-    research:"Metabolismo"
-  },
+semaglutide:{
 
-  retatrutide:{
-    name:"Retatrutide",
-    area:"Metabolismo",
-    mechanism:"Agonismo múltiple GLP-1 / GIP / glucagón",
-    status:"Molécula experimental",
-    research:"Investigación clínica metabólica"
-  },
+name:"Semaglutide",
 
-  motsc:{
-    name:"MOTS-c",
-    area:"Rendimiento / metabolismo",
-    mechanism:"Péptido derivado de mitocondria",
-    status:"Experimental",
-    research:"Metabolismo energético"
-  },
+category:
+"Pérdida de peso y metabolismo",
 
-  ghk:{
-    name:"GHK-Cu",
-    area:"Piel / longevidad",
-    mechanism:"Péptido de unión a cobre",
-    status:"Investigación biomédica",
-    research:"Piel y procesos de reparación"
-  },
+mechanism:
+"Agonista del receptor GLP-1.",
 
-  ipamorelin:{
-    name:"Ipamorelin",
-    area:"Rendimiento",
-    mechanism:"Secretagogo relacionado con receptor de ghrelina",
-    status:"Experimental",
-    research:"Señalización endocrina"
-  }
+evidence:
+"Amplia evidencia clínica para indicaciones autorizadas específicas.",
+
+status:
+"Medicamento autorizado para indicaciones específicas según jurisdicción.",
+
+advantages:
+[
+"Amplia experiencia clínica",
+"Administración semanal en presentaciones autorizadas",
+"Datos clínicos extensos"
+],
+
+limitations:
+[
+"Efectos gastrointestinales posibles",
+"Requiere valoración médica",
+"No apropiado para todas las personas"
+]
+
+},
+
+
+
+tirzepatide:{
+
+name:"Tirzepatide",
+
+category:
+"Pérdida de peso y metabolismo",
+
+mechanism:
+"Agonismo sobre receptores GIP y GLP-1.",
+
+evidence:
+"Amplia evidencia clínica para indicaciones médicas específicas.",
+
+status:
+"Medicamento autorizado para indicaciones específicas según jurisdicción.",
+
+advantages:
+[
+"Mecanismo dual",
+"Amplia investigación clínica",
+"Administración semanal en presentaciones autorizadas"
+],
+
+limitations:
+[
+"Efectos gastrointestinales posibles",
+"Requiere valoración médica",
+"Contraindicaciones específicas"
+]
+
+},
+
+
+
+retatrutide:{
+
+name:"Retatrutide",
+
+category:
+"Metabolismo",
+
+mechanism:
+"Agonismo múltiple relacionado con GLP-1, GIP y glucagón.",
+
+evidence:
+"Investigación clínica en curso.",
+
+status:
+"Molécula experimental.",
+
+advantages:
+[
+"Mecanismo múltiple",
+"Investigación metabólica avanzada"
+],
+
+limitations:
+[
+"No es un medicamento de uso clínico general aprobado",
+"Información clínica todavía en desarrollo"
+]
+
+},
+
+
+
+motsc:{
+
+name:"MOTS-c",
+
+category:
+"Metabolismo y rendimiento",
+
+mechanism:
+"Péptido codificado por ADN mitocondrial relacionado con señalización metabólica.",
+
+evidence:
+"Principalmente investigación experimental.",
+
+status:
+"Experimental.",
+
+advantages:
+[
+"Interés en metabolismo energético",
+"Investigación mitocondrial"
+],
+
+limitations:
+[
+"Evidencia clínica limitada",
+"No posee indicación clínica estándar"
+]
+
+},
+
+
+
+ipamorelin:{
+
+name:"Ipamorelin",
+
+category:
+"Rendimiento e investigación endocrina",
+
+mechanism:
+"Secretagogo relacionado con señalización del receptor de ghrelina.",
+
+evidence:
+"Investigación experimental.",
+
+status:
+"Experimental para los usos comúnmente promocionados en rendimiento.",
+
+advantages:
+[
+"Interés en señalización endocrina"
+],
+
+limitations:
+[
+"No existe una dosis universal",
+"Evidencia clínica limitada para usos de rendimiento"
+]
+
+},
+
+
+
+ghk:{
+
+name:"GHK-Cu",
+
+category:
+"Piel y reparación",
+
+mechanism:
+"Tripéptido con afinidad por cobre.",
+
+evidence:
+"Investigación en biología cutánea y reparación.",
+
+status:
+"Estado dependiente del producto y jurisdicción.",
+
+advantages:
+[
+"Amplia investigación en biología de la piel"
+],
+
+limitations:
+[
+"El nivel de evidencia depende de la aplicación específica"
+]
+
+},
+
+
+
+bpc:{
+
+name:"BPC-157",
+
+category:
+"Recuperación",
+
+mechanism:
+"Péptido experimental investigado principalmente en modelos preclínicos.",
+
+evidence:
+"Evidencia humana limitada.",
+
+status:
+"Experimental.",
+
+advantages:
+[
+"Interés científico en investigación tisular"
+],
+
+limitations:
+[
+"Datos humanos limitados",
+"No posee indicación clínica estándar"
+]
+
+},
+
+
+
+tb500:{
+
+name:"TB-500",
+
+category:
+"Recuperación",
+
+mechanism:
+"Línea experimental relacionada con fragmentos derivados de thymosin beta-4.",
+
+evidence:
+"Investigación experimental.",
+
+status:
+"Experimental.",
+
+advantages:
+[
+"Interés en investigación de reparación tisular"
+],
+
+limitations:
+[
+"Evidencia clínica limitada",
+"No posee indicación clínica estándar"
+]
+
+},
+
+
+
+tesamorelin:{
+
+name:"Tesamorelin",
+
+category:
+"Metabolismo / endocrinología",
+
+mechanism:
+"Análogo relacionado con la hormona liberadora de hormona de crecimiento.",
+
+evidence:
+"Posee evidencia clínica para indicaciones médicas concretas.",
+
+status:
+"Medicamento con indicaciones autorizadas específicas.",
+
+advantages:
+[
+"Uso clínico establecido para indicaciones concretas"
+],
+
+limitations:
+[
+"No debe extrapolarse automáticamente a musculación o pérdida general de peso",
+"Requiere valoración médica"
+]
+
+},
+
+
+
+semax:{
+
+name:"Semax",
+
+category:
+"Neurociencia",
+
+mechanism:
+"Péptido investigado en señalización neurológica.",
+
+evidence:
+"Nivel de evidencia y utilización variable por país.",
+
+status:
+"Estado regulatorio variable según jurisdicción.",
+
+advantages:
+[
+"Interés en investigación neurológica"
+],
+
+limitations:
+[
+"No posee autorización uniforme internacional",
+"Evidencia variable según indicación"
+]
+
+},
+
+
+
+pt141:{
+
+name:"PT-141 / Bremelanotide",
+
+category:
+"Salud sexual",
+
+mechanism:
+"Agonista de receptores melanocortínicos.",
+
+evidence:
+"Existe evidencia clínica para indicaciones específicas.",
+
+status:
+"Posee usos médicos autorizados específicos en determinadas jurisdicciones.",
+
+advantages:
+[
+"Mecanismo diferente a terapias vasculares tradicionales"
+],
+
+limitations:
+[
+"Uso clínico limitado a indicaciones concretas",
+"Puede producir efectos adversos"
+]
+
+},
+
+
+
+nad:{
+
+name:"NAD+",
+
+category:
+"Metabolismo celular",
+
+mechanism:
+"Cofactor metabólico esencial implicado en reacciones redox celulares.",
+
+evidence:
+"Investigación amplia en metabolismo; evidencia clínica depende del uso específico.",
+
+status:
+"No es un péptido.",
+
+advantages:
+[
+"Importancia central en metabolismo celular"
+],
+
+limitations:
+[
+"No debe presentarse como péptido",
+"Las afirmaciones terapéuticas dependen del contexto clínico"
+]
+
+}
+
 
 };
 
 
+
+function tags(items,type){
+
+return items
+
+.map(x=>
+
+<span class="${type}">${x}</span>
+
+)
+
+.join("");
+
+}
+
+
+
 function comparePeptides(){
 
-  const a =
-    peptideData[document.getElementById("pep1").value];
+const a =
 
-  const b =
-    peptideData[document.getElementById("pep2").value];
+peptideData[
+document
+.getElementById("pep1")
+.value
+];
 
-  document.getElementById("compareResult").innerHTML = `
 
-    <table>
+const b =
 
-      <tr>
-        <th>Característica</th>
-        <th>${a.name}</th>
-        <th>${b.name}</th>
-      </tr>
+peptideData[
+document
+.getElementById("pep2")
+.value
+];
 
-      <tr>
-        <td>Área</td>
-        <td>${a.area}</td>
-        <td>${b.area}</td>
-      </tr>
 
-      <tr>
-        <td>Mecanismo general</td>
-        <td>${a.mechanism}</td>
-        <td>${b.mechanism}</td>
-      </tr>
+document
+.getElementById("compareResult")
+.innerHTML = `
 
-      <tr>
-        <td>Estado</td>
-        <td>${a.status}</td>
-        <td>${b.status}</td>
-      </tr>
 
-      <tr>
-        <td>Línea de investigación</td>
-        <td>${a.research}</td>
-        <td>${b.research}</td>
-      </tr>
+<table>
 
-    </table>
 
-  `;
+<tr>
+
+<th>
+Característica
+</th>
+
+<th>
+${a.name}
+</th>
+
+<th>
+${b.name}
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+Categoría
+</td>
+
+<td>
+${a.category}
+</td>
+
+<td>
+${b.category}
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Mecanismo
+</td>
+
+<td>
+${a.mechanism}
+</td>
+
+<td>
+${b.mechanism}
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Nivel de evidencia
+</td>
+
+<td>
+${a.evidence}
+</td>
+
+<td>
+${b.evidence}
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Estado
+</td>
+
+<td>
+${a.status}
+</td>
+
+<td>
+${b.status}
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Puntos destacados
+</td>
+
+<td>
+${tags(a.advantages,"good")}
+</td>
+
+<td>
+${tags(b.advantages,"good")}
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Limitaciones
+</td>
+
+<td>
+${tags(a.limitations,"warn")}
+</td>
+
+<td>
+${tags(b.limitations,"warn")}
+</td>
+
+</tr>
+
+
+</table>
+
+
+`;
 
 }
 
 
-function calculateConcentration(){
 
-  const mg =
-    parseFloat(document.getElementById("mg").value);
+function calculateDose(){
 
-  const ml =
-    parseFloat(document.getElementById("ml").value);
 
-  if(!mg || !ml || mg <= 0 || ml <= 0){
+const peptide =
 
-    document.getElementById("calcResult").innerHTML =
-      "Introduce valores válidos.";
+document
+.getElementById("calcPeptide")
+.value;
 
-    return;
 
-  }
+const vialMg =
 
-  const concentration = mg / ml;
+parseFloat(
 
-  document.getElementById("calcResult").innerHTML =
-    `Concentración:<br>
-    <strong>${concentration.toFixed(3)} mg/mL</strong>`;
+document
+.getElementById("vialMg")
+.value
+
+);
+
+
+const bacMl =
+
+parseFloat(
+
+document
+.getElementById("bacMl")
+.value
+
+);
+
+
+const target =
+
+parseFloat(
+
+document
+.getElementById("targetDose")
+.value
+
+);
+
+
+const unit =
+
+document
+.getElementById("targetUnit")
+.value;
+
+
+
+if(
+
+!vialMg
+||
+!bacMl
+||
+!target
+||
+vialMg <= 0
+||
+bacMl <= 0
+||
+target <= 0
+
+){
+
+alert(
+"Introduce valores válidos."
+);
+
+return;
 
 }
+
+
+
+/* CONVERT TARGET TO MG */
+
+let targetMg;
+
+
+if(unit === "mcg"){
+
+targetMg =
+target / 1000;
+
+}else{
+
+targetMg =
+target;
+
+}
+
+
+
+/* MATH */
+
+const concentration =
+
+vialMg / bacMl;
+
+
+const volume =
+
+targetMg / concentration;
+
+
+/*
+
+U-100 VOLUMETRIC SCALE:
+
+1 mL = 100 units
+
+*/
+
+const units =
+
+volume * 100;
+
+
+const theoreticalDoses =
+
+vialMg / targetMg;
+
+
+
+document
+.getElementById("unitsResult")
+.innerText =
+
+units.toFixed(2);
+
+
+document
+.getElementById("concResult")
+.innerText =
+
+concentration.toFixed(3);
+
+
+document
+.getElementById("volumeResult")
+.innerText =
+
+volume.toFixed(4);
+
+
+document
+.getElementById("dosesResult")
+.innerText =
+
+theoreticalDoses.toFixed(1);
+
+
+
+document
+.getElementById("calcDescription")
+.innerHTML =
+
+`
+
+<strong style="color:#f2cf68">
+
+${peptide}
+
+</strong>
+
+<br>
+
+Con los valores introducidos,
+la concentración matemática es
+
+<strong>
+
+${concentration.toFixed(3)} mg/mL
+
+</strong>.
+
+La cantidad objetivo equivale matemáticamente a
+
+<strong>
+
+${volume.toFixed(4)} mL
+
+</strong>,
+
+que corresponde volumétricamente a
+
+<strong>
+
+${units.toFixed(2)}
+
+</strong>
+
+marcas de una escala U-100
+(100 unidades volumétricas = 1 mL).
+
+<br><br>
+
+Este resultado no determina si la cantidad objetivo
+es clínicamente apropiada.
+
+`;
+
+}
+
 
 
 comparePeptides();
 
+
 </script>
 
+
 </body>
+
 </html>
