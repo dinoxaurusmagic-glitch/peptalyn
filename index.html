@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PEPTALYN | Advanced Peptide Research</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(7,17,31,0.96);
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1c3850;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #42d4ff;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #b9c9d6;
+      margin-top: 2px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #42d4ff;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at top, #16334b 0%, #07111f 55%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .tag {
+      color: #42d4ff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #42d4ff;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #c5d1db;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-top: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 6px;
+    }
+
+    .btn-primary {
+      background: #42d4ff;
+      color: #07111f;
+    }
+
+    .btn-secondary {
+      border: 1px solid #42d4ff;
+      color: #42d4ff;
+    }
+
+    .section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #9eb0bf;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #0d1b2a;
+      border: 1px solid #18364b;
+      border-radius: 14px;
+      padding: 28px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #42d4ff;
+    }
+
+    .card h3 {
+      color: #42d4ff;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #b9c6d0;
+      font-size: 14px;
+    }
+
+    .info {
+      background: #0b1826;
+      text-align: center;
+      padding: 70px 8%;
+    }
+
+    .info h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .info p {
+      max-width: 750px;
+      margin: auto;
+      color: #b8c5cf;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .contact h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .contact p {
+      color: #b8c5cf;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      border-top: 1px solid #18364b;
+      padding: 30px 8%;
+      text-align: center;
+      color: #8193a0;
+      font-size: 13px;
+    }
+
+    .warning {
+      max-width: 850px;
+      margin: 15px auto 0;
+      font-size: 12px;
+      color: #758997;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    PEPTALYN
+    <span>ADVANCED PEPTIDE RESEARCH</span>
+  </div>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-content">
+
+    <div class="tag">Ciencia • Innovación • Investigación</div>
+
+    <h1>
+      Ciencia avanzada para una
+      <span>nueva generación</span>
+    </h1>
+
+    <p>
+      PEPTALYN es una plataforma orientada a información,
+      investigación y educación sobre péptidos y nuevas moléculas.
+    </p>
+
+    <div class="buttons">
+      <a href="#productos" class="btn btn-primary">
+        Conocer productos
+      </a>
+
+      <a href="#contacto" class="btn btn-secondary">
+        Contacto
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="productos">
+
+  <div class="section-title">
+    <h2>Líneas de investigación</h2>
+    <p>Información organizada sobre diferentes moléculas y péptidos.</p>
+  </div>
+
+  <div class="products">
+
+    <div class="card">
+      <h3>Semaglutide</h3>
+      <p>
+        Información científica, características de la molécula
+        y documentación relacionada.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Tirzepatide</h3>
+      <p>
+        Información educativa y documentación científica
+        relacionada con esta molécula.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Retatrutide</h3>
+      <p>
+        Información sobre investigación clínica y desarrollo
+        de moléculas de nueva generación.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Otros péptidos</h3>
+      <p>
+        Catálogo informativo de diferentes líneas
+        de investigación y desarrollo.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="info" id="nosotros">
+  <h2>PEPTALYN</h2>
+
+  <p>
+    Advanced Peptide Research. Nuestro objetivo es proporcionar
+    información clara, organizada y profesional sobre péptidos,
+    investigación científica y nuevas tecnologías biomédicas.
+  </p>
+</section>
+
+<section class="contact" id="contacto">
+
+  <h2>Contáctanos</h2>
+
+  <p>
+    ¿Deseas obtener más información?
+  </p>
+
+  <a href="#" class="btn btn-primary">
+    Próximamente WhatsApp
+  </a>
+
+</section>
+
+<footer>
+
+  © 2026 PEPTALYN — Advanced Peptide Research
+
+  <div class="warning">
+    La información publicada en este sitio es de carácter informativo
+    y educativo. La disponibilidad, comercialización, promoción o uso
+    de productos deberá cumplir con la normativa sanitaria aplicable
+    en cada jurisdicción.
+  </div>
+
+</footer>
+
+</body>
+</html>
