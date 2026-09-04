@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BPC-157 | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== BREADCRUMB ===== */
+
+.breadcrumb{
+  max-width:1120px;
+  margin:auto;
+  padding:28px 20px 0;
+  color:#879bad;
+  font-size:13px;
+}
+
+.breadcrumb a{
+  color:#b8c6d3;
+}
+
+.breadcrumb span{
+  margin:0 8px;
+  opacity:.5;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1120px;
+  margin:auto;
+  padding:55px 20px 65px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+
+.label{
+  color:#efc56b;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(52px,8vw,84px);
+  line-height:.95;
+  letter-spacing:-3px;
+  margin-bottom:22px;
+}
+
+.subtitle{
+  font-size:22px;
+  color:#d1dbe4;
+  margin-bottom:19px;
+}
+
+.description{
+  max-width:690px;
+  color:#a9bacb;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+
+.tag{
+  background:rgba(239,197,107,.1);
+  border:1px solid rgba(239,197,107,.2);
+  color:#efd18c;
+  border-radius:999px;
+  padding:8px 11px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.investigational{
+  margin-top:22px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,184,77,.1);
+  border:1px solid rgba(255,184,77,.28);
+  color:#ffd38a;
+  font-size:12px;
+  font-weight:800;
+}
+
+/* ===== PANEL ===== */
+
+.hero-panel{
+  background:
+    linear-gradient(145deg,#0e3458,#071a2e);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:25px;
+  padding:28px;
+  box-shadow:0 28px 70px rgba(0,0,0,.25);
+}
+
+.hero-panel h3{
+  color:#efc56b;
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.fact{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.fact:last-child{
+  border-bottom:none;
+}
+
+.fact-label{
+  color:#7f96aa;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+
+.fact-value{
+  color:#f2f6fa;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* ===== CONTENT ===== */
+
+.content{
+  max-width:1120px;
+  margin:auto;
+  padding:0 20px 90px;
+}
+
+.section{
+  margin-bottom:28px;
+  background:
+    linear-gradient(180deg,rgba(13,45,76,.92),rgba(5,19,34,.97));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:23px;
+  padding:32px;
+}
+
+.section-tag{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.section h2{
+  font-size:31px;
+  margin-bottom:18px;
+}
+
+.section p{
+  color:#aabac9;
+  line-height:1.75;
+  font-size:16px;
+}
+
+.columns{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.mini{
+  background:#071a2e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:23px;
+}
+
+.mini h3{
+  color:#f4f7fa;
+  margin-bottom:11px;
+  font-size:18px;
+}
+
+.mini p{
+  font-size:14px;
+}
+
+/* ===== EVIDENCE ===== */
+
+.evidence{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.evidence-card{
+  background:#07192b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  padding:21px;
+}
+
+.evidence-card strong{
+  display:block;
+  color:#efc56b;
+  margin-bottom:9px;
+}
+
+.evidence-card p{
+  font-size:14px;
+}
+
+/* ===== WARNINGS ===== */
+
+.warning{
+  background:rgba(173,77,45,.12);
+  border:1px solid rgba(223,122,87,.3);
+}
+
+.warning h2{
+  color:#ffd0bd;
+}
+
+.research-warning{
+  background:rgba(183,129,36,.12);
+  border:1px solid rgba(239,197,107,.32);
+}
+
+/* ===== ACTIONS ===== */
+
+.actions{
+  max-width:1120px;
+  margin:0 auto 90px;
+  padding:0 20px;
+}
+
+.actions-inner{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.2);
+  border-radius:25px;
+  padding:36px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:30px;
+}
+
+.actions h2{
+  font-size:30px;
+  margin-bottom:9px;
+}
+
+.actions p{
+  color:#9eb0c0;
+  line-height:1.6;
+}
+
+.action-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 19px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:#efc56b;
+  color:#041426;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:#e1e8ef;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:38px 20px;
+  color:#8296a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .columns{
+    grid-template-columns:1fr;
+  }
+
+  .evidence{
+    grid-template-columns:1fr;
+  }
+
+  .actions-inner{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+}
+
+@media(max-width:620px){
+
+  .hero{
+    padding-top:40px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .section{
+    padding:25px 21px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <a href="peptidos.html">Péptidos</a>
+  <span>›</span>
+  BPC-157
+</div>
+
+
+<section class="hero">
+
+<div>
+
+  <div class="label">
+    RECUPERACIÓN · REPARACIÓN TISULAR · INVESTIGACIÓN
+  </div>
+
+  <h1>
+    BPC-157
+  </h1>
+
+  <div class="subtitle">
+    Pentadecapéptido experimental de 15 aminoácidos
+  </div>
+
+  <p class="description">
+    BPC-157 es un péptido sintético de 15 aminoácidos investigado
+    principalmente en modelos experimentales de reparación tisular,
+    tendón, músculo, sistema gastrointestinal, angiogénesis y
+    respuesta inflamatoria.
+  </p>
+
+  <div class="tags">
+    <span class="tag">15 aminoácidos</span>
+    <span class="tag">Tendón</span>
+    <span class="tag">Músculo</span>
+    <span class="tag">Angiogénesis</span>
+    <span class="tag">Investigación</span>
+  </div>
+
+  <div class="investigational">
+    ⚠️ MOLÉCULA INVESTIGACIONAL · NO APROBADA
+  </div>
+
+</div>
+
+
+<div class="hero-panel">
+
+  <h3>Perfil rápido</h3>
+
+  <div class="fact">
+    <div class="fact-label">Tipo</div>
+    <div class="fact-value">
+      Péptido sintético de 15 aminoácidos
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Áreas investigadas</div>
+    <div class="fact-value">
+      Tendón, músculo, heridas, tracto gastrointestinal y reparación tisular
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Evidencia</div>
+    <div class="fact-value">
+      Predominantemente preclínica
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Estado</div>
+    <div class="fact-value">
+      Sin medicamento aprobado por FDA
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+<main class="content">
+
+
+<section class="section">
+
+  <div class="section-tag">
+    INVESTIGACIÓN
+  </div>
+
+  <h2>
+    ¿Por qué genera tanto interés?
+  </h2>
+
+  <p>
+    BPC-157 ha generado interés debido a resultados observados
+    principalmente en modelos animales relacionados con cicatrización,
+    recuperación de tendones y músculos, protección gastrointestinal
+    y modulación de distintos procesos de reparación.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    MECANISMOS PROPUESTOS
+  </div>
+
+  <h2>
+    Una biología todavía incompletamente definida
+  </h2>
+
+  <p>
+    Se han propuesto múltiples mecanismos para explicar los efectos
+    experimentales de BPC-157, incluyendo interacción con señalización
+    de óxido nítrico, angiogénesis, función endotelial y diversas
+    vías asociadas con reparación celular. Estos mecanismos continúan
+    bajo investigación y no constituyen evidencia de eficacia clínica.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    ÁREAS DE INTERÉS
+  </div>
+
+  <h2>
+    Investigación preclínica
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>Tendones</h3>
+      <p>
+        Modelos animales han estudiado BPC-157 en procesos de
+        reparación de tendones y uniones musculotendinosas.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Músculo</h3>
+      <p>
+        Se han investigado posibles efectos sobre recuperación
+        de lesiones musculares y regeneración tisular.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Angiogénesis</h3>
+      <p>
+        Algunos estudios experimentales sugieren influencia sobre
+        formación vascular y señalización endotelial.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Tracto gastrointestinal</h3>
+      <p>
+        Una parte importante de la literatura preclínica estudia
+        mucosa gastrointestinal, ulceración y procesos inflamatorios.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    EVIDENCIA HUMANA
+  </div>
+
+  <h2>
+    Muy diferente de la evidencia animal
+  </h2>
+
+  <p>
+    Aunque existe una gran cantidad de publicaciones preclínicas,
+    los datos humanos son extremadamente limitados. Revisiones
+    recientes señalan que los estudios clínicos disponibles corresponden
+    principalmente a pequeños trabajos piloto y no permiten establecer
+    eficacia, dosis óptima ni seguridad a largo plazo.
+  </p>
+
+  <div class="evidence">
+
+    <div class="evidence-card">
+      <strong>Preclínica</strong>
+      <p>
+        Amplia investigación en animales y modelos celulares.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Humanos</strong>
+      <p>
+        Menos de 30 participantes descritos en pequeños estudios
+        piloto según revisiones recientes.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Ensayos avanzados</strong>
+      <p>
+        No existen ensayos fase II completados que establezcan
+        un beneficio clínico validado.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section warning">
+
+  <div class="section-tag">
+    SEGURIDAD
+  </div>
+
+  <h2>
+    La ausencia de eventos conocidos no equivale a seguridad demostrada
+  </h2>
+
+  <p>
+    La FDA ha señalado que las preparaciones compuestas que contienen
+    BPC-157 pueden presentar riesgo de inmunogenicidad en determinadas
+    vías y dificultades relacionadas con impurezas peptídicas y
+    caracterización del principio activo. Los datos humanos siguen
+    siendo insuficientes para establecer adecuadamente su perfil
+    de seguridad.
+  </p>
+
+</section>
+
+
+<section class="section research-warning">
+
+  <div class="section-tag">
+    ESTADO REGULATORIO
+  </div>
+
+  <h2>
+    Continúa siendo investigacional
+  </h2>
+
+  <p>
+    BPC-157 no cuenta con una formulación farmacéutica aprobada por
+    la FDA para reparación de tendones, lesiones deportivas, heridas,
+    dolor articular u otras indicaciones. En julio de 2026, BPC-157
+    y BPC-157 acetate fueron revisados nuevamente por el Pharmacy
+    Compounding Advisory Committee de la FDA.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    DEPORTE
+  </div>
+
+  <h2>
+    Consideración importante para atletas
+  </h2>
+
+  <p>
+    BPC-157 aparece expresamente en la Lista de Sustancias y Métodos
+    Prohibidos de la Agencia Mundial Antidopaje dentro de la categoría
+    de sustancias no aprobadas. Para deportistas sujetos a controles
+    antidopaje, su utilización puede constituir una infracción.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    CIENCIA VS MARKETING
+  </div>
+
+  <h2>
+    “Regenerativo” no significa clínicamente demostrado
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>Lo que existe</h3>
+      <p>
+        Resultados preclínicos interesantes en tendón,
+        músculo, gastrointestinal y reparación tisular.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Lo que falta</h3>
+      <p>
+        Ensayos humanos grandes y controlados, farmacocinética
+        bien caracterizada, formulaciones estandarizadas,
+        dosis validadas y seguimiento de seguridad a largo plazo.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    REFERENCIAS
+  </div>
+
+  <h2>
+    Fuentes científicas y regulatorias
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>FDA — Compounding</h3>
+      <p>
+        Evaluación de riesgos potenciales asociados con
+        preparaciones compuestas que contienen BPC-157.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>FDA — PCAC 2026</h3>
+      <p>
+        Revisión de BPC-157 y BPC-157 acetate dentro del
+        proceso de evaluación para sustancias de compounding.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Revisión 2026</h3>
+      <p>
+        Análisis de los desafíos farmacéuticos, formulación,
+        farmacocinética y barreras para desarrollo clínico.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>WADA</h3>
+      <p>
+        BPC-157 figura dentro de las sustancias no aprobadas
+        prohibidas para atletas sujetos a normativa antidopaje.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<section class="actions">
+
+<div class="actions-inner">
+
+  <div>
+
+    <h2>
+      Explora recuperación
+    </h2>
+
+    <p>
+      Continúa con otras moléculas investigadas en
+      reparación tisular y biología de recuperación.
+    </p>
+
+  </div>
+
+  <div class="action-buttons">
+
+    <a href="comparador.html"
+       class="btn btn-gold">
+      Comparar moléculas
+    </a>
+
+    <a href="peptidos.html?area=recuperacion"
+       class="btn btn-outline">
+      Ver recuperación
+    </a>
+
+    <a href="peptidos.html"
+       class="btn btn-outline">
+      Volver a biblioteca
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
+  <br>
+  BPC-157 es una molécula investigacional.
+  Información presentada con fines científicos y educativos.
+
+</footer>
+
+
+<script>
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent="☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
