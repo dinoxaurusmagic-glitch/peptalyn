@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Semaglutide | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== BREADCRUMB ===== */
+
+.breadcrumb{
+  max-width:1120px;
+  margin:auto;
+  padding:28px 20px 0;
+  color:#879bad;
+  font-size:13px;
+}
+
+.breadcrumb a{
+  color:#b8c6d3;
+}
+
+.breadcrumb span{
+  margin:0 8px;
+  opacity:.5;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1120px;
+  margin:auto;
+  padding:55px 20px 65px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+
+.label{
+  color:#efc56b;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(52px,8vw,84px);
+  line-height:.95;
+  letter-spacing:-3px;
+  margin-bottom:22px;
+}
+
+.subtitle{
+  font-size:22px;
+  color:#d1dbe4;
+  margin-bottom:19px;
+}
+
+.description{
+  max-width:690px;
+  color:#a9bacb;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.hero-panel{
+  background:
+    linear-gradient(145deg,#0e3458,#071a2e);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:25px;
+  padding:28px;
+  box-shadow:0 28px 70px rgba(0,0,0,.25);
+}
+
+.hero-panel h3{
+  color:#efc56b;
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.fact{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.fact:last-child{
+  border-bottom:none;
+}
+
+.fact-label{
+  color:#7f96aa;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+
+.fact-value{
+  color:#f2f6fa;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* ===== CONTENT ===== */
+
+.content{
+  max-width:1120px;
+  margin:auto;
+  padding:0 20px 90px;
+}
+
+.section{
+  margin-bottom:28px;
+  background:
+    linear-gradient(180deg,rgba(13,45,76,.92),rgba(5,19,34,.97));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:23px;
+  padding:32px;
+}
+
+.section-tag{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.section h2{
+  font-size:31px;
+  margin-bottom:18px;
+}
+
+.section p{
+  color:#aabac9;
+  line-height:1.75;
+  font-size:16px;
+}
+
+.columns{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.mini{
+  background:#071a2e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:23px;
+}
+
+.mini h3{
+  color:#f4f7fa;
+  margin-bottom:11px;
+  font-size:18px;
+}
+
+.mini p{
+  font-size:14px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+
+.tag{
+  background:rgba(239,197,107,.1);
+  border:1px solid rgba(239,197,107,.2);
+  color:#efd18c;
+  border-radius:999px;
+  padding:8px 11px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* ===== EVIDENCE ===== */
+
+.evidence{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.evidence-card{
+  background:#07192b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  padding:21px;
+}
+
+.evidence-card strong{
+  display:block;
+  color:#efc56b;
+  margin-bottom:9px;
+}
+
+.evidence-card p{
+  font-size:14px;
+}
+
+/* ===== SAFETY ===== */
+
+.warning{
+  background:rgba(173,77,45,.12);
+  border:1px solid rgba(223,122,87,.3);
+}
+
+.warning h2{
+  color:#ffd0bd;
+}
+
+/* ===== ACTIONS ===== */
+
+.actions{
+  max-width:1120px;
+  margin:0 auto 90px;
+  padding:0 20px;
+}
+
+.actions-inner{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.2);
+  border-radius:25px;
+  padding:36px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:30px;
+}
+
+.actions h2{
+  font-size:30px;
+  margin-bottom:9px;
+}
+
+.actions p{
+  color:#9eb0c0;
+  line-height:1.6;
+}
+
+.action-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 19px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:#efc56b;
+  color:#041426;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:#e1e8ef;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:38px 20px;
+  color:#8296a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .columns{
+    grid-template-columns:1fr;
+  }
+
+  .evidence{
+    grid-template-columns:1fr;
+  }
+
+  .actions-inner{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+
+}
+
+@media(max-width:620px){
+
+  .hero{
+    padding-top:40px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .subtitle{
+    font-size:19px;
+  }
+
+  .section{
+    padding:25px 21px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+
+<div class="breadcrumb">
+
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <a href="peptidos.html">Péptidos</a>
+  <span>›</span>
+  Semaglutide
+
+</div>
+
+
+<section class="hero">
+
+<div>
+
+  <div class="label">
+    METABOLISMO · AGONISTA GLP-1
+  </div>
+
+  <h1>
+    Semaglutide
+  </h1>
+
+  <div class="subtitle">
+    Agonista del receptor del péptido similar al glucagón tipo 1
+  </div>
+
+  <p class="description">
+    Semaglutide es un análogo de GLP-1 de acción prolongada.
+    Su actividad sobre el receptor GLP-1 participa en la regulación
+    de la glucosa, el apetito, la saciedad y la ingesta energética.
+  </p>
+
+  <div class="tags">
+    <span class="tag">GLP-1</span>
+    <span class="tag">Metabolismo</span>
+    <span class="tag">Saciedad</span>
+    <span class="tag">Evidencia clínica amplia</span>
+  </div>
+
+</div>
+
+
+<div class="hero-panel">
+
+  <h3>Perfil rápido</h3>
+
+  <div class="fact">
+    <div class="fact-label">Clase</div>
+    <div class="fact-value">
+      Agonista del receptor GLP-1
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Área principal</div>
+    <div class="fact-value">
+      Metabolismo y control del peso
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Administración aprobada</div>
+    <div class="fact-value">
+      Existen formulaciones subcutáneas y orales según producto e indicación
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Estado</div>
+    <div class="fact-value">
+      Medicamento aprobado para indicaciones específicas
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+<main class="content">
+
+
+<section class="section">
+
+  <div class="section-tag">
+    MECANISMO
+  </div>
+
+  <h2>
+    ¿Cómo actúa?
+  </h2>
+
+  <p>
+    Semaglutide activa el receptor GLP-1. Esta vía participa en
+    el control de la glucemia y en señales relacionadas con el
+    apetito y la saciedad. En el contexto del control del peso,
+    su efecto contribuye a reducir la ingesta energética.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    CONTEXTO CLÍNICO
+  </div>
+
+  <h2>
+    Áreas con evidencia clínica
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+
+      <h3>Control del peso</h3>
+
+      <p>
+        Determinadas formulaciones de semaglutide están aprobadas
+        para el control crónico del peso en pacientes que cumplen
+        criterios específicos de sobrepeso u obesidad.
+      </p>
+
+    </div>
+
+
+    <div class="mini">
+
+      <h3>Diabetes tipo 2</h3>
+
+      <p>
+        Otras presentaciones de semaglutide están aprobadas
+        para el tratamiento de adultos con diabetes mellitus tipo 2,
+        de acuerdo con la indicación de cada producto.
+      </p>
+
+    </div>
+
+
+    <div class="mini">
+
+      <h3>Riesgo cardiovascular</h3>
+
+      <p>
+        Ensayos clínicos han evaluado resultados cardiovasculares
+        en diferentes poblaciones de alto riesgo.
+      </p>
+
+    </div>
+
+
+    <div class="mini">
+
+      <h3>Investigación metabólica</h3>
+
+      <p>
+        Continúa estudiándose su impacto sobre distintas variables
+        metabólicas y cardiometabólicas.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    EVIDENCIA
+  </div>
+
+  <h2>
+    Nivel de evidencia
+  </h2>
+
+  <p>
+    Semaglutide cuenta con un volumen considerable de ensayos
+    clínicos aleatorizados y experiencia regulatoria internacional.
+    La evidencia y las indicaciones dependen de la formulación,
+    la dosis aprobada y la población estudiada.
+  </p>
+
+  <div class="evidence">
+
+    <div class="evidence-card">
+      <strong>Ensayos clínicos</strong>
+      <p>
+        Amplia evaluación en programas clínicos de diabetes,
+        control del peso y riesgo cardiovascular.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Regulación</strong>
+      <p>
+        Existen productos autorizados por distintas agencias regulatorias
+        para indicaciones médicas específicas.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Seguimiento</strong>
+      <p>
+        Su perfil de eficacia y seguridad continúa siendo evaluado
+        mediante farmacovigilancia y estudios de resultados.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section warning">
+
+  <div class="section-tag">
+    SEGURIDAD
+  </div>
+
+  <h2>
+    Consideraciones importantes
+  </h2>
+
+  <p>
+    Los efectos adversos gastrointestinales se encuentran entre
+    los más frecuentes con agonistas GLP-1. La selección del paciente,
+    contraindicaciones, interacciones y advertencias dependen del producto
+    y de su ficha técnica vigente. La información de esta página no sustituye
+    la valoración médica ni la información oficial del medicamento.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    ESTADO REGULATORIO
+  </div>
+
+  <h2>
+    Aprobado para indicaciones específicas
+  </h2>
+
+  <p>
+    La existencia de productos aprobados que contienen semaglutide no
+    significa que cualquier presentación, concentración, preparación
+    magistral o producto comercializado con ese nombre tenga automáticamente
+    la misma autorización. Siempre debe verificarse el producto concreto
+    y la normativa aplicable en cada país.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    REFERENCIAS
+  </div>
+
+  <h2>
+    Fuentes científicas principales
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>EMA — Wegovy</h3>
+      <p>
+        Información europea de producto, indicaciones, mecanismo
+        y datos regulatorios oficiales.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>SELECT Trial</h3>
+      <p>
+        Ensayo cardiovascular en personas con sobrepeso u obesidad
+        y enfermedad cardiovascular establecida sin diabetes.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<section class="actions">
+
+<div class="actions-inner">
+
+  <div>
+
+    <h2>
+      Continúa explorando
+    </h2>
+
+    <p>
+      Compara Semaglutide con otras moléculas o utiliza
+      las herramientas informativas de PEPTALYN.
+    </p>
+
+  </div>
+
+  <div class="action-buttons">
+
+    <a href="comparador.html"
+       class="btn btn-gold">
+      Comparar moléculas
+    </a>
+
+    <a href="calculadora.html"
+       class="btn btn-outline">
+      Abrir calculadora
+    </a>
+
+    <a href="peptidos.html"
+       class="btn btn-outline">
+      Volver a biblioteca
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
+  <br>
+  Información científica con fines educativos.
+  Consulta siempre la ficha técnica y normativa aplicable.
+
+</footer>
+
+
+<script>
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent="☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
