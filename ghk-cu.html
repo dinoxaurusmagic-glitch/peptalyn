@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GHK-Cu | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== BREADCRUMB ===== */
+
+.breadcrumb{
+  max-width:1120px;
+  margin:auto;
+  padding:28px 20px 0;
+  color:#879bad;
+  font-size:13px;
+}
+
+.breadcrumb a{
+  color:#b8c6d3;
+}
+
+.breadcrumb span{
+  margin:0 8px;
+  opacity:.5;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1120px;
+  margin:auto;
+  padding:55px 20px 65px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+
+.label{
+  color:#efc56b;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(52px,8vw,84px);
+  line-height:.95;
+  letter-spacing:-3px;
+  margin-bottom:22px;
+}
+
+.subtitle{
+  font-size:22px;
+  color:#d1dbe4;
+  margin-bottom:19px;
+}
+
+.description{
+  max-width:690px;
+  color:#a9bacb;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+
+.tag{
+  background:rgba(239,197,107,.1);
+  border:1px solid rgba(239,197,107,.2);
+  color:#efd18c;
+  border-radius:999px;
+  padding:8px 11px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.research-badge{
+  margin-top:22px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,184,77,.1);
+  border:1px solid rgba(255,184,77,.28);
+  color:#ffd38a;
+  font-size:12px;
+  font-weight:800;
+}
+
+/* ===== PANEL ===== */
+
+.hero-panel{
+  background:
+    linear-gradient(145deg,#0e3458,#071a2e);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:25px;
+  padding:28px;
+  box-shadow:0 28px 70px rgba(0,0,0,.25);
+}
+
+.hero-panel h3{
+  color:#efc56b;
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.fact{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.fact:last-child{
+  border-bottom:none;
+}
+
+.fact-label{
+  color:#7f96aa;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+
+.fact-value{
+  color:#f2f6fa;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* ===== CONTENT ===== */
+
+.content{
+  max-width:1120px;
+  margin:auto;
+  padding:0 20px 90px;
+}
+
+.section{
+  margin-bottom:28px;
+  background:
+    linear-gradient(180deg,rgba(13,45,76,.92),rgba(5,19,34,.97));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:23px;
+  padding:32px;
+}
+
+.section-tag{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.section h2{
+  font-size:31px;
+  margin-bottom:18px;
+}
+
+.section p{
+  color:#aabac9;
+  line-height:1.75;
+  font-size:16px;
+}
+
+.columns{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.mini{
+  background:#071a2e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:23px;
+}
+
+.mini h3{
+  color:#f4f7fa;
+  margin-bottom:11px;
+  font-size:18px;
+}
+
+.mini p{
+  font-size:14px;
+}
+
+/* ===== EVIDENCE ===== */
+
+.evidence{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.evidence-card{
+  background:#07192b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  padding:21px;
+}
+
+.evidence-card strong{
+  display:block;
+  color:#efc56b;
+  margin-bottom:9px;
+}
+
+.evidence-card p{
+  font-size:14px;
+}
+
+/* ===== WARNINGS ===== */
+
+.warning{
+  background:rgba(173,77,45,.12);
+  border:1px solid rgba(223,122,87,.3);
+}
+
+.warning h2{
+  color:#ffd0bd;
+}
+
+.research-warning{
+  background:rgba(183,129,36,.12);
+  border:1px solid rgba(239,197,107,.32);
+}
+
+/* ===== ACTIONS ===== */
+
+.actions{
+  max-width:1120px;
+  margin:0 auto 90px;
+  padding:0 20px;
+}
+
+.actions-inner{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.2);
+  border-radius:25px;
+  padding:36px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:30px;
+}
+
+.actions h2{
+  font-size:30px;
+  margin-bottom:9px;
+}
+
+.actions p{
+  color:#9eb0c0;
+  line-height:1.6;
+}
+
+.action-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 19px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:#efc56b;
+  color:#041426;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:#e1e8ef;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:38px 20px;
+  color:#8296a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .columns{
+    grid-template-columns:1fr;
+  }
+
+  .evidence{
+    grid-template-columns:1fr;
+  }
+
+  .actions-inner{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+}
+
+@media(max-width:620px){
+
+  .hero{
+    padding-top:40px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .section{
+    padding:25px 21px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <a href="peptidos.html">Péptidos</a>
+  <span>›</span>
+  GHK-Cu
+</div>
+
+
+<section class="hero">
+
+<div>
+
+  <div class="label">
+    PIEL · REPARACIÓN · PÉPTIDO DE COBRE
+  </div>
+
+  <h1>
+    GHK-Cu
+  </h1>
+
+  <div class="subtitle">
+    Tripéptido de cobre asociado a procesos de reparación y remodelación tisular
+  </div>
+
+  <p class="description">
+    GHK-Cu es el complejo formado por el tripéptido
+    glycyl-L-histidyl-L-lysine y cobre. Se encuentra de forma natural
+    en el organismo y ha sido ampliamente estudiado por su relación
+    con reparación cutánea, remodelación de matriz extracelular,
+    actividad de fibroblastos y señalización celular.
+  </p>
+
+  <div class="tags">
+    <span class="tag">GHK</span>
+    <span class="tag">Cobre</span>
+    <span class="tag">Piel</span>
+    <span class="tag">Colágeno</span>
+    <span class="tag">Reparación</span>
+  </div>
+
+  <div class="research-badge">
+    INVESTIGACIÓN BIOMÉDICA Y DERMOCOSMÉTICA
+  </div>
+
+</div>
+
+
+<div class="hero-panel">
+
+  <h3>Perfil rápido</h3>
+
+  <div class="fact">
+    <div class="fact-label">Tipo</div>
+    <div class="fact-value">
+      Tripéptido unido a cobre
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Secuencia</div>
+    <div class="fact-value">
+      Glycyl-L-histidyl-L-lysine
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Áreas estudiadas</div>
+    <div class="fact-value">
+      Piel, cicatrización, matriz extracelular, fibroblastos y cabello
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Evidencia</div>
+    <div class="fact-value">
+      Principalmente preclínica, experimental y dermocosmética
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+<main class="content">
+
+
+<section class="section">
+
+  <div class="section-tag">
+    BIOLOGÍA
+  </div>
+
+  <h2>
+    ¿Qué es GHK-Cu?
+  </h2>
+
+  <p>
+    GHK es un pequeño tripéptido presente de forma natural en fluidos
+    y tejidos humanos. Posee afinidad por el cobre y puede formar el
+    complejo GHK-Cu. Su interés científico se relaciona con la capacidad
+    de transportar cobre y con diferentes efectos observados sobre
+    señalización celular, inflamación y remodelación tisular.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    MECANISMO
+  </div>
+
+  <h2>
+    Remodelación y señalización celular
+  </h2>
+
+  <p>
+    Estudios celulares y preclínicos han relacionado GHK-Cu con
+    actividad de fibroblastos, síntesis y remodelación de colágeno,
+    regulación de metaloproteinasas, angiogénesis y respuesta
+    inflamatoria. Estos mecanismos ayudan a explicar su interés
+    dentro de la investigación en piel y reparación de tejidos.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    ÁREAS DE INVESTIGACIÓN
+  </div>
+
+  <h2>
+    Campos estudiados
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>Piel</h3>
+      <p>
+        Se estudia por sus posibles efectos sobre firmeza,
+        elasticidad, matriz extracelular y apariencia cutánea.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Colágeno</h3>
+      <p>
+        La literatura experimental ha descrito efectos relacionados
+        con síntesis y remodelación de colágeno y otros componentes
+        de la matriz extracelular.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Cicatrización</h3>
+      <p>
+        Modelos celulares y animales muestran interés en procesos
+        de granulación, angiogénesis y reparación de heridas.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Cabello</h3>
+      <p>
+        También se ha estudiado en el contexto de biología del
+        folículo piloso y productos cosméticos para cabello.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    EVIDENCIA
+  </div>
+
+  <h2>
+    ¿Qué tan sólida es la evidencia?
+  </h2>
+
+  <p>
+    GHK-Cu cuenta con décadas de investigación experimental.
+    Sin embargo, gran parte de los datos proceden de estudios
+    celulares, animales, formulaciones tópicas y trabajos
+    dermocosméticos. Existen muchos menos estudios clínicos
+    grandes y controlados que permitan extrapolar estos resultados
+    a intervenciones sistémicas o inyectables.
+  </p>
+
+  <div class="evidence">
+
+    <div class="evidence-card">
+      <strong>In vitro</strong>
+      <p>
+        Estudios sobre fibroblastos, colágeno, matriz extracelular,
+        inflamación y expresión génica.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Preclínica</strong>
+      <p>
+        Modelos animales han evaluado cicatrización,
+        angiogénesis y reparación tisular.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Humanos</strong>
+      <p>
+        La experiencia es mayor en aplicaciones tópicas
+        y cosméticas; los datos sistémicos son mucho más limitados.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    PIEL
+  </div>
+
+  <h2>
+    Interés dermocosmético
+  </h2>
+
+  <p>
+    GHK-Cu aparece en la literatura relacionada con cosmética
+    antienvejecimiento y productos para cuidado de la piel.
+    Los estudios han investigado parámetros como elasticidad,
+    firmeza, apariencia de líneas finas, remodelación cutánea
+    y actividad de fibroblastos.
+  </p>
+
+</section>
+
+
+<section class="section warning">
+
+  <div class="section-tag">
+    VÍA INYECTABLE
+  </div>
+
+  <h2>
+    Evidencia humana limitada
+  </h2>
+
+  <p>
+    Las formulaciones inyectables no deben confundirse con los
+    productos tópicos o cosméticos que contienen péptidos de cobre.
+    La FDA ha señalado que los medicamentos compuestos inyectables
+    que contienen GHK-Cu pueden presentar riesgo de inmunogenicidad
+    debido a agregación y a impurezas relacionadas con péptidos,
+    y que existen datos humanos limitados para evaluar adecuadamente
+    su seguridad.
+  </p>
+
+</section>
+
+
+<section class="section research-warning">
+
+  <div class="section-tag">
+    ESTADO REGULATORIO
+  </div>
+
+  <h2>
+    La vía y el producto importan
+  </h2>
+
+  <p>
+    La presencia de GHK-Cu en cosméticos o productos tópicos no
+    implica que las preparaciones inyectables tengan autorización
+    terapéutica. El estado regulatorio depende de la formulación,
+    vía de administración, fabricante y jurisdicción correspondiente.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    REFERENCIAS
+  </div>
+
+  <h2>
+    Fuentes científicas principales
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>FDA — Seguridad</h3>
+      <p>
+        Información oficial sobre riesgos potenciales de
+        formulaciones compuestas inyectables que contienen GHK-Cu.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Skin regeneration</h3>
+      <p>
+        Revisiones científicas sobre GHK-Cu, fibroblastos,
+        remodelación cutánea y matriz extracelular.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Wound healing</h3>
+      <p>
+        Literatura experimental sobre cicatrización,
+        angiogénesis y reparación de tejidos.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Dermocosmética</h3>
+      <p>
+        Estudios y revisiones sobre péptidos de cobre
+        utilizados en investigación y productos para piel.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<section class="actions">
+
+<div class="actions-inner">
+
+  <div>
+
+    <h2>
+      Continúa explorando
+    </h2>
+
+    <p>
+      Consulta otras moléculas relacionadas con piel,
+      recuperación y biología regenerativa en PEPTALYN.
+    </p>
+
+  </div>
+
+  <div class="action-buttons">
+
+    <a href="comparador.html"
+       class="btn btn-gold">
+      Comparar moléculas
+    </a>
+
+    <a href="peptidos.html?area=piel"
+       class="btn btn-outline">
+      Ver piel
+    </a>
+
+    <a href="peptidos.html?area=recuperacion"
+       class="btn btn-outline">
+      Ver recuperación
+    </a>
+
+    <a href="peptidos.html"
+       class="btn btn-outline">
+      Volver a biblioteca
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
+  <br>
+  Información científica con fines educativos.
+  La evidencia y el estado regulatorio dependen de la formulación y vía de administración.
+
+</footer>
+
+
+<script>
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent="☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
