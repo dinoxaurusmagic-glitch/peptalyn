@@ -4770,6 +4770,169 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 </script>
+  <style>
+
+/* ===== AJUSTE FINAL DEL MENÚ MÓVIL ===== */
+
+@media (max-width:900px){
+
+  header{
+    position:sticky;
+    top:0;
+    z-index:10000;
+  }
+
+  .nav{
+    position:relative;
+  }
+
+  .menu{
+    position:fixed !important;
+    top:92px !important;
+    left:16px !important;
+    right:16px !important;
+    bottom:auto !important;
+
+    max-height:calc(100vh - 115px);
+    overflow-y:auto;
+
+    background:#061a31 !important;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    border-radius:18px;
+
+    padding:16px !important;
+
+    box-shadow:
+      0 25px 70px rgba(0,0,0,.55);
+
+    z-index:10020 !important;
+  }
+
+  .menu.open{
+    display:flex !important;
+  }
+
+  .menu.open a{
+    padding:13px 18px !important;
+    font-size:16px !important;
+    border-bottom:
+      1px solid rgba(255,255,255,.08);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .mobile-btn{
+    z-index:10030 !important;
+  }
+
+}
+
+/* Oscurece suavemente el fondo cuando el menú está abierto */
+.mobile-overlay{
+  display:none;
+}
+
+@media (max-width:900px){
+
+  .mobile-overlay.show{
+    display:block;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(2px);
+    z-index:10010;
+  }
+
+}
+
+</style>
+
+
+<div id="mobileOverlay" class="mobile-overlay"></div>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const button =
+    document.querySelector(".mobile-btn");
+
+  const menu =
+    document.getElementById("menu");
+
+  const overlay =
+    document.getElementById("mobileOverlay");
+
+  if(!button || !menu || !overlay){
+    return;
+  }
+
+
+  function closeMobileMenu(){
+
+    menu.classList.remove("open");
+
+    overlay.classList.remove("show");
+
+    button.innerHTML = "☰";
+
+    button.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+  }
+
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      setTimeout(function(){
+
+        const opened =
+          menu.classList.contains("open");
+
+        overlay.classList.toggle(
+          "show",
+          opened
+        );
+
+      },10);
+
+    }
+  );
+
+
+  overlay.addEventListener(
+    "click",
+    closeMobileMenu
+  );
+
+
+  menu
+    .querySelectorAll("a")
+    .forEach(function(link){
+
+      link.addEventListener(
+        "click",
+        function(){
+
+          closeMobileMenu();
+
+        }
+      );
+
+    });
+
+});
+
+</script>
 </body>
 
 </html>
