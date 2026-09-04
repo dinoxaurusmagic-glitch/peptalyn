@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Áreas de investigación | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123e69 0%,#071c32 35%,#020b15 75%);
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover,
+.menu .active{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1050px;
+  margin:auto;
+  text-align:center;
+  padding:90px 20px 55px;
+}
+
+.eyebrow{
+  color:#efc56b;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(43px,7vw,76px);
+  line-height:1.02;
+  letter-spacing:-2px;
+  margin-bottom:24px;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:#afbed0;
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* ===== AREAS ===== */
+
+.areas{
+  max-width:1180px;
+  margin:auto;
+  padding:20px 20px 90px;
+}
+
+.intro{
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.intro h2{
+  font-size:31px;
+  margin-bottom:10px;
+}
+
+.intro p{
+  color:#96aabd;
+  line-height:1.6;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  min-height:310px;
+  padding:30px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.1);
+  background:
+    linear-gradient(145deg,rgba(15,49,82,.95),rgba(5,19,35,.98));
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:.3s;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  right:-85px;
+  top:-85px;
+  background:rgba(239,197,107,.08);
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(239,197,107,.45);
+  box-shadow:0 25px 65px rgba(0,0,0,.32);
+}
+
+.icon{
+  width:55px;
+  height:55px;
+  border-radius:16px;
+  background:rgba(239,197,107,.12);
+  border:1px solid rgba(239,197,107,.22);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  margin-bottom:23px;
+}
+
+.card h3{
+  font-size:25px;
+  line-height:1.15;
+  margin-bottom:14px;
+}
+
+.card p{
+  color:#a9b9c9;
+  line-height:1.65;
+  font-size:15px;
+  margin-bottom:24px;
+}
+
+.examples{
+  color:#8299ad;
+  font-size:12px;
+  line-height:1.6;
+  margin-bottom:23px;
+}
+
+.explore{
+  margin-top:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#efc56b;
+  font-weight:800;
+  font-size:14px;
+}
+
+.explore span{
+  transition:.2s;
+}
+
+.card:hover .explore span{
+  transform:translateX(5px);
+}
+
+/* ===== FEATURE ===== */
+
+.feature{
+  max-width:1140px;
+  margin:0 auto 90px;
+  padding:0 20px;
+}
+
+.feature-inner{
+  border-radius:26px;
+  padding:45px;
+  background:
+    linear-gradient(120deg,#0d3154,#071a2e);
+  border:1px solid rgba(239,197,107,.18);
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  align-items:center;
+  gap:40px;
+}
+
+.feature-label{
+  color:#efc56b;
+  font-size:11px;
+  letter-spacing:4px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.feature h2{
+  font-size:36px;
+  margin-bottom:14px;
+}
+
+.feature p{
+  color:#a8b9ca;
+  line-height:1.7;
+}
+
+.feature-action{
+  display:flex;
+  justify-content:center;
+}
+
+.main-btn{
+  display:inline-flex;
+  padding:15px 23px;
+  background:#efc56b;
+  color:#041426;
+  font-weight:800;
+  border-radius:14px;
+  transition:.2s;
+}
+
+.main-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  background:#020a13;
+  text-align:center;
+  color:#8397aa;
+  padding:38px 20px;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    max-height:calc(100dvh - 110px);
+    overflow-y:auto;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+}
+
+@media(max-width:620px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:47px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .card{
+    min-height:auto;
+  }
+
+  .feature-inner{
+    padding:32px 23px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button
+    class="mobile-btn"
+    id="mobileButton"
+    aria-label="Abrir menú">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html" class="active">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="eyebrow">
+    PEPTALYN · ÁREAS DE INVESTIGACIÓN
+  </div>
+
+  <h1>
+    Explora la ciencia por áreas
+  </h1>
+
+  <p>
+    Una forma más sencilla de descubrir moléculas según el campo
+    biomédico en el que se estudian, su mecanismo y el nivel de
+    evidencia disponible.
+  </p>
+
+</section>
+
+
+<main class="areas">
+
+<div class="intro">
+
+  <h2>Selecciona un área</h2>
+
+  <p>
+    Cada molécula puede participar en más de un campo de investigación.
+  </p>
+
+</div>
+
+
+<div class="grid">
+
+
+  <a class="card"
+     href="peptidos.html?area=metabolismo">
+
+    <div class="icon">◈</div>
+
+    <h3>
+      Metabolismo y composición corporal
+    </h3>
+
+    <p>
+      Investigación relacionada con señalización metabólica,
+      regulación energética, saciedad y composición corporal.
+    </p>
+
+    <div class="examples">
+      Semaglutide · Tirzepatide · Retatrutide · Tesamorelin
+    </div>
+
+    <div class="explore">
+      Explorar área <span>→</span>
+    </div>
+
+  </a>
+
+
+  <a class="card"
+     href="peptidos.html?area=rendimiento">
+
+    <div class="icon">△</div>
+
+    <h3>
+      Rendimiento y fisiología
+    </h3>
+
+    <p>
+      Moléculas estudiadas en bioenergética, señalización hormonal,
+      adaptación fisiológica y composición corporal.
+    </p>
+
+    <div class="examples">
+      MOTS-c · Ipamorelin · Tesamorelin
+    </div>
+
+    <div class="explore">
+      Explorar área <span>→</span>
+    </div>
+
+  </a>
+
+
+  <a class="card"
+     href="peptidos.html?area=recuperacion">
+
+    <div class="icon">＋</div>
+
+    <h3>
+      Recuperación y reparación
+    </h3>
+
+    <p>
+      Investigación preclínica y biomédica relacionada con
+      reparación tisular y procesos regenerativos.
+    </p>
+
+    <div class="examples">
+      GHK-Cu · BPC-157 · TB-500
+    </div>
+
+    <div class="explore">
+      Explorar área <span>→</span>
+    </div>
+
+  </a>
+
+
+  <a class="card"
+     href="peptidos.html?area=neurociencia">
+
+    <div class="icon">⌁</div>
+
+    <h3>
+      Neurociencia
+    </h3>
+
+    <p>
+      Moléculas investigadas en señalización neuronal,
+      neurobiología y mecanismos del sistema nervioso.
+    </p>
+
+    <div class="examples">
+      Semax · Selank
+    </div>
+
+    <div class="explore">
+      Explorar área <span>→</span>
+    </div>
+
+  </a>
+
+
+  <a class="card"
+     href="peptidos.html?area=piel">
+
+    <div class="icon">◇</div>
+
+    <h3>
+      Piel y biología estética
+    </h3>
+
+    <p>
+      Investigación sobre matriz extracelular, señalización
+      dérmica, colágeno y procesos relacionados con la piel.
+    </p>
+
+    <div class="examples">
+      GHK-Cu · péptidos de cobre
+    </div>
+
+    <div class="explore">
+      Explorar área <span>→</span>
+    </div>
+
+  </a>
+
+
+  <a class="card"
+     href="peptidos.html?area=longevidad">
+
+    <div class="icon">∞</div>
+
+    <h3>
+      Longevidad y bioenergética
+    </h3>
+
+    <p>
+      Investigación relacionada con metabolismo celular,
+      función mitocondrial y mecanismos asociados al envejecimiento.
+    </p>
+
+    <div class="examples">
+      MOTS-c · NAD+
+    </div>
+
+    <div class="explore">
+      Explorar área <span>→</span>
+    </div>
+
+  </a>
+
+
+  <a class="card"
+     href="peptidos.html">
+
+    <div class="icon">⌬</div>
+
+    <h3>
+      Investigación avanzada
+    </h3>
+
+    <p>
+      Moléculas emergentes y líneas de investigación que todavía
+      se encuentran en distintas fases de desarrollo científico.
+    </p>
+
+    <div class="examples">
+      Nuevas moléculas · investigación preclínica · desarrollo
+    </div>
+
+    <div class="explore">
+      Ver biblioteca <span>→</span>
+    </div>
+
+  </a>
+
+
+</div>
+
+</main>
+
+
+<section class="feature">
+
+<div class="feature-inner">
+
+  <div>
+
+    <div class="feature-label">
+      BIBLIOTECA PEPTALYN
+    </div>
+
+    <h2>
+      ¿Ya sabes qué molécula buscas?
+    </h2>
+
+    <p>
+      Accede directamente a la biblioteca completa y utiliza
+      el buscador para localizar una molécula por nombre o área.
+    </p>
+
+  </div>
+
+  <div class="feature-action">
+
+    <a href="peptidos.html"
+       class="main-btn">
+      Abrir biblioteca
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
+  <br>
+  Ciencia, información y tecnología aplicada a la investigación biomédica.
+
+</footer>
+
+
+<script>
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent="☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
