@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ipamorelin | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== BREADCRUMB ===== */
+
+.breadcrumb{
+  max-width:1120px;
+  margin:auto;
+  padding:28px 20px 0;
+  color:#879bad;
+  font-size:13px;
+}
+
+.breadcrumb a{
+  color:#b8c6d3;
+}
+
+.breadcrumb span{
+  margin:0 8px;
+  opacity:.5;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1120px;
+  margin:auto;
+  padding:55px 20px 65px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+
+.label{
+  color:#efc56b;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(50px,8vw,82px);
+  line-height:.95;
+  letter-spacing:-3px;
+  margin-bottom:22px;
+}
+
+.subtitle{
+  font-size:22px;
+  color:#d1dbe4;
+  margin-bottom:19px;
+}
+
+.description{
+  max-width:690px;
+  color:#a9bacb;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+
+.tag{
+  background:rgba(239,197,107,.1);
+  border:1px solid rgba(239,197,107,.2);
+  color:#efd18c;
+  border-radius:999px;
+  padding:8px 11px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.investigational{
+  margin-top:22px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,184,77,.1);
+  border:1px solid rgba(255,184,77,.28);
+  color:#ffd38a;
+  font-size:12px;
+  font-weight:800;
+}
+
+/* ===== PANEL ===== */
+
+.hero-panel{
+  background:
+    linear-gradient(145deg,#0e3458,#071a2e);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:25px;
+  padding:28px;
+  box-shadow:0 28px 70px rgba(0,0,0,.25);
+}
+
+.hero-panel h3{
+  color:#efc56b;
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.fact{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.fact:last-child{
+  border-bottom:none;
+}
+
+.fact-label{
+  color:#7f96aa;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+
+.fact-value{
+  color:#f2f6fa;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* ===== CONTENT ===== */
+
+.content{
+  max-width:1120px;
+  margin:auto;
+  padding:0 20px 90px;
+}
+
+.section{
+  margin-bottom:28px;
+  background:
+    linear-gradient(180deg,rgba(13,45,76,.92),rgba(5,19,34,.97));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:23px;
+  padding:32px;
+}
+
+.section-tag{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.section h2{
+  font-size:31px;
+  margin-bottom:18px;
+}
+
+.section p{
+  color:#aabac9;
+  line-height:1.75;
+  font-size:16px;
+}
+
+.columns{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.mini{
+  background:#071a2e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:23px;
+}
+
+.mini h3{
+  color:#f4f7fa;
+  margin-bottom:11px;
+  font-size:18px;
+}
+
+.mini p{
+  font-size:14px;
+}
+
+/* ===== EVIDENCE ===== */
+
+.evidence{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.evidence-card{
+  background:#07192b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  padding:21px;
+}
+
+.evidence-card strong{
+  display:block;
+  color:#efc56b;
+  margin-bottom:9px;
+}
+
+.evidence-card p{
+  font-size:14px;
+}
+
+/* ===== WARNINGS ===== */
+
+.warning{
+  background:rgba(173,77,45,.12);
+  border:1px solid rgba(223,122,87,.3);
+}
+
+.warning h2{
+  color:#ffd0bd;
+}
+
+.research-warning{
+  background:rgba(183,129,36,.12);
+  border:1px solid rgba(239,197,107,.32);
+}
+
+/* ===== ACTIONS ===== */
+
+.actions{
+  max-width:1120px;
+  margin:0 auto 90px;
+  padding:0 20px;
+}
+
+.actions-inner{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.2);
+  border-radius:25px;
+  padding:36px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:30px;
+}
+
+.actions h2{
+  font-size:30px;
+  margin-bottom:9px;
+}
+
+.actions p{
+  color:#9eb0c0;
+  line-height:1.6;
+}
+
+.action-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 19px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:#efc56b;
+  color:#041426;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:#e1e8ef;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:38px 20px;
+  color:#8296a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .columns{
+    grid-template-columns:1fr;
+  }
+
+  .evidence{
+    grid-template-columns:1fr;
+  }
+
+  .actions-inner{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+}
+
+@media(max-width:620px){
+
+  .hero{
+    padding-top:40px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .section{
+    padding:25px 21px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <a href="peptidos.html">Péptidos</a>
+  <span>›</span>
+  Ipamorelin
+</div>
+
+<section class="hero">
+
+<div>
+
+  <div class="label">
+    RENDIMIENTO · EJE GH / IGF-1 · INVESTIGACIÓN
+  </div>
+
+  <h1>
+    Ipamorelin
+  </h1>
+
+  <div class="subtitle">
+    Pentapéptido secretagogo de hormona de crecimiento
+  </div>
+
+  <p class="description">
+    Ipamorelin es un péptido sintético investigado por su capacidad
+    para estimular la liberación de hormona de crecimiento mediante
+    activación del receptor secretagogo de GH, también conocido como
+    receptor de ghrelina GHS-R1a.
+  </p>
+
+  <div class="tags">
+    <span class="tag">GHS-R1a</span>
+    <span class="tag">GH</span>
+    <span class="tag">IGF-1</span>
+    <span class="tag">Endocrinología</span>
+    <span class="tag">Investigación</span>
+  </div>
+
+  <div class="investigational">
+    ⚠️ MOLÉCULA INVESTIGACIONAL · NO APROBADA
+  </div>
+
+</div>
+
+<div class="hero-panel">
+
+  <h3>Perfil rápido</h3>
+
+  <div class="fact">
+    <div class="fact-label">Tipo</div>
+    <div class="fact-value">
+      Pentapéptido sintético
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Diana principal</div>
+    <div class="fact-value">
+      Receptor secretagogo de hormona de crecimiento GHS-R1a
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Área investigada</div>
+    <div class="fact-value">
+      Secreción de GH, eje GH/IGF-1 y fisiología endocrina
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Estado regulatorio</div>
+    <div class="fact-value">
+      No aprobado como medicamento por la FDA
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<main class="content">
+
+<section class="section">
+
+  <div class="section-tag">
+    MECANISMO
+  </div>
+
+  <h2>
+    ¿Cómo actúa?
+  </h2>
+
+  <p>
+    Ipamorelin pertenece al grupo de secretagogos de hormona de
+    crecimiento. Su unión al receptor GHS-R1a puede estimular
+    señales hipofisarias relacionadas con la liberación de hormona
+    de crecimiento. Por esta razón se ha investigado dentro del
+    eje endocrino GH/IGF-1.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="section-tag">
+    FISIOLOGÍA
+  </div>
+
+  <h2>
+    El eje GH / IGF-1
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>Hormona de crecimiento</h3>
+      <p>
+        La GH participa en crecimiento, metabolismo de nutrientes,
+        composición corporal y distintos procesos de reparación y
+        adaptación fisiológica.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>IGF-1</h3>
+      <p>
+        Parte de los efectos de la hormona de crecimiento están
+        mediados por el factor de crecimiento similar a la insulina 1.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>GHS-R1a</h3>
+      <p>
+        Es el receptor activado por ghrelina y por determinados
+        secretagogos sintéticos de hormona de crecimiento.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Regulación endocrina</h3>
+      <p>
+        El eje GH/IGF-1 está sometido a regulación compleja,
+        pulsátil y dependiente de múltiples señales metabólicas.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="section-tag">
+    INVESTIGACIÓN
+  </div>
+
+  <h2>
+    ¿Qué se ha estudiado?
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>Secreción de GH</h3>
+      <p>
+        Estudios farmacológicos tempranos analizaron su capacidad
+        para estimular la liberación de hormona de crecimiento.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Motilidad gastrointestinal</h3>
+      <p>
+        También fue investigado en contextos relacionados con
+        motilidad gastrointestinal y recuperación posoperatoria.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Metabolismo</h3>
+      <p>
+        Por su acción sobre el eje GH/IGF-1 existe interés
+        experimental en variables metabólicas y de composición corporal.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Rendimiento</h3>
+      <p>
+        Su promoción para aumento muscular, recuperación o rendimiento
+        excede la evidencia clínica disponible y no corresponde a
+        indicaciones terapéuticas aprobadas.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="section-tag">
+    EVIDENCIA
+  </div>
+
+  <h2>
+    Evidencia clínica limitada
+  </h2>
+
+  <p>
+    Aunque existen estudios farmacológicos y ensayos humanos tempranos,
+    la evidencia disponible no permite establecer de forma robusta
+    eficacia ni seguridad para los usos con los que ipamorelin suele
+    promocionarse fuera de investigación clínica.
+  </p>
+
+  <div class="evidence">
+
+    <div class="evidence-card">
+      <strong>Farmacología</strong>
+      <p>
+        Se ha caracterizado su actividad como secretagogo
+        de hormona de crecimiento.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Ensayos humanos</strong>
+      <p>
+        Existen datos humanos limitados y no suficientes para
+        respaldar muchas de las aplicaciones comerciales propuestas.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Vía subcutánea</strong>
+      <p>
+        La FDA señaló ausencia de datos clínicos suficientes de
+        seguridad para la vía subcutánea propuesta en compounding.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section warning">
+
+  <div class="section-tag">
+    SEGURIDAD
+  </div>
+
+  <h2>
+    Existen incertidumbres importantes
+  </h2>
+
+  <p>
+    La FDA ha señalado preocupaciones relacionadas con posible
+    inmunogenicidad, agregación e impurezas de productos peptídicos.
+    En un estudio intravenoso se notificaron eventos como hipopotasemia,
+    hiperglucemia, náuseas, vómitos e insomnio. También se produjeron
+    fallecimientos, aunque no se estableció que fueran causados por
+    ipamorelin.
+  </p>
+
+</section>
+
+<section class="section research-warning">
+
+  <div class="section-tag">
+    ESTADO REGULATORIO
+  </div>
+
+  <h2>
+    No es un medicamento aprobado
+  </h2>
+
+  <p>
+    Ipamorelin no cuenta con una aprobación de la FDA como medicamento.
+    Los productos compuestos tampoco son productos aprobados por la FDA,
+    por lo que la agencia no revisa previamente su seguridad, eficacia
+    o calidad de la misma manera que un medicamento aprobado.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="section-tag">
+    REFERENCIAS
+  </div>
+
+  <h2>
+    Fuentes científicas y regulatorias
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>FDA — Ipamorelin</h3>
+      <p>
+        Evaluación de riesgos relacionados con ipamorelin e
+        ipamorelin acetate utilizados en preparación magistral.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Pharmacy Compounding Advisory Committee</h3>
+      <p>
+        Revisión de eficacia, seguridad, caracterización y
+        evidencia disponible sobre ipamorelin.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Secretagogos de GH</h3>
+      <p>
+        Literatura farmacológica sobre GHS-R1a, ghrelina
+        y regulación de la secreción de hormona de crecimiento.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Compounding</h3>
+      <p>
+        Los medicamentos compuestos pueden presentar diferencias
+        de concentración, pureza, estabilidad y calidad.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<section class="actions">
+
+<div class="actions-inner">
+
+  <div>
+
+    <h2>
+      Continúa explorando
+    </h2>
+
+    <p>
+      Consulta otras moléculas relacionadas con endocrinología,
+      metabolismo y fisiología del rendimiento.
+    </p>
+
+  </div>
+
+  <div class="action-buttons">
+
+    <a href="comparador.html"
+       class="btn btn-gold">
+      Comparar moléculas
+    </a>
+
+    <a href="peptidos.html?area=rendimiento"
+       class="btn btn-outline">
+      Ver rendimiento
+    </a>
+
+    <a href="peptidos.html?area=recuperacion"
+       class="btn btn-outline">
+      Ver recuperación
+    </a>
+
+    <a href="peptidos.html"
+       class="btn btn-outline">
+      Volver a biblioteca
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+<footer>
+
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
+  <br>
+  Ipamorelin es una molécula investigacional.
+  Información presentada con fines científicos y educativos.
+
+</footer>
+
+<script>
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent="☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
