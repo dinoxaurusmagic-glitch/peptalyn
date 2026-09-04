@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1050px;
+  margin:auto;
+  text-align:center;
+  padding:70px 20px 42px;
+}
+
+.eyebrow{
+  color:#efc56b;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,72px);
+  line-height:1;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:#a9bacb;
+  font-size:17px;
+  line-height:1.7;
+}
+
+/* ===== MAIN ===== */
+
+.calculator-wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:15px 20px 90px;
+}
+
+.calculator-grid{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:25px;
+}
+
+/* ===== CARD ===== */
+
+.card{
+  background:
+    linear-gradient(180deg,rgba(13,45,76,.94),rgba(5,19,34,.98));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 30px 80px rgba(0,0,0,.22);
+}
+
+.card-tag{
+  color:#efc56b;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:800;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+
+.card h2{
+  font-size:27px;
+  margin-bottom:11px;
+}
+
+.card-intro{
+  color:#91a7ba;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:26px;
+}
+
+/* ===== FIELDS ===== */
+
+.field{
+  margin-bottom:19px;
+}
+
+.field label{
+  display:block;
+  color:#cad6df;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.field small{
+  display:block;
+  color:#70889d;
+  font-size:11px;
+  margin-top:7px;
+  line-height:1.5;
+}
+
+.input-group{
+  display:grid;
+  grid-template-columns:1fr 100px;
+  gap:9px;
+}
+
+input,
+select{
+  width:100%;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.13);
+  background:#06182b;
+  color:#fff;
+  padding:14px 15px;
+  font-size:16px;
+  outline:none;
+}
+
+input:focus,
+select:focus{
+  border-color:rgba(239,197,107,.55);
+  box-shadow:0 0 0 3px rgba(239,197,107,.08);
+}
+
+input::placeholder{
+  color:#526b80;
+}
+
+.calculate-btn{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:16px;
+  margin-top:7px;
+  background:#efc56b;
+  color:#041426;
+  font-size:15px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.calculate-btn:hover{
+  transform:translateY(-1px);
+}
+
+/* ===== RESULTS ===== */
+
+.results{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:24px;
+}
+
+.result{
+  background:#06192d;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  padding:21px;
+  min-height:125px;
+}
+
+.result-label{
+  color:#7890a4;
+  text-transform:uppercase;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:800;
+  margin-bottom:9px;
+}
+
+.result-value{
+  color:#fff;
+  font-size:29px;
+  font-weight:900;
+  word-break:break-word;
+}
+
+.result-unit{
+  color:#efc56b;
+  font-size:12px;
+  font-weight:700;
+  margin-top:5px;
+}
+
+/* ===== FORMULA ===== */
+
+.formula{
+  margin-top:20px;
+  background:rgba(239,197,107,.06);
+  border:1px solid rgba(239,197,107,.17);
+  border-radius:17px;
+  padding:20px;
+}
+
+.formula-title{
+  color:#efc56b;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:11px;
+}
+
+.formula p{
+  color:#9fb1c1;
+  font-size:13px;
+  line-height:1.65;
+}
+
+.formula strong{
+  color:#fff;
+}
+
+/* ===== WARNING ===== */
+
+.warning{
+  margin-top:23px;
+  padding:19px;
+  border-radius:17px;
+  background:rgba(183,129,36,.10);
+  border:1px solid rgba(239,197,107,.25);
+}
+
+.warning strong{
+  color:#f2ce7d;
+  display:block;
+  margin-bottom:7px;
+}
+
+.warning p{
+  color:#a9b6c3;
+  line-height:1.6;
+  font-size:13px;
+}
+
+/* ===== EXPLANATION ===== */
+
+.explanation{
+  max-width:1100px;
+  margin:0 auto 75px;
+  padding:0 20px;
+}
+
+.explanation-box{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.18);
+  border-radius:25px;
+  padding:33px;
+}
+
+.explanation-tag{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.explanation h2{
+  font-size:29px;
+  margin-bottom:18px;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.step{
+  background:#071a2e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  padding:20px;
+}
+
+.step-number{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#efc56b;
+  color:#041426;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  margin-bottom:13px;
+}
+
+.step h3{
+  margin-bottom:8px;
+  font-size:16px;
+}
+
+.step p{
+  color:#9eb0c0;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* ===== ACTIONS ===== */
+
+.actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:11px;
+  margin-top:25px;
+}
+
+.btn{
+  padding:14px 19px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:#efc56b;
+  color:#041426;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:#e1e8ef;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:38px 20px;
+  color:#8296a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== ERROR ===== */
+
+.error{
+  display:none;
+  margin-top:16px;
+  padding:13px 15px;
+  border-radius:12px;
+  border:1px solid rgba(255,105,105,.3);
+  background:rgba(194,63,63,.1);
+  color:#ffc5c5;
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .calculator-grid{
+    grid-template-columns:1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+}
+
+@media(max-width:620px){
+
+  .hero{
+    padding-top:48px;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .card{
+    padding:22px;
+  }
+
+  .results{
+    grid-template-columns:1fr;
+  }
+
+  .input-group{
+    grid-template-columns:1fr 88px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="eyebrow">
+    PEPTALYN · HERRAMIENTA MATEMÁTICA
+  </div>
+
+  <h1>
+    Calculadora de concentración
+  </h1>
+
+  <p>
+    Convierte cantidad total, volumen, concentración,
+    cantidad objetivo y equivalencia volumétrica en una escala U-100.
+    Los cálculos dependen exclusivamente de los valores introducidos.
+  </p>
+
+</section>
+
+
+<main class="calculator-wrap">
+
+<div class="calculator-grid">
+
+
+<!-- DATOS -->
+
+<section class="card">
+
+  <div class="card-tag">
+    DATOS DE ENTRADA
+  </div>
+
+  <h2>
+    Introduce los valores
+  </h2>
+
+  <p class="card-intro">
+    Utiliza los datos reales de concentración o preparación.
+    La calculadora no selecciona cantidades clínicas por ti.
+  </p>
+
+
+  <div class="field">
+
+    <label>
+      Molécula
+    </label>
+
+    <select id="molecule">
+
+      <option>Semaglutide</option>
+      <option>Tirzepatide</option>
+      <option>Retatrutide</option>
+      <option>MOTS-c</option>
+      <option>GHK-Cu</option>
+      <option>Ipamorelin</option>
+      <option>Tesamorelin</option>
+      <option>Semax</option>
+      <option>Selank</option>
+      <option>BPC-157</option>
+      <option>TB-500</option>
+      <option>Otra molécula</option>
+
+    </select>
+
+  </div>
+
+
+  <div class="field">
+
+    <label>
+      Cantidad total del vial
+    </label>
+
+    <div class="input-group">
+
+      <input
+        type="number"
+        id="vialAmount"
+        min="0"
+        step="any"
+        placeholder="Ej. 5"
+      >
+
+      <select id="vialUnit">
+        <option value="mg">mg</option>
+        <option value="mcg">mcg</option>
+      </select>
+
+    </div>
+
+  </div>
+
+
+  <div class="field">
+
+    <label>
+      Volumen total
+    </label>
+
+    <div class="input-group">
+
+      <input
+        type="number"
+        id="volume"
+        min="0"
+        step="any"
+        placeholder="Ej. 1"
+      >
+
+      <select disabled>
+        <option>mL</option>
+      </select>
+
+    </div>
+
+    <small>
+      Introduce el volumen final total utilizado para el cálculo.
+    </small>
+
+  </div>
+
+
+  <div class="field">
+
+    <label>
+      Cantidad objetivo
+    </label>
+
+    <div class="input-group">
+
+      <input
+        type="number"
+        id="targetAmount"
+        min="0"
+        step="any"
+        placeholder="Introduce cantidad"
+      >
+
+      <select id="targetUnit">
+        <option value="mg">mg</option>
+        <option value="mcg">mcg</option>
+      </select>
+
+    </div>
+
+    <small>
+      La cantidad objetivo debe ser introducida manualmente.
+      La herramienta no determina cuál es clínicamente apropiada.
+    </small>
+
+  </div>
+
+
+  <button
+    class="calculate-btn"
+    id="calculateButton"
+  >
+    Calcular
+  </button>
+
+
+  <div
+    class="error"
+    id="errorBox"
+  ></div>
+
+
+  <div class="warning">
+
+    <strong>
+      Importante
+    </strong>
+
+    <p>
+      Esta calculadora realiza únicamente conversiones matemáticas.
+      No prescribe, recomienda ni valida una cantidad para una persona.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- RESULTADOS -->
+
+<section class="card">
+
+  <div class="card-tag">
+    RESULTADOS
+  </div>
+
+  <h2>
+    Conversión matemática
+  </h2>
+
+  <p class="card-intro">
+    Los resultados se actualizan utilizando exactamente
+    los valores introducidos en el formulario.
+  </p>
+
+
+  <div class="results">
+
+
+    <div class="result">
+
+      <div class="result-label">
+        Concentración
+      </div>
+
+      <div
+        class="result-value"
+        id="concentrationResult"
+      >
+        —
+      </div>
+
+      <div class="result-unit">
+        mg/mL
+      </div>
+
+    </div>
+
+
+    <div class="result">
+
+      <div class="result-label">
+        Volumen correspondiente
+      </div>
+
+      <div
+        class="result-value"
+        id="volumeResult"
+      >
+        —
+      </div>
+
+      <div class="result-unit">
+        mL
+      </div>
+
+    </div>
+
+
+    <div class="result">
+
+      <div class="result-label">
+        Escala volumétrica U-100
+      </div>
+
+      <div
+        class="result-value"
+        id="unitsResult"
+      >
+        —
+      </div>
+
+      <div class="result-unit">
+        unidades volumétricas
+      </div>
+
+    </div>
+
+
+    <div class="result">
+
+      <div class="result-label">
+        Cantidades por vial
+      </div>
+
+      <div
+        class="result-value"
+        id="dosesResult"
+      >
+        —
+      </div>
+
+      <div class="result-unit">
+        cantidades teóricas
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="formula">
+
+    <div class="formula-title">
+      Cálculo utilizado
+    </div>
+
+    <p id="formulaText">
+
+      Introduce los valores y pulsa
+      <strong>Calcular</strong>.
+
+    </p>
+
+  </div>
+
+
+  <div class="formula">
+
+    <div class="formula-title">
+      Escala U-100
+    </div>
+
+    <p>
+      En una escala volumétrica U-100,
+      <strong>100 unidades corresponden a 1 mL</strong>.
+      Por tanto, 10 unidades representan 0,10 mL,
+      25 unidades representan 0,25 mL y así sucesivamente.
+    </p>
+
+  </div>
+
+
+</section>
+
+</div>
+
+
+<div class="actions">
+
+  <a
+    href="comparador.html"
+    class="btn btn-gold"
+  >
+    Comparador
+  </a>
+
+  <a
+    href="peptidos.html"
+    class="btn btn-outline"
+  >
+    Biblioteca
+  </a>
+
+  <a
+    href="index.html"
+    class="btn btn-outline"
+  >
+    Inicio
+  </a>
+
+</div>
+
+
+</main>
+
+
+<section class="explanation">
+
+<div class="explanation-box">
+
+  <div class="explanation-tag">
+    CÓMO FUNCIONA
+  </div>
+
+  <h2>
+    Tres conversiones sencillas
+  </h2>
+
+
+  <div class="steps">
+
+
+    <div class="step">
+
+      <div class="step-number">
+        1
+      </div>
+
+      <h3>
+        Concentración
+      </h3>
+
+      <p>
+        La cantidad total del vial se divide
+        para el volumen total expresado en mililitros.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        2
+      </div>
+
+      <h3>
+        Volumen
+      </h3>
+
+      <p>
+        La cantidad objetivo se divide para la
+        concentración calculada en mg/mL.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        3
+      </div>
+
+      <h3>
+        Escala U-100
+      </h3>
+
+      <p>
+        El volumen obtenido se multiplica por 100
+        para mostrar su equivalencia volumétrica U-100.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>
+    PEPTALYN
+  </strong>
+  · Advanced Peptide Research
+
+  <br>
+
+  Herramienta educativa de conversión matemática.
+  No determina indicaciones, dosis ni adecuación clínica.
+
+</footer>
+
+
+<script>
+
+/* ==================================
+   ELEMENTOS
+================================== */
+
+const vialAmount =
+  document.getElementById("vialAmount");
+
+const vialUnit =
+  document.getElementById("vialUnit");
+
+const volume =
+  document.getElementById("volume");
+
+const targetAmount =
+  document.getElementById("targetAmount");
+
+const targetUnit =
+  document.getElementById("targetUnit");
+
+const calculateButton =
+  document.getElementById("calculateButton");
+
+const errorBox =
+  document.getElementById("errorBox");
+
+
+/* ==================================
+   CONVERSIÓN A MG
+================================== */
+
+function convertToMg(value,unit){
+
+  if(unit === "mcg"){
+    return value / 1000;
+  }
+
+  return value;
+
+}
+
+
+/* ==================================
+   REDONDEO
+================================== */
+
+function cleanNumber(number,decimals){
+
+  return parseFloat(
+    number.toFixed(decimals)
+  );
+
+}
+
+
+/* ==================================
+   CALCULADORA
+================================== */
+
+function calculate(){
+
+  errorBox.style.display = "none";
+  errorBox.textContent = "";
+
+
+  const vialInput =
+    parseFloat(vialAmount.value);
+
+  const volumeInput =
+    parseFloat(volume.value);
+
+  const targetInput =
+    parseFloat(targetAmount.value);
+
+
+  if(
+    !isFinite(vialInput) ||
+    !isFinite(volumeInput) ||
+    !isFinite(targetInput)
+  ){
+
+    showError(
+      "Completa los tres valores numéricos antes de calcular."
+    );
+
+    return;
+  }
+
+
+  if(
+    vialInput <= 0 ||
+    volumeInput <= 0 ||
+    targetInput <= 0
+  ){
+
+    showError(
+      "Todos los valores deben ser mayores que cero."
+    );
+
+    return;
+  }
+
+
+  const vialMg =
+    convertToMg(
+      vialInput,
+      vialUnit.value
+    );
+
+
+  const targetMg =
+    convertToMg(
+      targetInput,
+      targetUnit.value
+    );
+
+
+  if(targetMg > vialMg){
+
+    showError(
+      "La cantidad objetivo introducida es mayor que la cantidad total del vial."
+    );
+
+    return;
+  }
+
+
+  /* CONCENTRACIÓN */
+
+  const concentration =
+    vialMg / volumeInput;
+
+
+  /* VOLUMEN OBJETIVO */
+
+  const targetVolume =
+    targetMg / concentration;
+
+
+  /* U-100 */
+
+  const u100 =
+    targetVolume * 100;
+
+
+  /* CANTIDADES TEÓRICAS */
+
+  const theoreticalAmounts =
+    vialMg / targetMg;
+
+
+  /* RESULTADOS */
+
+  document.getElementById(
+    "concentrationResult"
+  ).textContent =
+    cleanNumber(concentration,4);
+
+
+  document.getElementById(
+    "volumeResult"
+  ).textContent =
+    cleanNumber(targetVolume,4);
+
+
+  document.getElementById(
+    "unitsResult"
+  ).textContent =
+    cleanNumber(u100,2);
+
+
+  document.getElementById(
+    "dosesResult"
+  ).textContent =
+    cleanNumber(theoreticalAmounts,2);
+
+
+  /* EXPLICACIÓN */
+
+  const molecule =
+    document.getElementById(
+      "molecule"
+    ).value;
+
+
+  document.getElementById(
+    "formulaText"
+  ).innerHTML =
+
+    "<strong>" +
+    molecule +
+    "</strong><br><br>" +
+
+    "Concentración: " +
+    cleanNumber(vialMg,4) +
+    " mg ÷ " +
+    cleanNumber(volumeInput,4) +
+    " mL = <strong>" +
+    cleanNumber(concentration,4) +
+    " mg/mL</strong>.<br><br>" +
+
+    "Volumen correspondiente a la cantidad introducida: " +
+    cleanNumber(targetMg,4) +
+    " mg ÷ " +
+    cleanNumber(concentration,4) +
+    " mg/mL = <strong>" +
+    cleanNumber(targetVolume,4) +
+    " mL</strong>.<br><br>" +
+
+    "Equivalencia volumétrica U-100: " +
+    cleanNumber(targetVolume,4) +
+    " mL × 100 = <strong>" +
+    cleanNumber(u100,2) +
+    " unidades</strong>.";
+
+}
+
+
+/* ==================================
+   ERROR
+================================== */
+
+function showError(message){
+
+  errorBox.textContent = message;
+  errorBox.style.display = "block";
+
+
+  document.getElementById(
+    "concentrationResult"
+  ).textContent = "—";
+
+  document.getElementById(
+    "volumeResult"
+  ).textContent = "—";
+
+  document.getElementById(
+    "unitsResult"
+  ).textContent = "—";
+
+  document.getElementById(
+    "dosesResult"
+  ).textContent = "—";
+
+}
+
+
+/* ==================================
+   BOTÓN
+================================== */
+
+calculateButton.addEventListener(
+  "click",
+  calculate
+);
+
+
+/* ENTER TAMBIÉN CALCULA */
+
+[
+  vialAmount,
+  volume,
+  targetAmount
+].forEach(function(input){
+
+  input.addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Enter"){
+        calculate();
+      }
+
+    }
+  );
+
+});
+
+
+/* ==================================
+   MENÚ MÓVIL
+================================== */
+
+const mobileButton =
+  document.getElementById(
+    "mobileButton"
+  );
+
+const menu =
+  document.getElementById(
+    "menu"
+  );
+
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent = "☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
