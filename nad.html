@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NAD+ | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== BREADCRUMB ===== */
+
+.breadcrumb{
+  max-width:1120px;
+  margin:auto;
+  padding:28px 20px 0;
+  color:#879bad;
+  font-size:13px;
+}
+
+.breadcrumb a{
+  color:#b8c6d3;
+}
+
+.breadcrumb span{
+  margin:0 8px;
+  opacity:.5;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1120px;
+  margin:auto;
+  padding:55px 20px 65px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:50px;
+  align-items:center;
+}
+
+.label{
+  color:#efc56b;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(52px,8vw,84px);
+  line-height:.95;
+  letter-spacing:-3px;
+  margin-bottom:22px;
+}
+
+.subtitle{
+  font-size:22px;
+  color:#d1dbe4;
+  margin-bottom:19px;
+}
+
+.description{
+  max-width:690px;
+  color:#a9bacb;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:20px;
+}
+
+.tag{
+  background:rgba(239,197,107,.1);
+  border:1px solid rgba(239,197,107,.2);
+  color:#efd18c;
+  border-radius:999px;
+  padding:8px 11px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.info-badge{
+  margin-top:22px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(77,164,255,.1);
+  border:1px solid rgba(77,164,255,.28);
+  color:#9dceff;
+  font-size:12px;
+  font-weight:800;
+}
+
+/* ===== PANEL ===== */
+
+.hero-panel{
+  background:
+    linear-gradient(145deg,#0e3458,#071a2e);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:25px;
+  padding:28px;
+  box-shadow:0 28px 70px rgba(0,0,0,.25);
+}
+
+.hero-panel h3{
+  color:#efc56b;
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.fact{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.fact:last-child{
+  border-bottom:none;
+}
+
+.fact-label{
+  color:#7f96aa;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+
+.fact-value{
+  color:#f2f6fa;
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* ===== CONTENT ===== */
+
+.content{
+  max-width:1120px;
+  margin:auto;
+  padding:0 20px 90px;
+}
+
+.section{
+  margin-bottom:28px;
+  background:
+    linear-gradient(180deg,rgba(13,45,76,.92),rgba(5,19,34,.97));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:23px;
+  padding:32px;
+}
+
+.section-tag{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.section h2{
+  font-size:31px;
+  margin-bottom:18px;
+}
+
+.section p{
+  color:#aabac9;
+  line-height:1.75;
+  font-size:16px;
+}
+
+.columns{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+
+.mini{
+  background:#071a2e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:23px;
+}
+
+.mini h3{
+  color:#f4f7fa;
+  margin-bottom:11px;
+  font-size:18px;
+}
+
+.mini p{
+  font-size:14px;
+}
+
+/* ===== EVIDENCE ===== */
+
+.evidence{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.evidence-card{
+  background:#07192b;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:17px;
+  padding:21px;
+}
+
+.evidence-card strong{
+  display:block;
+  color:#efc56b;
+  margin-bottom:9px;
+}
+
+.evidence-card p{
+  font-size:14px;
+}
+
+/* ===== WARNINGS ===== */
+
+.warning{
+  background:rgba(173,77,45,.12);
+  border:1px solid rgba(223,122,87,.3);
+}
+
+.warning h2{
+  color:#ffd0bd;
+}
+
+.research-warning{
+  background:rgba(183,129,36,.12);
+  border:1px solid rgba(239,197,107,.32);
+}
+
+/* ===== ACTIONS ===== */
+
+.actions{
+  max-width:1120px;
+  margin:0 auto 90px;
+  padding:0 20px;
+}
+
+.actions-inner{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.2);
+  border-radius:25px;
+  padding:36px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:30px;
+}
+
+.actions h2{
+  font-size:30px;
+  margin-bottom:9px;
+}
+
+.actions p{
+  color:#9eb0c0;
+  line-height:1.6;
+}
+
+.action-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 19px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:#efc56b;
+  color:#041426;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:#e1e8ef;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:38px 20px;
+  color:#8296a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .columns{
+    grid-template-columns:1fr;
+  }
+
+  .evidence{
+    grid-template-columns:1fr;
+  }
+
+  .actions-inner{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+}
+
+@media(max-width:620px){
+
+  .hero{
+    padding-top:40px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .section{
+    padding:25px 21px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <a href="peptidos.html">Biblioteca</a>
+  <span>›</span>
+  NAD+
+</div>
+
+
+<section class="hero">
+
+<div>
+
+  <div class="label">
+    BIOENERGÉTICA · METABOLISMO CELULAR · LONGEVIDAD
+  </div>
+
+  <h1>
+    NAD+
+  </h1>
+
+  <div class="subtitle">
+    Nicotinamida adenina dinucleótido
+  </div>
+
+  <p class="description">
+    NAD+ es una coenzima fundamental presente en prácticamente
+    todas las células. Participa en reacciones de oxidación-reducción,
+    producción de energía, señalización celular y procesos asociados
+    con reparación del ADN y mantenimiento de la homeostasis celular.
+  </p>
+
+  <div class="tags">
+    <span class="tag">Bioenergética</span>
+    <span class="tag">Mitocondria</span>
+    <span class="tag">ATP</span>
+    <span class="tag">Sirtuinas</span>
+    <span class="tag">Reparación del ADN</span>
+  </div>
+
+  <div class="info-badge">
+    ℹ️ NAD+ ES UNA COENZIMA · NO ES UN PÉPTIDO
+  </div>
+
+</div>
+
+
+<div class="hero-panel">
+
+  <h3>Perfil rápido</h3>
+
+  <div class="fact">
+    <div class="fact-label">Tipo</div>
+    <div class="fact-value">
+      Coenzima / dinucleótido
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Función central</div>
+    <div class="fact-value">
+      Transferencia de electrones y metabolismo energético celular
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Áreas de investigación</div>
+    <div class="fact-value">
+      Bioenergética, metabolismo, envejecimiento y neurobiología
+    </div>
+  </div>
+
+  <div class="fact">
+    <div class="fact-label">Evidencia clínica</div>
+    <div class="fact-value">
+      Amplia biología básica; beneficios terapéuticos de suplementación aún en investigación
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+<main class="content">
+
+
+<section class="section">
+
+  <div class="section-tag">
+    CONCEPTO
+  </div>
+
+  <h2>
+    Una molécula esencial para la vida celular
+  </h2>
+
+  <p>
+    NAD significa nicotinamida adenina dinucleótido. Existe principalmente
+    en dos estados interconvertibles: NAD+ y NADH. Esta pareja molecular
+    permite transferir electrones durante múltiples reacciones metabólicas
+    fundamentales para la producción y utilización de energía.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    BIOENERGÉTICA
+  </div>
+
+  <h2>
+    NAD+ y producción de energía
+  </h2>
+
+  <p>
+    En rutas como glucólisis, ciclo de Krebs y metabolismo mitocondrial,
+    NAD+ acepta electrones y se transforma en NADH. Posteriormente,
+    estos electrones pueden participar en la cadena respiratoria
+    mitocondrial, contribuyendo a la generación de ATP.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    FUNCIONES CELULARES
+  </div>
+
+  <h2>
+    Mucho más que metabolismo energético
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>Metabolismo</h3>
+      <p>
+        NAD+ participa en numerosas reacciones esenciales para
+        procesamiento de carbohidratos, grasas y otros nutrientes.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Sirtuinas</h3>
+      <p>
+        Las sirtuinas son enzimas dependientes de NAD+ implicadas
+        en regulación metabólica, respuesta al estrés y expresión génica.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Reparación del ADN</h3>
+      <p>
+        Enzimas como las PARP utilizan NAD+ en procesos relacionados
+        con detección y reparación del daño del ADN.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Señalización celular</h3>
+      <p>
+        NAD+ también actúa como sustrato de diversas enzimas
+        implicadas en señalización, inmunidad y homeostasis celular.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    ENVEJECIMIENTO
+  </div>
+
+  <h2>
+    ¿Por qué interesa en longevidad?
+  </h2>
+
+  <p>
+    Diversos estudios han observado cambios en el metabolismo de NAD+
+    asociados con la edad y diferentes estados fisiológicos. Esto ha
+    impulsado investigaciones sobre estrategias para modificar los
+    niveles de NAD+, incluyendo ejercicio, restricción energética,
+    precursores metabólicos y otras intervenciones experimentales.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    PRECURSORES
+  </div>
+
+  <h2>
+    NAD+ no es lo mismo que NR o NMN
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>NAD+</h3>
+      <p>
+        Es la coenzima celular activa que participa directamente
+        en numerosas reacciones metabólicas y enzimáticas.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>NR</h3>
+      <p>
+        Nicotinamida ribósido es un precursor que puede entrar
+        en rutas biosintéticas utilizadas por el organismo para producir NAD+.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>NMN</h3>
+      <p>
+        Nicotinamida mononucleótido es otro intermediario de
+        las rutas metabólicas relacionadas con biosíntesis de NAD+.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Niacina / nicotinamida</h3>
+      <p>
+        Formas de vitamina B3 también participan como precursores
+        dentro de las rutas celulares que generan NAD+.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    EVIDENCIA
+  </div>
+
+  <h2>
+    ¿Qué sabemos en humanos?
+  </h2>
+
+  <p>
+    Los estudios con estrategias dirigidas a aumentar NAD+ muestran
+    que algunos precursores pueden modificar biomarcadores relacionados
+    con NAD en humanos. Sin embargo, los beneficios clínicos sobre
+    longevidad, rendimiento físico, metabolismo o prevención de
+    enfermedades continúan siendo variables y no están establecidos
+    de forma concluyente.
+  </p>
+
+  <div class="evidence">
+
+    <div class="evidence-card">
+      <strong>Biología básica</strong>
+      <p>
+        El papel de NAD+ en metabolismo y señalización celular
+        está ampliamente establecido.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>Precursores</strong>
+      <p>
+        NR y NMN pueden aumentar determinados metabolitos relacionados
+        con NAD+, pero los beneficios clínicos son heterogéneos.
+      </p>
+    </div>
+
+    <div class="evidence-card">
+      <strong>NAD+ parenteral</strong>
+      <p>
+        Existe considerablemente menos evidencia clínica sobre
+        administración intravenosa o intramuscular de NAD+ propiamente dicho.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section warning">
+
+  <div class="section-tag">
+    NAD+ INTRAVENOSO
+  </div>
+
+  <h2>
+    La popularidad supera a la evidencia
+  </h2>
+
+  <p>
+    NAD+ intravenoso se ofrece en algunos entornos de medicina de bienestar,
+    pero la evidencia clínica disponible sigue siendo limitada. Una revisión
+    sistemática publicada en 2026 no identificó ensayos clínicos de resultados
+    elegibles que evaluaran NAD+ intravenoso o intramuscular para
+    anti-envejecimiento o bienestar.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    TOLERABILIDAD
+  </div>
+
+  <h2>
+    Datos humanos preliminares
+  </h2>
+
+  <p>
+    Un estudio retrospectivo publicado en 2026 describió síntomas
+    gastrointestinales, aumento de frecuencia cardíaca y sensación
+    de presión torácica durante infusiones intravenosas de NAD+.
+    Estos datos son preliminares y no establecen un perfil definitivo
+    de seguridad o eficacia a largo plazo.
+  </p>
+
+</section>
+
+
+<section class="section research-warning">
+
+  <div class="section-tag">
+    ESTADO REGULATORIO
+  </div>
+
+  <h2>
+    Compounding no significa aprobación
+  </h2>
+
+  <p>
+    En Estados Unidos, NAD figura actualmente entre las sustancias
+    nominadas para preparación magistral bajo la sección 503A que
+    permanecen bajo evaluación. Esa situación regulatoria no significa
+    que NAD+ sea un medicamento aprobado por la FDA para longevidad,
+    rendimiento, bienestar o rejuvenecimiento.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    MOTS-c VS NAD+
+  </div>
+
+  <h2>
+    Dos conceptos diferentes dentro de bioenergética
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>MOTS-c</h3>
+      <p>
+        Es un péptido derivado de mitocondria investigado como
+        señal metabólica y mediador de respuestas celulares.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>NAD+</h3>
+      <p>
+        Es una coenzima esencial presente en las células y utilizada
+        directamente en metabolismo, reacciones redox y señalización.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    REFERENCIAS
+  </div>
+
+  <h2>
+    Fuentes científicas y regulatorias
+  </h2>
+
+  <div class="columns">
+
+    <div class="mini">
+      <h3>Systematic Review 2026</h3>
+      <p>
+        Revisión sistemática de evidencia preclínica y humana
+        sobre estrategias de aumento de NAD+ en envejecimiento y bienestar.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Nature Aging</h3>
+      <p>
+        Revisión sobre estrategias clínicas dirigidas al metabolismo
+        de NAD+, sus aplicaciones y desafíos de traducción clínica.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>FDA — Compounding</h3>
+      <p>
+        Información sobre NAD entre las sustancias nominadas para
+        uso en preparación magistral que permanecen bajo evaluación.
+      </p>
+    </div>
+
+    <div class="mini">
+      <h3>Investigación clínica</h3>
+      <p>
+        Estudios humanos continúan evaluando seguridad,
+        biomarcadores y posibles aplicaciones de intervenciones
+        relacionadas con NAD+.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<section class="actions">
+
+<div class="actions-inner">
+
+  <div>
+
+    <h2>
+      Explora Bioenergética
+    </h2>
+
+    <p>
+      Compara NAD+ con MOTS-c y otras moléculas relacionadas
+      con metabolismo celular y longevidad.
+    </p>
+
+  </div>
+
+  <div class="action-buttons">
+
+    <a href="comparador.html"
+       class="btn btn-gold">
+      Comparar moléculas
+    </a>
+
+    <a href="peptidos.html?area=longevidad"
+       class="btn btn-outline">
+      Ver longevidad
+    </a>
+
+    <a href="peptidos.html?area=rendimiento"
+       class="btn btn-outline">
+      Ver bioenergética
+    </a>
+
+    <a href="peptidos.html"
+       class="btn btn-outline">
+      Volver a biblioteca
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
+  <br>
+  NAD+ es una coenzima y no un péptido.
+  Información presentada con fines científicos y educativos.
+
+</footer>
+
+
+<script>
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent="☰";
+
+      }
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
