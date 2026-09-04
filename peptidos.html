@@ -965,7 +965,42 @@
 
   });
 
+/* ===== FILTRO AUTOMÁTICO DESDE ÁREAS ===== */
 
+const parametros =
+  new URLSearchParams(window.location.search);
+
+const areaSeleccionada =
+  parametros.get("area");
+
+if(areaSeleccionada){
+
+  filterButtons.forEach(function(btn){
+
+    btn.classList.remove("active");
+
+    if(btn.dataset.filter === areaSeleccionada){
+      btn.classList.add("active");
+    }
+
+  });
+
+
+  cards.forEach(function(card){
+
+    const categorias =
+      card.dataset.category || "";
+
+    if(categorias.includes(areaSeleccionada)){
+      card.style.display = "block";
+    }
+    else{
+      card.style.display = "none";
+    }
+
+  });
+
+}
   /* BUSCADOR */
 
   const searchInput =
