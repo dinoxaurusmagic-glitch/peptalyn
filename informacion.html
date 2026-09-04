@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Información científica | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ===== HEADER ===== */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.85;
+  transition:.2s;
+}
+
+.menu a:hover{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.18);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  max-width:1080px;
+  margin:auto;
+  text-align:center;
+  padding:75px 20px 55px;
+}
+
+.eyebrow{
+  color:#efc56b;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+.hero h1{
+  font-size:clamp(43px,7vw,72px);
+  line-height:1;
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  max-width:790px;
+  margin:auto;
+  color:#a9bacb;
+  font-size:17px;
+  line-height:1.75;
+}
+
+.hero-tags{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:24px;
+}
+
+.hero-tag{
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(239,197,107,.2);
+  background:rgba(239,197,107,.08);
+  color:#efd18c;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* ===== MAIN ===== */
+
+.content{
+  max-width:1120px;
+  margin:auto;
+  padding:0 20px 90px;
+}
+
+.section{
+  margin-bottom:28px;
+  background:
+    linear-gradient(180deg,rgba(13,45,76,.92),rgba(5,19,34,.98));
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:24px;
+  padding:34px;
+}
+
+.section-tag{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.section h2{
+  font-size:31px;
+  margin-bottom:17px;
+}
+
+.section p{
+  color:#aabac9;
+  line-height:1.75;
+  font-size:15px;
+}
+
+.section p + p{
+  margin-top:14px;
+}
+
+/* ===== CARDS ===== */
+
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.card{
+  background:#071a2e;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:23px;
+}
+
+.card-icon{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:rgba(239,197,107,.1);
+  border:1px solid rgba(239,197,107,.17);
+  margin-bottom:15px;
+  font-size:20px;
+}
+
+.card h3{
+  color:#f5f7fa;
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#96a9ba;
+  font-size:14px;
+  line-height:1.65;
+}
+
+/* ===== FEATURE ===== */
+
+.feature{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.2);
+}
+
+/* ===== WARNING ===== */
+
+.warning{
+  background:rgba(160,95,37,.10);
+  border:1px solid rgba(239,197,107,.25);
+}
+
+.warning h2{
+  color:#f7d99b;
+}
+
+/* ===== TABLE ===== */
+
+.table-wrap{
+  margin-top:22px;
+  overflow-x:auto;
+  border-radius:17px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px;
+  background:#07182a;
+}
+
+th,
+td{
+  padding:17px 18px;
+  text-align:left;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  vertical-align:top;
+}
+
+th{
+  background:#0d2d4b;
+  color:#efc56b;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+td{
+  color:#aab9c7;
+  font-size:14px;
+  line-height:1.55;
+}
+
+td strong{
+  color:#f3f6f8;
+}
+
+/* ===== STATUS ===== */
+
+.status-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:22px;
+}
+
+.status{
+  border-radius:18px;
+  padding:23px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#071a2e;
+}
+
+.status-approved{
+  border-top:3px solid #64d99b;
+}
+
+.status-investigational{
+  border-top:3px solid #efc56b;
+}
+
+.status-cosmetic{
+  border-top:3px solid #66baff;
+}
+
+.status h3{
+  margin-bottom:10px;
+}
+
+.status p{
+  font-size:14px;
+}
+
+/* ===== FAQ ===== */
+
+.faq{
+  margin-top:20px;
+}
+
+.faq-item{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.faq-question{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#f1f5f8;
+  text-align:left;
+  padding:19px 0;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.faq-answer{
+  display:none;
+  padding:0 0 20px;
+  color:#9fb1c0;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.faq-item.open .faq-answer{
+  display:block;
+}
+
+.faq-symbol{
+  color:#efc56b;
+  font-size:20px;
+}
+
+/* ===== ACTIONS ===== */
+
+.actions{
+  max-width:1120px;
+  margin:0 auto 85px;
+  padding:0 20px;
+}
+
+.actions-box{
+  background:
+    linear-gradient(120deg,#123a61,#07192c);
+  border:1px solid rgba(239,197,107,.2);
+  border-radius:25px;
+  padding:35px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  align-items:center;
+}
+
+.actions h2{
+  font-size:29px;
+  margin-bottom:9px;
+}
+
+.actions p{
+  color:#9eb0c0;
+  line-height:1.6;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 18px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.btn-gold{
+  background:#efc56b;
+  color:#041426;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.15);
+  color:#e1e8ef;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:38px 20px;
+  color:#8296a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .grid-3,
+  .status-grid{
+    grid-template-columns:1fr;
+  }
+
+  .actions-box{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:15px;
+    z-index:2000;
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .menu.open a:last-child{
+    border-bottom:none;
+  }
+
+  .brand img{
+    width:155px;
+  }
+
+}
+
+@media(max-width:720px){
+
+  .grid-2{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:50px;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .section{
+    padding:25px 21px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="eyebrow">
+    PEPTALYN · CONOCIMIENTO Y CALIDAD
+  </div>
+
+  <h1>
+    Información científica
+  </h1>
+
+  <p>
+    Comprender una molécula implica mucho más que conocer su nombre.
+    Aquí explicamos conceptos relacionados con pureza, identidad,
+    liofilización, almacenamiento, documentación analítica,
+    regulación y calidad.
+  </p>
+
+  <div class="hero-tags">
+    <span class="hero-tag">Liofilización</span>
+    <span class="hero-tag">HPLC</span>
+    <span class="hero-tag">COA</span>
+    <span class="hero-tag">Almacenamiento</span>
+    <span class="hero-tag">Regulación</span>
+    <span class="hero-tag">Calidad</span>
+  </div>
+
+</section>
+
+
+<main class="content">
+
+
+<section class="section feature">
+
+  <div class="section-tag">
+    PRINCIPIO FUNDAMENTAL
+  </div>
+
+  <h2>
+    Calidad no significa solamente “99% de pureza”
+  </h2>
+
+  <p>
+    El análisis de una molécula puede incluir identidad,
+    pureza química, concentración, contenido de agua,
+    esterilidad, endotoxinas, partículas, estabilidad y otros
+    parámetros. Ninguna prueba individual demuestra por sí sola
+    todos los aspectos de calidad de un producto.
+  </p>
+
+  <p>
+    Por ejemplo, un resultado de HPLC puede aportar información
+    importante sobre pureza o composición, pero no demuestra
+    automáticamente esterilidad, ausencia de endotoxinas ni
+    seguridad clínica.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    LIOFILIZACIÓN
+  </div>
+
+  <h2>
+    ¿Qué significa que un péptido esté liofilizado?
+  </h2>
+
+  <p>
+    La liofilización es un proceso de eliminación de agua realizado
+    mediante congelación y reducción de presión. El objetivo es
+    obtener un material seco que, dependiendo de la molécula y de
+    su formulación, puede presentar mayor estabilidad que una
+    solución líquida.
+  </p>
+
+  <div class="grid-3">
+
+    <div class="card">
+      <div class="card-icon">❄️</div>
+      <h3>Congelación</h3>
+      <p>
+        La formulación se congela bajo condiciones controladas
+        antes de iniciar la eliminación del agua.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">◇</div>
+      <h3>Sublimación</h3>
+      <p>
+        Bajo presión reducida, parte del agua congelada pasa
+        directamente del estado sólido al vapor.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">◉</div>
+      <h3>Producto seco</h3>
+      <p>
+        El resultado es un material con bajo contenido de agua
+        que posteriormente puede requerir reconstitución.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    ALMACENAMIENTO
+  </div>
+
+  <h2>
+    No existe una única temperatura válida para todos los péptidos
+  </h2>
+
+  <p>
+    Las condiciones correctas dependen de la molécula,
+    la formulación, los excipientes, el recipiente, si el producto
+    está liofilizado o en solución y de los estudios de estabilidad
+    realizados para ese producto específico.
+  </p>
+
+  <div class="grid-2">
+
+    <div class="card">
+      <h3>Antes de reconstituir</h3>
+      <p>
+        Algunos productos liofilizados presentan mayor estabilidad
+        que las soluciones, pero esto no significa que todos puedan
+        almacenarse indefinidamente a temperatura ambiente.
+        Deben respetarse las condiciones documentadas por el fabricante.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Después de reconstituir</h3>
+      <p>
+        Una solución puede ser más susceptible a degradación
+        química, contaminación microbiológica y pérdida de estabilidad.
+        Las condiciones y el tiempo de conservación dependen
+        de la formulación concreta.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section warning">
+
+  <div class="section-tag">
+    CADENA DE FRÍO
+  </div>
+
+  <h2>
+    Refrigerado no significa automáticamente estable
+  </h2>
+
+  <p>
+    La refrigeración puede formar parte de las condiciones de
+    conservación de determinados productos, pero la temperatura
+    por sí sola no garantiza estabilidad. También pueden influir
+    exposición a luz, congelación no prevista, ciclos repetidos
+    de temperatura, agitación, contaminación y tiempo transcurrido.
+  </p>
+
+  <p>
+    Por esta razón, las condiciones de almacenamiento deben basarse
+    en información específica de cada producto y no en una regla
+    universal aplicada a todos los péptidos.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    DOCUMENTACIÓN ANALÍTICA
+  </div>
+
+  <h2>
+    ¿Qué significan HPLC, LC-MS y COA?
+  </h2>
+
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Documento / prueba</th>
+          <th>Puede aportar información sobre</th>
+          <th>No demuestra por sí solo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><strong>HPLC</strong></td>
+          <td>
+            Separación de componentes y estimación de pureza
+            cromatográfica.
+          </td>
+          <td>
+            Esterilidad, endotoxinas, seguridad clínica
+            o identidad absoluta por sí sola.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>LC-MS / MS</strong></td>
+          <td>
+            Masa molecular e información útil para confirmar
+            identidad química.
+          </td>
+          <td>
+            Esterilidad, potencia clínica o estabilidad completa.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>COA</strong></td>
+          <td>
+            Resumen de resultados analíticos asociados
+            a un lote determinado.
+          </td>
+          <td>
+            Que todas las pruebas posibles hayan sido realizadas
+            ni que otro lote tenga resultados idénticos.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Esterilidad</strong></td>
+          <td>
+            Evaluación microbiológica bajo un método definido.
+          </td>
+          <td>
+            Pureza química o ausencia de endotoxinas.
+          </td>
+        </tr>
+
+        <tr>
+          <td><strong>Endotoxinas</strong></td>
+          <td>
+            Detección o cuantificación de endotoxinas bacterianas.
+          </td>
+          <td>
+            Identidad molecular o esterilidad completa.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    CERTIFICADO DE ANÁLISIS
+  </div>
+
+  <h2>
+    Un COA debe estar vinculado a un lote
+  </h2>
+
+  <p>
+    Para que un certificado de análisis tenga verdadero valor
+    documental debe poder relacionarse con el material que pretende
+    representar. Datos como identificación del lote, método analítico,
+    resultado, fecha y laboratorio permiten evaluar mejor su
+    trazabilidad.
+  </p>
+
+  <div class="grid-3">
+
+    <div class="card">
+      <h3>Identidad</h3>
+      <p>
+        Ayuda a responder si el material analizado corresponde
+        químicamente con la sustancia declarada.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Pureza</h3>
+      <p>
+        Describe qué proporción de la señal analítica corresponde
+        al componente principal bajo el método utilizado.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Trazabilidad</h3>
+      <p>
+        Permite relacionar el resultado analítico con una muestra
+        o lote concreto y no únicamente con el nombre de la molécula.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    REGULACIÓN
+  </div>
+
+  <h2>
+    No todas las moléculas tienen el mismo estatus
+  </h2>
+
+  <p>
+    Dentro de la biblioteca PEPTALYN conviven moléculas con niveles
+    de evidencia y situaciones regulatorias muy diferentes.
+    Es importante no presentar todas como si fueran equivalentes.
+  </p>
+
+  <div class="status-grid">
+
+    <div class="status status-approved">
+      <h3>Medicamentos aprobados</h3>
+      <p>
+        Algunas moléculas forman parte de productos autorizados
+        para indicaciones específicas. La aprobación corresponde
+        a productos, formulaciones, fabricantes e indicaciones
+        concretas.
+      </p>
+    </div>
+
+    <div class="status status-investigational">
+      <h3>Investigacionales</h3>
+      <p>
+        Otras moléculas permanecen en investigación clínica
+        o preclínica y no cuentan con autorización terapéutica
+        para los usos habitualmente promocionados en internet.
+      </p>
+    </div>
+
+    <div class="status status-cosmetic">
+      <h3>Cosmético ≠ inyectable</h3>
+      <p>
+        Que una sustancia pueda aparecer en productos cosméticos
+        o tópicos no significa que exista autorización o evidencia
+        equivalente para administración inyectable.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section warning">
+
+  <div class="section-tag">
+    PREPARACIONES COMPUESTAS
+  </div>
+
+  <h2>
+    “Compuesto” tampoco significa “aprobado”
+  </h2>
+
+  <p>
+    Una preparación magistral o compuesta puede estar sujeta
+    a un marco regulatorio diferente al de un medicamento
+    comercial aprobado. Que una sustancia pueda utilizarse
+    o evaluarse en determinados contextos de compounding
+    no significa que haya recibido aprobación regulatoria
+    como medicamento.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    PUREZA Y SEGURIDAD
+  </div>
+
+  <h2>
+    Son conceptos relacionados, pero no equivalentes
+  </h2>
+
+  <div class="grid-2">
+
+    <div class="card">
+      <h3>Alta pureza química</h3>
+      <p>
+        Puede indicar que una gran proporción de la señal analítica
+        corresponde al componente principal dentro del método usado.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Seguridad del producto</h3>
+      <p>
+        Requiere considerar además identidad, dosis, formulación,
+        esterilidad cuando corresponda, endotoxinas, impurezas,
+        estabilidad, vía de administración y evidencia clínica.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-tag">
+    PREGUNTAS FRECUENTES
+  </div>
+
+  <h2>
+    Conceptos que suelen generar confusión
+  </h2>
+
+
+  <div class="faq">
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        ¿Un péptido liofilizado necesita siempre refrigeración?
+        <span class="faq-symbol">+</span>
+      </button>
+
+      <div class="faq-answer">
+        No puede establecerse una regla universal. Depende de la
+        estabilidad de la molécula, formulación, excipientes,
+        envase y condiciones estudiadas para ese producto.
+        Debe utilizarse la información específica de almacenamiento.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        ¿99% de pureza significa que es estéril?
+        <span class="faq-symbol">+</span>
+      </button>
+
+      <div class="faq-answer">
+        No. Pureza química y esterilidad son parámetros diferentes.
+        Un análisis cromatográfico de pureza no reemplaza una prueba
+        microbiológica de esterilidad.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        ¿HPLC confirma que una molécula es segura?
+        <span class="faq-symbol">+</span>
+      </button>
+
+      <div class="faq-answer">
+        No. HPLC es una herramienta analítica muy útil, pero la
+        seguridad clínica requiere mucha más información:
+        toxicología, formulación, dosis, impurezas, estabilidad
+        y estudios en humanos, entre otros factores.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        ¿Un COA sirve para cualquier vial del mismo nombre?
+        <span class="faq-symbol">+</span>
+      </button>
+
+      <div class="faq-answer">
+        Un certificado tiene mayor valor cuando está vinculado
+        específicamente al lote analizado. Un resultado obtenido
+        para un lote no demuestra automáticamente las características
+        de materiales fabricados en otros lotes.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        ¿Que una molécula aparezca en estudios significa que está aprobada?
+        <span class="faq-symbol">+</span>
+      </button>
+
+      <div class="faq-answer">
+        No. Una sustancia puede encontrarse en investigación básica,
+        estudios animales o ensayos clínicos y continuar sin aprobación
+        para uso terapéutico. Investigación y autorización regulatoria
+        son conceptos distintos.
+      </div>
+
+    </div>
+
+
+    <div class="faq-item">
+
+      <button class="faq-question">
+        ¿Un medicamento aprobado y un vial que contiene la misma molécula son equivalentes?
+        <span class="faq-symbol">+</span>
+      </button>
+
+      <div class="faq-answer">
+        No necesariamente. La aprobación regulatoria corresponde
+        a un producto específico que incluye formulación, fabricación,
+        controles de calidad, presentación e indicaciones determinadas.
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<section class="actions">
+
+<div class="actions-box">
+
+  <div>
+
+    <h2>
+      Continúa explorando PEPTALYN
+    </h2>
+
+    <p>
+      Consulta las fichas individuales, compara moléculas
+      o utiliza nuestras herramientas educativas.
+    </p>
+
+  </div>
+
+  <div class="buttons">
+
+    <a href="peptidos.html"
+       class="btn btn-gold">
+      Biblioteca
+    </a>
+
+    <a href="comparador.html"
+       class="btn btn-outline">
+      Comparador
+    </a>
+
+    <a href="calculadora.html"
+       class="btn btn-outline">
+      Calculadora
+    </a>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
+
+  <br>
+
+  Información científica y educativa.
+  El estatus regulatorio y las condiciones de conservación
+  deben verificarse para cada producto específico.
+
+</footer>
+
+
+<script>
+
+/* ===== MENÚ MÓVIL ===== */
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+menu
+  .querySelectorAll("a")
+  .forEach(function(link){
+
+    link.addEventListener(
+      "click",
+      function(){
+
+        menu.classList.remove("open");
+        mobileButton.textContent = "☰";
+
+      }
+    );
+
+  });
+
+
+/* ===== PREGUNTAS FRECUENTES ===== */
+
+const faqItems =
+  document.querySelectorAll(".faq-item");
+
+faqItems.forEach(function(item){
+
+  const button =
+    item.querySelector(".faq-question");
+
+  const symbol =
+    item.querySelector(".faq-symbol");
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      const wasOpen =
+        item.classList.contains("open");
+
+      faqItems.forEach(function(otherItem){
+
+        otherItem.classList.remove("open");
+
+        const otherSymbol =
+          otherItem.querySelector(".faq-symbol");
+
+        otherSymbol.textContent = "+";
+
+      });
+
+      if(!wasOpen){
+
+        item.classList.add("open");
+        symbol.textContent = "−";
+
+      }
+
+    }
+  );
+
+});
+
+</script>
+
+</body>
+</html>
