@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Comprar | PEPTALYN</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 70% 0%,#123d67 0%,#071b30 38%,#020a14 80%);
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+}
+
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+}
+
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.menu a{
+  opacity:.84;
+  white-space:nowrap;
+}
+
+.menu a:hover,
+.menu a.active{
+  color:#efc56b;
+  opacity:1;
+}
+
+.mobile-btn{
+  display:none;
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.17);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:65px 20px 38px;
+  text-align:center;
+}
+
+.eyebrow{
+  color:#efc56b;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-size:clamp(42px,6vw,66px);
+  line-height:1;
+  margin-bottom:17px;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:#a9bacb;
+  font-size:16px;
+  line-height:1.7;
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar{
+  max-width:1150px;
+  margin:10px auto 30px;
+  padding:0 20px;
+}
+
+.search{
+  width:100%;
+  padding:16px 18px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:#06182b;
+  color:#fff;
+  font-size:15px;
+  outline:none;
+}
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin-top:16px;
+}
+
+.filter{
+  border:1px solid rgba(255,255,255,.12);
+  background:#091e34;
+  color:#b9c8d6;
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:12px;
+}
+
+.filter.active,
+.filter:hover{
+  background:#efc56b;
+  color:#051426;
+  border-color:#efc56b;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.products{
+  max-width:1150px;
+  margin:auto;
+  padding:0 20px 85px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  overflow:hidden;
+  border-radius:22px;
+  background:
+    linear-gradient(180deg,#0e3153,#07192c);
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 22px 60px rgba(0,0,0,.22);
+}
+
+.visual{
+  height:235px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 50% 40%,rgba(41,181,255,.24),transparent 34%),
+    linear-gradient(150deg,#06172a,#0a3153);
+}
+
+.visual::after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  background:rgba(40,182,255,.12);
+  filter:blur(18px);
+}
+
+.vial{
+  position:relative;
+  z-index:2;
+  width:105px;
+  height:145px;
+  border-radius:12px 12px 17px 17px;
+  border:3px solid rgba(224,246,255,.72);
+  background:
+    linear-gradient(90deg,
+      rgba(255,255,255,.11),
+      rgba(93,197,255,.28),
+      rgba(255,255,255,.08)
+    );
+  box-shadow:
+    0 0 30px rgba(54,186,255,.38),
+    inset 0 0 18px rgba(255,255,255,.12);
+}
+
+.vial::before{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  top:-26px;
+  height:29px;
+  border-radius:8px 8px 3px 3px;
+  background:linear-gradient(#dbe5ea,#7f969f);
+  border:2px solid #c4d1d8;
+}
+
+.vial-label{
+  position:absolute;
+  left:8px;
+  right:8px;
+  top:45px;
+  min-height:53px;
+  padding:10px 4px;
+  background:#04111e;
+  border:1px solid rgba(239,197,107,.42);
+  color:#fff;
+  text-align:center;
+  font-size:11px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.category{
+  position:absolute;
+  left:14px;
+  top:14px;
+  z-index:3;
+  padding:8px 10px;
+  border-radius:999px;
+  background:rgba(8,33,56,.88);
+  border:1px solid rgba(95,190,255,.22);
+  color:#8ed3ff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
+.card-body{
+  padding:21px;
+}
+
+.card h2{
+  font-size:25px;
+  margin-bottom:7px;
+}
+
+.type{
+  color:#8ba3b7;
+  font-size:13px;
+  line-height:1.5;
+  min-height:39px;
+}
+
+.status{
+  display:inline-flex;
+  margin-top:14px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.approved{
+  color:#a8f1c4;
+  border:1px solid rgba(82,210,131,.28);
+  background:rgba(63,180,105,.10);
+}
+
+.research{
+  color:#f4cc83;
+  border:1px solid rgba(239,197,107,.25);
+  background:rgba(239,197,107,.08);
+}
+
+.info{
+  color:#9cd3ff;
+  border:1px solid rgba(83,171,239,.25);
+  background:rgba(83,171,239,.08);
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-top:18px;
+}
+
+.btn{
+  min-height:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:12px;
+  padding:10px 11px;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+  border:none;
+}
+
+.btn-contact{
+  background:#efc56b;
+  color:#061426;
+}
+
+.btn-details{
+  color:#fff;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+  max-width:1050px;
+  margin:0 auto 75px;
+  padding:0 20px;
+}
+
+.notice-box{
+  padding:25px;
+  border-radius:20px;
+  background:
+    linear-gradient(120deg,#103555,#07192c);
+  border:1px solid rgba(239,197,107,.18);
+}
+
+.notice-box strong{
+  color:#efc56b;
+}
+
+.notice-box p{
+  color:#a7b7c5;
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:36px 20px;
+  color:#8195a7;
+  font-size:13px;
+}
+
+footer strong{
+  color:#efc56b;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .menu{
+    gap:13px;
+    font-size:12px;
+  }
+
+}
+
+@media(max-width:900px){
+
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    padding:15px;
+    border-radius:18px;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+    z-index:2000;
+  }
+
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+
+  .brand img{
+    width:155px;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .hero{
+    padding-top:48px;
+  }
+
+  .hero h1{
+    font-size:45px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .visual{
+    height:215px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
+  </a>
+
+  <button class="mobile-btn" id="mobileButton">
+    ☰
+  </button>
+
+  <nav class="menu" id="menu">
+
+    <a href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a class="active" href="comprar.html">Comprar</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
+
+  </nav>
+
+</div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="eyebrow">
+    PEPTALYN · DISPONIBILIDAD E INFORMACIÓN
+  </div>
+
+  <h1>
+    Consulta nuestros productos
+  </h1>
+
+  <p>
+    Explora nuestra biblioteca de moléculas y solicita
+    información sobre disponibilidad directamente por WhatsApp.
+    Las presentaciones disponibles y condiciones se confirman
+    individualmente durante la consulta.
+  </p>
+
+</section>
+
+
+<section class="toolbar">
+
+  <input
+    class="search"
+    id="search"
+    type="text"
+    placeholder="Buscar Semaglutide, Tirzepatide, GHK-Cu..."
+  >
+
+  <div class="filters">
+
+    <button class="filter active" data-filter="all">
+      Todos
+    </button>
+
+    <button class="filter" data-filter="metabolismo">
+      Metabolismo
+    </button>
+
+    <button class="filter" data-filter="rendimiento">
+      Rendimiento
+    </button>
+
+    <button class="filter" data-filter="recuperacion">
+      Recuperación
+    </button>
+
+    <button class="filter" data-filter="neurociencia">
+      Neurociencia
+    </button>
+
+    <button class="filter" data-filter="piel">
+      Piel
+    </button>
+
+    <button class="filter" data-filter="longevidad">
+      Longevidad
+    </button>
+
+  </div>
+
+</section>
+
+
+<main class="products">
+
+<div class="grid" id="grid">
+
+
+<!-- SEMAGLUTIDE -->
+
+<article
+  class="card"
+  data-name="semaglutide"
+  data-category="metabolismo"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      METABOLISMO
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        SEMAGLUTIDE
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>Semaglutide</h2>
+
+    <div class="type">
+      Agonista selectivo del receptor GLP-1.
+    </div>
+
+    <span class="status approved">
+      PRODUCTOS APROBADOS PARA INDICACIONES ESPECÍFICAS
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultar('Semaglutide')"
+      >
+        Consultar
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="semaglutide.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- TIRZEPATIDE -->
+
+<article
+  class="card"
+  data-name="tirzepatide"
+  data-category="metabolismo"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      METABOLISMO
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        TIRZEPATIDE
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>Tirzepatide</h2>
+
+    <div class="type">
+      Agonista dual de los receptores GIP y GLP-1.
+    </div>
+
+    <span class="status approved">
+      PRODUCTOS APROBADOS PARA INDICACIONES ESPECÍFICAS
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultar('Tirzepatide')"
+      >
+        Consultar
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="tirzepatide.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- RETATRUTIDE -->
+
+<article
+  class="card"
+  data-name="retatrutide"
+  data-category="metabolismo"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      METABOLISMO
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        RETATRUTIDE
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>Retatrutide</h2>
+
+    <div class="type">
+      Agonista triple GIP / GLP-1 / glucagón.
+    </div>
+
+    <span class="status research">
+      INVESTIGACIONAL
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('Retatrutide')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="retatrutide.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- MOTS-C -->
+
+<article
+  class="card"
+  data-name="mots-c"
+  data-category="rendimiento longevidad"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      BIOENERGÉTICA
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        MOTS-c
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>MOTS-c</h2>
+
+    <div class="type">
+      Péptido derivado de señalización mitocondrial.
+    </div>
+
+    <span class="status research">
+      INVESTIGACIONAL
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('MOTS-c')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="mots-c.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- GHK-CU -->
+
+<article
+  class="card"
+  data-name="ghk-cu"
+  data-category="piel recuperacion"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      PIEL · REPARACIÓN
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        GHK-Cu
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>GHK-Cu</h2>
+
+    <div class="type">
+      Tripéptido con afinidad por cobre.
+    </div>
+
+    <span class="status info">
+      CONTEXTO DEPENDIENTE DE FORMULACIÓN
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('GHK-Cu')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="ghk-cu.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- IPAMORELIN -->
+
+<article
+  class="card"
+  data-name="ipamorelin"
+  data-category="rendimiento recuperacion"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      RENDIMIENTO
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        IPAMORELIN
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>Ipamorelin</h2>
+
+    <div class="type">
+      Secretagogo relacionado con el receptor GHS-R1a.
+    </div>
+
+    <span class="status research">
+      INVESTIGACIONAL
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('Ipamorelin')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="ipamorelin.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- TESAMORELIN -->
+
+<article
+  class="card"
+  data-name="tesamorelin"
+  data-category="metabolismo rendimiento"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      ENDOCRINOLOGÍA
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        TESAMORELIN
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>Tesamorelin</h2>
+
+    <div class="type">
+      Análogo sintético de GHRH.
+    </div>
+
+    <span class="status approved">
+      INDICACIÓN AUTORIZADA ESPECÍFICA EN EE. UU.
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultar('Tesamorelin')"
+      >
+        Consultar
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="tesamorelin.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- SEMAX -->
+
+<article
+  class="card"
+  data-name="semax"
+  data-category="neurociencia"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      NEUROCIENCIA
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        SEMAX
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>Semax</h2>
+
+    <div class="type">
+      Péptido sintético neuroactivo.
+    </div>
+
+    <span class="status research">
+      INVESTIGACIONAL / ESTATUS VARIABLE
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('Semax')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="semax.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- SELANK -->
+
+<article
+  class="card"
+  data-name="selank"
+  data-category="neurociencia"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      NEUROCIENCIA
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        SELANK
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>Selank</h2>
+
+    <div class="type">
+      Heptapéptido sintético relacionado con tuftsin.
+    </div>
+
+    <span class="status research">
+      INVESTIGACIONAL
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('Selank')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="selank.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- NAD+ -->
+
+<article
+  class="card"
+  data-name="nad+ nad"
+  data-category="longevidad rendimiento"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      BIOENERGÉTICA
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        NAD+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>NAD+</h2>
+
+    <div class="type">
+      Coenzima esencial; no es un péptido.
+    </div>
+
+    <span class="status info">
+      CONTEXTO ESPECIAL
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('NAD+')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="nad.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- BPC-157 -->
+
+<article
+  class="card"
+  data-name="bpc-157 bpc157"
+  data-category="recuperacion"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      RECUPERACIÓN
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        BPC-157
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>BPC-157</h2>
+
+    <div class="type">
+      Pentadecapéptido sintético experimental.
+    </div>
+
+    <span class="status research">
+      INVESTIGACIONAL
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('BPC-157')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="bpc157.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+<!-- TB-500 -->
+
+<article
+  class="card"
+  data-name="tb-500 tb500"
+  data-category="recuperacion"
+>
+
+  <div class="visual">
+
+    <div class="category">
+      RECUPERACIÓN
+    </div>
+
+    <div class="vial">
+      <div class="vial-label">
+        TB-500
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <h2>TB-500</h2>
+
+    <div class="type">
+      Fragmento relacionado con thymosin beta-4.
+    </div>
+
+    <span class="status research">
+      INVESTIGACIONAL
+    </span>
+
+    <div class="actions">
+
+      <button
+        class="btn btn-contact"
+        onclick="consultarInvestigacion('TB-500')"
+      >
+        Información
+      </button>
+
+      <a
+        class="btn btn-details"
+        href="tb500.html"
+      >
+        Detalles
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+</div>
+
+</main>
+
+
+<section class="notice">
+
+<div class="notice-box">
+
+  <p>
+    <strong>Información importante:</strong>
+    esta página permite solicitar información y disponibilidad,
+    pero no constituye una venta automática ni sustituye los requisitos
+    profesionales, regulatorios o de prescripción que puedan aplicar.
+    Las moléculas investigacionales se muestran con fines informativos
+    y no deben interpretarse como tratamientos aprobados.
+  </p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <strong>PEPTALYN</strong>
+  · Advanced Peptide Research
+
+</footer>
+
+
+<script>
+
+/* =========================
+   WHATSAPP
+========================= */
+
+const whatsappNumber =
+  "593998833543";
+
+
+function consultar(producto){
+
+  const mensaje =
+    "Hola PEPTALYN, quisiera consultar información y disponibilidad sobre " +
+    producto +
+    ".";
+
+  window.open(
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(mensaje),
+    "_blank"
+  );
+
+}
+
+
+function consultarInvestigacion(producto){
+
+  const mensaje =
+    "Hola PEPTALYN, quisiera solicitar información científica y de disponibilidad documental sobre " +
+    producto +
+    ".";
+
+  window.open(
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(mensaje),
+    "_blank"
+  );
+
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+const cards =
+  document.querySelectorAll(".card");
+
+const filterButtons =
+  document.querySelectorAll(".filter");
+
+const search =
+  document.getElementById("search");
+
+let activeFilter =
+  "all";
+
+
+function refresh(){
+
+  const term =
+    search.value
+    .toLowerCase()
+    .trim();
+
+
+  cards.forEach(function(card){
+
+    const categories =
+      (card.dataset.category || "")
+      .split(" ");
+
+    const name =
+      (card.dataset.name || "")
+      .toLowerCase();
+
+
+    const matchesFilter =
+      activeFilter === "all" ||
+      categories.includes(activeFilter);
+
+
+    const matchesSearch =
+      !term ||
+      name.includes(term) ||
+      card.textContent
+      .toLowerCase()
+      .includes(term);
+
+
+    card.style.display =
+      matchesFilter &&
+      matchesSearch
+      ? "block"
+      : "none";
+
+  });
+
+}
+
+
+filterButtons.forEach(function(button){
+
+  button.addEventListener(
+    "click",
+    function(){
+
+      activeFilter =
+        button.dataset.filter;
+
+      filterButtons.forEach(
+        function(other){
+          other.classList.remove("active");
+        }
+      );
+
+      button.classList.add("active");
+
+      refresh();
+
+    }
+  );
+
+});
+
+
+search.addEventListener(
+  "input",
+  refresh
+);
+
+
+/* =========================
+   MOBILE
+========================= */
+
+const mobileButton =
+  document.getElementById("mobileButton");
+
+const menu =
+  document.getElementById("menu");
+
+
+mobileButton.addEventListener(
+  "click",
+  function(){
+
+    menu.classList.toggle("open");
+
+    mobileButton.textContent =
+      menu.classList.contains("open")
+      ? "✕"
+      : "☰";
+
+  }
+);
+
+</script>
+
+</body>
+</html>
