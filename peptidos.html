@@ -942,29 +942,25 @@
 
       button.classList.add("active");
 
-      const selected =
-        button.dataset.filter;
+     const selected = button.dataset.filter;
 
-      cards.forEach(function(card){
+cards.forEach(function(card) {
 
-        const categories =
-          card.dataset.category;
+    const categories = (card.dataset.category || "")
+        .toLowerCase()
+        .split(/\s+/);
 
-        if(
-          selected === "all" ||
-          categories.includes(selected)
-        ){
-          card.style.display = "block";
-        }
-        else{
-          card.style.display = "none";
-        }
+    if (selected === "all" || categories.includes(selected.toLowerCase())) {
+        card.style.display = "";
+    } else {
+        card.style.display = "none";
+    }
 
+});
       });
 
     });
 
-  });
 
 /* ===== FILTRO AUTOMÁTICO DESDE ÁREAS ===== */
 
