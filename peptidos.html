@@ -436,7 +436,9 @@
       }
 
     }
-
+.card.is-hidden{
+    display:none !important;
+}
   </style>
 </head>
 
@@ -950,11 +952,11 @@ cards.forEach(function(card) {
         .toLowerCase()
         .split(/\s+/);
 
-    if (selected === "all" || categories.includes(selected.toLowerCase())) {
-        card.style.display = "";
-    } else {
-        card.style.display = "none";
-    }
+   const mostrar =
+    selected === "all" ||
+    categories.includes(selected.toLowerCase());
+
+card.classList.toggle("is-hidden", !mostrar);
 
 });
       });
