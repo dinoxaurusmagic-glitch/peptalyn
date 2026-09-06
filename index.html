@@ -1,49 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PEPTALYN | Advanced Peptide Research</title>
-
+ 
 <style>
-
-/* =====================================================
-   BASE
-===================================================== */
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
   font-family:Arial,Helvetica,sans-serif;
   color:#fff;
   background:#031225;
   overflow-x:hidden;
 }
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button{
-  font-family:inherit;
-}
-
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+ 
 /* =====================================================
-   HEADER
+   HEADER - CONSERVADO
 ===================================================== */
-
 header{
   position:sticky;
   top:0;
@@ -52,60 +28,45 @@ header{
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,.07);
 }
-
 .nav{
   max-width:1200px;
   margin:auto;
   padding:12px 20px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:25px;
 }
-
 .brand{
   background:#fff;
   border-radius:14px;
   padding:6px 10px;
-
   display:flex;
   align-items:center;
   justify-content:center;
+  flex-shrink:0;
 }
-
 .brand img{
   width:180px;
   max-height:65px;
   object-fit:contain;
+  display:block;
 }
-
 .menu{
   display:flex;
   align-items:center;
   gap:25px;
-
   font-size:14px;
   font-weight:700;
 }
-
 .menu a{
   opacity:.84;
   position:relative;
   transition:.2s;
   white-space:nowrap;
 }
-
-.menu a:hover{
-  color:#efc56b;
-  opacity:1;
-}
-
-.menu a.active{
-  color:#efc56b;
-  opacity:1;
-}
-
+.menu a:hover{color:#efc56b;opacity:1}
+.menu a.active{color:#efc56b;opacity:1}
 .menu a.active::after{
   content:"";
   position:absolute;
@@ -116,1590 +77,714 @@ header{
   background:#efc56b;
   border-radius:20px;
 }
-
 .mobile-btn{
   display:none;
-
   width:50px;
   height:50px;
-
   border-radius:12px;
   border:1px solid rgba(255,255,255,.17);
-
   background:transparent;
   color:#fff;
-
   font-size:25px;
   cursor:pointer;
 }
-
+ 
 /* =====================================================
    HERO
 ===================================================== */
-
 .hero{
   position:relative;
   overflow:hidden;
-
   background:
-    radial-gradient(
-      circle at 76% 22%,
-      rgba(31,142,224,.30),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 10% 50%,
-      rgba(31,105,199,.14),
-      transparent 40%
-    ),
-    linear-gradient(
-      120deg,
-      #031327 0%,
-      #062954 52%,
-      #0b5a91 100%
-    );
+    radial-gradient(circle at 76% 22%,rgba(31,142,224,.30),transparent 28%),
+    radial-gradient(circle at 10% 50%,rgba(31,105,199,.14),transparent 40%),
+    linear-gradient(120deg,#031327 0%,#062954 52%,#0b5a91 100%);
 }
-
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2,12,26,.13),
-      transparent 45%,
-      rgba(5,64,109,.06)
-    );
-
+  background:linear-gradient(90deg,rgba(2,12,26,.13),transparent 45%,rgba(5,64,109,.06));
   pointer-events:none;
 }
-
 .hero-inner{
   position:relative;
   z-index:2;
-
   max-width:1200px;
   margin:auto;
-
   padding:68px 20px 45px;
-
   display:grid;
   grid-template-columns:1.05fr .95fr;
   gap:50px;
   align-items:center;
 }
-
-/* =====================================================
-   HERO LEFT
-===================================================== */
-
-.hero-copy{
-  max-width:680px;
-}
-
+.hero-copy{max-width:680px}
 .eyebrow{
   color:#e7c374;
-
   font-size:11px;
   font-weight:800;
   letter-spacing:4px;
-
   text-transform:uppercase;
-
   margin-bottom:18px;
 }
-
 .hero h1{
   max-width:670px;
-
   font-size:clamp(47px,5.2vw,76px);
   line-height:.99;
   letter-spacing:-2px;
-
   margin-bottom:22px;
 }
-
-.hero h1 span{
-  color:#efc56b;
-}
-
+.hero h1 span{color:#efc56b}
 .hero-description{
   max-width:650px;
-
   color:#d2deea;
   font-size:18px;
   line-height:1.65;
-
   margin-bottom:28px;
 }
-
-/* =====================================================
-   HERO BUTTONS
-===================================================== */
-
 .hero-buttons{
   display:flex;
   flex-wrap:wrap;
   gap:13px;
-
   margin-bottom:35px;
 }
-
 .btn{
   min-height:58px;
-
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:10px;
-
   padding:0 24px;
-
   border-radius:13px;
-
   font-size:15px;
   font-weight:900;
-
   transition:.2s;
 }
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
+.btn:hover{transform:translateY(-2px)}
 .btn-gold{
   background:#efc56b;
   color:#071526;
   box-shadow:0 12px 30px rgba(239,197,107,.12);
 }
-
 .btn-outline{
   color:#fff;
-
   border:1px solid rgba(255,255,255,.45);
   background:rgba(3,19,39,.15);
 }
-
-/* =====================================================
-   HERO TRUST POINTS
-===================================================== */
-
 .trust-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:13px 24px;
-
   max-width:680px;
 }
-
 .trust-item{
   display:flex;
   align-items:center;
   gap:11px;
 }
-
 .trust-icon{
   width:39px;
   height:39px;
   flex:0 0 39px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:11px;
-
   color:#efc56b;
-
   border:1px solid rgba(239,197,107,.2);
   background:rgba(239,197,107,.07);
-
   font-size:18px;
 }
-
 .trust-text{
   color:#d1deea;
   font-size:13px;
   line-height:1.4;
 }
-
+ 
 /* =====================================================
-   HERO SCIENCE VISUAL
+   MOLÉCULA
 ===================================================== */
-
 .science-visual{
   position:relative;
-
   min-height:445px;
-
   display:flex;
   align-items:center;
   justify-content:center;
 }
-
 .visual-glow{
   position:absolute;
-
   width:360px;
   height:360px;
-
   border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(66,181,255,.30),
-      rgba(15,110,191,.10) 45%,
-      transparent 70%
-    );
-
+  background:radial-gradient(circle,rgba(66,181,255,.30),rgba(15,110,191,.10) 45%,transparent 70%);
   filter:blur(4px);
 }
-
 .molecule{
   position:relative;
   width:390px;
   height:330px;
 }
-
 .atom{
   position:absolute;
-
   border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle at 32% 25%,
-      #e7f8ff 0%,
-      #79c9f8 17%,
-      #1988d0 49%,
-      #074676 78%
-    );
-
+  background:radial-gradient(circle at 32% 25%,#e7f8ff 0%,#79c9f8 17%,#1988d0 49%,#074676 78%);
   border:1px solid rgba(255,255,255,.38);
-
-  box-shadow:
-    inset -9px -12px 20px rgba(0,15,40,.28),
-    0 0 27px rgba(64,177,245,.45);
+  box-shadow:inset -9px -12px 20px rgba(0,15,40,.28),0 0 27px rgba(64,177,245,.45);
 }
-
-.atom.a1{
-  width:82px;
-  height:82px;
-  left:31px;
-  top:130px;
-}
-
-.atom.a2{
-  width:64px;
-  height:64px;
-  left:119px;
-  top:75px;
-}
-
-.atom.a3{
-  width:91px;
-  height:91px;
-  left:174px;
-  top:135px;
-}
-
-.atom.a4{
-  width:65px;
-  height:65px;
-  left:275px;
-  top:68px;
-}
-
-.atom.a5{
-  width:72px;
-  height:72px;
-  left:293px;
-  top:198px;
-}
-
-.atom.a6{
-  width:55px;
-  height:55px;
-  left:132px;
-  top:238px;
-}
-
+.atom.a1{width:82px;height:82px;left:31px;top:130px}
+.atom.a2{width:64px;height:64px;left:119px;top:75px}
+.atom.a3{width:91px;height:91px;left:174px;top:135px}
+.atom.a4{width:65px;height:65px;left:275px;top:68px}
+.atom.a5{width:72px;height:72px;left:293px;top:198px}
+.atom.a6{width:55px;height:55px;left:132px;top:238px}
 .bond{
   position:absolute;
-
   height:11px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #d8f4ff,
-      #5fb9ef 52%,
-      #1474b0
-    );
-
+  background:linear-gradient(180deg,#d8f4ff,#5fb9ef 52%,#1474b0);
   border-radius:20px;
-
   transform-origin:left center;
-
   box-shadow:0 0 15px rgba(100,200,255,.45);
 }
-
-.bond.b1{
-  width:95px;
-  left:93px;
-  top:148px;
-  transform:rotate(-37deg);
-}
-
-.bond.b2{
-  width:87px;
-  left:168px;
-  top:111px;
-  transform:rotate(38deg);
-}
-
-.bond.b3{
-  width:92px;
-  left:249px;
-  top:145px;
-  transform:rotate(-38deg);
-}
-
-.bond.b4{
-  width:103px;
-  left:246px;
-  top:191px;
-  transform:rotate(39deg);
-}
-
-.bond.b5{
-  width:107px;
-  left:167px;
-  top:237px;
-  transform:rotate(-48deg);
-}
-
+.bond.b1{width:95px;left:93px;top:148px;transform:rotate(-37deg)}
+.bond.b2{width:87px;left:168px;top:111px;transform:rotate(38deg)}
+.bond.b3{width:92px;left:249px;top:145px;transform:rotate(-38deg)}
+.bond.b4{width:103px;left:246px;top:191px;transform:rotate(39deg)}
+.bond.b5{width:107px;left:167px;top:237px;transform:rotate(-48deg)}
 .science-note{
   position:absolute;
   right:4px;
   bottom:18px;
-
   max-width:210px;
-
   color:#fff;
-
   font-size:21px;
   font-style:italic;
   line-height:1.28;
-
   transform:rotate(-3deg);
-
   text-shadow:0 3px 10px rgba(0,0,0,.25);
 }
-
 .science-note span{
   display:block;
   color:#efc56b;
   margin-top:3px;
 }
-
+ 
 /* =====================================================
-   AREAS
+   ÁREAS
 ===================================================== */
-
 .areas{
-  background:
-    linear-gradient(
-      180deg,
-      #f7fbff,
-      #edf5fb
-    );
-
+  background:linear-gradient(180deg,#f7fbff,#edf5fb);
   color:#07172b;
-
   padding:52px 20px 60px;
 }
-
 .section-head{
   max-width:760px;
   margin:0 auto 30px;
   text-align:center;
 }
-
 .section-head .tag{
   color:#b6852d;
-
   text-transform:uppercase;
   letter-spacing:3px;
-
   font-size:11px;
   font-weight:900;
-
   margin-bottom:8px;
 }
-
-.section-head h2{
-  font-size:35px;
-  margin-bottom:9px;
-}
-
-.section-head p{
-  color:#647588;
-  line-height:1.6;
-  font-size:15px;
-}
-
+.section-head h2{font-size:35px;margin-bottom:9px}
+.section-head p{color:#647588;line-height:1.6;font-size:15px}
 .area-grid{
   max-width:1200px;
   margin:auto;
-
   display:grid;
   grid-template-columns:repeat(6,1fr);
   gap:14px;
 }
-
 .area-card{
   overflow:hidden;
-
   border-radius:17px;
-
   background:#fff;
-
   border:1px solid #dce8f1;
-
   box-shadow:0 12px 35px rgba(14,46,77,.07);
-
   transition:.22s;
 }
-
-.area-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 42px rgba(14,46,77,.12);
-}
-
+.area-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(14,46,77,.12)}
 .area-image{
   height:118px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   position:relative;
   overflow:hidden;
 }
-
 .area-image::after{
   content:"";
   position:absolute;
   inset:0;
-
-  background:
-    radial-gradient(
-      circle at 50% 25%,
-      rgba(255,255,255,.20),
-      transparent 45%
-    );
+  background:radial-gradient(circle at 50% 25%,rgba(255,255,255,.20),transparent 45%);
 }
-
 .area-symbol{
   position:relative;
   z-index:2;
-
   font-size:53px;
-
-  filter:
-    drop-shadow(0 7px 8px rgba(0,0,0,.20));
+  filter:drop-shadow(0 7px 8px rgba(0,0,0,.20));
 }
-
-.metabolism{
-  background:
-    linear-gradient(145deg,#0c2857,#1475c2);
-}
-
-.performance{
-  background:
-    linear-gradient(145deg,#17286e,#6546d5);
-}
-
-.recovery{
-  background:
-    linear-gradient(145deg,#075f57,#27a58d);
-}
-
-.neuro{
-  background:
-    linear-gradient(145deg,#232270,#6952dd);
-}
-
-.skin{
-  background:
-    linear-gradient(145deg,#74435d,#cf7ba0);
-}
-
-.longevity{
-  background:
-    linear-gradient(145deg,#075874,#18a6c4);
-}
-
-.area-copy{
-  padding:17px 14px 20px;
-  text-align:center;
-}
-
-.area-copy h3{
-  font-size:17px;
-  margin-bottom:6px;
-}
-
-.area-copy p{
-  min-height:38px;
-
-  color:#647589;
-  font-size:12px;
-  line-height:1.45;
-}
-
+.metabolism{background:linear-gradient(145deg,#0c2857,#1475c2)}
+.performance{background:linear-gradient(145deg,#17286e,#6546d5)}
+.recovery{background:linear-gradient(145deg,#075f57,#27a58d)}
+.neuro{background:linear-gradient(145deg,#232270,#6952dd)}
+.skin{background:linear-gradient(145deg,#74435d,#cf7ba0)}
+.longevity{background:linear-gradient(145deg,#075874,#18a6c4)}
+.area-copy{padding:17px 14px 20px;text-align:center}
+.area-copy h3{font-size:17px;margin-bottom:6px}
+.area-copy p{min-height:38px;color:#647589;font-size:12px;line-height:1.45}
+ 
 /* =====================================================
-   RESEARCH SECTION
+   INVESTIGACIÓN
 ===================================================== */
-
 .research{
   background:#fff;
   color:#07172b;
-
   padding:70px 20px;
 }
-
 .research-inner{
   max-width:1120px;
   margin:auto;
-
   display:grid;
   grid-template-columns:.9fr 1.1fr;
   gap:55px;
   align-items:center;
 }
-
 .research-badge{
   width:280px;
   height:280px;
   margin:auto;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 28%,
-      #61bde9,
-      #0d6196 45%,
-      #07335e 75%
-    );
-
-  box-shadow:
-    0 25px 70px rgba(7,70,116,.23),
-    inset 0 0 0 15px rgba(255,255,255,.05);
+  background:radial-gradient(circle at 35% 28%,#61bde9,#0d6196 45%,#07335e 75%);
+  box-shadow:0 25px 70px rgba(7,70,116,.23),inset 0 0 0 15px rgba(255,255,255,.05);
 }
-
 .research-badge-inner{
   width:185px;
   height:185px;
-
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-
   text-align:center;
-
   border-radius:50%;
-
   border:1px solid rgba(255,255,255,.28);
 }
-
-.research-badge strong{
-  color:#fff;
-  font-size:54px;
-}
-
-.research-badge span{
-  color:#d7efff;
-  font-size:13px;
-  letter-spacing:2px;
-}
-
+.research-badge strong{color:#fff;font-size:54px}
+.research-badge span{color:#d7efff;font-size:13px;letter-spacing:2px}
 .research-copy .tag{
   color:#b6852d;
-
   font-size:11px;
   font-weight:900;
   letter-spacing:3px;
-
   text-transform:uppercase;
-
   margin-bottom:10px;
 }
-
-.research-copy h2{
-  font-size:38px;
-  line-height:1.1;
-
-  margin-bottom:16px;
-}
-
-.research-copy p{
-  color:#617387;
-
-  font-size:15px;
-  line-height:1.75;
-
-  margin-bottom:14px;
-}
-
-.research-link{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-
-  margin-top:9px;
-
-  color:#0d5f99;
-  font-weight:900;
-  font-size:14px;
-}
-
+.research-copy h2{font-size:38px;line-height:1.1;margin-bottom:16px}
+.research-copy p{color:#617387;font-size:15px;line-height:1.75;margin-bottom:14px}
+.research-link{display:inline-flex;align-items:center;gap:8px;margin-top:9px;color:#0d5f99;font-weight:900;font-size:14px}
+ 
 /* =====================================================
-   QUOTE
+   FRASE
 ===================================================== */
-
 .quote{
   padding:55px 20px;
-
   text-align:center;
-
   color:#0a2341;
-
-  background:
-    radial-gradient(
-      circle at 90% 30%,
-      rgba(46,150,216,.09),
-      transparent 25%
-    ),
-    #f3f8fc;
+  background:radial-gradient(circle at 90% 30%,rgba(46,150,216,.09),transparent 25%),#f3f8fc;
 }
-
-.quote blockquote{
-  max-width:900px;
-  margin:auto;
-
-  font-size:25px;
-  font-style:italic;
-  line-height:1.45;
-}
-
-.quote-line{
-  width:43px;
-  height:3px;
-
-  background:#efb93b;
-
-  border-radius:10px;
-
-  margin:17px auto;
-}
-
-.quote-signature{
-  color:#6483a2;
-
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:5px;
-
-  text-transform:uppercase;
-}
-
+.quote blockquote{max-width:900px;margin:auto;font-size:25px;font-style:italic;line-height:1.45}
+.quote-line{width:43px;height:3px;background:#efb93b;border-radius:10px;margin:17px auto}
+.quote-signature{color:#6483a2;font-size:11px;font-weight:800;letter-spacing:5px;text-transform:uppercase}
+ 
 /* =====================================================
    FOOTER
 ===================================================== */
-
 footer{
   background:#020a13;
-
   border-top:1px solid rgba(255,255,255,.08);
-
   text-align:center;
-
   padding:35px 20px;
-
   color:#8296a9;
-
   font-size:13px;
   line-height:1.7;
 }
-
-footer strong{
-  color:#efc56b;
-}
-
+footer strong{color:#efc56b}
+ 
 /* =====================================================
-   MOBILE
+   TABLET / MÓVIL
 ===================================================== */
-
 @media(max-width:1050px){
-
-  .menu{
-    gap:16px;
-    font-size:13px;
-  }
-
-  .area-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
+  .menu{gap:16px;font-size:13px}
+  .area-grid{grid-template-columns:repeat(3,1fr)}
 }
-
+ 
 @media(max-width:900px){
-
-  .mobile-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .menu{
-    display:none;
-  }
-
+  .mobile-btn{display:flex;align-items:center;justify-content:center}
+  .menu{display:none}
   .menu.open{
     display:flex;
-
     position:fixed;
-
     top:88px;
     left:14px;
     right:14px;
-
     flex-direction:column;
     align-items:stretch;
-
     padding:15px;
-
     border-radius:18px;
-
     background:#06182c;
-
     border:1px solid rgba(255,255,255,.12);
-
     box-shadow:0 30px 80px rgba(0,0,0,.55);
-
     z-index:2000;
   }
-
-  .menu.open a{
-    padding:13px;
-
-    border-bottom:
-      1px solid rgba(255,255,255,.07);
-  }
-
-  .menu.open a:last-child{
-    border-bottom:none;
-  }
-
-  .menu a.active::after{
-    display:none;
-  }
-
-  .brand img{
-    width:155px;
-  }
-
+  .menu.open a{padding:13px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .menu.open a:last-child{border-bottom:none}
+  .menu a.active::after{display:none}
+  .brand img{width:155px}
+ 
   .hero-inner{
     grid-template-columns:1fr;
-    gap:15px;
-
-    padding-top:48px;
+    gap:8px;
+    padding:42px 20px 24px;
   }
-
-  .hero-copy{
-    margin:auto;
-    text-align:center;
-  }
-
-  .hero h1{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero-description{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .hero-buttons{
-    justify-content:center;
-  }
-
-  .trust-grid{
-    margin:auto;
-  }
-
-  .science-visual{
-    min-height:365px;
-  }
-
-  .research-inner{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
+  .hero-copy{margin:auto;text-align:center}
+  .hero h1{margin-left:auto;margin-right:auto}
+  .hero-description{margin-left:auto;margin-right:auto}
+  .hero-buttons{justify-content:center}
+  .trust-grid{margin:auto}
+  .science-visual{min-height:300px}
+ 
+  .research-inner{grid-template-columns:1fr;text-align:center}
 }
-
+ 
 @media(max-width:650px){
-
-  .nav{
-    padding:10px 14px;
-  }
-
-  .brand img{
-    width:140px;
-    max-height:56px;
-  }
-
+  .nav{padding:10px 14px}
+  .brand img{width:140px;max-height:56px}
+ 
   .hero-inner{
     grid-template-columns:1fr;
-    gap:18px;
-    padding:34px 16px 28px;
+    gap:0;
+    padding:30px 16px 18px;
   }
-
   .hero-copy{
     width:100%;
     max-width:100%;
     margin:0 auto;
     text-align:center;
   }
-
   .eyebrow{
     font-size:9px;
     letter-spacing:2px;
     line-height:1.5;
-    margin-bottom:14px;
+    margin-bottom:12px;
   }
-
   .hero h1{
     font-size:40px;
     line-height:1.05;
     letter-spacing:-1px;
     width:100%;
     max-width:100%;
-    margin-left:auto;
-    margin-right:auto;
+    margin:0 auto 18px;
   }
-
   .hero-description{
     width:100%;
     max-width:100%;
     font-size:15px;
-    line-height:1.6;
+    line-height:1.55;
     padding:0;
-    overflow-wrap:anywhere;
+    margin-bottom:20px;
   }
-
   .hero-buttons{
     width:100%;
     flex-direction:column;
-    gap:12px;
+    gap:10px;
+    margin-bottom:22px;
   }
-
   .btn{
     width:100%;
     min-width:0;
     max-width:100%;
     padding:0 14px;
   }
-
   .trust-grid{
     width:100%;
     max-width:360px;
     grid-template-columns:1fr;
     margin:0 auto;
+    gap:10px;
   }
-
+ 
+  /* CORRECCIÓN CLAVE: SUBIR LA MOLÉCULA */
   .science-visual{
     width:100%;
     max-width:100%;
-    min-height:285px;
-    transform:none;
-    margin:0;
-    overflow:hidden;
+    min-height:225px;
+    height:225px;
+    margin:-6px 0 0;
+    overflow:visible;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
   }
-
-  .molecule{
-    width:280px;
+  .visual-glow{
+    width:250px;
     height:250px;
-    transform:scale(.78);
-    transform-origin:center;
+    top:-28px;
   }
-
+  .molecule{
+    width:300px;
+    height:250px;
+    transform:scale(.72) translateY(-34px);
+    transform-origin:top center;
+  }
   .science-note{
-    right:10px;
-    bottom:8px;
-    max-width:150px;
+    right:18px;
+    bottom:20px;
+    max-width:142px;
     font-size:16px;
+    z-index:5;
   }
-
-  .area-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .area-image{
-    height:105px;
-  }
-
-  .research-copy h2{
-    font-size:32px;
-  }
-
-  .quote blockquote{
-    font-size:21px;
-  }
-
+ 
+  .area-grid{grid-template-columns:1fr 1fr}
+  .area-image{height:105px}
+  .research-copy h2{font-size:32px}
+  .quote blockquote{font-size:21px}
 }
+ 
 @media(max-width:420px){
-
-  .area-grid{
-    grid-template-columns:1fr;
+  .area-grid{grid-template-columns:1fr}
+ 
+  .science-visual{
+    min-height:215px;
+    height:215px;
   }
-
+  .molecule{
+    transform:scale(.68) translateY(-40px);
+  }
+  .science-note{
+    right:12px;
+    bottom:18px;
+    max-width:135px;
+    font-size:15px;
+  }
 }
-
 </style>
-
 </head>
-
-
+ 
 <body>
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
+ 
 <header>
-
 <div class="nav">
-
-  <a
-    class="brand"
-    href="index.html"
-  >
-    <img
-      src="logo-peptalyn.png"
-      alt="PEPTALYN"
-    >
+  <a class="brand" href="index.html">
+    <img src="logo-peptalyn.png" alt="PEPTALYN">
   </a>
-
-
-  <button
-    class="mobile-btn"
-    id="mobileButton"
-    aria-label="Abrir menú"
-  >
-    ☰
-  </button>
-
-
-  <nav
-    class="menu"
-    id="menu"
-  >
-
-    <a
-      class="active"
-      href="index.html"
-    >
-      Inicio
-    </a>
-
-    <a href="areas.html">
-      Áreas
-    </a>
-
-    <a href="peptidos.html">
-      Péptidos
-    </a>
-     <a href="comprar.html">
-    Comprar
-</a>
-
-    <a href="comparador.html">
-      Comparador
-    </a>
-
-    <a href="calculadora.html">
-      Calculadora
-    </a>
-
-    <a href="informacion.html">
-      Información
-    </a>
-
-    <a href="contacto.html">
-      Contacto
-    </a>
-
+ 
+  <button class="mobile-btn" id="mobileButton" aria-label="Abrir menú">☰</button>
+ 
+  <nav class="menu" id="menu">
+    <a class="active" href="index.html">Inicio</a>
+    <a href="areas.html">Áreas</a>
+    <a href="peptidos.html">Péptidos</a>
+    <a href="comprar.html">Comprar</a>
+    <a href="comparador.html">Comparador</a>
+    <a href="calculadora.html">Calculadora</a>
+    <a href="informacion.html">Información</a>
+    <a href="contacto.html">Contacto</a>
   </nav>
-
 </div>
-
 </header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
+ 
 <section class="hero">
-
 <div class="hero-inner">
-
-
-  <!-- LEFT -->
-
+ 
   <div class="hero-copy">
-
-    <div class="eyebrow">
-      PEPTALYN · ADVANCED PEPTIDE RESEARCH
-    </div>
-
+    <div class="eyebrow">PEPTALYN · ADVANCED PEPTIDE RESEARCH</div>
+ 
     <h1>
       Ciencia hoy
       <br>
       para un
       <span>mejor mañana</span>
     </h1>
-
+ 
     <p class="hero-description">
       Explora la ciencia detrás de péptidos y nuevas moléculas
       en metabolismo, composición corporal, recuperación,
       neurociencia, piel, longevidad y otras áreas
       de investigación biomédica.
     </p>
-
-
+ 
     <div class="hero-buttons">
-
-      <a
-        class="btn btn-gold"
-        href="areas.html"
-      >
-        ◉
-        Explorar áreas
-        →
-      </a>
-
-      <a
-        class="btn btn-outline"
-        href="peptidos.html"
-      >
-        ◫
-        Ver biblioteca
-        →
-      </a>
-
+      <a class="btn btn-gold" href="areas.html">◉ Explorar áreas →</a>
+      <a class="btn btn-outline" href="peptidos.html">◫ Ver biblioteca →</a>
     </div>
-
-
+ 
     <div class="trust-grid">
-
-
+ 
       <div class="trust-item">
-
-        <div class="trust-icon">
-          ◇
-        </div>
-
-        <div class="trust-text">
-          Información organizada
-          <br>
-          por nivel de evidencia
-        </div>
-
+        <div class="trust-icon">◇</div>
+        <div class="trust-text">Información organizada<br>por nivel de evidencia</div>
       </div>
-
-
+ 
       <div class="trust-item">
-
-        <div class="trust-icon">
-          ⚗️
-        </div>
-
-        <div class="trust-text">
-          Enfoque científico
-          <br>
-          y responsable
-        </div>
-
+        <div class="trust-icon">⚗️</div>
+        <div class="trust-text">Enfoque científico<br>y responsable</div>
       </div>
-
-
+ 
       <div class="trust-item">
-
-        <div class="trust-icon">
-          ◎
-        </div>
-
-        <div class="trust-text">
-          Múltiples áreas
-          <br>
-          de investigación
-        </div>
-
+        <div class="trust-icon">◎</div>
+        <div class="trust-text">Múltiples áreas<br>de investigación</div>
       </div>
-
-
+ 
       <div class="trust-item">
-
-        <div class="trust-icon">
-          ✦
-        </div>
-
-        <div class="trust-text">
-          Herramientas para
-          <br>
-          explorar y comparar
-        </div>
-
+        <div class="trust-icon">✦</div>
+        <div class="trust-text">Herramientas para<br>explorar y comparar</div>
       </div>
-
-
+ 
     </div>
-
   </div>
-
-
-  <!-- RIGHT -->
-
+ 
   <div class="science-visual">
-
     <div class="visual-glow"></div>
-
+ 
     <div class="molecule">
-
       <div class="bond b1"></div>
       <div class="bond b2"></div>
       <div class="bond b3"></div>
       <div class="bond b4"></div>
       <div class="bond b5"></div>
-
+ 
       <div class="atom a1"></div>
       <div class="atom a2"></div>
       <div class="atom a3"></div>
       <div class="atom a4"></div>
       <div class="atom a5"></div>
       <div class="atom a6"></div>
-
     </div>
-
+ 
     <div class="science-note">
       Pequeñas moléculas.
-      <span>
-        Grandes posibilidades.
-      </span>
+      <span>Grandes posibilidades.</span>
     </div>
-
   </div>
-
-
+ 
 </div>
-
 </section>
-
-
-<!-- =====================================================
-     AREAS
-===================================================== -->
-
+ 
 <section class="areas">
-
-<div class="section-head">
-
-  <div class="tag">
-    EXPLORA POR ÁREAS
+  <div class="section-head">
+    <div class="tag">EXPLORA POR ÁREAS</div>
+    <h2>Una biblioteca organizada por ciencia</h2>
+    <p>Descubre moléculas según el campo de investigación biomédica en el que se estudian.</p>
   </div>
-
-  <h2>
-    Una biblioteca organizada por ciencia
-  </h2>
-
-  <p>
-    Descubre moléculas según el campo de investigación
-    biomédica en el que se estudian.
-  </p>
-
-</div>
-
-
-<div class="area-grid">
-
-
-  <a
-    class="area-card"
-    href="peptidos.html?area=metabolismo"
-  >
-
-    <div class="area-image metabolism">
-
-      <div class="area-symbol">
-        ◉
-      </div>
-
-    </div>
-
-    <div class="area-copy">
-
-      <h3>
-        Metabolismo
-      </h3>
-
-      <p>
-        Metabolismo y composición corporal
-      </p>
-
-    </div>
-
-  </a>
-
-
-  <a
-    class="area-card"
-    href="peptidos.html?area=rendimiento"
-  >
-
-    <div class="area-image performance">
-
-      <div class="area-symbol">
-        ⚡
-      </div>
-
-    </div>
-
-    <div class="area-copy">
-
-      <h3>
-        Rendimiento
-      </h3>
-
-      <p>
-        Fisiología, energía y adaptación
-      </p>
-
-    </div>
-
-  </a>
-
-
-  <a
-    class="area-card"
-    href="peptidos.html?area=recuperacion"
-  >
-
-    <div class="area-image recovery">
-
-      <div class="area-symbol">
-        ◇
-      </div>
-
-    </div>
-
-    <div class="area-copy">
-
-      <h3>
-        Recuperación
-      </h3>
-
-      <p>
-        Reparación y biología tisular
-      </p>
-
-    </div>
-
-  </a>
-
-
-  <a
-    class="area-card"
-    href="peptidos.html?area=neurociencia"
-  >
-
-    <div class="area-image neuro">
-
-      <div class="area-symbol">
-        ◎
-      </div>
-
-    </div>
-
-    <div class="area-copy">
-
-      <h3>
-        Neurociencia
-      </h3>
-
-      <p>
-        Señalización y función neurológica
-      </p>
-
-    </div>
-
-  </a>
-
-
-  <a
-    class="area-card"
-    href="peptidos.html?area=piel"
-  >
-
-    <div class="area-image skin">
-
-      <div class="area-symbol">
-        ✦
-      </div>
-
-    </div>
-
-    <div class="area-copy">
-
-      <h3>
-        Piel
-      </h3>
-
-      <p>
-        Biología cutánea y matriz extracelular
-      </p>
-
-    </div>
-
-  </a>
-
-
-  <a
-    class="area-card"
-    href="peptidos.html?area=longevidad"
-  >
-
-    <div class="area-image longevity">
-
-      <div class="area-symbol">
-        ⬡
-      </div>
-
-    </div>
-
-    <div class="area-copy">
-
-      <h3>
-        Longevidad
-      </h3>
-
-      <p>
-        Bioenergética y biología celular
-      </p>
-
-    </div>
-
-  </a>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     RESEARCH
-===================================================== -->
-
-<section class="research">
-
-<div class="research-inner">
-
-
-  <div class="research-badge">
-
-    <div class="research-badge-inner">
-
-      <strong>
-        P
-      </strong>
-
-      <span>
-        PEPTALYN
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div class="research-copy">
-
-    <div class="tag">
-      INFORMACIÓN CIENTÍFICA
-    </div>
-
-    <h2>
-      Comprender la evidencia antes de sacar conclusiones
-    </h2>
-
-    <p>
-      Las moléculas incluidas en PEPTALYN no poseen todas
-      el mismo nivel de evidencia ni el mismo estado regulatorio.
-      Algunas forman parte de medicamentos autorizados para
-      indicaciones específicas, mientras otras continúan
-      en investigación clínica o preclínica.
-    </p>
-
-    <p>
-      Nuestra biblioteca busca separar mecanismo,
-      investigación, evidencia disponible y situación
-      regulatoria de forma clara y organizada.
-    </p>
-
-    <a
-      class="research-link"
-      href="informacion.html"
-    >
-      Conocer nuestros criterios
-      →
+ 
+  <div class="area-grid">
+ 
+    <a class="area-card" href="peptidos.html?area=metabolismo">
+      <div class="area-image metabolism"><div class="area-symbol">◉</div></div>
+      <div class="area-copy"><h3>Metabolismo</h3><p>Metabolismo y composición corporal</p></div>
     </a>
-
+ 
+    <a class="area-card" href="peptidos.html?area=rendimiento">
+      <div class="area-image performance"><div class="area-symbol">⚡</div></div>
+      <div class="area-copy"><h3>Rendimiento</h3><p>Fisiología, energía y adaptación</p></div>
+    </a>
+ 
+    <a class="area-card" href="peptidos.html?area=recuperacion">
+      <div class="area-image recovery"><div class="area-symbol">◇</div></div>
+      <div class="area-copy"><h3>Recuperación</h3><p>Reparación y biología tisular</p></div>
+    </a>
+ 
+    <a class="area-card" href="peptidos.html?area=neurociencia">
+      <div class="area-image neuro"><div class="area-symbol">◎</div></div>
+      <div class="area-copy"><h3>Neurociencia</h3><p>Señalización y función neurológica</p></div>
+    </a>
+ 
+    <a class="area-card" href="peptidos.html?area=piel">
+      <div class="area-image skin"><div class="area-symbol">✦</div></div>
+      <div class="area-copy"><h3>Piel</h3><p>Biología cutánea y matriz extracelular</p></div>
+    </a>
+ 
+    <a class="area-card" href="peptidos.html?area=longevidad">
+      <div class="area-image longevity"><div class="area-symbol">⬡</div></div>
+      <div class="area-copy"><h3>Longevidad</h3><p>Bioenergética y biología celular</p></div>
+    </a>
+ 
   </div>
-
-
-</div>
-
 </section>
-
-
-<!-- =====================================================
-     QUOTE
-===================================================== -->
-
+ 
+<section class="research">
+  <div class="research-inner">
+ 
+    <div class="research-badge">
+      <div class="research-badge-inner">
+        <strong>01</strong>
+        <span>EVIDENCIA</span>
+      </div>
+    </div>
+ 
+    <div class="research-copy">
+      <div class="tag">CIENCIA CON CONTEXTO</div>
+      <h2>Investigar también significa diferenciar</h2>
+ 
+      <p>
+        Las moléculas incluidas en PEPTALYN no poseen todas el mismo nivel
+        de evidencia ni el mismo estado regulatorio. Algunas forman parte
+        de medicamentos autorizados para indicaciones específicas, mientras
+        otras continúan en investigación clínica o preclínica.
+      </p>
+ 
+      <p>
+        Nuestra biblioteca busca separar mecanismo, investigación,
+        evidencia disponible y situación regulatoria de forma clara y organizada.
+      </p>
+ 
+      <a class="research-link" href="informacion.html">Conocer nuestro enfoque →</a>
+    </div>
+ 
+  </div>
+</section>
+ 
 <section class="quote">
-
   <blockquote>
-    “La investigación de hoy construye
-    el conocimiento del mañana.”
+    “La ciencia avanza cuando la información se presenta con contexto,
+    claridad y responsabilidad.”
   </blockquote>
-
+ 
   <div class="quote-line"></div>
-
+ 
   <div class="quote-signature">
     PEPTALYN · ADVANCED PEPTIDE RESEARCH
   </div>
-
 </section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
+ 
 <footer>
-
-  <strong>
-    PEPTALYN
-  </strong>
-
-  · Advanced Peptide Research
-
+  <strong>PEPTALYN</strong> · Advanced Peptide Research
   <br>
-
   Plataforma de información científica y educativa.
-
 </footer>
-
-
+ 
 <script>
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-const mobileButton =
-  document.getElementById("mobileButton");
-
-const menu =
-  document.getElementById("menu");
-
-
-mobileButton.addEventListener(
-  "click",
-  function(){
-
-    menu.classList.toggle("open");
-
-    mobileButton.textContent =
-      menu.classList.contains("open")
-      ? "✕"
-      : "☰";
-
-  }
-);
-
-
-menu
-  .querySelectorAll("a")
-  .forEach(function(link){
-
-    link.addEventListener(
-      "click",
-      function(){
-
-        menu.classList.remove("open");
-
-        mobileButton.textContent =
-          "☰";
-
-      }
-    );
-
+const mobileButton=document.getElementById("mobileButton");
+const menu=document.getElementById("menu");
+ 
+mobileButton.addEventListener("click",function(){
+  menu.classList.toggle("open");
+  mobileButton.textContent=menu.classList.contains("open") ? "✕" : "☰";
+});
+ 
+menu.querySelectorAll("a").forEach(function(link){
+  link.addEventListener("click",function(){
+    menu.classList.remove("open");
+    mobileButton.textContent="☰";
   });
-
-
-/* =====================================================
-   INICIO SIEMPRE ARRIBA
-===================================================== */
-
-if(
-  "scrollRestoration"
-  in history
-){
-  history.scrollRestoration =
-    "manual";
-}
-
-window.addEventListener(
-  "pageshow",
-  function(){
-
-    window.scrollTo(
-      0,
-      0
-    );
-
-  }
-);
-
+});
 </script>
-
-
+ 
 </body>
 </html>
