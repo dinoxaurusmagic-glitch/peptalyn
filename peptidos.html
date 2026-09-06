@@ -22,9 +22,10 @@
             font-family: Arial, Helvetica, sans-serif;
             color: #ffffff;
             min-height: 100vh;
+
             background:
-                radial-gradient(circle at 75% 30%, rgba(24, 92, 180, .22), transparent 35%),
-                radial-gradient(circle at 20% 75%, rgba(21, 72, 145, .18), transparent 35%),
+                radial-gradient(circle at 75% 25%, rgba(21, 105, 213, .22), transparent 34%),
+                radial-gradient(circle at 18% 72%, rgba(18, 80, 162, .16), transparent 34%),
                 linear-gradient(135deg, #07111f, #0b1a31 55%, #07111f);
         }
 
@@ -33,22 +34,25 @@
             color: inherit;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(6, 15, 28, .95);
+
+            background: #091421;
             border-bottom: 1px solid rgba(255, 255, 255, .08);
-            backdrop-filter: blur(12px);
         }
 
         .nav {
-            max-width: 1380px;
+            max-width: 1360px;
+            min-height: 96px;
+
             margin: auto;
-            min-height: 92px;
-            padding: 14px 28px;
+            padding: 10px 28px;
 
             display: flex;
             align-items: center;
@@ -63,67 +67,112 @@
         }
 
         .brand img {
+            display: block;
+
             width: 220px;
             max-width: 100%;
+
+            padding: 7px 14px;
+
             background: #ffffff;
             border-radius: 17px;
-            padding: 8px 15px;
-            display: block;
         }
 
         .menu {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 28px;
             flex-wrap: wrap;
+
+            gap: 28px;
         }
 
         .menu a {
-            color: #d9e4f4;
+            position: relative;
+
+            padding: 9px 0;
+
+            color: #dce6f3;
             font-size: 15px;
+            font-weight: 600;
+
             transition: .2s ease;
         }
 
-        .menu a:hover,
+        .menu a:hover {
+            color: #f4b34b;
+        }
+
         .menu a.active {
-            color: #f3b34b;
+            color: #f4b34b;
+        }
+
+        .menu a.active::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 2px;
+
+            background: #f4b34b;
+            border-radius: 5px;
         }
 
         .mobile-btn {
             display: none;
+
             background: transparent;
+            border: 1px solid rgba(255, 255, 255, .18);
+
             color: white;
-            border: 1px solid rgba(255, 255, 255, .2);
+
             border-radius: 10px;
-            font-size: 24px;
+
             padding: 6px 11px;
+
+            font-size: 24px;
             cursor: pointer;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            max-width: 1200px;
+            max-width: 1220px;
+
             margin: auto;
-            padding: 70px 25px 35px;
+
+            padding:
+                42px
+                25px
+                24px;
+
             text-align: center;
         }
 
         .eyebrow {
             display: inline-block;
+
+            margin-bottom: 12px;
+
             color: #f3b34b;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.2px;
             text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: clamp(38px, 5vw, 64px);
-            line-height: 1.05;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.04;
         }
 
         .hero h1 span {
@@ -131,36 +180,72 @@
         }
 
         .hero p {
-            max-width: 900px;
+            max-width: 920px;
+
             margin: auto;
-            font-size: 19px;
-            line-height: 1.7;
-            color: #9fb6d3;
+
+            color: #a8bdd5;
+
+            font-size: 17px;
+            line-height: 1.65;
         }
 
-        /* CONTROLES */
+
+        /* =========================
+           BUSCADOR Y FILTROS
+        ========================= */
 
         .controls {
-            max-width: 1250px;
-            margin: 15px auto 0;
-            padding: 0 25px;
+            max-width: 1220px;
+
+            margin: auto;
+
+            padding:
+                12px
+                25px
+                0;
         }
 
         .search-wrap {
-            max-width: 900px;
-            margin: auto;
             position: relative;
+
+            max-width: 920px;
+
+            margin: auto;
         }
 
         .search {
             width: 100%;
-            padding: 18px 22px 18px 52px;
+
+            padding:
+                17px
+                22px
+                17px
+                52px;
+
+            border:
+                1px solid
+                rgba(110, 167, 235, .28);
+
             border-radius: 16px;
-            border: 1px solid rgba(100, 165, 255, .24);
-            background: rgba(11, 29, 54, .82);
-            color: white;
+
+            background:
+                rgba(10, 29, 54, .82);
+
+            color: #ffffff;
+
             font-size: 17px;
+
             outline: none;
+        }
+
+        .search:focus {
+            border-color:
+                rgba(243, 179, 75, .65);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(243, 179, 75, .07);
         }
 
         .search::placeholder {
@@ -169,91 +254,160 @@
 
         .search-icon {
             position: absolute;
+
             left: 19px;
             top: 50%;
-            transform: translateY(-50%);
-            color: #6fa9e8;
+
+            transform:
+                translateY(-50%);
+
+            color: #79ade8;
+
             font-size: 20px;
         }
 
         .filters {
-            margin-top: 30px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
+
+            gap: 11px;
+
+            margin-top: 25px;
         }
 
         .filter-btn {
-            border: 1px solid rgba(109, 166, 234, .25);
-            background: rgba(10, 29, 54, .72);
-            color: #d8e6f7;
-            padding: 13px 22px;
+            padding: 12px 21px;
+
+            border:
+                1px solid
+                rgba(109, 166, 234, .26);
+
             border-radius: 999px;
+
+            background:
+                rgba(10, 29, 54, .7);
+
+            color: #dce8f6;
+
             font-weight: 700;
+
             cursor: pointer;
+
             transition: .2s ease;
         }
 
         .filter-btn:hover {
-            border-color: #f3b34b;
-            color: #ffffff;
+            border-color:
+                rgba(243, 179, 75, .65);
+
+            color: white;
         }
 
         .filter-btn.active {
-            color: #162033;
-            background: linear-gradient(135deg, #ffd77b, #ee9f3f);
-            border-color: transparent;
+            color: #202534;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffdb84,
+                    #eca040
+                );
+
+            border-color:
+                transparent;
         }
 
-        /* BIBLIOTECA */
+
+        /* =========================
+           BIBLIOTECA
+        ========================= */
 
         .library {
             max-width: 1250px;
+
             margin: auto;
-            padding: 55px 25px 80px;
+
+            padding:
+                45px
+                25px
+                80px;
         }
 
         .section-title {
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .section-title h2 {
-            font-size: clamp(31px, 4vw, 46px);
-            margin-bottom: 9px;
+            margin-bottom: 8px;
+
+            font-size:
+                clamp(
+                    31px,
+                    4vw,
+                    44px
+                );
         }
 
         .section-title p {
-            color: #92abc9;
-            font-size: 17px;
+            color: #91aac8;
+
+            font-size: 16px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+
             gap: 24px;
         }
 
         .card {
             display: flex;
             flex-direction: column;
-            min-height: 360px;
-            padding: 28px;
 
-            border-radius: 24px;
-            border: 1px solid rgba(92, 153, 228, .18);
+            min-height: 345px;
+
+            padding: 27px;
+
+            border-radius: 23px;
+
+            border:
+                1px solid
+                rgba(93, 154, 228, .18);
 
             background:
-                radial-gradient(circle at 90% 5%, rgba(70, 142, 226, .18), transparent 30%),
-                linear-gradient(145deg, rgba(15, 38, 70, .94), rgba(8, 25, 47, .96));
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(71, 143, 227, .18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    rgba(15, 38, 70, .96),
+                    rgba(8, 25, 47, .97)
+                );
 
-            box-shadow: 0 18px 45px rgba(0, 0, 0, .22);
-            transition: transform .2s ease, border-color .2s ease;
+            box-shadow:
+                0 18px 45px
+                rgba(0, 0, 0, .22);
+
+            transition:
+                transform .2s ease,
+                border-color .2s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(243, 179, 75, .45);
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(243, 179, 75, .45);
         }
 
         .card.is-hidden {
@@ -261,97 +415,154 @@
         }
 
         .category {
+            margin-bottom: 13px;
+
             color: #f3b34b;
+
             font-size: 12px;
             font-weight: 800;
-            letter-spacing: 1.7px;
+            letter-spacing: 1.6px;
+
             text-transform: uppercase;
-            margin-bottom: 14px;
         }
 
         .card h3 {
-            font-size: 30px;
-            margin-bottom: 14px;
+            margin-bottom: 13px;
+
+            font-size: 29px;
         }
 
         .card p {
-            color: #b0c3dc;
-            line-height: 1.62;
-            font-size: 16px;
             margin-bottom: 20px;
+
+            color: #b0c3dc;
+
+            line-height: 1.6;
+
+            font-size: 16px;
         }
 
         .tags {
             display: flex;
             flex-wrap: wrap;
+
             gap: 8px;
+
             margin-top: auto;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
         .tag {
-            border: 1px solid rgba(129, 179, 237, .25);
-            background: rgba(76, 132, 197, .1);
-            color: #bcd1e9;
             padding: 7px 10px;
-            font-size: 12px;
+
+            border:
+                1px solid
+                rgba(129, 179, 237, .25);
+
             border-radius: 999px;
+
+            background:
+                rgba(76, 132, 197, .1);
+
+            color: #bdd1e9;
+
+            font-size: 12px;
         }
 
         .btn {
+            align-self: flex-start;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            align-self: flex-start;
 
             padding: 12px 20px;
+
             border-radius: 11px;
 
-            font-weight: 800;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffda80,
+                    #eda141
+                );
 
-            background: linear-gradient(135deg, #ffd87a, #eea241);
             color: #202534;
+
+            font-weight: 800;
 
             transition: .2s ease;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .notice {
-            margin-top: 38px;
-            padding: 22px 24px;
-            border-radius: 18px;
-            border: 1px solid rgba(243, 179, 75, .2);
-            background: rgba(243, 179, 75, .06);
-            color: #b7c8dd;
-            line-height: 1.6;
+            transform:
+                translateY(-2px);
         }
 
         .empty-state {
             display: none;
-            text-align: center;
+
             padding: 50px 20px;
+
+            text-align: center;
+
             color: #9db4d0;
         }
 
-        /* FOOTER */
+        .notice {
+            margin-top: 38px;
 
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, .08);
-            padding: 34px 24px;
-            text-align: center;
-            color: #7f97b5;
-            font-size: 14px;
-            background: rgba(3, 10, 19, .55);
+            padding: 22px 24px;
+
+            border:
+                1px solid
+                rgba(243, 179, 75, .2);
+
+            border-radius: 18px;
+
+            background:
+                rgba(243, 179, 75, .06);
+
+            color: #b7c8dd;
+
+            line-height: 1.6;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 34px 24px;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, .08);
+
+            background:
+                rgba(3, 10, 19, .55);
+
+            color: #7f97b5;
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
 
         @media (max-width: 1000px) {
+
             .grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
             }
 
             .mobile-btn {
@@ -360,7 +571,8 @@
 
             .menu {
                 position: absolute;
-                top: 92px;
+
+                top: 96px;
                 left: 0;
                 right: 0;
 
@@ -368,9 +580,16 @@
                 flex-direction: column;
                 align-items: stretch;
 
-                padding: 20px 26px 28px;
+                padding:
+                    18px
+                    26px
+                    26px;
+
                 background: #07111f;
-                border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+                border-bottom:
+                    1px solid
+                    rgba(255, 255, 255, .1);
             }
 
             .menu.open {
@@ -380,69 +599,159 @@
             .menu a {
                 padding: 11px 4px;
             }
+
+            .menu a.active::after {
+                display: none;
+            }
         }
 
+
+        /* =========================
+           MÓVIL
+        ========================= */
+
         @media (max-width: 680px) {
+
             .nav {
-                padding: 12px 16px;
+                min-height: 82px;
+
+                padding:
+                    10px
+                    16px;
             }
 
             .brand img {
-                width: 170px;
+                width: 165px;
             }
 
-            .grid {
-                grid-template-columns: 1fr;
+            .menu {
+                top: 82px;
             }
 
             .hero {
-                padding-top: 45px;
+                padding:
+                    34px
+                    18px
+                    18px;
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 15px;
+            }
+
+            .controls {
+                padding:
+                    10px
+                    18px
+                    0;
             }
 
             .filters {
-                justify-content: flex-start;
-                overflow-x: auto;
+                justify-content:
+                    flex-start;
+
                 flex-wrap: nowrap;
-                padding-bottom: 7px;
+
+                overflow-x: auto;
+
+                padding-bottom: 8px;
             }
 
             .filter-btn {
-                flex: 0 0 auto;
+                flex:
+                    0 0 auto;
+            }
+
+            .library {
+                padding:
+                    38px
+                    18px
+                    65px;
+            }
+
+            .grid {
+                grid-template-columns:
+                    1fr;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
+
 <header>
+
     <div class="nav">
 
-        <a class="brand" href="index.html">
-            <img src="logo-peptalyn.png" alt="PEPTALYN">
+        <a
+            class="brand"
+            href="index.html"
+        >
+            <img
+                src="logo-peptalyn.png"
+                alt="PEPTALYN"
+            >
         </a>
 
-        <button class="mobile-btn" id="mobileBtn" aria-label="Abrir menú">
+
+        <button
+            class="mobile-btn"
+            id="mobileBtn"
+            aria-label="Abrir menú"
+        >
             ☰
         </button>
 
-        <nav class="menu" id="menu">
-            <a href="index.html">Inicio</a>
-            <a href="areas.html">Áreas</a>
-            <a href="peptidos.html" class="active">Péptidos</a>
-            <a href="comprar.html">Comprar</a>
-            <a href="comparador.html">Comparador</a>
-            <a href="calculadora.html">Calculadora</a>
-            <a href="informacion.html">Información</a>
-            <a href="contacto.html">Contacto</a>
+
+        <nav
+            class="menu"
+            id="menu"
+        >
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="areas.html">
+                Áreas
+            </a>
+
+            <a
+                href="peptidos.html"
+                class="active"
+            >
+                Péptidos
+            </a>
+
+            <a href="comprar.html">
+                Comprar
+            </a>
+
+            <a href="comparador.html">
+                Comparador
+            </a>
+
+            <a href="calculadora.html">
+                Calculadora
+            </a>
+
+            <a href="informacion.html">
+                Información
+            </a>
+
+            <a href="contacto.html">
+                Contacto
+            </a>
+
         </nav>
 
     </div>
+
 </header>
+
 
 
 <section class="hero">
@@ -452,23 +761,27 @@
     </span>
 
     <h1>
-        Explora nuestras <span>moléculas</span>
+        Explora nuestras
+        <span>moléculas</span>
     </h1>
 
     <p>
         Explora moléculas organizadas por área de investigación.
-        Consulta mecanismo, contexto científico, evidencia disponible
+        Consulta su mecanismo, contexto científico, evidencia disponible
         y documentación técnica desde una sola biblioteca.
     </p>
 
 </section>
 
 
+
 <section class="controls">
 
     <div class="search-wrap">
 
-        <span class="search-icon">⌕</span>
+        <span class="search-icon">
+            ⌕
+        </span>
 
         <input
             class="search"
@@ -479,33 +792,55 @@
 
     </div>
 
+
     <div class="filters">
 
-        <button class="filter-btn active" data-filter="all">
+        <button
+            class="filter-btn active"
+            data-filter="all"
+        >
             Todos
         </button>
 
-        <button class="filter-btn" data-filter="metabolismo">
+        <button
+            class="filter-btn"
+            data-filter="metabolismo"
+        >
             Metabolismo
         </button>
 
-        <button class="filter-btn" data-filter="rendimiento">
+        <button
+            class="filter-btn"
+            data-filter="rendimiento"
+        >
             Rendimiento
         </button>
 
-        <button class="filter-btn" data-filter="recuperacion">
+        <button
+            class="filter-btn"
+            data-filter="recuperacion"
+        >
             Recuperación
         </button>
 
-        <button class="filter-btn" data-filter="neurociencia">
+        <button
+            class="filter-btn"
+            data-filter="neurociencia"
+        >
             Neurociencia
         </button>
 
-        <button class="filter-btn" data-filter="piel">
+        <button
+            class="filter-btn"
+            data-filter="piel"
+        >
             Piel
         </button>
 
-        <button class="filter-btn" data-filter="longevidad">
+        <button
+            class="filter-btn"
+            data-filter="longevidad"
+        >
             Longevidad
         </button>
 
@@ -514,16 +849,28 @@
 </section>
 
 
+
 <main class="library">
 
+
     <div class="section-title">
-        <h2>Moléculas destacadas</h2>
+
+        <h2>
+            Moléculas destacadas
+        </h2>
+
         <p>
             Selecciona una molécula para consultar su ficha individual.
         </p>
+
     </div>
 
-    <div class="grid" id="grid">
+
+
+    <div
+        class="grid"
+        id="grid"
+    >
 
 
         <!-- SEMAGLUTIDE -->
@@ -538,7 +885,9 @@
                 Metabolismo
             </div>
 
-            <h3>Semaglutide</h3>
+            <h3>
+                Semaglutide
+            </h3>
 
             <p>
                 Agonista del receptor GLP-1 estudiado en regulación
@@ -546,16 +895,30 @@
             </p>
 
             <div class="tags">
-                <span class="tag">GLP-1</span>
-                <span class="tag">Metabolismo</span>
-                <span class="tag">Saciedad</span>
+
+                <span class="tag">
+                    GLP-1
+                </span>
+
+                <span class="tag">
+                    Metabolismo
+                </span>
+
+                <span class="tag">
+                    Saciedad
+                </span>
+
             </div>
 
-            <a class="btn" href="semaglutide.html">
+            <a
+                class="btn"
+                href="semaglutide.html"
+            >
                 Ver ficha
             </a>
 
         </article>
+
 
 
         <!-- TIRZEPATIDE -->
@@ -570,31 +933,47 @@
                 Metabolismo
             </div>
 
-            <h3>Tirzepatide</h3>
+            <h3>
+                Tirzepatide
+            </h3>
 
             <p>
                 Molécula con actividad sobre receptores GIP y GLP-1,
-                estudiada en metabolismo y control del peso corporal.
+                investigada en metabolismo y control del peso corporal.
             </p>
 
             <div class="tags">
-                <span class="tag">GIP</span>
-                <span class="tag">GLP-1</span>
-                <span class="tag">Metabolismo</span>
+
+                <span class="tag">
+                    GIP
+                </span>
+
+                <span class="tag">
+                    GLP-1
+                </span>
+
+                <span class="tag">
+                    Metabolismo
+                </span>
+
             </div>
 
-            <a class="btn" href="tirzepatide.html">
+            <a
+                class="btn"
+                href="tirzepatide.html"
+            >
                 Ver ficha
             </a>
 
         </article>
 
 
+
         <!-- RETATRUTIDE -->
 
         <article
             class="card"
-            data-name="retatrutide glp-1 gip glucagon investigacion metabolismo"
+            data-name="retatrutide glp-1 gip glucagon metabolismo investigacion"
             data-category="metabolismo"
         >
 
@@ -602,7 +981,9 @@
                 Investigación avanzada
             </div>
 
-            <h3>Retatrutide</h3>
+            <h3>
+                Retatrutide
+            </h3>
 
             <p>
                 Agonista triple en investigación dirigido a receptores
@@ -610,16 +991,30 @@
             </p>
 
             <div class="tags">
-                <span class="tag">GLP-1</span>
-                <span class="tag">GIP</span>
-                <span class="tag">Glucagón</span>
+
+                <span class="tag">
+                    GLP-1
+                </span>
+
+                <span class="tag">
+                    GIP
+                </span>
+
+                <span class="tag">
+                    Glucagón
+                </span>
+
             </div>
 
-            <a class="btn" href="retatrutide.html">
+            <a
+                class="btn"
+                href="retatrutide.html"
+            >
                 Ver ficha
             </a>
 
         </article>
+
 
 
         <!-- MOTS-C -->
@@ -634,7 +1029,9 @@
                 Bioenergética
             </div>
 
-            <h3>MOTS-c</h3>
+            <h3>
+                MOTS-c
+            </h3>
 
             <p>
                 Péptido derivado de la mitocondria investigado en
@@ -642,449 +1039,20 @@
             </p>
 
             <div class="tags">
-                <span class="tag">Mitocondria</span>
-                <span class="tag">Bioenergética</span>
-                <span class="tag">AMPK</span>
+
+                <span class="tag">
+                    Mitocondria
+                </span>
+
+                <span class="tag">
+                    Bioenergética
+                </span>
+
+                <span class="tag">
+                    AMPK
+                </span>
+
             </div>
 
-            <a class="btn" href="mots-c.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- GHK-CU -->
-
-        <article
-            class="card"
-            data-name="ghk-cu ghk cu cobre piel reparacion"
-            data-category="piel recuperacion"
-        >
-
-            <div class="category">
-                Piel · reparación
-            </div>
-
-            <h3>GHK-Cu</h3>
-
-            <p>
-                Tripéptido con afinidad por cobre estudiado en
-                biología cutánea, matriz extracelular y procesos de reparación.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Cobre</span>
-                <span class="tag">Piel</span>
-                <span class="tag">Reparación</span>
-            </div>
-
-            <a class="btn" href="ghk-cu.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- IPAMORELIN -->
-
-        <article
-            class="card"
-            data-name="ipamorelin ghrelin gh rendimiento recuperacion"
-            data-category="rendimiento recuperacion"
-        >
-
-            <div class="category">
-                Rendimiento
-            </div>
-
-            <h3>Ipamorelin</h3>
-
-            <p>
-                Secretagogo de hormona de crecimiento investigado por
-                su actividad sobre el receptor de grelina.
-            </p>
-
-            <div class="tags">
-                <span class="tag">GHS-R1a</span>
-                <span class="tag">GH</span>
-                <span class="tag">Investigación</span>
-            </div>
-
-            <a class="btn" href="ipamorelin.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- TESAMORELIN -->
-
-        <article
-            class="card"
-            data-name="tesamorelin ghrh metabolismo rendimiento endocrinologia"
-            data-category="metabolismo rendimiento"
-        >
-
-            <div class="category">
-                Endocrinología
-            </div>
-
-            <h3>Tesamorelin</h3>
-
-            <p>
-                Análogo sintético de GHRH con un contexto clínico
-                específico y mecanismos relacionados con el eje GH/IGF-1.
-            </p>
-
-            <div class="tags">
-                <span class="tag">GHRH</span>
-                <span class="tag">GH</span>
-                <span class="tag">Endocrinología</span>
-            </div>
-
-            <a class="btn" href="tesamorelin.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- SEMAX -->
-
-        <article
-            class="card"
-            data-name="semax neurociencia neuroactivo"
-            data-category="neurociencia"
-        >
-
-            <div class="category">
-                Neurociencia
-            </div>
-
-            <h3>Semax</h3>
-
-            <p>
-                Péptido sintético neuroactivo estudiado en modelos
-                relacionados con señalización neurotrófica y neuroprotección.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Neurociencia</span>
-                <span class="tag">Neurotrófico</span>
-            </div>
-
-            <a class="btn" href="semax.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- SELANK -->
-
-        <article
-            class="card"
-            data-name="selank neurociencia tuftsin"
-            data-category="neurociencia"
-        >
-
-            <div class="category">
-                Neurociencia
-            </div>
-
-            <h3>Selank</h3>
-
-            <p>
-                Heptapéptido sintético relacionado con tuftsin,
-                investigado en neurobiología y señalización del sistema nervioso.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Neurociencia</span>
-                <span class="tag">Tuftsin</span>
-            </div>
-
-            <a class="btn" href="selank.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- NAD+ -->
-
-        <article
-            class="card"
-            data-name="nad+ nad bioenergia longevidad rendimiento coenzima"
-            data-category="longevidad rendimiento"
-        >
-
-            <div class="category">
-                Bioenergética
-            </div>
-
-            <h3>NAD+</h3>
-
-            <p>
-                Coenzima esencial en procesos redox y metabolismo energético.
-                No es un péptido, pero se incluye por su relevancia bioenergética.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Coenzima</span>
-                <span class="tag">Redox</span>
-                <span class="tag">Bioenergética</span>
-            </div>
-
-            <a class="btn" href="nad.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- BPC-157 -->
-
-        <article
-            class="card"
-            data-name="bpc-157 bpc157 recuperacion reparacion experimental"
-            data-category="recuperacion"
-        >
-
-            <div class="category">
-                Recuperación
-            </div>
-
-            <h3>BPC-157</h3>
-
-            <p>
-                Pentadecapéptido sintético experimental investigado
-                principalmente en modelos preclínicos de reparación tisular.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Experimental</span>
-                <span class="tag">Reparación</span>
-            </div>
-
-            <a class="btn" href="bpc157.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-        <!-- TB-500 -->
-
-        <article
-            class="card"
-            data-name="tb-500 tb500 recuperacion thymosin beta 4 experimental"
-            data-category="recuperacion"
-        >
-
-            <div class="category">
-                Recuperación
-            </div>
-
-            <h3>TB-500</h3>
-
-            <p>
-                Fragmento relacionado con thymosin beta-4 investigado
-                experimentalmente en procesos celulares asociados con reparación.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Experimental</span>
-                <span class="tag">Recuperación</span>
-            </div>
-
-            <a class="btn" href="tb500.html">
-                Ver ficha
-            </a>
-
-        </article>
-
-
-    </div>
-
-
-    <div class="empty-state" id="emptyState">
-        No encontramos moléculas con esos criterios.
-    </div>
-
-
-    <div class="notice">
-        <strong>Nota científica:</strong>
-        las moléculas incluidas en esta biblioteca presentan diferentes niveles
-        de evidencia, investigación y estatus regulatorio. Su inclusión tiene
-        fines informativos y no constituye una recomendación terapéutica.
-    </div>
-
-</main>
-
-
-<footer>
-    PEPTALYN · Advanced Peptide Research
-</footer>
-
-
-<script>
-    const mobileBtn = document.getElementById("mobileBtn");
-    const menu = document.getElementById("menu");
-
-    mobileBtn.addEventListener("click", function () {
-        menu.classList.toggle("open");
-    });
-
-
-    const filterButtons =
-        document.querySelectorAll(".filter-btn");
-
-    const cards =
-        document.querySelectorAll(".card");
-
-    const search =
-        document.getElementById("search");
-
-    const emptyState =
-        document.getElementById("emptyState");
-
-    let activeFilter = "all";
-
-
-    function normalizeText(text) {
-        return (text || "")
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
-    }
-
-
-    function updateCards() {
-
-        const searchText =
-            normalizeText(search.value.trim());
-
-        let visibleCount = 0;
-
-        cards.forEach(function (card) {
-
-            const categories =
-                normalizeText(card.dataset.category)
-                    .split(/\s+/)
-                    .filter(Boolean);
-
-            const cardName =
-                normalizeText(card.dataset.name);
-
-            const matchesCategory =
-                activeFilter === "all" ||
-                categories.includes(activeFilter);
-
-            const matchesSearch =
-                searchText === "" ||
-                cardName.includes(searchText);
-
-            const shouldShow =
-                matchesCategory && matchesSearch;
-
-            card.classList.toggle(
-                "is-hidden",
-                !shouldShow
-            );
-
-            if (shouldShow) {
-                visibleCount++;
-            }
-
-        });
-
-        emptyState.style.display =
-            visibleCount === 0 ? "block" : "none";
-    }
-
-
-    function selectFilter(filter) {
-
-        activeFilter =
-            normalizeText(filter);
-
-        filterButtons.forEach(function (button) {
-
-            const isActive =
-                normalizeText(button.dataset.filter) === activeFilter;
-
-            button.classList.toggle(
-                "active",
-                isActive
-            );
-
-        });
-
-        updateCards();
-    }
-
-
-    filterButtons.forEach(function (button) {
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                selectFilter(
-                    button.dataset.filter
-                );
-
-            }
-        );
-
-    });
-
-
-    search.addEventListener(
-        "input",
-        updateCards
-    );
-
-
-    /* FILTRO AUTOMÁTICO DESDE ÁREAS */
-
-    const parametros =
-        new URLSearchParams(
-            window.location.search
-        );
-
-    const areaSeleccionada =
-        parametros.get("area");
-
-    if (areaSeleccionada) {
-
-        const areaNormalizada =
-            normalizeText(areaSeleccionada);
-
-        const existeFiltro =
-            Array.from(filterButtons)
-                .some(function (button) {
-
-                    return normalizeText(
-                        button.dataset.filter
-                    ) === areaNormalizada;
-
-                });
-
-        if (existeFiltro) {
-            selectFilter(areaNormalizada);
-        } else {
-            selectFilter("all");
-        }
-
-    } else {
-
-        selectFilter("all");
-
-    }
-</script>
-
-</body>
-</html>
+            <a
+                class="btn"
