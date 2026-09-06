@@ -1,1058 +1,568 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Biblioteca de Péptidos | PEPTALYN</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #ffffff;
-            min-height: 100vh;
-
-            background:
-                radial-gradient(circle at 75% 25%, rgba(21, 105, 213, .22), transparent 34%),
-                radial-gradient(circle at 18% 72%, rgba(18, 80, 162, .16), transparent 34%),
-                linear-gradient(135deg, #07111f, #0b1a31 55%, #07111f);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: #091421;
-            border-bottom: 1px solid rgba(255, 255, 255, .08);
-        }
-
-        .nav {
-            max-width: 1360px;
-            min-height: 96px;
-
-            margin: auto;
-            padding: 10px 28px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .brand img {
-            display: block;
-
-            width: 220px;
-            max-width: 100%;
-
-            padding: 7px 14px;
-
-            background: #ffffff;
-            border-radius: 17px;
-        }
-
-        .menu {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-
-            gap: 28px;
-        }
-
-        .menu a {
-            position: relative;
-
-            padding: 9px 0;
-
-            color: #dce6f3;
-            font-size: 15px;
-            font-weight: 600;
-
-            transition: .2s ease;
-        }
-
-        .menu a:hover {
-            color: #f4b34b;
-        }
-
-        .menu a.active {
-            color: #f4b34b;
-        }
-
-        .menu a.active::after {
-            content: "";
-
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            height: 2px;
-
-            background: #f4b34b;
-            border-radius: 5px;
-        }
-
-        .mobile-btn {
-            display: none;
-
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, .18);
-
-            color: white;
-
-            border-radius: 10px;
-
-            padding: 6px 11px;
-
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            max-width: 1220px;
-
-            margin: auto;
-
-            padding:
-                42px
-                25px
-                24px;
-
-            text-align: center;
-        }
-
-        .eyebrow {
-            display: inline-block;
-
-            margin-bottom: 12px;
-
-            color: #f3b34b;
-
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2.2px;
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            margin-bottom: 15px;
-
-            font-size: clamp(38px, 5vw, 58px);
-            line-height: 1.04;
-        }
-
-        .hero h1 span {
-            color: #f3b34b;
-        }
-
-        .hero p {
-            max-width: 920px;
-
-            margin: auto;
-
-            color: #a8bdd5;
-
-            font-size: 17px;
-            line-height: 1.65;
-        }
-
-
-        /* =========================
-           BUSCADOR Y FILTROS
-        ========================= */
-
-        .controls {
-            max-width: 1220px;
-
-            margin: auto;
-
-            padding:
-                12px
-                25px
-                0;
-        }
-
-        .search-wrap {
-            position: relative;
-
-            max-width: 920px;
-
-            margin: auto;
-        }
-
-        .search {
-            width: 100%;
-
-            padding:
-                17px
-                22px
-                17px
-                52px;
-
-            border:
-                1px solid
-                rgba(110, 167, 235, .28);
-
-            border-radius: 16px;
-
-            background:
-                rgba(10, 29, 54, .82);
-
-            color: #ffffff;
-
-            font-size: 17px;
-
-            outline: none;
-        }
-
-        .search:focus {
-            border-color:
-                rgba(243, 179, 75, .65);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(243, 179, 75, .07);
-        }
-
-        .search::placeholder {
-            color: #8ca6c5;
-        }
-
-        .search-icon {
-            position: absolute;
-
-            left: 19px;
-            top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            color: #79ade8;
-
-            font-size: 20px;
-        }
-
-        .filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-
-            gap: 11px;
-
-            margin-top: 25px;
-        }
-
-        .filter-btn {
-            padding: 12px 21px;
-
-            border:
-                1px solid
-                rgba(109, 166, 234, .26);
-
-            border-radius: 999px;
-
-            background:
-                rgba(10, 29, 54, .7);
-
-            color: #dce8f6;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            transition: .2s ease;
-        }
-
-        .filter-btn:hover {
-            border-color:
-                rgba(243, 179, 75, .65);
-
-            color: white;
-        }
-
-        .filter-btn.active {
-            color: #202534;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ffdb84,
-                    #eca040
-                );
-
-            border-color:
-                transparent;
-        }
-
-
-        /* =========================
-           BIBLIOTECA
-        ========================= */
-
-        .library {
-            max-width: 1250px;
-
-            margin: auto;
-
-            padding:
-                45px
-                25px
-                80px;
-        }
-
-        .section-title {
-            margin-bottom: 28px;
-        }
-
-        .section-title h2 {
-            margin-bottom: 8px;
-
-            font-size:
-                clamp(
-                    31px,
-                    4vw,
-                    44px
-                );
-        }
-
-        .section-title p {
-            color: #91aac8;
-
-            font-size: 16px;
-        }
-
-        .grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    3,
-                    minmax(0, 1fr)
-                );
-
-            gap: 24px;
-        }
-
-        .card {
-            display: flex;
-            flex-direction: column;
-
-            min-height: 345px;
-
-            padding: 27px;
-
-            border-radius: 23px;
-
-            border:
-                1px solid
-                rgba(93, 154, 228, .18);
-
-            background:
-                radial-gradient(
-                    circle at 90% 5%,
-                    rgba(71, 143, 227, .18),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    145deg,
-                    rgba(15, 38, 70, .96),
-                    rgba(8, 25, 47, .97)
-                );
-
-            box-shadow:
-                0 18px 45px
-                rgba(0, 0, 0, .22);
-
-            transition:
-                transform .2s ease,
-                border-color .2s ease;
-        }
-
-        .card:hover {
-            transform:
-                translateY(-4px);
-
-            border-color:
-                rgba(243, 179, 75, .45);
-        }
-
-        .card.is-hidden {
-            display: none !important;
-        }
-
-        .category {
-            margin-bottom: 13px;
-
-            color: #f3b34b;
-
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.6px;
-
-            text-transform: uppercase;
-        }
-
-        .card h3 {
-            margin-bottom: 13px;
-
-            font-size: 29px;
-        }
-
-        .card p {
-            margin-bottom: 20px;
-
-            color: #b0c3dc;
-
-            line-height: 1.6;
-
-            font-size: 16px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-
-            gap: 8px;
-
-            margin-top: auto;
-            margin-bottom: 22px;
-        }
-
-        .tag {
-            padding: 7px 10px;
-
-            border:
-                1px solid
-                rgba(129, 179, 237, .25);
-
-            border-radius: 999px;
-
-            background:
-                rgba(76, 132, 197, .1);
-
-            color: #bdd1e9;
-
-            font-size: 12px;
-        }
-
-        .btn {
-            align-self: flex-start;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 12px 20px;
-
-            border-radius: 11px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ffda80,
-                    #eda141
-                );
-
-            color: #202534;
-
-            font-weight: 800;
-
-            transition: .2s ease;
-        }
-
-        .btn:hover {
-            transform:
-                translateY(-2px);
-        }
-
-        .empty-state {
-            display: none;
-
-            padding: 50px 20px;
-
-            text-align: center;
-
-            color: #9db4d0;
-        }
-
-        .notice {
-            margin-top: 38px;
-
-            padding: 22px 24px;
-
-            border:
-                1px solid
-                rgba(243, 179, 75, .2);
-
-            border-radius: 18px;
-
-            background:
-                rgba(243, 179, 75, .06);
-
-            color: #b7c8dd;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 34px 24px;
-
-            border-top:
-                1px solid
-                rgba(255, 255, 255, .08);
-
-            background:
-                rgba(3, 10, 19, .55);
-
-            color: #7f97b5;
-
-            text-align: center;
-
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           TABLET
-        ========================= */
-
-        @media (max-width: 1000px) {
-
-            .grid {
-                grid-template-columns:
-                    repeat(
-                        2,
-                        minmax(0, 1fr)
-                    );
-            }
-
-            .mobile-btn {
-                display: block;
-            }
-
-            .menu {
-                position: absolute;
-
-                top: 96px;
-                left: 0;
-                right: 0;
-
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-
-                padding:
-                    18px
-                    26px
-                    26px;
-
-                background: #07111f;
-
-                border-bottom:
-                    1px solid
-                    rgba(255, 255, 255, .1);
-            }
-
-            .menu.open {
-                display: flex;
-            }
-
-            .menu a {
-                padding: 11px 4px;
-            }
-
-            .menu a.active::after {
-                display: none;
-            }
-        }
-
-
-        /* =========================
-           MÓVIL
-        ========================= */
-
-        @media (max-width: 680px) {
-
-            .nav {
-                min-height: 82px;
-
-                padding:
-                    10px
-                    16px;
-            }
-
-            .brand img {
-                width: 165px;
-            }
-
-            .menu {
-                top: 82px;
-            }
-
-            .hero {
-                padding:
-                    34px
-                    18px
-                    18px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .controls {
-                padding:
-                    10px
-                    18px
-                    0;
-            }
-
-            .filters {
-                justify-content:
-                    flex-start;
-
-                flex-wrap: nowrap;
-
-                overflow-x: auto;
-
-                padding-bottom: 8px;
-            }
-
-            .filter-btn {
-                flex:
-                    0 0 auto;
-            }
-
-            .library {
-                padding:
-                    38px
-                    18px
-                    65px;
-            }
-
-            .grid {
-                grid-template-columns:
-                    1fr;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca de Péptidos | PEPTALYN</title>
+ 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  background:
+    radial-gradient(circle at 75% 28%,rgba(31,142,224,.18),transparent 32%),
+    linear-gradient(135deg,#031225,#061a33 58%,#031225);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
+ 
+/* HEADER — mismo estilo que index.html */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(2,10,19,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+.brand{
+  background:#fff;
+  border-radius:14px;
+  padding:6px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.brand img{
+  width:180px;
+  max-height:65px;
+  object-fit:contain;
+}
+.menu{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  font-size:14px;
+  font-weight:700;
+}
+.menu a{
+  opacity:.84;
+  position:relative;
+  transition:.2s;
+  white-space:nowrap;
+}
+.menu a:hover{color:#efc56b;opacity:1}
+.menu a.active{color:#efc56b;opacity:1}
+.menu a.active::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;
+  bottom:-10px;
+  height:2px;
+  background:#efc56b;
+  border-radius:20px;
+}
+.mobile-btn{
+  display:none;
+  width:50px;height:50px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.17);
+  background:transparent;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+ 
+/* HERO BIBLIOTECA */
+.hero{
+  background:
+    radial-gradient(circle at 73% 24%,rgba(31,142,224,.23),transparent 30%),
+    linear-gradient(120deg,#031327 0%,#062954 58%,#0a416d 100%);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:42px 20px 32px;
+  text-align:center;
+}
+.eyebrow{
+  color:#e7c374;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.hero h1{
+  font-size:clamp(38px,4.7vw,60px);
+  line-height:1.04;
+  letter-spacing:-1px;
+  margin-bottom:14px;
+}
+.hero h1 span{color:#efc56b}
+.hero p{
+  max-width:920px;
+  margin:auto;
+  color:#d2deea;
+  font-size:17px;
+  line-height:1.6;
+}
+ 
+/* CONTROLES */
+.controls{
+  max-width:1200px;
+  margin:auto;
+  padding:28px 20px 0;
+}
+.search-wrap{
+  max-width:920px;
+  margin:auto;
+  position:relative;
+}
+.search-icon{
+  position:absolute;
+  left:18px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#78afe7;
+  font-size:19px;
+}
+.search{
+  width:100%;
+  padding:17px 20px 17px 50px;
+  border-radius:15px;
+  border:1px solid rgba(108,168,235,.28);
+  background:rgba(8,27,52,.82);
+  color:#fff;
+  font-size:16px;
+  outline:none;
+}
+.search::placeholder{color:#8da7c5}
+.search:focus{border-color:rgba(239,197,107,.65)}
+.filters{
+  margin-top:23px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.filter-btn{
+  padding:12px 20px;
+  border-radius:999px;
+  border:1px solid rgba(109,166,234,.27);
+  background:rgba(7,29,54,.72);
+  color:#dce8f5;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+.filter-btn:hover{border-color:#efc56b}
+.filter-btn.active{
+  background:#efc56b;
+  border-color:#efc56b;
+  color:#071526;
+}
+ 
+/* BIBLIOTECA */
+.library{
+  max-width:1200px;
+  margin:auto;
+  padding:42px 20px 72px;
+}
+.section-title{margin-bottom:26px}
+.section-title h2{
+  font-size:clamp(30px,3.8vw,44px);
+  margin-bottom:8px;
+}
+.section-title p{color:#91aac8;font-size:16px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+}
+.card{
+  display:flex;
+  flex-direction:column;
+  min-height:340px;
+  padding:26px;
+  border-radius:22px;
+  border:1px solid rgba(93,154,228,.18);
+  background:
+    radial-gradient(circle at 90% 5%,rgba(71,143,227,.17),transparent 30%),
+    linear-gradient(145deg,rgba(15,38,70,.96),rgba(8,25,47,.98));
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+}
+.card.is-hidden{display:none!important}
+.category{
+  color:#efc56b;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.card h3{font-size:29px;margin-bottom:13px}
+.card p{
+  color:#b0c3dc;
+  font-size:16px;
+  line-height:1.6;
+  margin-bottom:18px;
+}
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:auto;
+  margin-bottom:22px;
+}
+.tag{
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(129,179,237,.25);
+  background:rgba(76,132,197,.10);
+  color:#bdd1e9;
+  font-size:12px;
+}
+.btn{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 20px;
+  border-radius:11px;
+  background:#efc56b;
+  color:#071526;
+  font-weight:900;
+}
+.empty-state{
+  display:none;
+  text-align:center;
+  color:#9db4d0;
+  padding:45px 20px;
+}
+.notice{
+  margin-top:36px;
+  padding:20px 22px;
+  border-radius:17px;
+  border:1px solid rgba(239,197,107,.20);
+  background:rgba(239,197,107,.06);
+  color:#b7c8dd;
+  line-height:1.6;
+}
+footer{
+  background:#020a13;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  padding:35px 20px;
+  color:#8296a9;
+  font-size:13px;
+}
+ 
+/* RESPONSIVE */
+@media(max-width:1050px){
+  .menu{gap:16px;font-size:13px}
+}
+@media(max-width:900px){
+  .mobile-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .menu{display:none}
+  .menu.open{
+    display:flex;
+    position:fixed;
+    top:88px;
+    left:14px;
+    right:14px;
+    flex-direction:column;
+    align-items:stretch;
+    padding:15px;
+    border-radius:18px;
+    background:#06182c;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 30px 80px rgba(0,0,0,.55);
+    z-index:2000;
+  }
+  .menu.open a{
+    padding:13px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .menu.open a:last-child{border-bottom:none}
+  .menu a.active::after{display:none}
+  .brand img{width:155px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:650px){
+  .nav{padding:10px 14px}
+  .brand img{width:140px;max-height:56px}
+  .hero-inner{padding:32px 16px 24px}
+  .hero h1{font-size:39px}
+  .hero p{font-size:15px}
+  .controls{padding:22px 16px 0}
+  .filters{
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding-bottom:8px;
+  }
+  .filter-btn{flex:0 0 auto}
+  .library{padding:36px 16px 58px}
+  .grid{grid-template-columns:1fr}
+}
+</style>
 </head>
-
-
+ 
 <body>
-
-
+ 
 <header>
-
-    <div class="nav">
-
-        <a
-            class="brand"
-            href="index.html"
-        >
-            <img
-                src="logo-peptalyn.png"
-                alt="PEPTALYN"
-            >
-        </a>
-
-
-        <button
-            class="mobile-btn"
-            id="mobileBtn"
-            aria-label="Abrir menú"
-        >
-            ☰
-        </button>
-
-
-        <nav
-            class="menu"
-            id="menu"
-        >
-
-            <a href="index.html">
-                Inicio
-            </a>
-
-            <a href="areas.html">
-                Áreas
-            </a>
-
-            <a
-                href="peptidos.html"
-                class="active"
-            >
-                Péptidos
-            </a>
-
-            <a href="comprar.html">
-                Comprar
-            </a>
-
-            <a href="comparador.html">
-                Comparador
-            </a>
-
-            <a href="calculadora.html">
-                Calculadora
-            </a>
-
-            <a href="informacion.html">
-                Información
-            </a>
-
-            <a href="contacto.html">
-                Contacto
-            </a>
-
-        </nav>
-
-    </div>
-
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <img src="logo-peptalyn.png" alt="PEPTALYN">
+    </a>
+ 
+    <button class="mobile-btn" id="mobileButton" aria-label="Abrir menú">☰</button>
+ 
+    <nav class="menu" id="menu">
+      <a href="index.html">Inicio</a>
+      <a href="areas.html">Áreas</a>
+      <a class="active" href="peptidos.html">Péptidos</a>
+      <a href="comprar.html">Comprar</a>
+      <a href="comparador.html">Comparador</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="informacion.html">Información</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
 </header>
-
-
-
+ 
 <section class="hero">
-
-    <span class="eyebrow">
-        Biblioteca científica PEPTALYN
-    </span>
-
-    <h1>
-        Explora nuestras
-        <span>moléculas</span>
-    </h1>
-
+  <div class="hero-inner">
+    <div class="eyebrow">PEPTALYN · BIBLIOTECA CIENTÍFICA</div>
+    <h1>Explora nuestras <span>moléculas</span></h1>
     <p>
-        Explora moléculas organizadas por área de investigación.
-        Consulta su mecanismo, contexto científico, evidencia disponible
-        y documentación técnica desde una sola biblioteca.
+      Explora moléculas organizadas por área de investigación. Consulta su mecanismo,
+      contexto científico, evidencia disponible y documentación técnica desde una sola biblioteca.
     </p>
-
+  </div>
 </section>
-
-
-
+ 
 <section class="controls">
-
-    <div class="search-wrap">
-
-        <span class="search-icon">
-            ⌕
-        </span>
-
-        <input
-            class="search"
-            id="search"
-            type="text"
-            placeholder="Buscar Semaglutide, Tirzepatide, MOTS-c, GHK-Cu..."
-        >
-
-    </div>
-
-
-    <div class="filters">
-
-        <button
-            class="filter-btn active"
-            data-filter="all"
-        >
-            Todos
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="metabolismo"
-        >
-            Metabolismo
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="rendimiento"
-        >
-            Rendimiento
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="recuperacion"
-        >
-            Recuperación
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="neurociencia"
-        >
-            Neurociencia
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="piel"
-        >
-            Piel
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="longevidad"
-        >
-            Longevidad
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<main class="library">
-
-
-    <div class="section-title">
-
-        <h2>
-            Moléculas destacadas
-        </h2>
-
-        <p>
-            Selecciona una molécula para consultar su ficha individual.
-        </p>
-
-    </div>
-
-
-
-    <div
-        class="grid"
-        id="grid"
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input
+      class="search"
+      id="search"
+      type="text"
+      placeholder="Buscar Semaglutide, Tirzepatide, MOTS-c, GHK-Cu..."
     >
-
-
-        <!-- SEMAGLUTIDE -->
-
-        <article
-            class="card"
-            data-name="semaglutide glp-1 metabolismo saciedad"
-            data-category="metabolismo"
-        >
-
-            <div class="category">
-                Metabolismo
-            </div>
-
-            <h3>
-                Semaglutide
-            </h3>
-
-            <p>
-                Agonista del receptor GLP-1 estudiado en regulación
-                del apetito, metabolismo glucémico y composición corporal.
-            </p>
-
-            <div class="tags">
-
-                <span class="tag">
-                    GLP-1
-                </span>
-
-                <span class="tag">
-                    Metabolismo
-                </span>
-
-                <span class="tag">
-                    Saciedad
-                </span>
-
-            </div>
-
-            <a
-                class="btn"
-                href="semaglutide.html"
-            >
-                Ver ficha
-            </a>
-
-        </article>
-
-
-
-        <!-- TIRZEPATIDE -->
-
-        <article
-            class="card"
-            data-name="tirzepatide gip glp-1 metabolismo"
-            data-category="metabolismo"
-        >
-
-            <div class="category">
-                Metabolismo
-            </div>
-
-            <h3>
-                Tirzepatide
-            </h3>
-
-            <p>
-                Molécula con actividad sobre receptores GIP y GLP-1,
-                investigada en metabolismo y control del peso corporal.
-            </p>
-
-            <div class="tags">
-
-                <span class="tag">
-                    GIP
-                </span>
-
-                <span class="tag">
-                    GLP-1
-                </span>
-
-                <span class="tag">
-                    Metabolismo
-                </span>
-
-            </div>
-
-            <a
-                class="btn"
-                href="tirzepatide.html"
-            >
-                Ver ficha
-            </a>
-
-        </article>
-
-
-
-        <!-- RETATRUTIDE -->
-
-        <article
-            class="card"
-            data-name="retatrutide glp-1 gip glucagon metabolismo investigacion"
-            data-category="metabolismo"
-        >
-
-            <div class="category">
-                Investigación avanzada
-            </div>
-
-            <h3>
-                Retatrutide
-            </h3>
-
-            <p>
-                Agonista triple en investigación dirigido a receptores
-                GLP-1, GIP y glucagón.
-            </p>
-
-            <div class="tags">
-
-                <span class="tag">
-                    GLP-1
-                </span>
-
-                <span class="tag">
-                    GIP
-                </span>
-
-                <span class="tag">
-                    Glucagón
-                </span>
-
-            </div>
-
-            <a
-                class="btn"
-                href="retatrutide.html"
-            >
-                Ver ficha
-            </a>
-
-        </article>
-
-
-
-        <!-- MOTS-C -->
-
-        <article
-            class="card"
-            data-name="mots-c mots c mitocondria bioenergia rendimiento longevidad"
-            data-category="rendimiento longevidad"
-        >
-
-            <div class="category">
-                Bioenergética
-            </div>
-
-            <h3>
-                MOTS-c
-            </h3>
-
-            <p>
-                Péptido derivado de la mitocondria investigado en
-                señalización metabólica, bioenergética y adaptación celular.
-            </p>
-
-            <div class="tags">
-
-                <span class="tag">
-                    Mitocondria
-                </span>
-
-                <span class="tag">
-                    Bioenergética
-                </span>
-
-                <span class="tag">
-                    AMPK
-                </span>
-
-            </div>
-
-            <a
-                class="btn"
+  </div>
+ 
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="metabolismo">Metabolismo</button>
+    <button class="filter-btn" data-filter="rendimiento">Rendimiento</button>
+    <button class="filter-btn" data-filter="recuperacion">Recuperación</button>
+    <button class="filter-btn" data-filter="neurociencia">Neurociencia</button>
+    <button class="filter-btn" data-filter="piel">Piel</button>
+    <button class="filter-btn" data-filter="longevidad">Longevidad</button>
+  </div>
+</section>
+ 
+<main class="library">
+  <div class="section-title">
+    <h2>Moléculas destacadas</h2>
+    <p>Selecciona una molécula para consultar su ficha individual.</p>
+  </div>
+ 
+  <div class="grid" id="grid">
+ 
+    <article class="card" data-name="semaglutide glp-1 metabolismo saciedad" data-category="metabolismo">
+      <div class="category">Metabolismo</div>
+      <h3>Semaglutide</h3>
+      <p>Agonista del receptor GLP-1 estudiado en regulación del apetito, metabolismo glucémico y composición corporal.</p>
+      <div class="tags"><span class="tag">GLP-1</span><span class="tag">Metabolismo</span><span class="tag">Saciedad</span></div>
+      <a class="btn" href="semaglutide.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="tirzepatide gip glp-1 metabolismo" data-category="metabolismo">
+      <div class="category">Metabolismo</div>
+      <h3>Tirzepatide</h3>
+      <p>Molécula con actividad sobre receptores GIP y GLP-1, investigada en metabolismo y control del peso corporal.</p>
+      <div class="tags"><span class="tag">GIP</span><span class="tag">GLP-1</span><span class="tag">Metabolismo</span></div>
+      <a class="btn" href="tirzepatide.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="retatrutide glp-1 gip glucagon metabolismo investigacion" data-category="metabolismo">
+      <div class="category">Investigación avanzada</div>
+      <h3>Retatrutide</h3>
+      <p>Agonista triple en investigación dirigido a receptores GLP-1, GIP y glucagón.</p>
+      <div class="tags"><span class="tag">GLP-1</span><span class="tag">GIP</span><span class="tag">Glucagón</span></div>
+      <a class="btn" href="retatrutide.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="mots-c mots c mitocondria bioenergia rendimiento longevidad" data-category="rendimiento longevidad">
+      <div class="category">Bioenergética</div>
+      <h3>MOTS-c</h3>
+      <p>Péptido derivado de la mitocondria investigado en señalización metabólica, bioenergética y adaptación celular.</p>
+      <div class="tags"><span class="tag">Mitocondria</span><span class="tag">Bioenergética</span><span class="tag">AMPK</span></div>
+      <a class="btn" href="mots-c.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="ghk-cu ghk cu cobre piel reparacion" data-category="piel recuperacion">
+      <div class="category">Piel · reparación</div>
+      <h3>GHK-Cu</h3>
+      <p>Tripéptido con afinidad por cobre estudiado en biología cutánea, matriz extracelular y procesos de reparación.</p>
+      <div class="tags"><span class="tag">Cobre</span><span class="tag">Piel</span><span class="tag">Reparación</span></div>
+      <a class="btn" href="ghk-cu.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="ipamorelin ghrelin gh rendimiento recuperacion" data-category="rendimiento recuperacion">
+      <div class="category">Rendimiento</div>
+      <h3>Ipamorelin</h3>
+      <p>Secretagogo de hormona de crecimiento investigado por su actividad sobre el receptor de grelina.</p>
+      <div class="tags"><span class="tag">GHS-R1a</span><span class="tag">GH</span><span class="tag">Investigación</span></div>
+      <a class="btn" href="ipamorelin.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="tesamorelin ghrh metabolismo rendimiento endocrinologia" data-category="metabolismo rendimiento">
+      <div class="category">Endocrinología</div>
+      <h3>Tesamorelin</h3>
+      <p>Análogo sintético de GHRH con contexto clínico específico y mecanismos relacionados con el eje GH/IGF-1.</p>
+      <div class="tags"><span class="tag">GHRH</span><span class="tag">GH</span><span class="tag">Endocrinología</span></div>
+      <a class="btn" href="tesamorelin.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="semax neurociencia neuroactivo" data-category="neurociencia">
+      <div class="category">Neurociencia</div>
+      <h3>Semax</h3>
+      <p>Péptido sintético neuroactivo estudiado en modelos relacionados con señalización neurotrófica y neuroprotección.</p>
+      <div class="tags"><span class="tag">Neurociencia</span><span class="tag">Neurotrófico</span></div>
+      <a class="btn" href="semax.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="selank neurociencia tuftsin" data-category="neurociencia">
+      <div class="category">Neurociencia</div>
+      <h3>Selank</h3>
+      <p>Heptapéptido sintético relacionado con tuftsin, investigado en neurobiología y señalización del sistema nervioso.</p>
+      <div class="tags"><span class="tag">Neurociencia</span><span class="tag">Tuftsin</span></div>
+      <a class="btn" href="selank.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="nad+ nad bioenergia longevidad rendimiento coenzima" data-category="longevidad rendimiento">
+      <div class="category">Bioenergética</div>
+      <h3>NAD+</h3>
+      <p>Coenzima esencial en procesos redox y metabolismo energético. No es un péptido, pero se incluye por su relevancia bioenergética.</p>
+      <div class="tags"><span class="tag">Coenzima</span><span class="tag">Redox</span><span class="tag">Bioenergética</span></div>
+      <a class="btn" href="nad.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="bpc-157 bpc157 recuperacion reparacion experimental" data-category="recuperacion">
+      <div class="category">Recuperación</div>
+      <h3>BPC-157</h3>
+      <p>Pentadecapéptido sintético experimental investigado principalmente en modelos preclínicos de reparación tisular.</p>
+      <div class="tags"><span class="tag">Experimental</span><span class="tag">Reparación</span></div>
+      <a class="btn" href="bpc157.html">Ver ficha</a>
+    </article>
+ 
+    <article class="card" data-name="tb-500 tb500 recuperacion thymosin beta 4 experimental" data-category="recuperacion">
+      <div class="category">Recuperación</div>
+      <h3>TB-500</h3>
+      <p>Fragmento relacionado con thymosin beta-4 investigado experimentalmente en procesos celulares asociados con reparación.</p>
+      <div class="tags"><span class="tag">Experimental</span><span class="tag">Recuperación</span></div>
+      <a class="btn" href="tb500.html">Ver ficha</a>
+    </article>
+ 
+  </div>
+ 
+  <div class="empty-state" id="emptyState">No encontramos moléculas con esos criterios.</div>
+ 
+  <div class="notice">
+    <strong>Nota científica:</strong>
+    las moléculas incluidas en esta biblioteca presentan diferentes niveles de evidencia,
+    investigación y estatus regulatorio. Su inclusión tiene fines informativos y no constituye una recomendación terapéutica.
+  </div>
+</main>
+ 
+<footer>PEPTALYN · Advanced Peptide Research</footer>
+ 
+<script>
+const mobileButton=document.getElementById("mobileButton");
+const menu=document.getElementById("menu");
+mobileButton.addEventListener("click",()=>menu.classList.toggle("open"));
+ 
+const buttons=[...document.querySelectorAll(".filter-btn")];
+const cards=[...document.querySelectorAll(".card")];
+const search=document.getElementById("search");
+const emptyState=document.getElementById("emptyState");
+let activeFilter="all";
+ 
+function norm(v){
+  return (v||"")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"");
+}
+ 
+function render(){
+  const q=norm(search.value.trim());
+  let visible=0;
+ 
+  cards.forEach(card=>{
+    const cats=norm(card.dataset.category).split(/\s+/).filter(Boolean);
+    const name=norm(card.dataset.name);
+ 
+    const categoryOK=activeFilter==="all" || cats.includes(activeFilter);
+    const searchOK=!q || name.includes(q);
+    const show=categoryOK && searchOK;
+ 
+    card.classList.toggle("is-hidden",!show);
+    if(show) visible++;
+  });
+ 
+  emptyState.style.display=visible ? "none" : "block";
+}
+ 
+function setFilter(filter){
+  activeFilter=norm(filter);
+ 
+  buttons.forEach(btn=>{
+    btn.classList.toggle("active",norm(btn.dataset.filter)===activeFilter);
+  });
+ 
+  render();
+}
+ 
+buttons.forEach(btn=>{
+  btn.addEventListener("click",()=>setFilter(btn.dataset.filter));
+});
+ 
+search.addEventListener("input",render);
+ 
+const params=new URLSearchParams(window.location.search);
+const area=params.get("area");
+if(area){
+  const wanted=norm(area);
+  const exists=buttons.some(btn=>norm(btn.dataset.filter)===wanted);
+  setFilter(exists ? wanted : "all");
+}else{
+  setFilter("all");
+}
+</script>
+ 
+</body>
+</html>
