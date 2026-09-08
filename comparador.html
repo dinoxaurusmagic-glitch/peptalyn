@@ -1,1169 +1,553 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es-EC">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#031225">
+<title>Comparador de Péptidos y Moléculas | PEPTALYN Ecuador</title>
+<meta name="description" content="Compara péptidos y moléculas de interés biomédico en PEPTALYN Ecuador: mecanismo, área de investigación, nivel de evidencia, contexto regulatorio y seguridad en una herramienta educativa interactiva.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="PEPTALYN">
+<link rel="canonical" href="https://peptalyn.com.ec/comparador.html">
+<link rel="alternate" hreflang="es-EC" href="https://peptalyn.com.ec/comparador.html">
+<link rel="alternate" hreflang="x-default" href="https://peptalyn.com.ec/comparador.html">
+<link rel="icon" href="logo-peptalyn.png" type="image/png">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="https://peptalyn.com.ec/sitemap.xml">
 
-<title>Comparador de Péptidos | PEPTALYN</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+<meta property="og:site_name" content="PEPTALYN">
+<meta property="og:title" content="Comparador de Péptidos y Moléculas | PEPTALYN Ecuador">
+<meta property="og:description" content="Contrasta mecanismo, evidencia, área científica, estado regulatorio y seguridad entre moléculas de la biblioteca PEPTALYN.">
+<meta property="og:url" content="https://peptalyn.com.ec/comparador.html">
+<meta property="og:image" content="https://peptalyn.com.ec/logo-peptalyn.png">
+<meta property="og:image:alt" content="PEPTALYN Advanced Peptide Research">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Comparador de Péptidos y Moléculas | PEPTALYN Ecuador">
+<meta name="twitter:description" content="Herramienta educativa para comparar mecanismo, evidencia y contexto regulatorio entre moléculas.">
+<meta name="twitter:image" content="https://peptalyn.com.ec/logo-peptalyn.png">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://peptalyn.com.ec/#organization",
+      "name":"PEPTALYN",
+      "url":"https://peptalyn.com.ec/",
+      "logo":"https://peptalyn.com.ec/logo-peptalyn.png",
+      "description":"Plataforma ecuatoriana de información científica sobre péptidos y nuevas moléculas de interés biomédico.",
+      "areaServed":{"@type":"Country","name":"Ecuador"},
+      "sameAs":["https://www.facebook.com/profile.php?id=61592075751226"]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://peptalyn.com.ec/#website",
+      "url":"https://peptalyn.com.ec/",
+      "name":"PEPTALYN",
+      "publisher":{"@id":"https://peptalyn.com.ec/#organization"},
+      "inLanguage":"es-EC"
+    },
+    {
+      "@type":"WebApplication",
+      "@id":"https://peptalyn.com.ec/comparador.html#app",
+      "name":"Comparador de Péptidos y Moléculas PEPTALYN",
+      "url":"https://peptalyn.com.ec/comparador.html",
+      "applicationCategory":"EducationalApplication",
+      "operatingSystem":"Any",
+      "isAccessibleForFree":true,
+      "description":"Herramienta educativa para comparar mecanismo, área de investigación, nivel de evidencia, contexto regulatorio y consideraciones de seguridad.",
+      "publisher":{"@id":"https://peptalyn.com.ec/#organization"},
+      "inLanguage":"es-EC"
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Inicio","item":"https://peptalyn.com.ec/"},
+        {"@type":"ListItem","position":2,"name":"Comparador","item":"https://peptalyn.com.ec/comparador.html"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {
+          "@type":"Question",
+          "name":"¿El comparador recomienda tratamientos o dosis?",
+          "acceptedAnswer":{"@type":"Answer","text":"No. El comparador organiza información científica y regulatoria con fines educativos y no determina indicación, dosis, tratamiento ni idoneidad clínica."}
+        },
+        {
+          "@type":"Question",
+          "name":"¿Todas las moléculas comparadas tienen el mismo nivel de evidencia?",
+          "acceptedAnswer":{"@type":"Answer","text":"No. Algunas cuentan con evidencia clínica y productos autorizados para indicaciones concretas, mientras otras permanecen en investigación clínica o preclínica."}
+        },
+        {
+          "@type":"Question",
+          "name":"¿Dónde puedo leer más sobre cada molécula?",
+          "acceptedAnswer":{"@type":"Answer","text":"Cada comparación incluye un enlace directo a la ficha científica individual disponible en la Biblioteca PEPTALYN."}
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <style>
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
   font-family:Arial,Helvetica,sans-serif;
   color:#fff;
-  min-height:100vh;
   background:
-    radial-gradient(circle at 50% 0%,#123d67 0%,#071b30 36%,#020a14 78%);
+    radial-gradient(circle at 76% 18%,rgba(29,137,220,.16),transparent 30%),
+    linear-gradient(135deg,#02101f,#061a33 58%,#031225);
+  min-height:100vh;
+  overflow-x:hidden;
 }
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-/* ===== HEADER ===== */
+a{color:inherit;text-decoration:none}
+button,select{font:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #efc56b;outline-offset:3px;border-radius:6px}
 
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(2,10,19,.95);
+  position:sticky;top:0;z-index:1000;
+  background:rgba(2,10,19,.97);
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
-
 .nav{
-  max-width:1200px;
-  margin:auto;
-  padding:12px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:25px;
+  max-width:1200px;margin:auto;padding:12px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
-
 .brand{
-  background:#fff;
-  border-radius:14px;
-  padding:6px 10px;
-  display:flex;
-  align-items:center;
+  background:#fff;border-radius:14px;padding:6px 10px;
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
 }
-
-.brand img{
-  width:180px;
-  max-height:65px;
-  object-fit:contain;
+.brand img{width:180px;max-height:65px;object-fit:contain}
+.menu{display:flex;align-items:center;gap:20px;font-size:13.5px;font-weight:700}
+.menu a{opacity:.84;position:relative;transition:.2s;white-space:nowrap}
+.menu a:hover{color:#efc56b;opacity:1}
+.menu a.active{color:#efc56b;opacity:1}
+.menu a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;
+  background:#efc56b;border-radius:20px;
 }
-
-.menu{
-  display:flex;
-  gap:25px;
-  align-items:center;
-  font-size:14px;
-  font-weight:700;
-}
-
-.menu a{
-  opacity:.85;
-  transition:.2s;
-}
-
-.menu a:hover{
-  color:#efc56b;
-  opacity:1;
-}
-
 .mobile-btn{
-  display:none;
-  width:50px;
-  height:50px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.18);
-  background:transparent;
-  color:#fff;
-  font-size:25px;
-  cursor:pointer;
+  display:none;width:50px;height:50px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.17);background:transparent;color:#fff;font-size:25px;
 }
-
-/* ===== HERO ===== */
 
 .hero{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 20px 38px;
-  text-align:center;
-}
-
-.eyebrow{
-  color:#efc56b;
-  text-transform:uppercase;
-  letter-spacing:4px;
-  font-size:11px;
-  font-weight:800;
-  margin-bottom:16px;
-}
-
-.hero h1{
-  font-size:clamp(42px,7vw,72px);
-  line-height:1;
-  letter-spacing:-2px;
-  margin-bottom:20px;
-}
-
-.hero p{
-  max-width:760px;
-  margin:auto;
-  color:#a9bacb;
-  font-size:17px;
-  line-height:1.7;
-}
-
-/* ===== SELECTORS ===== */
-
-.compare-wrap{
-  max-width:1120px;
-  margin:auto;
-  padding:25px 20px 90px;
-}
-
-.selector-box{
   background:
-    linear-gradient(145deg,#0e3458,#071a2e);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:25px;
-  padding:28px;
-  box-shadow:0 30px 80px rgba(0,0,0,.25);
-  margin-bottom:28px;
+    radial-gradient(circle at 72% 22%,rgba(41,160,235,.25),transparent 33%),
+    linear-gradient(120deg,#031327 0%,#062954 57%,#0a416d 100%);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.hero-inner{max-width:1050px;margin:auto;padding:50px 20px 40px;text-align:center}
+.eyebrow{font-size:11px;letter-spacing:4px;color:#efc56b;font-weight:900;margin-bottom:14px}
+.hero h1{font-size:56px;line-height:1.02;letter-spacing:-2px;margin-bottom:18px}
+.hero h1 span{color:#efc56b}
+.hero p{max-width:800px;margin:auto;color:#d7e5f4;font-size:17px;line-height:1.75}
+.hero-note{
+  max-width:820px;margin:18px auto 0;padding:12px 16px;border-radius:14px;
+  background:rgba(1,12,25,.45);border:1px solid rgba(255,255,255,.11);
+  color:#bdd0e5;font-size:12.5px;line-height:1.6;
 }
 
-.selector-title{
-  font-size:22px;
-  margin-bottom:20px;
+.comparator{max-width:1200px;margin:auto;padding:40px 20px 68px}
+.selector-panel{
+  background:linear-gradient(180deg,rgba(11,37,67,.94),rgba(5,25,48,.94));
+  border:1px solid rgba(255,255,255,.11);border-radius:22px;padding:24px;
+  box-shadow:0 24px 70px rgba(0,0,0,.22);
 }
-
-.select-grid{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  gap:18px;
-  align-items:end;
+.selector-head{text-align:center;margin-bottom:20px}
+.selector-head .tag{font-size:10px;letter-spacing:3px;color:#efc56b;font-weight:900;margin-bottom:9px}
+.selector-head h2{font-size:31px;margin-bottom:8px}
+.selector-head p{color:#bcd0e5;line-height:1.6}
+.selectors{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end}
+.select-box label{display:block;font-size:12px;font-weight:800;color:#dfeafb;margin-bottom:8px}
+.select-box select{
+  width:100%;padding:14px 44px 14px 14px;border-radius:12px;
+  color:#fff;background:#071c35;border:1px solid rgba(255,255,255,.16);
 }
-
-.field label{
-  display:block;
-  color:#efc56b;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:9px;
-}
-
-.field select{
-  width:100%;
-  padding:15px 16px;
-  border-radius:13px;
-  border:1px solid rgba(255,255,255,.14);
-  background:#06182b;
-  color:#fff;
-  font-size:16px;
-  outline:none;
-}
-
 .vs{
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#efc56b;
-  color:#041426;
-  font-weight:900;
-  font-size:16px;
+  width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#efc56b;color:#06182c;font-weight:900;margin-bottom:1px;
 }
-
-/* ===== COMPARISON ===== */
-
-.comparison{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
+.quick-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.action-btn{
+  border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);
+  color:#fff;border-radius:999px;padding:10px 16px;font-weight:800;
 }
+.action-btn:hover{border-color:#efc56b;color:#efc56b}
 
-.molecule{
-  background:
-    linear-gradient(180deg,rgba(13,45,76,.94),rgba(5,19,34,.98));
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:24px;
-  overflow:hidden;
+.compare-wrap{margin-top:28px}
+.compare-grid{
+  display:grid;grid-template-columns:190px minmax(0,1fr) minmax(0,1fr);
+  border:1px solid rgba(255,255,255,.11);border-radius:20px;overflow:hidden;
+  background:rgba(5,24,46,.86);
 }
-
-.molecule-head{
-  padding:27px;
-  background:
-    radial-gradient(circle at top right,rgba(239,197,107,.12),transparent 45%);
-  border-bottom:1px solid rgba(255,255,255,.08);
+.cell{padding:18px;border-bottom:1px solid rgba(255,255,255,.08);line-height:1.65}
+.cell:nth-child(3n+1){background:rgba(255,255,255,.035);font-weight:900;color:#efc56b}
+.cell:nth-last-child(-n+3){border-bottom:none}
+.molecule-head{padding:22px 18px}
+.molecule-head h3{font-size:27px;margin-bottom:6px}
+.molecule-head .sub{color:#b8cee5;font-size:13px;line-height:1.5}
+.molecule-head a{
+  display:inline-block;margin-top:12px;padding:8px 12px;border-radius:9px;
+  border:1px solid rgba(239,197,107,.55);color:#efc56b;font-size:12px;font-weight:800;
 }
-
-.molecule-label{
-  color:#efc56b;
-  font-size:11px;
-  letter-spacing:2px;
-  font-weight:800;
-  text-transform:uppercase;
-  margin-bottom:8px;
+.value{color:#e7f0f8}
+.status-pill{
+  display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;
+  background:rgba(239,197,107,.11);border:1px solid rgba(239,197,107,.3);
+  color:#f3d58f;font-size:11px;font-weight:800;
 }
+.empty-note{text-align:center;color:#bcd0e5;padding:20px 10px 0;font-size:13px}
 
-.molecule h2{
-  font-size:38px;
-  margin-bottom:8px;
+.context-section{
+  max-width:1200px;margin:auto;padding:0 20px 68px;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:22px;
 }
-
-.molecule-subtitle{
-  color:#a9bacb;
-  line-height:1.55;
-  min-height:49px;
+.context-card{
+  padding:25px;border:1px solid rgba(255,255,255,.1);border-radius:20px;
+  background:rgba(5,24,46,.72)
 }
-
-.badge{
-  display:inline-flex;
-  margin-top:15px;
-  padding:8px 11px;
-  border-radius:999px;
-  font-size:11px;
-  font-weight:800;
+.context-card .tag{font-size:10px;letter-spacing:3px;color:#efc56b;font-weight:900;margin-bottom:10px}
+.context-card h2{font-size:28px;margin-bottom:12px}
+.context-card p{color:#c2d3e5;line-height:1.72;margin-bottom:11px}
+.context-card a{color:#efc56b;font-weight:800}
+.faq details{
+  border-top:1px solid rgba(255,255,255,.08);padding:14px 0;
 }
+.faq details:first-of-type{border-top:none}
+.faq summary{font-weight:800;cursor:pointer}
+.faq details p{margin:9px 0 0;font-size:14px}
 
-.badge-approved{
-  color:#9ef2c0;
-  background:rgba(50,181,108,.12);
-  border:1px solid rgba(50,181,108,.28);
-}
+footer{border-top:1px solid rgba(255,255,255,.08);background:#020b14;padding:26px 20px;color:#aebfd2;font-size:13px}
+.footer-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.footer-brand strong{color:#fff}
+.footer-nav{display:flex;gap:15px;flex-wrap:wrap}
+.footer-nav a:hover{color:#efc56b}
 
-.badge-research{
-  color:#ffd38a;
-  background:rgba(255,184,77,.10);
-  border:1px solid rgba(255,184,77,.28);
-}
-
-.badge-info{
-  color:#9dceff;
-  background:rgba(77,164,255,.10);
-  border:1px solid rgba(77,164,255,.28);
-}
-
-.data{
-  padding:0 27px 27px;
-}
-
-.row{
-  padding:18px 0;
-  border-bottom:1px solid rgba(255,255,255,.075);
-}
-
-.row:last-child{
-  border-bottom:none;
-}
-
-.row-label{
-  color:#718ca3;
-  text-transform:uppercase;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:2px;
-  margin-bottom:7px;
-}
-
-.row-value{
-  color:#edf3f8;
-  line-height:1.6;
-  font-size:15px;
-}
-
-/* ===== SUMMARY ===== */
-
-.summary{
-  margin-top:28px;
-  border-radius:24px;
-  background:
-    linear-gradient(120deg,#123a61,#07192c);
-  border:1px solid rgba(239,197,107,.2);
-  padding:31px;
-}
-
-.summary-tag{
-  color:#efc56b;
-  font-size:11px;
-  letter-spacing:3px;
-  font-weight:800;
-  text-transform:uppercase;
-  margin-bottom:9px;
-}
-
-.summary h2{
-  font-size:29px;
-  margin-bottom:13px;
-}
-
-.summary p{
-  color:#abbaca;
-  line-height:1.7;
-  font-size:15px;
-}
-
-/* ===== BUTTONS ===== */
-
-.actions{
-  margin-top:24px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:11px;
-}
-
-.btn{
-  padding:14px 19px;
-  border-radius:13px;
-  font-size:14px;
-  font-weight:800;
-}
-
-.btn-gold{
-  background:#efc56b;
-  color:#041426;
-}
-
-.btn-outline{
-  border:1px solid rgba(255,255,255,.15);
-  color:#e1e8ef;
-}
-
-/* ===== DISCLAIMER ===== */
-
-.disclaimer{
-  max-width:900px;
-  margin:0 auto 80px;
-  padding:0 20px;
-  text-align:center;
-  color:#768b9e;
-  line-height:1.65;
-  font-size:13px;
-}
-
-/* ===== FOOTER ===== */
-
-footer{
-  background:#020a13;
-  border-top:1px solid rgba(255,255,255,.08);
-  text-align:center;
-  padding:38px 20px;
-  color:#8296a9;
-  font-size:13px;
-  line-height:1.7;
-}
-
-footer strong{
-  color:#efc56b;
-}
-
-/* ===== MOBILE ===== */
-
+@media(max-width:1100px){.menu{gap:13px;font-size:12.5px}}
 @media(max-width:900px){
-
-  .mobile-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .menu{
-    display:none;
-  }
-
+  .mobile-btn{display:flex;align-items:center;justify-content:center}
+  .menu{display:none}
   .menu.open{
-    display:flex;
-    position:fixed;
-    top:88px;
-    left:14px;
-    right:14px;
-    flex-direction:column;
-    align-items:stretch;
-    background:#06182c;
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:18px;
-    padding:15px;
-    z-index:2000;
-    box-shadow:0 30px 80px rgba(0,0,0,.55);
+    display:flex;position:fixed;top:88px;left:14px;right:14px;
+    flex-direction:column;align-items:stretch;gap:0;padding:15px;
+    border-radius:18px;background:#06182c;border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 30px 80px rgba(0,0,0,.55);z-index:2000;
   }
-
-  .menu.open a{
-    padding:13px;
-    border-bottom:1px solid rgba(255,255,255,.07);
-  }
-
-  .menu.open a:last-child{
-    border-bottom:none;
-  }
-
-  .brand img{
-    width:155px;
-  }
-
-  .select-grid{
-    grid-template-columns:1fr;
-  }
-
-  .vs{
-    margin:auto;
-  }
-
-  .comparison{
-    grid-template-columns:1fr;
-  }
+  .menu.open a{padding:13px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .menu.open a:last-child{border-bottom:none}
+  .menu a.active::after{display:none}
+  .brand img{width:155px}
+  .context-section{grid-template-columns:1fr}
 }
-
-@media(max-width:620px){
-
-  .hero{
-    padding-top:48px;
-  }
-
-  .hero h1{
-    font-size:48px;
-  }
-
-  .selector-box{
-    padding:22px;
-  }
-
-  .molecule h2{
-    font-size:32px;
-  }
-
+@media(max-width:700px){
+  .nav{padding:10px 14px}.brand img{width:140px;max-height:56px}
+  .menu.open{top:80px}
+  .hero-inner{padding:38px 16px 30px}
+  .hero h1{font-size:40px;letter-spacing:-1px}
+  .hero p{font-size:15px}
+  .comparator{padding:28px 14px 52px}
+  .selector-panel{padding:18px}
+  .selectors{grid-template-columns:1fr}
+  .vs{margin:auto}
+  .compare-wrap{overflow-x:auto;padding-bottom:6px}
+  .compare-grid{min-width:720px}
+  .context-section{padding:0 14px 52px}
+  .footer-inner{justify-content:center;text-align:center}
+  .footer-nav{justify-content:center}
 }
-
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important}
+}
 </style>
 </head>
 
 <body>
-
 <header>
-
-<div class="nav">
-
-  <a class="brand" href="index.html">
-    <img src="logo-peptalyn.png" alt="PEPTALYN">
-  </a>
-
-  <button class="mobile-btn" id="mobileButton">
-    ☰
-  </button>
-
-  <nav class="menu" id="menu">
-    <a href="index.html">Inicio</a>
-    <a href="areas.html">Áreas</a>
-    <a href="peptidos.html">Péptidos</a>
-    <a href="comprar.html">Comprar</a>
-    <a href="comparador.html">Comparador</a>
-    <a href="calculadora.html">Calculadora</a>
-    <a href="informacion.html">Información</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
-
-</div>
-
+  <div class="nav">
+    <a class="brand" href="index.html" aria-label="PEPTALYN - Inicio">
+      <img src="logo-peptalyn.png" alt="PEPTALYN Advanced Peptide Research" width="180" height="65">
+    </a>
+    <button class="mobile-btn" id="mobileButton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+    <nav class="menu" id="menu" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="areas.html">Áreas</a>
+      <a href="peptidos.html">Péptidos</a>
+      <a href="comprar.html">Comprar</a>
+      <a class="active" href="comparador.html" aria-current="page">Comparador</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="informacion.html">Información</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="https://www.facebook.com/profile.php?id=61592075751226" target="_blank" rel="noopener noreferrer" aria-label="PEPTALYN en Facebook">Facebook</a>
+    </nav>
+  </div>
 </header>
 
-
-<section class="hero">
-
-  <div class="eyebrow">
-    PEPTALYN · HERRAMIENTA INTERACTIVA
+<main>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-inner">
+    <div class="eyebrow">PEPTALYN · COMPARADOR CIENTÍFICO</div>
+    <h1 id="hero-title">Compara moléculas <span>con contexto</span></h1>
+    <p>Selecciona dos moléculas y contrasta de forma organizada su mecanismo, área de investigación, nivel de evidencia, situación regulatoria y consideraciones de seguridad.</p>
+    <div class="hero-note">Herramienta educativa. No establece superioridad clínica, no recomienda tratamientos ni determina dosis. La evidencia y el estatus regulatorio pueden cambiar con el tiempo.</div>
   </div>
-
-  <h1>
-    Comparador de moléculas
-  </h1>
-
-  <p>
-    Selecciona dos moléculas para visualizar sus diferencias
-    en mecanismo, áreas de investigación, nivel de evidencia,
-    estado regulatorio y principales limitaciones.
-  </p>
-
 </section>
 
-
-<main class="compare-wrap">
-
-
-<section class="selector-box">
-
-  <h2 class="selector-title">
-    Elige dos moléculas
-  </h2>
-
-  <div class="select-grid">
-
-    <div class="field">
-      <label>Molécula A</label>
-      <select id="selectA"></select>
+<section class="comparator" aria-labelledby="compare-title">
+  <div class="selector-panel">
+    <div class="selector-head">
+      <div class="tag">SELECCIONA DOS MOLÉCULAS</div>
+      <h2 id="compare-title">Comparación lado a lado</h2>
+      <p>Elige dos opciones de la biblioteca PEPTALYN para ver sus diferencias principales.</p>
     </div>
-
-    <div class="vs">
-      VS
+    <div class="selectors">
+      <div class="select-box">
+        <label for="moleculeA">Molécula A</label>
+        <select id="moleculeA" aria-label="Seleccionar primera molécula"></select>
+      </div>
+      <div class="vs" aria-hidden="true">VS</div>
+      <div class="select-box">
+        <label for="moleculeB">Molécula B</label>
+        <select id="moleculeB" aria-label="Seleccionar segunda molécula"></select>
+      </div>
     </div>
-
-    <div class="field">
-      <label>Molécula B</label>
-      <select id="selectB"></select>
+    <div class="quick-actions">
+      <button class="action-btn" id="swapButton" type="button">Intercambiar</button>
+      <button class="action-btn" id="resetButton" type="button">Restablecer</button>
     </div>
-
   </div>
 
+  <div class="compare-wrap" aria-live="polite">
+    <div class="compare-grid" id="compareGrid"></div>
+  </div>
+  <div class="empty-note">Para información más amplia, utiliza el enlace “Ver ficha científica” de cada molécula.</div>
 </section>
 
-
-<section class="comparison">
-
-  <article class="molecule">
-
-    <div class="molecule-head">
-
-      <div class="molecule-label" id="typeA"></div>
-
-      <h2 id="nameA"></h2>
-
-      <div class="molecule-subtitle" id="subtitleA"></div>
-
-      <div id="badgeA"></div>
-
-    </div>
-
-    <div class="data">
-
-      <div class="row">
-        <div class="row-label">Mecanismo principal</div>
-        <div class="row-value" id="mechanismA"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Área principal</div>
-        <div class="row-value" id="areaA"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Evidencia</div>
-        <div class="row-value" id="evidenceA"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Estado regulatorio</div>
-        <div class="row-value" id="statusA"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Punto de interés</div>
-        <div class="row-value" id="strengthA"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Limitación principal</div>
-        <div class="row-value" id="limitationA"></div>
-      </div>
-
-    </div>
-
+<section class="context-section">
+  <article class="context-card">
+    <div class="tag">LECTURA RESPONSABLE</div>
+    <h2>Comparar no significa equiparar</h2>
+    <p>Las moléculas de la biblioteca no se encuentran necesariamente en la misma fase de investigación ni comparten indicaciones, vías, formulaciones o perfiles de evidencia. Por eso el comparador prioriza contexto científico y regulatorio sobre rankings simplificados.</p>
+    <p>Para una revisión más profunda consulta la <a href="peptidos.html">Biblioteca de Péptidos</a> y la sección de <a href="informacion.html">Información científica</a>.</p>
   </article>
 
-
-  <article class="molecule">
-
-    <div class="molecule-head">
-
-      <div class="molecule-label" id="typeB"></div>
-
-      <h2 id="nameB"></h2>
-
-      <div class="molecule-subtitle" id="subtitleB"></div>
-
-      <div id="badgeB"></div>
-
-    </div>
-
-    <div class="data">
-
-      <div class="row">
-        <div class="row-label">Mecanismo principal</div>
-        <div class="row-value" id="mechanismB"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Área principal</div>
-        <div class="row-value" id="areaB"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Evidencia</div>
-        <div class="row-value" id="evidenceB"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Estado regulatorio</div>
-        <div class="row-value" id="statusB"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Punto de interés</div>
-        <div class="row-value" id="strengthB"></div>
-      </div>
-
-      <div class="row">
-        <div class="row-label">Limitación principal</div>
-        <div class="row-value" id="limitationB"></div>
-      </div>
-
-    </div>
-
+  <article class="context-card faq">
+    <div class="tag">PREGUNTAS FRECUENTES</div>
+    <h2>Sobre el comparador</h2>
+    <details>
+      <summary>¿El comparador recomienda tratamientos o dosis?</summary>
+      <p>No. Organiza información educativa y no determina indicación, dosis, tratamiento ni idoneidad clínica.</p>
+    </details>
+    <details>
+      <summary>¿Todas las moléculas tienen el mismo nivel de evidencia?</summary>
+      <p>No. Algunas cuentan con evidencia clínica y productos autorizados para indicaciones concretas; otras continúan en investigación clínica o preclínica.</p>
+    </details>
+    <details>
+      <summary>¿Dónde puedo leer más sobre cada molécula?</summary>
+      <p>Cada columna incluye un enlace directo a su ficha científica individual dentro de PEPTALYN.</p>
+    </details>
   </article>
-
 </section>
-
-
-<section class="summary">
-
-  <div class="summary-tag">
-    INTERPRETACIÓN
-  </div>
-
-  <h2 id="summaryTitle">
-    Comparación
-  </h2>
-
-  <p id="summaryText"></p>
-
-</section>
-
-
-<div class="actions">
-
-  <a id="profileA"
-     href="#"
-     class="btn btn-gold">
-     Ver ficha A
-  </a>
-
-  <a id="profileB"
-     href="#"
-     class="btn btn-outline">
-     Ver ficha B
-  </a>
-
-  <a href="peptidos.html"
-     class="btn btn-outline">
-     Biblioteca
-  </a>
-
-</div>
-
-
 </main>
 
-
-<div class="disclaimer">
-
-  Esta herramienta tiene fines educativos y comparativos.
-  No determina qué molécula debe utilizar una persona,
-  no sustituye valoración médica y no establece dosis,
-  indicaciones clínicas ni seguridad individual.
-
-</div>
-
-
 <footer>
-
-  <strong>PEPTALYN</strong> · Advanced Peptide Research
-  <br>
-  Ciencia organizada para facilitar la comparación crítica de evidencia.
-
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>PEPTALYN</strong> · Advanced Peptide Research · Ecuador<br>Ciencia que transforma. Resultados que duran.</div>
+    <nav class="footer-nav" aria-label="Enlaces del pie de página">
+      <a href="index.html">Inicio</a>
+      <a href="areas.html">Áreas</a>
+      <a href="peptidos.html">Péptidos</a>
+      <a href="comprar.html">Comprar</a>
+      <a href="calculadora.html">Calculadora</a>
+      <a href="informacion.html">Información</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="https://www.facebook.com/profile.php?id=61592075751226" target="_blank" rel="noopener noreferrer">Facebook</a>
+    </nav>
+  </div>
 </footer>
 
-
 <script>
-
-/* ===================================
-   BASE DE DATOS DEL COMPARADOR
-=================================== */
-
 const molecules = {
-
-semaglutide:{
-  name:"Semaglutide",
-  type:"AGONISTA GLP-1",
-  subtitle:"Agonista selectivo del receptor GLP-1.",
-  mechanism:"Activa el receptor GLP-1, modulando apetito, saciedad, secreción de insulina dependiente de glucosa y vaciamiento gástrico.",
-  area:"Metabolismo, diabetes tipo 2 y manejo crónico del peso en indicaciones específicas.",
-  evidence:"Muy amplia. Grandes ensayos clínicos y resultados cardiovasculares disponibles.",
-  status:"Existen medicamentos aprobados por FDA y EMA para indicaciones específicas.",
-  strength:"Amplio respaldo clínico y experiencia regulatoria.",
-  limitation:"Efectos gastrointestinales frecuentes y necesidad de distinguir la molécula de productos o formulaciones específicas.",
-  badge:"approved",
-  file:"semaglutide.html"
-},
-
-tirzepatide:{
-  name:"Tirzepatide",
-  type:"AGONISTA DUAL GIP / GLP-1",
-  subtitle:"Agonista de los receptores GIP y GLP-1.",
-  mechanism:"Activa simultáneamente receptores GIP y GLP-1, modulando apetito, metabolismo de glucosa y señales endocrinas relacionadas.",
-  area:"Diabetes tipo 2, obesidad y manejo del peso en indicaciones autorizadas.",
-  evidence:"Muy amplia. Programas SURPASS y SURMOUNT con ensayos clínicos de gran tamaño.",
-  status:"Existen medicamentos aprobados por autoridades regulatorias para indicaciones específicas.",
-  strength:"Doble agonismo con resultados clínicos robustos en control metabólico y peso.",
-  limitation:"Eventos gastrointestinales y necesidad de seguimiento clínico; la aprobación depende de producto e indicación.",
-  badge:"approved",
-  file:"tirzepatide.html"
-},
-
-retatrutide:{
-  name:"Retatrutide",
-  type:"AGONISTA TRIPLE",
-  subtitle:"Agonista de GIP, GLP-1 y receptor de glucagón.",
-  mechanism:"Combina activación de tres receptores metabólicos: GIP, GLP-1 y glucagón.",
-  area:"Obesidad, metabolismo y riesgo cardiometabólico.",
-  evidence:"Desarrollo clínico avanzado, incluyendo estudios fase 3.",
-  status:"Investigacional. No cuenta actualmente con aprobación regulatoria.",
-  strength:"Mecanismo metabólico triple y resultados clínicos preliminares de gran interés.",
-  limitation:"No está aprobada y todavía faltan datos completos de eficacia y seguridad a largo plazo.",
-  badge:"research",
-  file:"retatrutide.html"
-},
-
-motsc:{
-  name:"MOTS-c",
-  type:"PÉPTIDO MITOCONDRIAL",
-  subtitle:"Péptido derivado de una región codificada por ADN mitocondrial.",
-  mechanism:"Se estudia como señal metabólica relacionada con AMPK, estrés celular y adaptación bioenergética.",
-  area:"Bioenergética, metabolismo, músculo y envejecimiento.",
-  evidence:"Predominantemente preclínica, con investigación humana limitada.",
-  status:"Experimental. No aprobado como medicamento por FDA.",
-  strength:"Vincula señalización mitocondrial y metabolismo sistémico.",
-  limitation:"Falta evidencia clínica suficiente para establecer eficacia terapéutica.",
-  badge:"research",
-  file:"mots-c.html"
-},
-
-ghkcu:{
-  name:"GHK-Cu",
-  type:"TRIPÉPTIDO DE COBRE",
-  subtitle:"Complejo del tripéptido GHK con cobre.",
-  mechanism:"Se estudia en regulación de matriz extracelular, fibroblastos, colágeno, reparación y señalización tisular.",
-  area:"Piel, reparación, biología estética y cicatrización.",
-  evidence:"Amplia evidencia preclínica y dermocosmética; evidencia terapéutica humana más limitada.",
-  status:"El contexto regulatorio depende de formulación y vía. Una formulación cosmética no equivale a aprobación inyectable.",
-  strength:"Interés relevante en piel y remodelación de matriz extracelular.",
-  limitation:"La evidencia no permite extrapolar automáticamente beneficios tópicos a administración sistémica.",
-  badge:"info",
-  file:"ghk-cu.html"
-},
-
-ipamorelin:{
-  name:"Ipamorelin",
-  type:"SECRETAGOGO DE GH",
-  subtitle:"Pentapéptido agonista del receptor GHS-R1a.",
-  mechanism:"Activa el receptor de ghrelina GHS-R1a y estimula liberación de hormona de crecimiento.",
-  area:"Endocrinología, eje GH/IGF-1, fisiología y rendimiento.",
-  evidence:"Limitada. Existe investigación farmacológica, pero faltan datos clínicos suficientes para uso terapéutico rutinario.",
-  status:"No aprobado por FDA como medicamento.",
-  strength:"Mecanismo relativamente selectivo sobre liberación de GH.",
-  limitation:"Seguridad y eficacia subcutánea no suficientemente establecidas.",
-  badge:"research",
-  file:"ipamorelin.html"
-},
-
-tesamorelin:{
-  name:"Tesamorelin",
-  type:"ANÁLOGO DE GHRH",
-  subtitle:"Análogo sintético del factor liberador de hormona de crecimiento.",
-  mechanism:"Estimula receptores hipofisarios de GHRH, aumentando secreción pulsátil de GH y posteriormente IGF-1.",
-  area:"Endocrinología y reducción de exceso de grasa abdominal en adultos con VIH y lipodistrofia.",
-  evidence:"Clínica y regulatoria para una indicación específica.",
-  status:"Existen productos aprobados en EE. UU. para una indicación limitada; no es un tratamiento general para pérdida de peso.",
-  strength:"Cuenta con indicación terapéutica específica respaldada por ensayos y aprobación regulatoria.",
-  limitation:"No debe extrapolarse a obesidad general ni a cualquier presentación de tesamorelin.",
-  badge:"approved",
-  file:"tesamorelin.html"
-},
-
-semax:{
-  name:"Semax",
-  type:"PÉPTIDO NEUROACTIVO",
-  subtitle:"Derivado sintético del fragmento ACTH(4-7).",
-  mechanism:"Se investigan efectos sobre neurotrofinas, expresión génica, plasticidad neuronal y respuesta a lesión cerebral.",
-  area:"Neuroprotección, isquemia, plasticidad y cognición.",
-  evidence:"Preclínica amplia y estudios humanos limitados, principalmente fuera de grandes programas regulatorios occidentales.",
-  status:"No aprobado por FDA; estado variable entre jurisdicciones.",
-  strength:"Interés experimental en neuroprotección y señalización neurotrófica.",
-  limitation:"Evidencia humana heterogénea y limitada para muchas aplicaciones comercializadas.",
-  badge:"research",
-  file:"semax.html"
-},
-
-selank:{
-  name:"Selank",
-  type:"HEPTAPÉPTIDO NEUROACTIVO",
-  subtitle:"Péptido sintético relacionado con tuftsin.",
-  mechanism:"Se investigan modulaciones de señalización GABAérgica, encefalinas, expresión génica y respuesta al estrés.",
-  area:"Ansiedad, estrés, neurotransmisión y cognición.",
-  evidence:"Estudios preclínicos y pequeños estudios humanos, principalmente de origen ruso.",
-  status:"No aprobado por FDA; estado regulatorio variable.",
-  strength:"Interés científico en regulación de ansiedad y neurotransmisión.",
-  limitation:"Pequeñas muestras clínicas y falta de grandes ensayos multicéntricos modernos.",
-  badge:"research",
-  file:"selank.html"
-},
-
-nad:{
-  name:"NAD+",
-  type:"COENZIMA",
-  subtitle:"Nicotinamida adenina dinucleótido.",
-  mechanism:"Participa en reacciones redox, metabolismo energético, señalización, sirtuinas y reparación del ADN.",
-  area:"Bioenergética, metabolismo celular, envejecimiento y longevidad.",
-  evidence:"Biología básica muy sólida; beneficios terapéuticos de suplementación o administración parenteral menos establecidos.",
-  status:"No es un péptido. Su utilización terapéutica depende del producto y contexto regulatorio.",
-  strength:"Molécula central para metabolismo y función celular.",
-  limitation:"La popularidad de intervenciones NAD+ supera la evidencia clínica para anti-envejecimiento o bienestar.",
-  badge:"info",
-  file:"nad.html"
-},
-
-bpc157:{
-  name:"BPC-157",
-  type:"PENTADECAPÉPTIDO",
-  subtitle:"Péptido sintético experimental de 15 aminoácidos.",
-  mechanism:"Se investigan vías de reparación, óxido nítrico, angiogénesis y respuesta tisular.",
-  area:"Tendón, músculo, gastrointestinal y reparación tisular.",
-  evidence:"Predominantemente animal y preclínica; datos humanos extremadamente limitados.",
-  status:"Investigacional y sin aprobación terapéutica por FDA.",
-  strength:"Resultados preclínicos interesantes en múltiples modelos de reparación.",
-  limitation:"Faltan ensayos humanos robustos, dosis validadas y seguridad a largo plazo.",
-  badge:"research",
-  file:"bpc157.html"
-},
-
-tb500:{
-  name:"TB-500",
-  type:"FRAGMENTO PEPTÍDICO",
-  subtitle:"Fragmento relacionado con thymosin beta-4.",
-  mechanism:"Se estudia por relación con migración celular, actina, angiogénesis y procesos de reparación.",
-  area:"Recuperación y reparación tisular.",
-  evidence:"Muy limitada para TB-500 específicamente; gran parte de la literatura corresponde a thymosin beta-4 completa.",
-  status:"Investigacional, sin aprobación terapéutica.",
-  strength:"Interés experimental en biología de reparación y movilidad celular.",
-  limitation:"No debe confundirse la evidencia de thymosin beta-4 con evidencia clínica de TB-500.",
-  badge:"research",
-  file:"tb500.html"
-}
-
+  semaglutide:{
+    name:"Semaglutide", file:"semaglutide.html", family:"Agonista del receptor GLP-1",
+    area:"Metabolismo y composición corporal",
+    mechanism:"Activa el receptor GLP-1 y participa en señalización relacionada con control glucémico, apetito y saciedad.",
+    evidence:"Amplia evidencia clínica para indicaciones específicas en productos autorizados.",
+    regulatory:"Existen medicamentos autorizados con semaglutida para indicaciones concretas; la autorización depende del producto, formulación y jurisdicción.",
+    safety:"El perfil de seguridad debe interpretarse según la ficha técnica del producto autorizado y la situación clínica individual.",
+    context:"Molécula con desarrollo clínico avanzado y uso médico establecido en productos aprobados para indicaciones específicas."
+  },
+  tirzepatide:{
+    name:"Tirzepatide", file:"tirzepatide.html", family:"Agonismo dual GIP + GLP-1",
+    area:"Metabolismo y composición corporal",
+    mechanism:"Actúa sobre receptores GIP y GLP-1, integrando señales relacionadas con metabolismo glucémico, apetito y balance energético.",
+    evidence:"Evidencia clínica robusta en indicaciones metabólicas específicas.",
+    regulatory:"Existen productos autorizados con tirzepatida para indicaciones concretas; revisar normativa y ficha técnica aplicable.",
+    safety:"Los riesgos y precauciones dependen de la indicación, formulación y características del paciente.",
+    context:"Molécula de acción dual con evidencia clínica amplia en el campo metabólico."
+  },
+  retatrutide:{
+    name:"Retatrutide", file:"retatrutide.html", family:"Agonismo triple GIP + GLP-1 + glucagón",
+    area:"Metabolismo e investigación clínica",
+    mechanism:"Investiga la activación combinada de receptores GIP, GLP-1 y glucagón.",
+    evidence:"Investigación clínica en desarrollo; la evidencia continúa evolucionando.",
+    regulatory:"Molécula investigacional; no debe presentarse como medicamento aprobado.",
+    safety:"La seguridad definitiva no puede asumirse hasta completar el desarrollo clínico y la evaluación regulatoria correspondiente.",
+    context:"Compuesto investigacional de acción triple; no debe equipararse a terapias ya autorizadas."
+  },
+  motsc:{
+    name:"MOTS-c", file:"mots-c.html", family:"Péptido derivado de la mitocondria",
+    area:"Bioenergética, metabolismo y rendimiento",
+    mechanism:"Péptido codificado por ADN mitocondrial estudiado en señalización metabólica, homeostasis energética y respuesta celular.",
+    evidence:"Principalmente preclínica y exploratoria; evidencia humana terapéutica limitada.",
+    regulatory:"No debe asumirse aprobación terapéutica por su presencia en investigación.",
+    safety:"La información de seguridad humana es limitada para usos terapéuticos no autorizados.",
+    context:"Interés científico en metabolismo y biología mitocondrial; requiere interpretación prudente."
+  },
+  ghkcu:{
+    name:"GHK-Cu", file:"ghk-cu.html", family:"Tripéptido unido a cobre",
+    area:"Piel, matriz extracelular y reparación",
+    mechanism:"Complejo tripéptido-cobre investigado en señalización celular, matriz extracelular y procesos de reparación.",
+    evidence:"Evidencia heterogénea según vía, formulación y objetivo; parte importante es preclínica.",
+    regulatory:"El estatus depende de la formulación y del producto concreto; no debe generalizarse entre vías de administración.",
+    safety:"La seguridad puede variar sustancialmente según formulación y vía; la evidencia de formas inyectables es limitada.",
+    context:"Molécula relevante en biología cutánea y reparación, con necesidad de distinguir formulaciones y contextos."
+  },
+  ipamorelin:{
+    name:"Ipamorelin", file:"ipamorelin.html", family:"Secretagogo del receptor de grelina/GHS-R",
+    area:"Fisiología endocrina y rendimiento",
+    mechanism:"Péptido investigado por su interacción con el receptor secretagogo de hormona de crecimiento.",
+    evidence:"Evidencia clínica limitada para usos terapéuticos contemporáneos.",
+    regulatory:"No debe presentarse como terapia aprobada de uso general.",
+    safety:"Persisten incertidumbres de seguridad y falta de evidencia suficiente para múltiples usos propuestos.",
+    context:"Molécula de investigación endocrina; conviene separar mecanismos teóricos de beneficios clínicos demostrados."
+  },
+  tesamorelin:{
+    name:"Tesamorelin", file:"tesamorelin.html", family:"Análogo de GHRH",
+    area:"Endocrinología y composición corporal",
+    mechanism:"Análogo de la hormona liberadora de hormona de crecimiento que estimula el eje GH/IGF-1.",
+    evidence:"Evidencia clínica y uso autorizado en una indicación específica, no como fármaco general para pérdida de peso.",
+    regulatory:"Existen productos autorizados para indicaciones concretas; no extrapolar a otros objetivos.",
+    safety:"Requiere considerar efectos sobre el eje GH/IGF-1, glucosa y contraindicaciones descritas en la información oficial.",
+    context:"Ejemplo de molécula con autorización específica cuyo uso no debe extrapolarse fuera de su indicación."
+  },
+  semax:{
+    name:"Semax", file:"semax.html", family:"Péptido sintético derivado de ACTH(4-7)",
+    area:"Neurociencia",
+    mechanism:"Péptido sintético investigado en señalización neurobiológica y mecanismos relacionados con plasticidad y respuesta celular.",
+    evidence:"Evidencia humana limitada y heterogénea; parte de la literatura procede de contextos regionales específicos.",
+    regulatory:"No debe asumirse aprobación terapéutica internacional por su investigación o uso regional.",
+    safety:"La caracterización de seguridad para usos no autorizados sigue siendo incompleta.",
+    context:"Interés en neurociencia, pero con necesidad de valorar calidad, replicación y aplicabilidad de la evidencia."
+  },
+  selank:{
+    name:"Selank", file:"selank.html", family:"Heptapéptido sintético relacionado con tuftsin",
+    area:"Neurociencia",
+    mechanism:"Péptido sintético investigado en sistemas neurobiológicos y vías relacionadas con respuesta al estrés.",
+    evidence:"Estudios humanos pequeños y evidencia general limitada.",
+    regulatory:"No debe presentarse como medicamento aprobado de forma general.",
+    safety:"La evidencia de seguridad y eficacia para múltiples usos propuestos es insuficiente para generalizaciones clínicas.",
+    context:"Molécula neuroactiva experimental con literatura limitada y necesidad de interpretación crítica."
+  },
+  nad:{
+    name:"NAD+", file:"nad.html", family:"Coenzima - no es un péptido",
+    area:"Bioenergética y longevidad",
+    mechanism:"Coenzima esencial en reacciones redox, metabolismo energético y múltiples procesos celulares.",
+    evidence:"La evidencia depende fuertemente de la intervención estudiada, precursor, formulación y vía.",
+    regulatory:"No debe tratarse como equivalente a un péptido ni extrapolar evidencia entre suplementos, precursores e intervenciones parenterales.",
+    safety:"La seguridad y utilidad clínica varían según la forma de administración y el contexto.",
+    context:"Se incluye por relevancia bioenergética, aunque químicamente no es un péptido."
+  },
+  bpc157:{
+    name:"BPC-157", file:"bpc157.html", family:"Pentadecapéptido sintético experimental",
+    area:"Recuperación y reparación",
+    mechanism:"Compuesto sintético investigado principalmente en modelos preclínicos relacionados con reparación y respuesta tisular.",
+    evidence:"Predominantemente preclínica; evidencia humana terapéutica insuficiente.",
+    regulatory:"Experimental; no existe una pauta clínica validada ni debe asumirse aprobación terapéutica.",
+    safety:"La falta de datos humanos suficientes limita conclusiones sobre seguridad, eficacia y dosificación.",
+    context:"Interés experimental en reparación, pero con gran brecha entre datos preclínicos y aplicación clínica."
+  },
+  tb500:{
+    name:"TB-500", file:"tb500.html", family:"Fragmento relacionado con thymosin beta-4",
+    area:"Recuperación y reparación",
+    mechanism:"Fragmento sintético relacionado con secuencias de thymosin beta-4, investigado en procesos celulares asociados con reparación.",
+    evidence:"Evidencia humana directa muy limitada; no debe equipararse automáticamente con estudios de thymosin beta-4 completa.",
+    regulatory:"Experimental; no debe presentarse como terapia aprobada.",
+    safety:"La exposición humana y el perfil de seguridad del fragmento no están suficientemente caracterizados.",
+    context:"Es importante distinguir el fragmento TB-500 de la proteína completa y evitar extrapolaciones."
+  }
 };
 
+const keys = Object.keys(molecules);
+const a = document.getElementById("moleculeA");
+const b = document.getElementById("moleculeB");
+const grid = document.getElementById("compareGrid");
 
-/* ===================================
-   SELECTS
-=================================== */
-
-const selectA =
-  document.getElementById("selectA");
-
-const selectB =
-  document.getElementById("selectB");
-
-
-function createOptions(){
-
-  Object.keys(molecules).forEach(function(key){
-
-    const molecule = molecules[key];
-
-    const optionA =
-      document.createElement("option");
-
-    optionA.value = key;
-    optionA.textContent = molecule.name;
-
-    selectA.appendChild(optionA);
-
-
-    const optionB =
-      document.createElement("option");
-
-    optionB.value = key;
-    optionB.textContent = molecule.name;
-
-    selectB.appendChild(optionB);
-
+function fillSelect(select){
+  keys.forEach(key=>{
+    const o=document.createElement("option");
+    o.value=key;o.textContent=molecules[key].name;
+    select.appendChild(o);
   });
-
 }
+fillSelect(a); fillSelect(b);
+a.value="semaglutide"; b.value="tirzepatide";
 
+const rows = [
+  ["Familia / objetivo","family"],
+  ["Área principal","area"],
+  ["Mecanismo resumido","mechanism"],
+  ["Nivel de evidencia","evidence"],
+  ["Contexto regulatorio","regulatory"],
+  ["Seguridad: lectura general","safety"],
+  ["Cómo interpretarla","context"]
+];
 
-createOptions();
-
-selectA.value = "semaglutide";
-selectB.value = "tirzepatide";
-
-
-/* ===================================
-   BADGES
-=================================== */
-
-function badgeHTML(type){
-
-  if(type === "approved"){
-
-    return `
-      <span class="badge badge-approved">
-        ✓ EVIDENCIA / APROBACIÓN ESPECÍFICA
-      </span>
-    `;
-
-  }
-
-  if(type === "info"){
-
-    return `
-      <span class="badge badge-info">
-        ℹ CONTEXTO ESPECIAL
-      </span>
-    `;
-
-  }
-
-  return `
-    <span class="badge badge-research">
-      ⚠ INVESTIGACIONAL
-    </span>
-  `;
-
+function esc(v){
+  return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
 }
-
-
-/* ===================================
-   RENDER
-=================================== */
-
-function renderMolecule(side,key){
-
-  const m =
-    molecules[key];
-
-  document.getElementById("type"+side)
-    .textContent = m.type;
-
-  document.getElementById("name"+side)
-    .textContent = m.name;
-
-  document.getElementById("subtitle"+side)
-    .textContent = m.subtitle;
-
-  document.getElementById("mechanism"+side)
-    .textContent = m.mechanism;
-
-  document.getElementById("area"+side)
-    .textContent = m.area;
-
-  document.getElementById("evidence"+side)
-    .textContent = m.evidence;
-
-  document.getElementById("status"+side)
-    .textContent = m.status;
-
-  document.getElementById("strength"+side)
-    .textContent = m.strength;
-
-  document.getElementById("limitation"+side)
-    .textContent = m.limitation;
-
-  document.getElementById("badge"+side)
-    .innerHTML = badgeHTML(m.badge);
-
-  document.getElementById("profile"+side)
-    .href = m.file;
-
-}
-
-
-/* ===================================
-   SUMMARY
-=================================== */
-
-function updateSummary(a,b){
-
-  const A =
-    molecules[a];
-
-  const B =
-    molecules[b];
-
-  const title =
-    A.name + " vs " + B.name;
-
-  document.getElementById("summaryTitle")
-    .textContent = title;
-
-
-  if(a === b){
-
-    document.getElementById("summaryText")
-      .textContent =
-      "Has seleccionado la misma molécula en ambos lados. Elige otra opción para visualizar diferencias.";
-
-    return;
-
-  }
-
-
-  let text =
-    A.name + " pertenece a la categoría " +
-    A.type.toLowerCase() +
-    ", mientras que " +
-    B.name +
-    " se clasifica como " +
-    B.type.toLowerCase() +
-    ". ";
-
-
-  if(A.badge === "approved" &&
-     B.badge === "research"){
-
-    text +=
-      A.name +
-      " dispone de evidencia clínica y/o aprobación regulatoria para indicaciones específicas, mientras que " +
-      B.name +
-      " continúa siendo investigacional. Por ello, sus niveles de evidencia y certeza clínica no son equivalentes.";
-
-  }
-
-  else if(A.badge === "research" &&
-          B.badge === "approved"){
-
-    text +=
-      B.name +
-      " dispone de evidencia clínica y/o aprobación regulatoria para indicaciones específicas, mientras que " +
-      A.name +
-      " continúa siendo investigacional. Por ello, sus niveles de evidencia y certeza clínica no son equivalentes.";
-
-  }
-
-  else if(A.badge === "research" &&
-          B.badge === "research"){
-
-    text +=
-      "Ambas moléculas continúan en contextos investigacionales o poseen evidencia clínica limitada. La comparación describe diferencias biológicas y científicas, pero no establece superioridad terapéutica.";
-
-  }
-
-  else{
-
-    text +=
-      "Aunque comparten algunas áreas de interés, su mecanismo, evidencia y contexto regulatorio son diferentes. La comparación no implica que una pueda sustituir clínicamente a la otra.";
-
-  }
-
-
-  document.getElementById("summaryText")
-    .textContent = text;
-
-}
-
-
-/* ===================================
-   UPDATE
-=================================== */
-
-function updateComparison(){
-
-  const a =
-    selectA.value;
-
-  const b =
-    selectB.value;
-
-  renderMolecule("A",a);
-  renderMolecule("B",b);
-
-  updateSummary(a,b);
-
-}
-
-
-selectA.addEventListener(
-  "change",
-  updateComparison
-);
-
-selectB.addEventListener(
-  "change",
-  updateComparison
-);
-
-
-updateComparison();
-
-
-/* ===================================
-   MOBILE MENU
-=================================== */
-
-const mobileButton =
-  document.getElementById("mobileButton");
-
-const menu =
-  document.getElementById("menu");
-
-mobileButton.addEventListener(
-  "click",
-  function(){
-
-    menu.classList.toggle("open");
-
-    mobileButton.textContent =
-      menu.classList.contains("open")
-      ? "✕"
-      : "☰";
-
-  }
-);
-
-menu
-  .querySelectorAll("a")
-  .forEach(function(link){
-
-    link.addEventListener(
-      "click",
-      function(){
-
-        menu.classList.remove("open");
-        mobileButton.textContent="☰";
-
-      }
-    );
-
+function render(){
+  const A=molecules[a.value], B=molecules[b.value];
+  let html = `
+    <div class="cell molecule-head">Criterio</div>
+    <div class="cell molecule-head"><h3>${esc(A.name)}</h3><div class="sub">${esc(A.family)}</div><a href="${esc(A.file)}">Ver ficha científica →</a></div>
+    <div class="cell molecule-head"><h3>${esc(B.name)}</h3><div class="sub">${esc(B.family)}</div><a href="${esc(B.file)}">Ver ficha científica →</a></div>`;
+  rows.forEach(([label,key])=>{
+    html += `<div class="cell">${esc(label)}</div><div class="cell value">${key==="regulatory"?'<span class="status-pill">Contexto</span><br>':""}${esc(A[key])}</div><div class="cell value">${key==="regulatory"?'<span class="status-pill">Contexto</span><br>':""}${esc(B[key])}</div>`;
   });
+  grid.innerHTML=html;
+  const url = new URL(window.location.href);
+  url.searchParams.set("a",a.value); url.searchParams.set("b",b.value);
+  history.replaceState(null,"",url);
+}
+function readQuery(){
+  const p=new URLSearchParams(location.search);
+  if(molecules[p.get("a")]) a.value=p.get("a");
+  if(molecules[p.get("b")]) b.value=p.get("b");
+}
+readQuery(); render();
+a.addEventListener("change",render); b.addEventListener("change",render);
+document.getElementById("swapButton").addEventListener("click",()=>{const x=a.value;a.value=b.value;b.value=x;render();});
+document.getElementById("resetButton").addEventListener("click",()=>{a.value="semaglutide";b.value="tirzepatide";render();});
 
+const mobileButton=document.getElementById("mobileButton");
+const menu=document.getElementById("menu");
+mobileButton.addEventListener("click",()=>{
+  const open=menu.classList.toggle("open");
+  mobileButton.setAttribute("aria-expanded",String(open));
+  mobileButton.textContent=open?"✕":"☰";
+});
+menu.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
+  menu.classList.remove("open");mobileButton.setAttribute("aria-expanded","false");mobileButton.textContent="☰";
+}));
 </script>
-
 </body>
 </html>
+
