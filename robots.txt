@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://peptalyn.com.ec/sitemap.xml
