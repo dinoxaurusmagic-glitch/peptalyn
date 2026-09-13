@@ -1378,6 +1378,326 @@ transition:none!important;
 }
 
 }
+  /* =====================================================
+   AJUSTES FINALES PARA MÓVIL
+   No modifica escritorio
+===================================================== */
+
+@media(max-width:650px){
+
+/* CABECERA MÁS COMPACTA */
+
+header{
+position:sticky;
+top:0;
+}
+
+.nav{
+min-height:68px;
+padding:6px 12px;
+}
+
+.brand{
+width:175px;
+}
+
+.brand img{
+width:170px;
+height:52px;
+object-fit:contain;
+transform:none;
+}
+
+.mobile-btn{
+width:43px;
+height:43px;
+font-size:21px;
+border-radius:11px;
+}
+
+
+/* HERO MÁS COMPACTO */
+
+.hero{
+min-height:455px;
+height:auto;
+max-height:none;
+
+background:
+linear-gradient(
+90deg,
+rgba(3,30,57,.88),
+rgba(3,35,67,.46)
+),
+url("beryon-ecuador-hero.png")
+center center / cover no-repeat;
+}
+
+.hero-inner{
+padding:38px 20px 36px;
+}
+
+.hero-copy{
+max-width:100%;
+}
+
+.hero-kicker{
+font-size:10px;
+letter-spacing:4px;
+margin-bottom:10px;
+}
+
+.hero h1{
+font-size:clamp(36px,10.7vw,49px);
+line-height:1.02;
+letter-spacing:-1px;
+margin-bottom:16px;
+}
+
+.hero-description{
+font-size:15px;
+line-height:1.45;
+margin-bottom:19px;
+}
+
+.hero-btn{
+min-height:47px;
+padding:0 18px;
+font-size:12px;
+width:auto;
+}
+
+
+/* PILARES EN 2 X 2 */
+
+.pillars-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.pillar{
+min-height:145px;
+padding:18px 12px;
+border-bottom:1px solid #e1ebf2;
+}
+
+.pillar:nth-child(odd){
+border-right:1px solid #e1ebf2;
+}
+
+.pillar:nth-last-child(-n+2){
+border-bottom:none;
+}
+
+.pillar::after{
+display:none !important;
+}
+
+.pillar-icon{
+font-size:27px;
+margin-bottom:8px;
+}
+
+.pillar strong{
+font-size:11.5px;
+line-height:1.4;
+letter-spacing:1px;
+}
+
+
+/* CIENCIA QUE TRANSFORMA */
+
+.essence-copy{
+padding:34px 22px 28px;
+}
+
+.section-label{
+font-size:10px;
+letter-spacing:3px;
+margin-bottom:9px;
+}
+
+.essence-copy h2{
+font-size:36px;
+line-height:1.03;
+margin-bottom:16px;
+}
+
+.essence-copy p{
+font-size:14px;
+line-height:1.55;
+margin-bottom:18px;
+}
+
+.outline-btn{
+min-height:44px;
+padding:0 16px;
+font-size:11.5px;
+}
+
+
+/* VIALS MÁS COMPACTOS */
+
+.essence-visual{
+min-height:390px;
+background-position:center;
+}
+
+.essence-overlay{
+left:0;
+right:0;
+bottom:0;
+top:auto;
+
+width:100%;
+min-height:165px;
+
+padding:22px 24px;
+
+background:
+linear-gradient(
+180deg,
+rgba(3,31,59,.32),
+rgba(3,31,59,.94)
+);
+}
+
+.essence-overlay h3{
+font-size:25px;
+line-height:1.08;
+margin-bottom:12px;
+}
+
+.essence-overlay .line{
+margin-bottom:13px;
+}
+
+.essence-overlay p{
+font-size:14px;
+line-height:1.4;
+letter-spacing:2px;
+}
+
+
+/* ÁREAS MÁS COMPACTAS */
+
+.areas{
+padding:30px 18px 36px;
+}
+
+.areas-head{
+margin-bottom:22px;
+}
+
+.areas-head h2{
+font-size:34px;
+line-height:1.05;
+}
+
+.areas-head p{
+font-size:13px;
+line-height:1.45;
+padding:0 8px;
+}
+
+.area-grid{
+grid-template-columns:1fr;
+gap:18px;
+}
+
+.area-image{
+height:205px;
+}
+
+.area-body{
+padding:14px 16px 16px;
+}
+
+.area-body h3{
+font-size:18px;
+margin-bottom:7px;
+}
+
+.area-body p{
+min-height:auto;
+font-size:14px;
+line-height:1.45;
+margin-bottom:12px;
+}
+
+.area-link{
+font-size:13px;
+}
+
+
+/* ECUADOR / VISIÓN */
+
+.vision-image{
+min-height:260px;
+}
+
+.vision-content{
+padding:30px 22px 28px;
+}
+
+.vision-copy h2{
+font-size:34px;
+line-height:1.07;
+}
+
+.vision-copy p{
+font-size:15px;
+line-height:1.5;
+}
+
+.values{
+gap:16px;
+}
+
+
+/* PROMESA */
+
+.promise{
+padding:36px 18px;
+}
+
+.promise h2{
+font-size:38px;
+line-height:1.05;
+}
+
+.promise p{
+font-size:10px;
+letter-spacing:1.7px;
+}
+
+
+/* FOOTER */
+
+.footer-main{
+padding:24px 18px;
+gap:22px;
+}
+
+.footer-logo img{
+width:185px;
+}
+
+.footer-nav{
+gap:14px 17px;
+font-size:11px;
+}
+
+.footer-bottom{
+padding:16px 18px;
+font-size:9.5px;
+gap:12px;
+}
+
+.footer-bottom div:nth-child(2){
+font-size:21px;
+}
+
+}
 
 </style>
 
