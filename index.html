@@ -330,7 +330,31 @@ rgba(3,35,67,.12) 70%
 ),
 url("beryon-ecuador-hero.png")
 center center / cover no-repeat;
+/* PANEL BERYON DEL HERO */
 
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+right:0;
+bottom:0;
+width:39%;
+z-index:1;
+
+background-image:url("beryon-hero-panel.png");
+background-repeat:no-repeat;
+background-position:right center;
+background-size:auto 100%;
+
+clip-path:polygon(24% 0,100% 0,100% 100%,0 100%);
+
+pointer-events:none;
+}
+
+.hero-inner{
+position:relative;
+z-index:2;
+}
 border-bottom:
 1px solid #dce9f2;
 }
