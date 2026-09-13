@@ -4,71 +4,57 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>BERYON Ecuador | Advanced Peptide Research</title>
 
-<meta name="description"
+<meta
+name="description"
 content="BERYON Ecuador: información científica sobre péptidos, metabolismo, rendimiento, recuperación, neurociencia, piel y longevidad. Ciencia e investigación desde Ecuador.">
 
-<meta name="robots"
+<meta
+name="robots"
 content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
-<meta name="author"
-content="BERYON">
+<meta name="author" content="BERYON">
+<meta name="theme-color" content="#032442">
 
-<meta name="theme-color"
-content="#032442">
+<link rel="canonical" href="https://peptalyn.com.ec/">
 
-<link rel="canonical"
-href="https://peptalyn.com.ec/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+<meta property="og:site_name" content="BERYON">
 
-<link rel="alternate"
-hreflang="es-EC"
-href="https://peptalyn.com.ec/">
-
-<link rel="alternate"
-hreflang="x-default"
-href="https://peptalyn.com.ec/">
-
-<link rel="sitemap"
-type="application/xml"
-href="https://peptalyn.com.ec/sitemap.xml">
-
-<meta property="og:type"
-content="website">
-
-<meta property="og:locale"
-content="es_EC">
-
-<meta property="og:site_name"
-content="BERYON">
-
-<meta property="og:title"
+<meta
+property="og:title"
 content="BERYON Ecuador | Advanced Peptide Research">
 
-<meta property="og:description"
+<meta
+property="og:description"
 content="Ciencia avanzada para un futuro más saludable. Péptidos, investigación e información científica desde Ecuador.">
 
-<meta property="og:url"
+<meta
+property="og:url"
 content="https://peptalyn.com.ec/">
 
-<meta property="og:image"
+<meta
+property="og:image"
 content="https://peptalyn.com.ec/beryon-ecuador-hero.png">
 
-<meta name="twitter:card"
-content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
 
-<meta name="twitter:title"
+<meta
+name="twitter:title"
 content="BERYON Ecuador | Advanced Peptide Research">
 
-<meta name="twitter:description"
+<meta
+name="twitter:description"
 content="Péptidos, ciencia e investigación desde Ecuador.">
 
-<meta name="twitter:image"
+<meta
+name="twitter:image"
 content="https://peptalyn.com.ec/beryon-ecuador-hero.png">
+
 
 <script type="application/ld+json">
 {
@@ -103,7 +89,12 @@ content="https://peptalyn.com.ec/beryon-ecuador-hero.png">
 }
 </script>
 
+
 <style>
+
+/* =========================
+   BASE
+========================= */
 
 *{
 box-sizing:border-box;
@@ -123,8 +114,8 @@ overflow-x:hidden;
 }
 
 img{
-max-width:100%;
 display:block;
+max-width:100%;
 }
 
 a{
@@ -137,14 +128,14 @@ font-family:inherit;
 }
 
 :focus-visible{
-outline:3px solid #36c9ef;
+outline:3px solid #34c9f2;
 outline-offset:3px;
 }
 
 
-/* =====================================================
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
 header{
 position:sticky;
@@ -152,17 +143,20 @@ top:0;
 z-index:1000;
 background:#062543;
 border-bottom:1px solid rgba(255,255,255,.08);
-box-shadow:0 5px 20px rgba(0,0,0,.14);
+box-shadow:0 4px 18px rgba(0,0,0,.14);
 }
 
 .nav{
-max-width:1450px;
+width:100%;
+max-width:1540px;
+min-height:82px;
 margin:auto;
-min-height:74px;
-padding:7px 30px;
+padding:7px 34px;
+
 display:flex;
 align-items:center;
 justify-content:space-between;
+
 gap:25px;
 }
 
@@ -170,19 +164,27 @@ gap:25px;
 display:flex;
 align-items:center;
 flex-shrink:0;
+
+width:300px;
+overflow:visible;
 }
 
 .brand img{
-width:275px;
-height:60px;
+width:285px;
+height:66px;
+
 object-fit:contain;
 object-position:left center;
+
+transform:scale(1.12);
+transform-origin:left center;
 }
 
 .menu{
 display:flex;
 align-items:center;
-gap:22px;
+gap:24px;
+
 font-size:13px;
 font-weight:700;
 color:#fff;
@@ -190,63 +192,73 @@ color:#fff;
 
 .menu a{
 position:relative;
-opacity:.95;
 white-space:nowrap;
+opacity:.96;
 transition:.2s;
 }
 
 .menu a:hover,
 .menu a.active{
-color:#66d8fb;
+color:#62dcff;
 }
 
 .menu a.active::after{
 content:"";
+
 position:absolute;
 left:0;
 right:0;
-bottom:-11px;
+bottom:-12px;
+
 height:2px;
-background:#65d7fa;
-border-radius:10px;
+
+background:#61d9fa;
+border-radius:8px;
 }
 
 .mobile-btn{
 display:none;
+
 width:48px;
 height:48px;
+
 align-items:center;
 justify-content:center;
+
 border-radius:12px;
+
 border:1px solid rgba(255,255,255,.18);
+
 background:transparent;
 color:#fff;
+
 font-size:24px;
 cursor:pointer;
 }
 
 
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
 position:relative;
-height:clamp(445px,61vh,550px);
-min-height:445px;
-max-height:550px;
+
+height:470px;
+min-height:470px;
 
 display:flex;
 align-items:center;
+
 overflow:hidden;
 
 background:
 linear-gradient(
 90deg,
-rgba(3,30,57,.91) 0%,
-rgba(3,35,67,.73) 31%,
-rgba(3,35,67,.20) 58%,
-rgba(3,35,67,.03) 100%
+rgba(3,29,56,.92) 0%,
+rgba(3,34,65,.74) 31%,
+rgba(3,34,65,.18) 57%,
+rgba(3,34,65,.02) 100%
 ),
 url("beryon-ecuador-hero.png")
 center 48% / cover no-repeat;
@@ -254,19 +266,22 @@ center 48% / cover no-repeat;
 
 .hero-panel{
 position:absolute;
+
 top:0;
 right:0;
 bottom:0;
 
 width:43%;
+
 z-index:1;
 
-background-image:url("beryon-hero-panel.png");
-background-repeat:no-repeat;
-background-position:right center;
-background-size:auto 100%;
+background:
+url("beryon-hero-panel.png")
+right center / auto 100%
+no-repeat;
 
-clip-path:polygon(
+clip-path:
+polygon(
 23% 0,
 100% 0,
 100% 100%,
@@ -281,65 +296,79 @@ position:relative;
 z-index:3;
 
 width:100%;
-max-width:1450px;
+max-width:1540px;
 
 margin:auto;
 
-padding:
-48px 48px;
+padding:40px 48px;
 }
 
 .hero-copy{
-max-width:585px;
+max-width:580px;
 }
 
 .hero-kicker{
 font-size:13px;
-letter-spacing:7px;
 font-weight:600;
+
+letter-spacing:7px;
+
 color:#fff;
-margin-bottom:14px;
+
+margin-bottom:13px;
 }
 
 .hero h1{
-font-size:clamp(45px,4.7vw,65px);
-line-height:1.01;
-letter-spacing:-1.5px;
+font-size:clamp(46px,4.6vw,64px);
+
+line-height:1;
+
+letter-spacing:-1.6px;
+
 font-weight:900;
+
 color:#fff;
-margin-bottom:19px;
+
+margin-bottom:17px;
 }
 
 .hero h1 span{
 display:block;
-color:#55dcff;
+color:#54dcff;
 }
 
 .hero-description{
 font-size:17px;
-line-height:1.48;
+
+line-height:1.5;
+
 color:#fff;
-max-width:550px;
-margin-bottom:24px;
-text-shadow:0 2px 10px rgba(0,0,0,.28);
+
+max-width:530px;
+
+margin-bottom:22px;
+
+text-shadow:
+0 2px 9px rgba(0,0,0,.25);
 }
 
 .hero-btn{
 display:inline-flex;
-min-height:52px;
+
+min-height:50px;
+
 align-items:center;
 justify-content:center;
 
-padding:
-0 24px;
+padding:0 23px;
 
 border-radius:6px;
 
 background:
 linear-gradient(
 135deg,
-#11b8ed,
-#008ac7
+#12b9ef,
+#0089c7
 );
 
 color:#fff;
@@ -348,7 +377,7 @@ font-size:13px;
 font-weight:900;
 
 box-shadow:
-0 12px 28px rgba(0,139,197,.28);
+0 10px 25px rgba(0,137,199,.28);
 
 transition:.2s;
 }
@@ -358,24 +387,36 @@ transform:translateY(-2px);
 }
 
 
-/* =====================================================
+/* =========================
    PILARES
-===================================================== */
+========================= */
 
 .pillars{
+position:relative;
+z-index:5;
+
+width:100%;
+
 background:#fff;
-border-bottom:1px solid #e4edf3;
+
+border-top:1px solid #e6eef4;
+border-bottom:1px solid #e0eaf1;
 }
 
 .pillars-grid{
-max-width:1450px;
+width:100%;
+max-width:1540px;
+
 margin:auto;
+
 display:grid;
-grid-template-columns:repeat(4,1fr);
+
+grid-template-columns:
+repeat(4,1fr);
 }
 
 .pillar{
-min-height:125px;
+min-height:132px;
 
 display:flex;
 flex-direction:column;
@@ -393,45 +434,61 @@ position:relative;
 
 .pillar:not(:last-child)::after{
 content:"";
+
 position:absolute;
+
 right:0;
+
 top:22px;
 bottom:22px;
+
 width:1px;
-background:#dbe5ec;
+
+background:#d9e4eb;
 }
 
 .pillar-icon{
 font-size:31px;
+
 color:#0b3268;
-margin-bottom:8px;
+
+margin-bottom:9px;
 }
 
 .pillar strong{
 font-size:13px;
+
 letter-spacing:1.3px;
-line-height:1.4;
+
+line-height:1.45;
+
 color:#163c70;
 }
 
 
-/* =====================================================
+/* =========================
    ESENCIA
-===================================================== */
+========================= */
 
 .essence{
 display:grid;
-grid-template-columns:38% 62%;
-min-height:400px;
+
+grid-template-columns:
+38% 62%;
+
+min-height:405px;
+
 background:#fff;
 }
 
 .essence-copy{
 padding:
-45px 45px;
+44px 45px;
 
 display:flex;
+
 justify-content:center;
+
 flex-direction:column;
 
 background:
@@ -444,41 +501,66 @@ linear-gradient(
 
 .section-label{
 font-size:12px;
+
 font-weight:900;
+
 letter-spacing:4px;
+
 color:#059aca;
+
 text-transform:uppercase;
+
 margin-bottom:11px;
 }
 
 .essence-copy h2{
-font-size:clamp(37px,4.2vw,52px);
+font-size:
+clamp(37px,4vw,51px);
+
 line-height:1.04;
+
 letter-spacing:-1.2px;
+
 color:#07285c;
+
 margin-bottom:18px;
 }
 
 .essence-copy p{
-max-width:490px;
+max-width:500px;
+
 font-size:14px;
+
 line-height:1.65;
+
 color:#385c79;
+
 margin-bottom:20px;
 }
 
 .outline-btn{
 display:inline-flex;
+
 width:max-content;
+
 min-height:47px;
+
 align-items:center;
 justify-content:center;
-padding:0 20px;
+
+padding:
+0 20px;
+
 border-radius:7px;
-border:1.5px solid #008fc9;
+
+border:
+1.5px solid #008fc9;
+
 color:#07366b;
+
 font-size:12px;
 font-weight:900;
+
 transition:.2s;
 }
 
@@ -486,14 +568,25 @@ transition:.2s;
 background:#edf9fe;
 }
 
+
+/* =========================
+   VIALS
+========================= */
+
 .essence-visual{
 position:relative;
-min-height:400px;
+
+min-height:405px;
 
 background:
 url("beryon-vials.png")
 center center / cover no-repeat;
+
+overflow:hidden;
 }
+
+
+/* MÁS ANCHO PARA QUE NO CORTE TEXTO */
 
 .essence-overlay{
 position:absolute;
@@ -502,65 +595,92 @@ right:0;
 top:0;
 bottom:0;
 
-width:37%;
+width:43%;
 
 display:flex;
+
 align-items:center;
 
 padding:
-30px 34px;
+32px 38px;
 
 background:
 linear-gradient(
 90deg,
-rgba(2,34,64,.52),
-rgba(3,31,59,.93)
+rgba(2,34,64,.56),
+rgba(3,31,59,.95)
 );
 
 color:#fff;
+
+overflow:visible;
+}
+
+.essence-overlay > div{
+width:100%;
+max-width:390px;
 }
 
 .essence-overlay h3{
-font-size:clamp(25px,2.65vw,36px);
-line-height:1.13;
+font-size:
+clamp(24px,2.45vw,34px);
+
+line-height:1.14;
+
 margin-bottom:17px;
+
+white-space:normal;
+
 word-break:normal;
+
+overflow-wrap:normal;
+
+hyphens:none;
 }
 
 .essence-overlay .line{
 width:48px;
 height:2px;
+
 background:#fff;
+
 margin-bottom:19px;
 }
 
 .essence-overlay p{
 font-size:17px;
-line-height:1.5;
-letter-spacing:2.5px;
+
+line-height:1.48;
+
+letter-spacing:2.2px;
 }
 
 
-/* =====================================================
+/* =========================
    ÁREAS
-===================================================== */
+========================= */
 
 .areas{
 padding:
-34px 22px 43px;
+34px 22px 44px;
 
 background:#fff;
 }
 
 .areas-head{
 text-align:center;
+
 margin-bottom:25px;
 }
 
 .areas-head h2{
-font-size:clamp(31px,3.5vw,43px);
+font-size:
+clamp(31px,3.5vw,43px);
+
 line-height:1.06;
+
 color:#082a5d;
+
 margin-bottom:7px;
 }
 
@@ -571,6 +691,7 @@ font-size:14px;
 
 .area-grid{
 max-width:1450px;
+
 margin:auto;
 
 display:grid;
@@ -649,32 +770,43 @@ padding:
 
 .area-body h3{
 font-size:15px;
+
 color:#092b5e;
+
 margin-bottom:7px;
 }
 
 .area-body p{
 min-height:48px;
+
 font-size:12px;
+
 line-height:1.47;
+
 color:#58738d;
+
 margin-bottom:10px;
 }
 
 .area-link{
 font-size:12px;
+
 font-weight:900;
+
 color:#009cd6;
 }
 
 
-/* =====================================================
-   ECUADOR AL MUNDO
-===================================================== */
+/* =========================
+   ECUADOR
+========================= */
 
 .vision{
 display:grid;
-grid-template-columns:36% 64%;
+
+grid-template-columns:
+36% 64%;
+
 min-height:335px;
 
 background:
@@ -708,17 +840,25 @@ padding:
 }
 
 .vision-copy h2{
-font-size:clamp(31px,3.5vw,43px);
+font-size:
+clamp(31px,3.5vw,43px);
+
 line-height:1.07;
+
 color:#092b5e;
+
 margin-bottom:13px;
 }
 
 .vision-copy p{
 max-width:650px;
+
 font-size:17px;
+
 line-height:1.55;
+
 color:#345b7d;
+
 margin-bottom:19px;
 }
 
@@ -751,8 +891,11 @@ color:#0d3b73;
 
 .value strong{
 display:block;
+
 font-size:13px;
+
 letter-spacing:1.1px;
+
 color:#204c7a;
 }
 
@@ -762,9 +905,9 @@ color:#58728a;
 }
 
 
-/* =====================================================
+/* =========================
    PROMESA
-===================================================== */
+========================= */
 
 .promise{
 padding:
@@ -795,14 +938,16 @@ margin-bottom:8px;
 
 .promise p{
 font-size:12px;
+
 letter-spacing:2px;
+
 color:#53718b;
 }
 
 
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
 background:#032442;
@@ -830,7 +975,7 @@ gap:30px;
 }
 
 .footer-logo img{
-width:235px;
+width:245px;
 }
 
 .footer-nav{
@@ -911,14 +1056,24 @@ text-align:right;
 }
 
 
-/* =====================================================
+/* =========================
    TABLET
-===================================================== */
+========================= */
 
-@media(max-width:1150px){
+@media(max-width:1180px){
+
+.nav{
+padding:
+7px 20px;
+}
+
+.brand{
+width:235px;
+}
 
 .brand img{
-width:235px;
+width:225px;
+transform:scale(1.1);
 }
 
 .menu{
@@ -927,7 +1082,11 @@ font-size:12px;
 }
 
 .hero-panel{
-width:40%;
+width:41%;
+}
+
+.essence-overlay{
+width:45%;
 }
 
 .area-grid{
@@ -935,27 +1094,14 @@ grid-template-columns:
 repeat(3,1fr);
 }
 
-.essence{
-grid-template-columns:
-1fr;
-}
-
-.essence-visual{
-min-height:430px;
-}
-
-.essence-overlay{
-width:39%;
-}
-
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* =========================
+   MOBILE MENU
+========================= */
 
-@media(max-width:900px){
+@media(max-width:920px){
 
 .mobile-btn{
 display:flex;
@@ -970,7 +1116,7 @@ display:flex;
 
 position:fixed;
 
-top:74px;
+top:82px;
 
 left:12px;
 right:12px;
@@ -992,7 +1138,8 @@ box-shadow:
 }
 
 .menu.open a{
-padding:14px 12px;
+padding:
+14px 12px;
 
 border-bottom:
 1px solid rgba(255,255,255,.08);
@@ -1008,8 +1155,8 @@ display:none;
 
 .hero{
 height:auto;
+
 min-height:500px;
-max-height:none;
 
 background:
 linear-gradient(
@@ -1034,8 +1181,16 @@ repeat(2,1fr);
 display:none;
 }
 
+.essence{
+grid-template-columns:1fr;
+}
+
+.essence-visual{
+min-height:430px;
+}
+
 .essence-overlay{
-width:43%;
+width:44%;
 }
 
 .vision{
@@ -1048,6 +1203,7 @@ min-height:320px;
 
 .footer-main{
 grid-template-columns:1fr;
+
 text-align:center;
 }
 
@@ -1057,11 +1213,13 @@ margin:auto;
 
 .footer-social{
 display:flex;
+
 justify-content:center;
 }
 
 .footer-bottom{
 grid-template-columns:1fr;
+
 text-align:center;
 }
 
@@ -1072,6 +1230,10 @@ text-align:center;
 }
 
 
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:650px){
 
 .nav{
@@ -1079,17 +1241,23 @@ padding:
 7px 14px;
 }
 
+.brand{
+width:205px;
+}
+
 .brand img{
 width:195px;
+
+transform:none;
 }
 
 .hero{
-min-height:510px;
+min-height:505px;
 }
 
 .hero-inner{
 padding:
-48px 18px;
+46px 18px;
 }
 
 .hero-kicker{
@@ -1099,7 +1267,7 @@ letter-spacing:4px;
 
 .hero h1{
 font-size:
-clamp(40px,12vw,56px);
+clamp(40px,12vw,55px);
 }
 
 .hero-description{
@@ -1129,7 +1297,7 @@ padding:
 }
 
 .essence-visual{
-min-height:460px;
+min-height:470px;
 }
 
 .essence-overlay{
@@ -1141,7 +1309,14 @@ bottom:0;
 
 width:100%;
 
-min-height:180px;
+min-height:195px;
+
+padding:
+25px;
+}
+
+.essence-overlay h3{
+font-size:27px;
 }
 
 .area-grid{
@@ -1284,7 +1459,9 @@ Contacto
 href="https://www.facebook.com/profile.php?id=61592075751226"
 target="_blank"
 rel="noopener noreferrer">
+
 Facebook
+
 </a>
 
 </nav>
@@ -1311,9 +1488,11 @@ aria-hidden="true">
 
 <div class="hero-copy">
 
+
 <div class="hero-kicker">
 CIENCIA AVANZADA
 </div>
+
 
 <h1 id="hero-title">
 
@@ -1325,6 +1504,7 @@ MÁS SALUDABLE
 
 </h1>
 
+
 <p class="hero-description">
 
 Péptidos, investigación e información científica.
@@ -1335,6 +1515,7 @@ Desde Ecuador para el mundo.
 
 </p>
 
+
 <a
 class="hero-btn"
 href="peptidos.html">
@@ -1342,6 +1523,7 @@ href="peptidos.html">
 EXPLORA NUESTROS PÉPTIDOS →
 
 </a>
+
 
 </div>
 
@@ -1427,15 +1609,18 @@ PARA EL MUNDO
 
 <div class="essence-copy">
 
+
 <div class="section-label">
 NUESTRA ESENCIA
 </div>
+
 
 <h2>
 CIENCIA
 <br>
 QUE TRANSFORMA
 </h2>
+
 
 <p>
 
@@ -1451,6 +1636,7 @@ y un compromiso local.
 
 </p>
 
+
 <a
 class="outline-btn"
 href="informacion.html">
@@ -1459,14 +1645,17 @@ CONOCE MÁS SOBRE BERYON →
 
 </a>
 
+
 </div>
 
 
 <div class="essence-visual">
 
+
 <div class="essence-overlay">
 
 <div>
+
 
 <h3>
 
@@ -1478,7 +1667,9 @@ CONOCIMIENTO
 
 </h3>
 
+
 <div class="line"></div>
+
 
 <p>
 
@@ -1492,9 +1683,11 @@ LONGEVIDAD
 
 </p>
 
+
 </div>
 
 </div>
+
 
 </div>
 
@@ -1518,10 +1711,7 @@ EXPLORA POR ÁREA CIENTÍFICA
 </h2>
 
 <p>
-
-Descubre las moléculas organizadas
-por campo de investigación.
-
+Descubre las moléculas organizadas por campo de investigación.
 </p>
 
 </div>
@@ -1538,13 +1728,10 @@ href="peptidos.html?area=metabolismo">
 
 <div class="area-body">
 
-<h3>
-Metabolismo
-</h3>
+<h3>Metabolismo</h3>
 
 <p>
-Regulación metabólica
-y composición corporal.
+Regulación metabólica y composición corporal.
 </p>
 
 <span class="area-link">
@@ -1564,13 +1751,10 @@ href="peptidos.html?area=rendimiento">
 
 <div class="area-body">
 
-<h3>
-Rendimiento
-</h3>
+<h3>Rendimiento</h3>
 
 <p>
-Función física,
-energía y adaptación.
+Función física, energía y adaptación.
 </p>
 
 <span class="area-link">
@@ -1590,13 +1774,10 @@ href="peptidos.html?area=recuperacion">
 
 <div class="area-body">
 
-<h3>
-Recuperación
-</h3>
+<h3>Recuperación</h3>
 
 <p>
-Investigación sobre
-tejidos y reparación.
+Investigación sobre tejidos y reparación.
 </p>
 
 <span class="area-link">
@@ -1616,13 +1797,10 @@ href="peptidos.html?area=neurociencia">
 
 <div class="area-body">
 
-<h3>
-Neurociencia
-</h3>
+<h3>Neurociencia</h3>
 
 <p>
-Señalización neuronal
-y función cognitiva.
+Señalización neuronal y función cognitiva.
 </p>
 
 <span class="area-link">
@@ -1642,13 +1820,10 @@ href="peptidos.html?area=piel">
 
 <div class="area-body">
 
-<h3>
-Piel
-</h3>
+<h3>Piel</h3>
 
 <p>
-Biología cutánea
-y matriz extracelular.
+Biología cutánea y matriz extracelular.
 </p>
 
 <span class="area-link">
@@ -1668,13 +1843,10 @@ href="peptidos.html?area=longevidad">
 
 <div class="area-body">
 
-<h3>
-Longevidad
-</h3>
+<h3>Longevidad</h3>
 
 <p>
-Metabolismo celular
-y envejecimiento.
+Metabolismo celular y envejecimiento.
 </p>
 
 <span class="area-link">
@@ -1692,14 +1864,12 @@ Explorar →
 
 
 <section
-class="vision
-  <section
 class="vision"
 aria-labelledby="vision-title">
 
 
-<div class="vision-image"></div>
-
+<div cl
+  <div class="vision-image"></div>
 
 <div class="vision-content">
 
@@ -1714,28 +1884,19 @@ UNA CIENCIA CON PROPÓSITO
 </h2>
 
 <p>
-
-Investigación,
-innovación
-y conocimiento,
-con la mirada puesta
-en un futuro mejor.
-
+Investigación, innovación y conocimiento,
+con la mirada puesta en un futuro mejor.
 </p>
 
 <a
 class="outline-btn"
 href="informacion.html">
-
 NUESTRA VISIÓN →
-
 </a>
 
 </div>
 
-
 <div class="values">
-
 
 <div class="value">
 
@@ -1744,19 +1905,11 @@ NUESTRA VISIÓN →
 </div>
 
 <div>
-
-<strong>
-CIENCIA
-</strong>
-
-<span>
-que transforma
-</span>
-
+<strong>CIENCIA</strong>
+<span>que transforma</span>
 </div>
 
 </div>
-
 
 <div class="value">
 
@@ -1765,19 +1918,11 @@ que transforma
 </div>
 
 <div>
-
-<strong>
-CONOCIMIENTO
-</strong>
-
-<span>
-que perdura
-</span>
-
+<strong>CONOCIMIENTO</strong>
+<span>que perdura</span>
 </div>
 
 </div>
-
 
 <div class="value">
 
@@ -1786,19 +1931,11 @@ que perdura
 </div>
 
 <div>
-
-<strong>
-INNOVACIÓN
-</strong>
-
-<span>
-sin límites
-</span>
-
+<strong>INNOVACIÓN</strong>
+<span>sin límites</span>
 </div>
 
 </div>
-
 
 <div class="value">
 
@@ -1807,19 +1944,11 @@ sin límites
 </div>
 
 <div>
-
-<strong>
-VIDAS
-</strong>
-
-<span>
-con propósito
-</span>
-
+<strong>VIDAS</strong>
+<span>con propósito</span>
 </div>
 
 </div>
-
 
 </div>
 
@@ -1840,12 +1969,10 @@ CIENCIA · PROPÓSITO · FUTURO
 
 </section>
 
-
 </main>
 
 
 <footer>
-
 
 <div class="footer-main">
 
@@ -1857,45 +1984,20 @@ alt="BERYON Advanced Peptide Research">
 
 </div>
 
-
 <nav
 class="footer-nav"
 aria-label="Navegación del pie de página">
 
-<a href="index.html">
-Inicio
-</a>
-
-<a href="areas.html">
-Áreas
-</a>
-
-<a href="peptidos.html">
-Péptidos
-</a>
-
-<a href="comprar.html">
-Comprar
-</a>
-
-<a href="comparador.html">
-Comparador
-</a>
-
-<a href="calculadora.html">
-Calculadora
-</a>
-
-<a href="informacion.html">
-Información
-</a>
-
-<a href="contacto.html">
-Contacto
-</a>
+<a href="index.html">Inicio</a>
+<a href="areas.html">Áreas</a>
+<a href="peptidos.html">Péptidos</a>
+<a href="comprar.html">Comprar</a>
+<a href="comparador.html">Comparador</a>
+<a href="calculadora.html">Calculadora</a>
+<a href="informacion.html">Información</a>
+<a href="contacto.html">Contacto</a>
 
 </nav>
-
 
 <div class="footer-social">
 
@@ -1904,9 +2006,7 @@ href="https://www.facebook.com/profile.php?id=61592075751226"
 target="_blank"
 rel="noopener noreferrer"
 aria-label="Facebook">
-
 f
-
 </a>
 
 </div>
@@ -1917,7 +2017,6 @@ f
 <div class="footer-bottom">
 
 <div>
-
 PÉPTIDOS
 &nbsp; | &nbsp;
 CIENCIA
@@ -1925,7 +2024,6 @@ CIENCIA
 INVESTIGACIÓN
 &nbsp; | &nbsp;
 LONGEVIDAD
-
 </div>
 
 <div>
@@ -1933,15 +2031,12 @@ Una marca nacida de una promesa
 </div>
 
 <div>
-
 ECUADOR
 &nbsp; | &nbsp;
 PARA UN MUNDO MÁS SALUDABLE
-
 </div>
 
 </div>
-
 
 </footer>
 
@@ -1953,7 +2048,6 @@ document.getElementById("mobileButton");
 
 const menu =
 document.getElementById("menu");
-
 
 if(
 mobileButton &&
@@ -1977,7 +2071,6 @@ isOpen ? "true" : "false"
 
 }
 );
-
 
 menu
 .querySelectorAll("a")
@@ -2005,7 +2098,6 @@ mobileButton.setAttribute(
 );
 
 }
-
 
 document.addEventListener(
 "keydown",
@@ -2036,7 +2128,5 @@ mobileButton.focus();
 
 </script>
 
-
 </body>
-
 </html>
