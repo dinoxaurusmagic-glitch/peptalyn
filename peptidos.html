@@ -1300,123 +1300,338 @@ height:19px;
 display:block;
 }
  
-
-
+ 
 /* =====================================================
-   CABECERA MAESTRA BERYON — UNIFICADA
+   CABECERA MAESTRA — COPIA EXACTA DE INICIO
+   Esta sección prevalece sobre reglas anteriores.
 ===================================================== */
+/* =========================
+   HEADER
+========================= */
+ 
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#062543;
+border-bottom:1px solid rgba(255,255,255,.08);
+box-shadow:0 4px 18px rgba(0,0,0,.14);
+}
+ 
 .nav{
+width:100%;
 max-width:1540px;
 min-height:82px;
-padding:7px 26px;
-gap:18px;
+margin:auto;
+padding:7px 34px;
+ 
+display:flex;
+align-items:center;
+justify-content:space-between;
+ 
+gap:25px;
 }
  
 .brand{
-width:230px;
-min-width:230px;
 display:flex;
 align-items:center;
+flex-shrink:0;
+ 
+width:300px;
 overflow:visible;
 }
  
 .brand img{
-width:220px;
-height:62px;
+width:285px;
+height:66px;
+ 
 object-fit:contain;
 object-position:left center;
-transform:none;
+ 
+transform:scale(1.12);
+transform-origin:left center;
 }
  
 .menu{
-margin-left:auto;
-gap:18px;
-font-size:12.5px;
+display:flex;
+align-items:center;
+gap:24px;
+ 
+font-size:13px;
+font-weight:700;
+color:#fff;
 }
  
-.cart-link{
-display:inline-flex !important;
-align-items:center;
-justify-content:center;
-gap:7px;
-min-height:44px;
-padding:0 15px !important;
-border-radius:12px;
-background:linear-gradient(135deg,#22c4ed,#0789c5);
-color:#fff !important;
-box-shadow:0 8px 22px rgba(0,157,214,.30);
-font-weight:900 !important;
+.menu a{
+position:relative;
+white-space:nowrap;
+opacity:.96;
 transition:.2s;
 }
  
-.cart-link:hover{
-transform:translateY(-2px);
-background:linear-gradient(135deg,#35cff4,#0799d6);
-color:#fff !important;
+.menu a:hover,
+.menu a.active{
+color:#62dcff;
 }
  
-.cart-link::after{
-display:none !important;
+.menu a.active::after{
+content:"";
+ 
+position:absolute;
+left:0;
+right:0;
+bottom:-12px;
+ 
+height:2px;
+ 
+background:#61d9fa;
+border-radius:8px;
 }
  
-.cart-icon{
-font-size:18px;
-line-height:1;
+.mobile-btn{
+display:none;
+ 
+width:48px;
+height:48px;
+ 
+align-items:center;
+justify-content:center;
+ 
+border-radius:12px;
+ 
+border:1px solid rgba(255,255,255,.18);
+ 
+background:transparent;
+color:#fff;
+ 
+font-size:24px;
+cursor:pointer;
 }
  
-/* Portátiles: conservar logo + menú completo sin desbordamiento */
-@media(max-width:1250px) and (min-width:921px){
+ 
+ 
+/* =========================
+   TABLET
+========================= */
+ 
+@media(max-width:1180px){
+ 
 .nav{
-padding:7px 14px;
-gap:10px;
+padding:
+7px 20px;
 }
+ 
 .brand{
-width:180px;
-min-width:180px;
+width:235px;
 }
+ 
 .brand img{
-width:172px;
-height:56px;
+width:225px;
+transform:scale(1.1);
 }
+ 
 .menu{
-gap:11px;
-font-size:11px;
-}
-.cart-link{
-min-height:40px;
-padding:0 11px !important;
-gap:5px;
-}
-.cart-icon{
-font-size:16px;
-}
+gap:13px;
+font-size:12px;
 }
  
-/* Móvil */
+.hero-panel{
+width:41%;
+}
+ 
+.essence-overlay{
+width:45%;
+}
+ 
+.area-grid{
+grid-template-columns:
+repeat(3,1fr);
+}
+ 
+}
+ 
+ 
+ 
+/* =========================
+   MOBILE MENU
+========================= */
+ 
 @media(max-width:920px){
-.nav{
-min-height:68px;
-padding:6px 12px;
+ 
+.mobile-btn{
+display:flex;
 }
-.brand{
-width:175px;
-min-width:175px;
+ 
+.menu{
+display:none;
 }
-.brand img{
-width:170px;
-height:52px;
-transform:none;
-}
+ 
 .menu.open{
-top:68px;
+display:flex;
+ 
+position:fixed;
+ 
+top:82px;
+ 
+left:12px;
+right:12px;
+ 
+flex-direction:column;
+ 
+align-items:stretch;
+ 
+gap:0;
+ 
+padding:14px;
+ 
+border-radius:15px;
+ 
+background:#032442;
+ 
+box-shadow:
+0 25px 70px rgba(0,0,0,.45);
 }
+ 
+.menu.open a{
+padding:
+14px 12px;
+ 
+border-bottom:
+1px solid rgba(255,255,255,.08);
+}
+ 
+.menu a.active::after{
+display:none;
+}
+ 
+.hero-panel{
+display:none;
+}
+ 
+.hero{
+height:auto;
+ 
+min-height:500px;
+ 
+background:
+linear-gradient(
+90deg,
+rgba(3,30,57,.91),
+rgba(3,35,67,.48)
+),
+url("beryon-ecuador-hero.png")
+center center / cover no-repeat;
+}
+ 
+.hero-copy{
+max-width:650px;
+}
+ 
+.pillars-grid{
+grid-template-columns:
+repeat(2,1fr);
+}
+ 
+.pillar:nth-child(2)::after{
+display:none;
+}
+ 
+.essence{
+grid-template-columns:1fr;
+}
+ 
+.essence-visual{
+min-height:430px;
+}
+ 
+.essence-overlay{
+width:44%;
+}
+ 
+.vision{
+grid-template-columns:1fr;
+}
+ 
+.vision-image{
+min-height:320px;
+}
+ 
+.footer-main{
+grid-template-columns:1fr;
+ 
+text-align:center;
+}
+ 
+.footer-logo img{
+margin:auto;
+}
+ 
+.footer-social{
+display:flex;
+ 
+justify-content:center;
+}
+ 
+.footer-bottom{
+grid-template-columns:1fr;
+ 
+text-align:center;
+}
+ 
+.footer-bottom div:last-child{
+text-align:center;
+}
+ 
+}
+ 
+ 
+ 
+ 
+/* Activo de esta página: solamente Péptidos */
+.menu a.active{
+color:#62dcff;
+}
+ 
+/* Carrito: mismo tamaño/posición en todas las páginas */
+.cart-link{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:7px;
+min-width:88px;
+min-height:42px;
+padding:0 13px !important;
+border-radius:12px;
+background:linear-gradient(135deg,#16bceb,#0787c1);
+color:#fff !important;
+font-size:19px;
+box-shadow:0 7px 20px rgba(0,157,214,.28);
+transition:.2s;
+}
+.cart-link::after{display:none !important;}
+.cart-link span:last-child{
+font-size:11px;
+font-weight:900;
+letter-spacing:.3px;
+}
+@media(max-width:920px){
 .menu.open .cart-link{
+width:100%;
+height:50px;
+min-height:50px;
 margin-top:8px;
-min-height:48px;
-border-bottom:0;
+padding:0 13px !important;
+border-bottom:none;
 }
 }
-
+@media(max-width:650px){
+.nav{min-height:68px;padding:6px 12px;}
+.brand{width:175px;}
+.brand img{width:170px;height:52px;object-fit:contain;transform:none;}
+.mobile-btn{width:43px;height:43px;font-size:21px;border-radius:11px;}
+.menu.open{top:68px;}
+}
+ 
 </style>
  
 </head>
@@ -1475,7 +1690,6 @@ Inicio
 </a>
  
 <a
-class="active"
 href="peptidos.html"
 aria-current="page">
 Péptidos
@@ -1504,9 +1718,13 @@ rel="noopener noreferrer">
 Facebook
 </a>
  
-<a class="cart-link" href="comprar.html" aria-label="Comprar" title="Comprar">
-<span class="cart-icon" aria-hidden="true">🛒</span>
-<span>Comprar</span>
+<a
+class="cart-link"
+href="comprar.html"
+aria-label="Ir a comprar"
+title="Comprar">
+<span aria-hidden="true">🛒</span>
+<span class="cart-text">Comprar</span>
 </a>
  
 </nav>
