@@ -1056,6 +1056,62 @@ text-align:right;
 }
 
 
+
+/* =========================
+   CARRITO Y REDES
+========================= */
+
+.cart-link{
+width:46px;
+height:46px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex:0 0 46px;
+border-radius:13px;
+background:linear-gradient(135deg,#20c8f2,#008bc8);
+color:#fff !important;
+box-shadow:0 8px 22px rgba(0,169,219,.30);
+border:1px solid rgba(255,255,255,.25);
+transition:.2s;
+}
+
+.cart-link:hover{
+transform:translateY(-2px);
+background:linear-gradient(135deg,#4bdcff,#079bd3);
+}
+
+.cart-link::after{
+display:none !important;
+}
+
+.cart-icon{
+font-size:22px;
+line-height:1;
+}
+
+.footer-social{
+display:flex;
+align-items:center;
+justify-content:flex-end;
+gap:9px;
+}
+
+.footer-social a{
+transition:.2s;
+}
+
+.footer-social a:hover{
+color:#62dcff;
+border-color:#62dcff;
+transform:translateY(-2px);
+}
+
+.footer-social .social-placeholder{
+opacity:.95;
+cursor:default;
+}
+
 /* =========================
    TABLET
 ========================= */
@@ -1752,6 +1808,74 @@ line-height:1.45;
 }
 
 }
+
+/* =====================================================
+   MEJORAS MÓVILES BERYON
+===================================================== */
+
+@media(max-width:920px){
+
+.menu.open .cart-link{
+width:100%;
+height:50px;
+margin-top:10px;
+border-bottom:none;
+border-radius:11px;
+background:linear-gradient(135deg,#20c8f2,#008bc8);
+}
+
+.menu.open .cart-icon{
+font-size:23px;
+}
+
+}
+
+@media(max-width:650px){
+
+/* En móvil priorizamos ver la imagen completa en los bloques principales. */
+
+.hero{
+background-size:cover;
+background-position:center center;
+}
+
+.essence-visual{
+background-size:contain;
+background-position:center top;
+background-color:#eaf5fa;
+background-repeat:no-repeat;
+}
+
+.area-image{
+height:auto;
+aspect-ratio:16 / 10;
+background-size:contain;
+background-position:center;
+background-color:#eef7fb;
+}
+
+.vision-image{
+height:auto;
+min-height:0;
+aspect-ratio:16 / 10;
+background-size:contain;
+background-position:center;
+background-color:#eef7fb;
+}
+
+.footer-social{
+justify-content:center;
+gap:12px;
+}
+
+.footer-social a{
+width:40px;
+height:40px;
+font-size:17px;
+}
+
+}
+
 </style>
 
 </head>
@@ -1807,11 +1931,6 @@ Inicio
 <a href="peptidos.html">
 Péptidos
 </a>
-
-<a href="comprar.html">
-Comprar
-</a>
-
 <a href="comparador.html">
 Comparador
 </a>
@@ -1826,6 +1945,16 @@ Información
 
 <a href="contacto.html">
 Contacto
+</a>
+
+<a
+class="cart-link"
+href="comprar.html"
+aria-label="Ir al carrito de compras"
+title="Comprar">
+
+<span class="cart-icon" aria-hidden="true">🛒</span>
+
 </a>
 
 <a
@@ -2241,8 +2370,7 @@ class="vision"
 aria-labelledby="vision-title">
 
 
-<div cl
-  <div class="vision-image"></div>
+<div class="vision-image"></div>
 
 <div class="vision-content">
 
@@ -2364,7 +2492,7 @@ aria-label="Navegación del pie de página">
 <a href="index.html">Inicio</a>
 <a href="areas.html">Áreas</a>
 <a href="peptidos.html">Péptidos</a>
-<a href="comprar.html">Comprar</a>
+<a href="comprar.html">Carrito</a>
 <a href="comparador.html">Comparador</a>
 <a href="calculadora.html">Calculadora</a>
 <a href="informacion.html">Información</a>
@@ -2378,8 +2506,27 @@ aria-label="Navegación del pie de página">
 href="https://www.facebook.com/profile.php?id=61592075751226"
 target="_blank"
 rel="noopener noreferrer"
-aria-label="Facebook">
+aria-label="Facebook"
+title="Facebook">
 f
+</a>
+
+<a
+href="#"
+class="social-placeholder"
+aria-label="WhatsApp - enlace próximamente"
+title="WhatsApp - próximamente"
+onclick="return false;">
+<span aria-hidden="true">☎</span>
+</a>
+
+<a
+href="#"
+class="social-placeholder"
+aria-label="Correo BERYON - próximamente"
+title="Correo BERYON - próximamente"
+onclick="return false;">
+<span aria-hidden="true">✉</span>
 </a>
 
 </div>
