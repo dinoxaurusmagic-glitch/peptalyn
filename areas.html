@@ -980,6 +980,134 @@ transition:none!important;
 
 }
 
+
+/* ================================
+   CARRITO Y REDES BERYON
+================================ */
+
+.cart-link{
+width:46px;
+height:46px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex:0 0 46px;
+padding:0 !important;
+border-radius:13px;
+background:linear-gradient(135deg,#20c8f2,#008bc8);
+color:#fff !important;
+border:1px solid rgba(255,255,255,.25);
+box-shadow:0 8px 22px rgba(0,169,219,.30);
+transition:.2s;
+}
+
+.cart-link:hover{
+transform:translateY(-2px);
+background:linear-gradient(135deg,#4bdcff,#079bd3);
+color:#fff !important;
+}
+
+.cart-link::after{
+display:none !important;
+}
+
+.cart-icon{
+font-size:22px;
+line-height:1;
+}
+
+.footer-social{
+display:flex;
+align-items:center;
+justify-content:flex-end;
+gap:9px;
+}
+
+.footer-social a{
+transition:.2s;
+}
+
+.footer-social a:hover{
+color:#62dcff;
+border-color:#62dcff;
+transform:translateY(-2px);
+}
+
+.footer-social .social-placeholder{
+opacity:.95;
+cursor:default;
+}
+
+/* ================================
+   MEJORAS MÓVILES BERYON
+================================ */
+
+@media(max-width:920px){
+
+.menu.open .cart-link{
+width:100%;
+height:50px;
+margin-top:10px;
+padding:0 !important;
+border-bottom:none;
+border-radius:11px;
+background:linear-gradient(135deg,#20c8f2,#008bc8);
+}
+
+.menu.open .cart-icon{
+font-size:23px;
+}
+
+}
+
+@media(max-width:650px){
+
+/* Hero: usa la misma imagen v2 del escritorio y mejora el encuadre. */
+.hero{
+background:
+linear-gradient(
+90deg,
+rgba(3,31,59,.91),
+rgba(4,44,78,.48)
+),
+url("beryon-areas-hero-v2.png")
+center center / cover no-repeat;
+}
+
+/* Tarjetas: en móvil se prioriza mostrar la imagen completa. */
+.area-image{
+height:auto;
+aspect-ratio:16 / 10;
+background-size:contain;
+background-position:center;
+background-color:#eef7fb;
+}
+
+/* Bloque visual inferior: encuadre más equilibrado en teléfono. */
+.purpose{
+background:
+linear-gradient(
+90deg,
+rgba(3,31,59,.94),
+rgba(4,51,87,.78)
+),
+url("beryon-areas-neurociencia-v2.png")
+center center / cover no-repeat;
+}
+
+.footer-social{
+justify-content:center;
+gap:12px;
+}
+
+.footer-social a{
+width:40px;
+height:40px;
+font-size:17px;
+}
+
+}
+
 </style>
 
 </head>
@@ -1035,11 +1163,6 @@ aria-current="page">
 <a href="peptidos.html">
 Péptidos
 </a>
-
-<a href="comprar.html">
-Comprar
-</a>
-
 <a href="comparador.html">
 Comparador
 </a>
@@ -1061,6 +1184,13 @@ href="https://www.facebook.com/profile.php?id=61592075751226"
 target="_blank"
 rel="noopener noreferrer">
 Facebook
+</a>
+<a
+class="cart-link"
+href="comprar.html"
+aria-label="Ir al carrito de compras"
+title="Comprar">
+<span class="cart-icon" aria-hidden="true">🛒</span>
 </a>
 
 </nav>
@@ -1372,7 +1502,7 @@ aria-label="Navegación del pie de página">
 <a href="index.html">Inicio</a>
 <a href="areas.html">Áreas</a>
 <a href="peptidos.html">Péptidos</a>
-<a href="comprar.html">Comprar</a>
+<a href="comprar.html">Carrito</a>
 <a href="comparador.html">Comparador</a>
 <a href="calculadora.html">Calculadora</a>
 <a href="informacion.html">Información</a>
@@ -1387,10 +1517,27 @@ aria-label="Navegación del pie de página">
 href="https://www.facebook.com/profile.php?id=61592075751226"
 target="_blank"
 rel="noopener noreferrer"
-aria-label="Facebook">
-
+aria-label="Facebook"
+title="Facebook">
 f
+</a>
 
+<a
+href="#"
+class="social-placeholder"
+aria-label="WhatsApp - enlace próximamente"
+title="WhatsApp - próximamente"
+onclick="return false;">
+<span aria-hidden="true">☎</span>
+</a>
+
+<a
+href="#"
+class="social-placeholder"
+aria-label="Correo BERYON - próximamente"
+title="Correo BERYON - próximamente"
+onclick="return false;">
+<span aria-hidden="true">✉</span>
 </a>
 
 </div>
