@@ -1300,6 +1300,123 @@ height:19px;
 display:block;
 }
  
+
+
+/* =====================================================
+   CABECERA MAESTRA BERYON — UNIFICADA
+===================================================== */
+.nav{
+max-width:1540px;
+min-height:82px;
+padding:7px 26px;
+gap:18px;
+}
+ 
+.brand{
+width:230px;
+min-width:230px;
+display:flex;
+align-items:center;
+overflow:visible;
+}
+ 
+.brand img{
+width:220px;
+height:62px;
+object-fit:contain;
+object-position:left center;
+transform:none;
+}
+ 
+.menu{
+margin-left:auto;
+gap:18px;
+font-size:12.5px;
+}
+ 
+.cart-link{
+display:inline-flex !important;
+align-items:center;
+justify-content:center;
+gap:7px;
+min-height:44px;
+padding:0 15px !important;
+border-radius:12px;
+background:linear-gradient(135deg,#22c4ed,#0789c5);
+color:#fff !important;
+box-shadow:0 8px 22px rgba(0,157,214,.30);
+font-weight:900 !important;
+transition:.2s;
+}
+ 
+.cart-link:hover{
+transform:translateY(-2px);
+background:linear-gradient(135deg,#35cff4,#0799d6);
+color:#fff !important;
+}
+ 
+.cart-link::after{
+display:none !important;
+}
+ 
+.cart-icon{
+font-size:18px;
+line-height:1;
+}
+ 
+/* Portátiles: conservar logo + menú completo sin desbordamiento */
+@media(max-width:1250px) and (min-width:921px){
+.nav{
+padding:7px 14px;
+gap:10px;
+}
+.brand{
+width:180px;
+min-width:180px;
+}
+.brand img{
+width:172px;
+height:56px;
+}
+.menu{
+gap:11px;
+font-size:11px;
+}
+.cart-link{
+min-height:40px;
+padding:0 11px !important;
+gap:5px;
+}
+.cart-icon{
+font-size:16px;
+}
+}
+ 
+/* Móvil */
+@media(max-width:920px){
+.nav{
+min-height:68px;
+padding:6px 12px;
+}
+.brand{
+width:175px;
+min-width:175px;
+}
+.brand img{
+width:170px;
+height:52px;
+transform:none;
+}
+.menu.open{
+top:68px;
+}
+.menu.open .cart-link{
+margin-top:8px;
+min-height:48px;
+border-bottom:0;
+}
+}
+
 </style>
  
 </head>
@@ -1387,13 +1504,9 @@ rel="noopener noreferrer">
 Facebook
 </a>
  
-<a
-class="cart-link"
-href="comprar.html"
-aria-label="Ir a comprar"
-title="Comprar">
-<span aria-hidden="true">🛒</span>
-<span class="cart-text">Comprar</span>
+<a class="cart-link" href="comprar.html" aria-label="Comprar" title="Comprar">
+<span class="cart-icon" aria-hidden="true">🛒</span>
+<span>Comprar</span>
 </a>
  
 </nav>
