@@ -1632,6 +1632,222 @@ border-bottom:none;
 .menu.open{top:68px;}
 }
  
+
+/* =====================================================
+   CABECERA MAESTRA BERYON
+   IDÉNTICA A INICIO / ÁREAS
+   Esta sección debe permanecer igual en todas las páginas.
+===================================================== */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#062543;
+border-bottom:1px solid rgba(255,255,255,.08);
+box-shadow:0 4px 18px rgba(0,0,0,.14);
+}
+
+.nav{
+width:100%;
+max-width:1540px;
+min-height:82px;
+margin:auto;
+padding:7px 34px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+}
+
+.brand{
+display:flex;
+align-items:center;
+flex-shrink:0;
+width:300px;
+overflow:visible;
+}
+
+.brand img{
+width:285px;
+height:66px;
+object-fit:contain;
+object-position:left center;
+transform:scale(1.12);
+transform-origin:left center;
+}
+
+.menu{
+display:flex;
+align-items:center;
+gap:24px;
+font-size:13px;
+font-weight:700;
+color:#fff;
+}
+
+.menu a{
+position:relative;
+white-space:nowrap;
+opacity:.96;
+transition:.2s;
+}
+
+.menu a:hover,
+.menu a.active{
+color:#62dcff;
+}
+
+.menu a.active::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:-12px;
+height:2px;
+background:#61d9fa;
+border-radius:8px;
+}
+
+.mobile-btn{
+display:none;
+width:48px;
+height:48px;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.18);
+background:transparent;
+color:#fff;
+font-size:24px;
+cursor:pointer;
+}
+
+.cart-link{
+display:inline-flex !important;
+align-items:center;
+justify-content:center;
+gap:7px;
+min-height:44px;
+padding:0 15px !important;
+border-radius:12px;
+background:linear-gradient(135deg,#22c4ed,#0789c5);
+color:#fff !important;
+box-shadow:0 8px 22px rgba(0,157,214,.30);
+font-weight:900 !important;
+transition:.2s;
+}
+
+.cart-link:hover{
+transform:translateY(-2px);
+background:linear-gradient(135deg,#35cff4,#0799d6);
+color:#fff !important;
+}
+
+.cart-link::after{
+display:none !important;
+}
+
+.cart-icon{
+font-size:18px;
+line-height:1;
+}
+
+/* Portátiles: exactamente el mismo ajuste de Inicio */
+@media(max-width:1250px) and (min-width:921px){
+
+.nav{
+padding:7px 14px;
+gap:10px;
+}
+
+.brand{
+width:180px;
+min-width:180px;
+}
+
+.brand img{
+width:172px;
+height:56px;
+transform:none;
+}
+
+.menu{
+gap:11px;
+font-size:11px;
+}
+
+.cart-link{
+min-height:40px;
+padding:0 11px !important;
+gap:5px;
+}
+
+.cart-icon{
+font-size:16px;
+}
+
+}
+
+/* Móvil: exactamente el mismo ajuste de Inicio */
+@media(max-width:920px){
+
+.nav{
+min-height:68px;
+padding:6px 12px;
+}
+
+.brand{
+width:175px;
+min-width:175px;
+}
+
+.brand img{
+width:170px;
+height:52px;
+transform:none;
+}
+
+.mobile-btn{
+display:flex;
+}
+
+.menu{
+display:none;
+}
+
+.menu.open{
+display:flex;
+position:fixed;
+top:68px;
+left:12px;
+right:12px;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:14px;
+border-radius:15px;
+background:#032442;
+box-shadow:0 25px 70px rgba(0,0,0,.45);
+}
+
+.menu.open a{
+padding:14px 12px;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.menu a.active::after{
+display:none;
+}
+
+.menu.open .cart-link{
+margin-top:8px;
+min-height:48px;
+border-bottom:0;
+}
+
+}
+
 </style>
  
 </head>
@@ -1649,88 +1865,87 @@ Saltar al contenido principal
 ===================================================== -->
  
 <header>
- 
+
 <div class="nav">
- 
+
 <a
 class="brand"
 href="index.html"
 aria-label="BERYON - Inicio">
- 
+
 <img
 src="logo-beryon.png"
 alt="BERYON Advanced Peptide Research">
- 
+
 </a>
- 
- 
+
+
 <button
 class="mobile-btn"
 id="mobileButton"
 aria-label="Abrir menú"
 aria-expanded="false"
 aria-controls="menu">
- 
+
 ☰
- 
+
 </button>
- 
- 
+
+
 <nav
 class="menu"
 id="menu"
 aria-label="Navegación principal">
- 
+
 <a href="index.html">
 Inicio
 </a>
- 
+
 <a href="areas.html">
 Áreas
 </a>
- 
+
 <a
+class="active"
 href="peptidos.html"
 aria-current="page">
 Péptidos
 </a>
- 
+
 <a href="comparador.html">
 Comparador
 </a>
- 
+
 <a href="calculadora.html">
 Calculadora
 </a>
- 
+
 <a href="informacion.html">
 Información
 </a>
- 
+
 <a href="contacto.html">
 Contacto
 </a>
- 
+
 <a
 href="https://www.facebook.com/profile.php?id=61592075751226"
 target="_blank"
 rel="noopener noreferrer">
+
 Facebook
+
 </a>
- 
-<a
-class="cart-link"
-href="comprar.html"
-aria-label="Ir a comprar"
-title="Comprar">
-<span aria-hidden="true">🛒</span>
-<span class="cart-text">Comprar</span>
+
+<a class="cart-link" href="comprar.html" aria-label="Comprar" title="Comprar">
+<span class="cart-icon" aria-hidden="true">🛒</span>
+<span>Comprar</span>
 </a>
- 
+
 </nav>
- 
+
 </div>
- 
+
 </header>
  
  
