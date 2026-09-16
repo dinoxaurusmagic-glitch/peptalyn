@@ -126,6 +126,7 @@ content="https://peptalyn.com.ec/beryon-peptidos-hero-v2.png">
  
  
 <style>
+
  
 /* =====================================================
    BASE
@@ -189,89 +190,23 @@ left:12px;
    HEADER
 ===================================================== */
  
-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:#062543;
-border-bottom:1px solid rgba(255,255,255,.08);
-box-shadow:0 5px 20px rgba(0,0,0,.14);
-}
+
  
-.nav{
-width:100%;
-max-width:1540px;
-min-height:82px;
-margin:auto;
-padding:7px 34px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:25px;
-}
+
  
-.brand{
-display:flex;
-align-items:center;
-flex-shrink:0;
-width:300px;
-overflow:visible;
-}
+
  
-.brand img{
-width:285px;
-height:66px;
-object-fit:contain;
-object-position:left center;
-transform:scale(1.12);
-transform-origin:left center;
-}
+
  
-.menu{
-display:flex;
-align-items:center;
-gap:24px;
-font-size:13px;
-font-weight:700;
-color:#fff;
-}
+
  
-.menu a{
-position:relative;
-white-space:nowrap;
-opacity:.96;
-transition:.2s;
-}
+
  
-.menu a:hover,
-.menu a.active{
-color:#62dcff;
-}
+
  
-.menu a.active::after{
-content:"";
-position:absolute;
-left:0;
-right:0;
-bottom:-12px;
-height:2px;
-background:#61d9fa;
-border-radius:8px;
-}
+
  
-.mobile-btn{
-display:none;
-width:48px;
-height:48px;
-align-items:center;
-justify-content:center;
-border-radius:12px;
-border:1px solid rgba(255,255,255,.18);
-background:transparent;
-color:#fff;
-font-size:24px;
-cursor:pointer;
-}
+
  
  
  
@@ -279,30 +214,11 @@ cursor:pointer;
    CARRITO DE COMPRA
 ===================================================== */
  
-.cart-link{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:7px;
-min-width:48px;
-min-height:42px;
-padding:0 13px;
-border-radius:12px;
-background:linear-gradient(135deg,#16bceb,#0787c1);
-color:#fff !important;
-font-size:19px;
-box-shadow:0 7px 20px rgba(0,157,214,.28);
-transition:.2s;
-}
+
  
-.cart-link:hover{
-transform:translateY(-2px);
-background:linear-gradient(135deg,#29c9f3,#0796d3);
-}
+
  
-.cart-link::after{
-display:none !important;
-}
+
  
 .cart-text{
 font-size:11px;
@@ -913,29 +829,21 @@ text-align:right;
 ===================================================== */
  
 @media(max-width:1180px){
+
  
-.nav{
-padding:7px 20px;
-}
+
  
-.brand{
-width:235px;
-}
+
  
-.brand img{
-width:225px;
-transform:scale(1.1);
-}
+
  
-.menu{
-gap:13px;
-font-size:12px;
-}
+
  
 .grid{
 grid-template-columns:repeat(2,minmax(0,1fr));
 }
  
+
 }
  
  
@@ -944,38 +852,17 @@ grid-template-columns:repeat(2,minmax(0,1fr));
 ===================================================== */
  
 @media(max-width:920px){
+
  
-.mobile-btn{
-display:flex;
-}
+
  
-.menu{
-display:none;
-}
+
  
-.menu.open{
-display:flex;
-position:fixed;
-top:82px;
-left:12px;
-right:12px;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-padding:14px;
-border-radius:15px;
-background:#032442;
-box-shadow:0 25px 70px rgba(0,0,0,.45);
-}
+
  
-.menu.open a{
-padding:14px 12px;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
+
  
-.menu a.active::after{
-display:none;
-}
+
  
 .evidence-grid{
 grid-template-columns:1fr;
@@ -1004,6 +891,7 @@ text-align:center;
 text-align:center;
 }
  
+
 }
  
  
@@ -1012,32 +900,17 @@ text-align:center;
 ===================================================== */
  
 @media(max-width:650px){
+
  
-.nav{
-min-height:68px;
-padding:6px 12px;
-}
+
  
-.brand{
-width:175px;
-}
+
  
-.brand img{
-width:170px;
-height:52px;
-transform:none;
-}
+
  
-.mobile-btn{
-width:43px;
-height:43px;
-font-size:21px;
-border-radius:11px;
-}
+
  
-.menu.open{
-top:68px;
-}
+
  
  
 /* HERO MÓVIL */
@@ -1203,15 +1076,18 @@ gap:12px;
 font-size:21px;
 }
  
+
 }
  
  
 @media(max-width:420px){
+
  
 .card-actions{
 grid-template-columns:1fr;
 }
  
+
 }
  
  
@@ -1221,6 +1097,7 @@ grid-template-columns:1fr;
 ===================================================== */
  
 @media(max-width:650px){
+
  
 /* El hero muestra mejor la imagen completa en pantallas estrechas */
 .hero{
@@ -1255,11 +1132,7 @@ object-position:center;
 }
  
 /* Carrito visible al final del menú móvil */
-.menu.open .cart-link{
-margin-top:8px;
-min-height:48px;
-border-bottom:0;
-}
+
  
 .cart-text{
 font-size:12px;
@@ -1276,10 +1149,12 @@ width:38px;
 height:38px;
 font-size:17px;
 }
+
 }
  
  
 @media(prefers-reduced-motion:reduce){
+
  
 html{
 scroll-behavior:auto;
@@ -1291,6 +1166,7 @@ scroll-behavior:auto;
 transition:none!important;
 }
  
+
 }
  
  
@@ -1309,104 +1185,23 @@ display:block;
    HEADER
 ========================= */
  
-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:#062543;
-border-bottom:1px solid rgba(255,255,255,.08);
-box-shadow:0 4px 18px rgba(0,0,0,.14);
-}
+
  
-.nav{
-width:100%;
-max-width:1540px;
-min-height:82px;
-margin:auto;
-padding:7px 34px;
+
  
-display:flex;
-align-items:center;
-justify-content:space-between;
+
  
-gap:25px;
-}
+
  
-.brand{
-display:flex;
-align-items:center;
-flex-shrink:0;
+
  
-width:300px;
-overflow:visible;
-}
+
  
-.brand img{
-width:285px;
-height:66px;
+
  
-object-fit:contain;
-object-position:left center;
+
  
-transform:scale(1.12);
-transform-origin:left center;
-}
- 
-.menu{
-display:flex;
-align-items:center;
-gap:24px;
- 
-font-size:13px;
-font-weight:700;
-color:#fff;
-}
- 
-.menu a{
-position:relative;
-white-space:nowrap;
-opacity:.96;
-transition:.2s;
-}
- 
-.menu a:hover,
-.menu a.active{
-color:#62dcff;
-}
- 
-.menu a.active::after{
-content:"";
- 
-position:absolute;
-left:0;
-right:0;
-bottom:-12px;
- 
-height:2px;
- 
-background:#61d9fa;
-border-radius:8px;
-}
- 
-.mobile-btn{
-display:none;
- 
-width:48px;
-height:48px;
- 
-align-items:center;
-justify-content:center;
- 
-border-radius:12px;
- 
-border:1px solid rgba(255,255,255,.18);
- 
-background:transparent;
-color:#fff;
- 
-font-size:24px;
-cursor:pointer;
-}
+
  
  
  
@@ -1415,25 +1210,15 @@ cursor:pointer;
 ========================= */
  
 @media(max-width:1180px){
+
  
-.nav{
-padding:
-7px 20px;
-}
+
  
-.brand{
-width:235px;
-}
+
  
-.brand img{
-width:225px;
-transform:scale(1.1);
-}
+
  
-.menu{
-gap:13px;
-font-size:12px;
-}
+
  
 .hero-panel{
 width:41%;
@@ -1448,6 +1233,7 @@ grid-template-columns:
 repeat(3,1fr);
 }
  
+
 }
  
  
@@ -1457,52 +1243,17 @@ repeat(3,1fr);
 ========================= */
  
 @media(max-width:920px){
+
  
-.mobile-btn{
-display:flex;
-}
+
  
-.menu{
-display:none;
-}
+
  
-.menu.open{
-display:flex;
+
  
-position:fixed;
+
  
-top:82px;
- 
-left:12px;
-right:12px;
- 
-flex-direction:column;
- 
-align-items:stretch;
- 
-gap:0;
- 
-padding:14px;
- 
-border-radius:15px;
- 
-background:#032442;
- 
-box-shadow:
-0 25px 70px rgba(0,0,0,.45);
-}
- 
-.menu.open a{
-padding:
-14px 12px;
- 
-border-bottom:
-1px solid rgba(255,255,255,.08);
-}
- 
-.menu a.active::after{
-display:none;
-}
+
  
 .hero-panel{
 display:none;
@@ -1582,90 +1333,235 @@ text-align:center;
 text-align:center;
 }
  
+
 }
  
  
  
  
 /* Activo de esta página: solamente Péptidos */
-.menu a.active{
-color:#62dcff;
-}
+
  
 /* Carrito: mismo tamaño/posición en todas las páginas */
-.cart-link{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:7px;
-min-width:88px;
-min-height:42px;
-padding:0 13px !important;
-border-radius:12px;
-background:linear-gradient(135deg,#16bceb,#0787c1);
-color:#fff !important;
-font-size:19px;
-box-shadow:0 7px 20px rgba(0,157,214,.28);
-transition:.2s;
-}
-.cart-link::after{display:none !important;}
-.cart-link span:last-child{
-font-size:11px;
-font-weight:900;
-letter-spacing:.3px;
-}
-@media(max-width:920px){
-.menu.open .cart-link{
-width:100%;
-height:50px;
-min-height:50px;
-margin-top:8px;
-padding:0 13px !important;
-border-bottom:none;
-}
-}
-@media(max-width:650px){
-.nav{min-height:68px;padding:6px 12px;}
-.brand{width:175px;}
-.brand img{width:170px;height:52px;object-fit:contain;transform:none;}
-.mobile-btn{width:43px;height:43px;font-size:21px;border-radius:11px;}
-.menu.open{top:68px;}
-}
+
+
+
+
+
  
 
 /* =====================================================
    CABECERA MAESTRA BERYON — UNIFICADA
 ===================================================== */
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+/* Portátiles: conservar logo + menú completo sin desbordamiento */
+
+ 
+/* Móvil */
+
+
+
+/* CABECERA COPIADA 100% DESDE INDEX */
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#062543;
+border-bottom:1px solid rgba(255,255,255,.08);
+box-shadow:0 4px 18px rgba(0,0,0,.14);
+}.nav{
+width:100%;
+max-width:1540px;
+min-height:82px;
+margin:auto;
+padding:7px 34px;
+ 
+display:flex;
+align-items:center;
+justify-content:space-between;
+ 
+gap:25px;
+}.brand{
+display:flex;
+align-items:center;
+flex-shrink:0;
+ 
+width:300px;
+overflow:visible;
+}.brand img{
+width:285px;
+height:66px;
+ 
+object-fit:contain;
+object-position:left center;
+ 
+transform:scale(1.12);
+transform-origin:left center;
+}.menu{
+display:flex;
+align-items:center;
+gap:24px;
+ 
+font-size:13px;
+font-weight:700;
+color:#fff;
+}.menu a{
+position:relative;
+white-space:nowrap;
+opacity:.96;
+transition:.2s;
+}.menu a:hover,
+.menu a.active{
+color:#62dcff;
+}.menu a.active::after{
+content:"";
+ 
+position:absolute;
+left:0;
+right:0;
+bottom:-12px;
+ 
+height:2px;
+ 
+background:#61d9fa;
+border-radius:8px;
+}.mobile-btn{
+display:none;
+ 
+width:48px;
+height:48px;
+ 
+align-items:center;
+justify-content:center;
+ 
+border-radius:12px;
+ 
+border:1px solid rgba(255,255,255,.18);
+ 
+background:transparent;
+color:#fff;
+ 
+font-size:24px;
+cursor:pointer;
+}@media(max-width:1180px){
 .nav{
+padding:
+7px 20px;
+}.brand{
+width:235px;
+}.brand img{
+width:225px;
+transform:scale(1.1);
+}.menu{
+gap:13px;
+font-size:12px;
+}
+}@media(max-width:920px){
+.mobile-btn{
+display:flex;
+}.menu{
+display:none;
+}.menu.open{
+display:flex;
+ 
+position:fixed;
+ 
+top:82px;
+ 
+left:12px;
+right:12px;
+ 
+flex-direction:column;
+ 
+align-items:stretch;
+ 
+gap:0;
+ 
+padding:14px;
+ 
+border-radius:15px;
+ 
+background:#032442;
+ 
+box-shadow:
+0 25px 70px rgba(0,0,0,.45);
+}.menu.open a{
+padding:
+14px 12px;
+ 
+border-bottom:
+1px solid rgba(255,255,255,.08);
+}.menu a.active::after{
+display:none;
+}
+}@media(max-width:650px){
+.nav{
+padding:
+7px 14px;
+}.brand{
+width:205px;
+}.brand img{
+width:195px;
+ 
+transform:none;
+}
+}@media(max-width:650px){
+header{
+position:sticky;
+top:0;
+}.nav{
+min-height:68px;
+padding:6px 12px;
+}.brand{
+width:175px;
+}.brand img{
+width:170px;
+height:52px;
+object-fit:contain;
+transform:none;
+}.mobile-btn{
+width:43px;
+height:43px;
+font-size:21px;
+border-radius:11px;
+}
+}.nav{
 max-width:1540px;
 min-height:82px;
 padding:7px 26px;
 gap:18px;
-}
- 
-.brand{
+}.brand{
 width:230px;
 min-width:230px;
 display:flex;
 align-items:center;
 overflow:visible;
-}
- 
-.brand img{
+}.brand img{
 width:220px;
 height:62px;
 object-fit:contain;
 object-position:left center;
 transform:none;
-}
- 
-.menu{
+}.menu{
 margin-left:auto;
 gap:18px;
 font-size:12.5px;
-}
- 
-.cart-link{
+}.cart-link{
 display:inline-flex !important;
 align-items:center;
 justify-content:center;
@@ -1678,70 +1574,49 @@ color:#fff !important;
 box-shadow:0 8px 22px rgba(0,157,214,.30);
 font-weight:900 !important;
 transition:.2s;
-}
- 
-.cart-link:hover{
+}.cart-link:hover{
 transform:translateY(-2px);
 background:linear-gradient(135deg,#35cff4,#0799d6);
 color:#fff !important;
-}
- 
-.cart-link::after{
+}.cart-link::after{
 display:none !important;
-}
- 
-.cart-icon{
+}.cart-icon{
 font-size:18px;
 line-height:1;
-}
- 
-/* Portátiles: conservar logo + menú completo sin desbordamiento */
-@media(max-width:1250px) and (min-width:921px){
+}@media(max-width:1250px) and (min-width:921px){
 .nav{
 padding:7px 14px;
 gap:10px;
-}
-.brand{
+}.brand{
 width:180px;
 min-width:180px;
-}
-.brand img{
+}.brand img{
 width:172px;
 height:56px;
-}
-.menu{
+}.menu{
 gap:11px;
 font-size:11px;
-}
-.cart-link{
+}.cart-link{
 min-height:40px;
 padding:0 11px !important;
 gap:5px;
-}
-.cart-icon{
+}.cart-icon{
 font-size:16px;
 }
-}
- 
-/* Móvil */
-@media(max-width:920px){
+}@media(max-width:920px){
 .nav{
 min-height:68px;
 padding:6px 12px;
-}
-.brand{
+}.brand{
 width:175px;
 min-width:175px;
-}
-.brand img{
+}.brand img{
 width:170px;
 height:52px;
 transform:none;
-}
-.menu.open{
+}.menu.open{
 top:68px;
-}
-.menu.open .cart-link{
+}.menu.open .cart-link{
 margin-top:8px;
 min-height:48px;
 border-bottom:0;
