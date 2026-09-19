@@ -102,25 +102,136 @@ footer{border-top:1px solid var(--line);background:#041321;padding:28px 22px;col
 @media(max-width:390px){.actions{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 \n/* ===== BERYON: CABECERA MAESTRA Y FOOTER UNIFICADOS ===== */\nhtml{overflow-x:hidden}body{overflow-x:hidden}\nheader{position:sticky;top:0;z-index:1000;background:#062543;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 4px 18px rgba(0,0,0,.14);backdrop-filter:none}\n.nav{width:100%;max-width:1540px;min-height:82px;margin:auto;padding:7px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px}\n.brand{width:230px;min-width:230px;display:flex;align-items:center;flex-shrink:0;overflow:visible}\n.brand img{width:220px;height:62px;max-height:none;object-fit:contain;object-position:left center;background:transparent;border-radius:0;padding:0;transform:none}\n.menu{margin-left:auto;display:flex;align-items:center;gap:18px;font-size:12.5px;font-weight:700;color:#fff}\n.menu a{position:relative;padding:0;color:#fff;white-space:nowrap;opacity:.96;transition:.2s}\n.menu a:hover,.menu a:focus-visible,.menu a.active{color:#62dcff}\n.menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:2px;background:#61d9fa;border-radius:8px}\n.mobile-btn{display:none;width:48px;height:48px;align-items:center;justify-content:center;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;font-size:24px;cursor:pointer}\n.cart-link{display:inline-flex!important;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 15px!important;border-radius:12px;background:linear-gradient(135deg,#22c4ed,#0789c5);color:#fff!important;box-shadow:0 8px 22px rgba(0,157,214,.30);font-weight:900!important}\n.cart-link:hover{transform:translateY(-2px);background:linear-gradient(135deg,#35cff4,#0799d6);color:#fff!important}.cart-link::after{display:none!important}.cart-icon{font-size:18px}\n.hero .eyebrow,.category{color:#5ee0ff}.hero-note{border-color:rgba(94,224,255,.28);background:rgba(94,224,255,.07)}\n.notice-inner{border-left-color:#5ee0ff;background:rgba(94,224,255,.07)}.notice-inner strong{color:#8feaff}\n.btn-primary{background:linear-gradient(135deg,#22c4ed,#0789c5);color:#fff}\nfooter{border-top:1px solid rgba(255,255,255,.08);background:#032442;color:#fff;padding:0;font-size:12px}\n.footer-main{max-width:1450px;margin:auto;min-height:100px;padding:18px 28px;display:grid;grid-template-columns:260px 1fr auto;align-items:center;gap:30px}\n.footer-logo img{width:245px;display:block}.footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;font-size:12px;font-weight:700}.footer-nav a:hover{color:#65d5f8}\n.footer-social{display:flex;align-items:center;gap:10px}.footer-social a{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,.25);font-weight:900}.footer-social a:hover{border-color:#65d5f8;color:#65d5f8}\n.footer-bottom{background:#fff;color:#244d77;min-height:70px;padding:17px 28px;display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:15px;font-size:11px;letter-spacing:1.25px}.footer-bottom div:nth-child(2){text-align:center;font-family:"Brush Script MT",cursive;font-size:27px;letter-spacing:.5px;color:#0b3d76}.footer-bottom div:last-child{text-align:right}\n@media(max-width:1250px) and (min-width:921px){.nav{padding:7px 14px;gap:10px}.brand{width:180px;min-width:180px}.brand img{width:172px;height:56px}.menu{gap:11px;font-size:11px}.cart-link{min-height:40px;padding:0 11px!important;gap:5px}}\n@media(max-width:920px){.nav{min-height:68px;padding:6px 12px}.brand{width:175px;min-width:175px}.brand img{width:170px;height:52px}.mobile-btn{display:flex}.menu{display:none}.menu.open{display:flex;position:fixed;top:68px;left:12px;right:12px;max-height:calc(100vh - 84px);overflow-y:auto;flex-direction:column;align-items:stretch;gap:0;padding:14px;border-radius:15px;background:#032442;border:1px solid rgba(255,255,255,.12);box-shadow:0 25px 70px rgba(0,0,0,.45);z-index:2000}.menu.open a{min-height:46px;padding:14px 12px;border-bottom:1px solid rgba(255,255,255,.08)}.menu.open a.active::after{display:none}.menu.open .cart-link{margin-top:8px;min-height:48px;border-bottom:0}.footer-main{grid-template-columns:1fr;text-align:center}.footer-logo img{margin:auto}.footer-social{justify-content:center}.footer-bottom{grid-template-columns:1fr;text-align:center}.footer-bottom div:last-child{text-align:center}}\n@media(max-width:650px){.footer-main{padding:24px 18px;gap:22px}.footer-logo img{width:185px}.footer-nav{gap:14px 17px;font-size:11px}.footer-bottom{padding:16px 18px;font-size:9.5px;gap:12px}.footer-bottom div:nth-child(2){font-size:21px}.footer-social{justify-content:center;gap:11px}.footer-social a{width:38px;height:38px}}\n
+
+/* === CABECERA BERYON MAESTRA: MISMA GEOMETRIA EN TODAS LAS PAGINAS === */
+header{position:sticky!important;top:0!important;z-index:1000!important;background:#062543!important;border-bottom:1px solid rgba(255,255,255,.08)!important;box-shadow:0 4px 18px rgba(0,0,0,.14)!important}
+.nav{width:100%!important;max-width:1540px!important;min-height:82px!important;margin:auto!important;padding:7px 26px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important}
+.brand{width:230px!important;min-width:230px!important;display:flex!important;align-items:center!important;flex-shrink:0!important;overflow:visible!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important}
+.brand img{width:220px!important;height:62px!important;object-fit:contain!important;object-position:left center!important;transform:none!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important}
+.menu{margin-left:auto!important;display:flex!important;align-items:center!important;gap:18px!important;font-size:12.5px!important;font-weight:700!important;color:#fff!important;white-space:nowrap!important}
+.menu a{position:relative!important;white-space:nowrap!important;opacity:.96!important}
+.menu a:not(.cart-link):hover,.menu a:not(.cart-link).active{color:#62dcff!important}
+.cart-link{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;width:112px!important;min-width:112px!important;min-height:44px!important;padding:0 15px!important;border-radius:12px!important;background:linear-gradient(135deg,#22c4ed,#0789c5)!important;color:#fff!important;box-shadow:0 8px 22px rgba(0,157,214,.30)!important;font-weight:900!important}
+.cart-link.active-buy{background:linear-gradient(135deg,#27d36b,#149b68)!important;box-shadow:0 8px 22px rgba(39,211,107,.24)!important;color:#fff!important}
+.cart-link::after{display:none!important}
+@media(max-width:1250px) and (min-width:921px){
+ .nav{padding:7px 14px!important;gap:10px!important}
+ .brand{width:180px!important;min-width:180px!important}
+ .brand img{width:172px!important;height:56px!important}
+ .menu{gap:11px!important;font-size:11px!important}
+ .cart-link{width:104px!important;min-width:104px!important;min-height:40px!important;padding:0 11px!important}
+}
+@media(max-width:920px){
+ .nav{min-height:68px!important;padding:6px 12px!important}
+ .brand{width:175px!important;min-width:175px!important}
+ .brand img{width:170px!important;height:52px!important}
+ .mobile-btn{display:flex!important}
+ .menu{display:none!important}
+ .menu.open{display:flex!important;position:fixed!important;top:68px!important;left:12px!important;right:12px!important;max-height:calc(100vh - 84px)!important;overflow-y:auto!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:14px!important;border-radius:15px!important;background:#032442!important;box-shadow:0 25px 70px rgba(0,0,0,.45)!important}
+ .menu.open a{padding:14px 12px!important;border-bottom:1px solid rgba(255,255,255,.08)!important}
+ .menu.open .cart-link{width:100%!important;min-width:0!important;margin-top:8px!important;min-height:48px!important;border-bottom:0!important}
+}
+/* === FOOTER BERYON MAESTRO === */
+footer{background:#032442!important;color:#fff!important}
+.footer-main{max-width:1450px!important;margin:auto!important;min-height:100px!important;padding:18px 28px!important;display:grid!important;grid-template-columns:260px 1fr auto!important;align-items:center!important;gap:30px!important}
+.footer-logo{background:transparent!important;border:0!important;padding:0!important;margin:0!important}
+.footer-logo img{width:245px!important;height:auto!important;object-fit:contain!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;margin:0!important;transform:none!important}
+.footer-nav{display:flex!important;justify-content:center!important;gap:20px!important;flex-wrap:wrap!important;font-size:12px!important;font-weight:700!important}
+.footer-social{display:flex!important;align-items:center!important;gap:10px!important}
+.footer-bottom{background:#fff!important;color:#244d77!important;min-height:70px!important;padding:17px 28px!important;display:grid!important;grid-template-columns:1fr 1fr 1fr!important;align-items:center!important;gap:15px!important;font-size:11px!important;letter-spacing:1.25px!important}
+.footer-bottom div:nth-child(2){text-align:center!important;font-family:"Brush Script MT",cursive!important;font-size:27px!important;letter-spacing:.5px!important;color:#0b3d76!important}
+.footer-bottom div:last-child{text-align:right!important}
+@media(max-width:920px){
+ .footer-main{grid-template-columns:1fr!important;text-align:center!important}
+ .footer-logo img{margin:auto!important}
+ .footer-social{justify-content:center!important}
+ .footer-bottom{grid-template-columns:1fr!important;text-align:center!important}
+ .footer-bottom div:last-child{text-align:center!important}
+}
+
 </style>
 </head>
 <body>
 <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
 <header>
-  <div class="nav">
-    <a class="brand" href="index.html" aria-label="BERYON - Inicio"><img src="logo-beryon.png" alt="BERYON Advanced Peptide Research"></a>
-    <button class="mobile-btn" id="mobileButton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
-    <nav class="menu" id="menu" aria-label="Navegación principal">
-      <a href="index.html">Inicio</a>
-      <a href="areas.html">Áreas</a>
-      <a href="peptidos.html">Péptidos</a>
-      <a href="comparador.html">Comparador</a>
-      <a href="calculadora.html">Calculadora</a>
-      <a href="informacion.html">Información</a>
-      <a href="contacto.html">Contacto</a>
-      <a class="cart-link active" href="comprar.html" aria-current="page" aria-label="Comprar"><span class="cart-icon" aria-hidden="true">🛒</span><span>Comprar</span></a>
-    </nav>
-  </div>
+ 
+<div class="nav">
+ 
+<a
+class="brand"
+href="index.html"
+aria-label="BERYON - Inicio">
+ 
+<img
+src="logo-beryon.png"
+alt="BERYON Advanced Peptide Research">
+ 
+</a>
+ 
+ 
+<button
+class="mobile-btn"
+id="mobileButton"
+aria-label="Abrir menú"
+aria-expanded="false"
+aria-controls="menu">
+ 
+☰
+ 
+</button>
+ 
+ 
+<nav
+class="menu"
+id="menu"
+aria-label="Navegación principal">
+ 
+<a href="index.html">
+Inicio
+</a>
+ 
+<a href="areas.html">
+Áreas
+</a>
+ 
+<a
+href="peptidos.html">
+Péptidos
+</a>
+ 
+ 
+ 
+<a href="comparador.html">
+Comparador
+</a>
+ 
+<a href="calculadora.html">
+Calculadora
+</a>
+ 
+<a href="informacion.html">
+Información
+</a>
+ 
+<a href="contacto.html">
+Contacto
+</a>
+ 
+<a
+href="https://www.facebook.com/profile.php?id=61592075751226"
+target="_blank"
+rel="noopener noreferrer">
+ 
+Facebook
+ 
+</a>
+ 
+
+ 
+<a class="cart-link active-buy" aria-current="page" href="comprar.html" aria-label="Ir a Comprar"><span aria-hidden="true">🛒</span><span>Comprar</span></a></nav>
+ 
+</div>
+ 
 </header>
 
 <main>
@@ -242,22 +353,131 @@ footer{border-top:1px solid var(--line);background:#041321;padding:28px 22px;col
 </main>
 
 <footer>
-  <div class="footer-main">
-    <div class="footer-logo"><a href="index.html" aria-label="BERYON - Inicio"><img src="logo-beryon.png" alt="BERYON Advanced Peptide Research"></a></div>
-    <nav class="footer-nav" aria-label="Navegación del pie de página">
-      <a href="index.html">Inicio</a><a href="areas.html">Áreas</a><a href="peptidos.html">Péptidos</a><a href="comparador.html">Comparador</a><a href="calculadora.html">Calculadora</a><a href="informacion.html">Información</a><a href="contacto.html">Contacto</a><a href="comprar.html">Comprar</a>
-    </nav>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/profile.php?id=61592075751226" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">f</a>
-      <a href="https://wa.me/593998833543" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">☎</a>
-      <a href="contacto.html" aria-label="Correo BERYON - pendiente de habilitación" title="Correo electrónico">✉</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div>PÉPTIDOS &nbsp; | &nbsp; CIENCIA &nbsp; | &nbsp; INVESTIGACIÓN &nbsp; | &nbsp; LONGEVIDAD</div>
-    <div>Una marca nacida de una promesa</div>
-    <div>ECUADOR &nbsp; | &nbsp; PARA UN MUNDO MÁS SALUDABLE</div>
-  </div>
+ 
+<div class="footer-main">
+ 
+<div class="footer-logo">
+ 
+<a
+href="index.html"
+aria-label="BERYON - Inicio">
+ 
+<img
+src="logo-beryon.png"
+alt="BERYON Advanced Peptide Research">
+ 
+</a>
+ 
+</div>
+ 
+ 
+<nav
+class="footer-nav"
+aria-label="Navegación del pie de página">
+ 
+<a href="index.html">
+Inicio
+</a>
+ 
+<a href="areas.html">
+Áreas
+</a>
+ 
+<a href="peptidos.html">
+Péptidos
+</a>
+ 
+<a href="comprar.html">
+Comprar
+</a>
+ 
+<a href="comparador.html">
+Comparador
+</a>
+ 
+<a href="calculadora.html">
+Calculadora
+</a>
+ 
+<a href="informacion.html">
+Información
+</a>
+ 
+<a href="contacto.html">
+Contacto
+</a>
+ 
+</nav>
+ 
+ 
+<div class="footer-social">
+ 
+<a
+href="https://www.facebook.com/profile.php?id=61592075751226"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Visitar BERYON en Facebook"
+title="Facebook">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path fill="currentColor" d="M13.5 22v-9h3l.45-3h-3.45V8.1c0-.87.24-1.46 1.53-1.46H17V3.96c-.34-.05-1.5-.14-2.85-.14-2.82 0-4.75 1.72-4.75 4.88V10H6.2v3h3.2v9h4.1z"/>
+</svg>
+</a>
+ 
+<a
+href="#"
+class="social-placeholder"
+aria-label="WhatsApp BERYON - enlace próximamente"
+title="WhatsApp - próximamente"
+onclick="return false;">
+<svg viewBox="0 0 32 32" aria-hidden="true">
+<path fill="currentColor" d="M16.02 3C8.84 3 3 8.7 3 15.72c0 2.48.74 4.9 2.14 6.96L3.73 28l5.48-1.39a13.2 13.2 0 0 0 6.8 1.88h.01C23.2 28.49 29 22.78 29 15.76 29 8.72 23.2 3 16.02 3zm0 23.34h-.01a11.05 11.05 0 0 1-5.63-1.52l-.4-.24-3.25.83.87-3.09-.26-.41a10.53 10.53 0 0 1-1.69-5.7c0-5.88 4.66-10.66 10.38-10.66 5.72 0 10.37 4.79 10.37 10.67 0 5.88-4.66 10.66-10.38 10.66zm5.69-7.98c-.31-.15-1.84-.89-2.13-.99-.29-.1-.5-.15-.71.15-.21.3-.81.99-.99 1.19-.18.2-.37.22-.68.07-.31-.15-1.31-.47-2.49-1.5-.92-.8-1.54-1.79-1.72-2.09-.18-.3-.02-.46.14-.61.14-.14.31-.37.47-.56.16-.19.21-.32.31-.52.1-.2.05-.38-.03-.53-.08-.15-.71-1.67-.97-2.29-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.55.08-.84.38-.29.3-1.1 1.05-1.1 2.56 0 1.51 1.13 2.97 1.29 3.17.16.2 2.22 3.31 5.38 4.64.75.32 1.34.51 1.8.65.76.23 1.45.2 1.99.12.61-.09 1.84-.74 2.1-1.45.26-.72.26-1.33.18-1.46-.08-.13-.29-.2-.6-.35z"/>
+</svg>
+</a>
+ 
+<a
+href="#"
+class="social-placeholder"
+aria-label="Correo electrónico BERYON - próximamente"
+title="Correo electrónico - próximamente"
+onclick="return false;">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path fill="currentColor" d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm9 7.1L20.2 7H3.8L12 12.1zM3 17h18V9.1l-8.47 5.27a1 1 0 0 1-1.06 0L3 9.1V17z"/>
+</svg>
+</a>
+ 
+</div>
+ 
+</div>
+ 
+ 
+<div class="footer-bottom">
+ 
+<div>
+ 
+PÉPTIDOS
+&nbsp; | &nbsp;
+CIENCIA
+&nbsp; | &nbsp;
+INVESTIGACIÓN
+&nbsp; | &nbsp;
+LONGEVIDAD
+ 
+</div>
+ 
+<div>
+Una marca nacida de una promesa
+</div>
+ 
+<div>
+ 
+ECUADOR
+&nbsp; | &nbsp;
+PARA UN MUNDO MÁS SALUDABLE
+ 
+</div>
+ 
+</div>
+ 
 </footer>
 
 <script>
